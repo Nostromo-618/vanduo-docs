@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output (tracked for CDN/download access)
+# dist/
+
+# Package manager
+# pnpm-lock.yaml (Committed to ensure reproducible tool versions)
+.pnpm-store
+
+# OS files
+.DS_Store
+plans/
+
+# Downloaded icon assets (use icons/ folder instead)
+/phosphor-icons
+
+# SEO placeholder images (replace with actual brand assets)
+# /images/og-image.png
+# /images/twitter-card.png
+# /images/logo.png
+
+# Favicon - only favicon.svg is used
+# /favicon.svg is committed
+
+# Test related
+test-results/
+playwright-report/
+playwright/.cache/
+coverage/
+*.log
+.nyc_output/
+tests/**/test-failed-*.png
+tests/**/video.webm
+# Playwright visual test snapshots (platform-specific baseline images)
+tests/**/*.spec.ts-snapshots/
+blob-report/
+playwright/.auth/
+.kilocode
