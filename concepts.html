@@ -79,9 +79,9 @@
             padding-bottom: 0;
         }
 
-        /* Docs page: tighten footer spacing to avoid visible "dead space" at page end */
+        /* Docs page: footer spacing (use framework vars so top padding matches other pages) */
         .vd-footer {
-            padding: var(--vd-footer-padding-y-sm) var(--vd-footer-padding-x) 0;
+            padding: var(--footer-padding-y-sm) var(--footer-padding-x) 0;
         }
 
         .vd-footer-made-with {
@@ -147,13 +147,13 @@
             flex-direction: column;
         }
 
-        /* Search bar sticks below navbar with spacing above */
+        /* Search bar sticks below navbar with spacing above (no box – match components page) */
         .doc-sidebar .vd-doc-search {
             flex-shrink: 0;
             position: sticky;
             top: 70px;
             z-index: 2;
-            background: var(--vd-bg-primary);
+            background: transparent;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
         }
@@ -208,6 +208,14 @@
         /* Philosophy cards */
         .philosophy-card {
             height: 100%;
+        }
+
+        /* Match space above "What Vanduo Means" to gap between philosophy cards (vd-mb-4) */
+        #philosophy .vd-row .vd-mb-4 {
+            margin-bottom: 0;
+        }
+        #philosophy .vd-row + .demo-card {
+            margin-top: 1rem;
         }
 
         .philosophy-icon {
@@ -280,7 +288,7 @@
                 position: sticky;
                 top: 70px;
                 z-index: 2;
-                background: var(--vd-bg-primary);
+                background: transparent;
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
             }
@@ -1095,15 +1103,7 @@ git diff</code></pre>
                 </div>
             </div>
 
-            <!-- Made with Kilo Code Section -->
             <div class="vd-footer-made-with">
-                <span class="vd-footer-made-with-text">Made with <a href="https://kilo.ai/" target="_blank"
-                        rel="noopener noreferrer">Kilo Code</a></span>
-                <a href="https://kilo.ai/" target="_blank" rel="noopener noreferrer" class="vd-footer-kilo-link"
-                    title="Kilo Code - AI Coding Assistant">
-                    <img src="./images/kilo_code-logo.png" alt="Kilo Code" class="vd-footer-kilo-logo">
-                </a>
-                <span class="vd-footer-separator" aria-hidden="true"></span>
                 <a href="https://www.buymeacoffee.com/nostromo618" target="_blank" rel="noopener noreferrer"
                     class="vd-footer-bmac-link" title="Buy Me A Coffee">
                     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"

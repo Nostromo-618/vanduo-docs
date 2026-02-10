@@ -8,6 +8,4 @@ Allow: /
 Sitemap: https://vanduo.dev/sitemap.xml
 
 # Disallow crawling of development utilities
-Disallow: /devUtils/
-Disallow: /.claude/
-Disallow: /plans/
+

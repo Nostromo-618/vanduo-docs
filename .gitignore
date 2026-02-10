@@ -10,7 +10,11 @@ node_modules/
 
 # OS files
 .DS_Store
-plans/
+.vscode/
+
+# Cursor rules
+.cursor/
+
 
 # Downloaded icon assets (use icons/ folder instead)
 /phosphor-icons
@@ -36,4 +40,7 @@ tests/**/video.webm
 tests/**/*.spec.ts-snapshots/
 blob-report/
 playwright/.auth/
-.kilocode
+.playwright-mcp/
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.cursor/rules/snyk_rules.mdc
