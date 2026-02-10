@@ -76,6 +76,26 @@
 
         section:last-of-type {
             border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Docs page: tighten footer spacing to avoid visible "dead space" at page end */
+        .vd-footer {
+            padding: var(--vd-footer-padding-y-sm) var(--vd-footer-padding-x) 0;
+        }
+
+        .vd-footer-made-with {
+            margin-top: 1rem;
+            padding: 1rem 0;
+        }
+
+        .vd-footer-bottom {
+            padding: 0.75rem 0 1rem;
+        }
+
+        /* Fix: Hide tooltips completely when not visible to prevent page height extension */
+        .vd-tooltip:not(.is-visible) {
+            display: none !important;
         }
 
         /* Component demo cards */
