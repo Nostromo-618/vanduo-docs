@@ -36,10 +36,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <!-- Vanduo Framework CSS -->
-    <link rel="stylesheet" href="./css/vanduo.css">
-
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="./css/icons/icons.css">
+    <link rel="stylesheet" href="./dist/vanduo.min.css">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -227,9 +224,66 @@
     <main id="main-content" style="padding: 3rem 0;">
         <div class="vd-container-responsive" style="max-width: 900px;">
 
-            <!-- Version 1.1.1 -->
+            <!-- Version 1.1.2 -->
             <article class="version-card">
                 <header class="version-header version-latest">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.2</span>
+                    <span style="color: var(--text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>February 9, 2026
+                    </span>
+                </header>
+                <div class="version-body">
+                    <!-- Bug Fixes -->
+                    <div class="change-category">
+                        <h4 style="color: var(--color-success);">
+                            <i class="ph ph-bug"></i> Bug Fixes
+                        </h4>
+                        <ul class="change-list">
+                            <li class="change-item">
+                                <i class="ph ph-globe" style="color: var(--color-success);"></i>
+                                <div>
+                                    <strong>IIFE export shadow resolved</strong>
+                                    <p>Removed the esbuild global wrapper so the bundled IIFE no longer overwrites <code>window.Vanduo</code>, restoring <code>Vanduo.init()</code> across all pages.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-text-t" style="color: var(--color-success);"></i>
+                                <div>
+                                    <strong>Theme customizer visibility</strong>
+                                    <p>Font dropdown now initializes reliably, keeping all Google Font options visible in the customizer.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Improvements -->
+                    <div class="change-category">
+                        <h4 style="color: var(--color-info);">
+                            <i class="ph ph-arrow-up"></i> Improvements
+                        </h4>
+                        <ul class="change-list">
+                            <li class="change-item">
+                                <i class="ph ph-code" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Aligned module outputs</strong>
+                                    <p>IIFE, ESM, and CJS bundles now share consistent named/default exports for smoother consumption in any build setup.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-plug-charging" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Docs load Vanduo via ESM</strong>
+                                    <p>Documentation site now imports <code>vanduo.esm.min.js</code> directly, matching modern module usage and reducing bootstrap quirks.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Version 1.1.1 -->
+            <article class="version-card">
+                <header class="version-header">
                     <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.1</span>
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>February 8, 2026
@@ -854,19 +908,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./js/utils/helpers.js"></script>
-    <script src="./js/vanduo.js"></script>
-    <script src="./js/components/theme-switcher.js"></script>
-    <script src="./js/components/font-switcher.js"></script>
-    <script src="./js/components/theme-customizer.js"></script>
-    <script src="./js/components/navbar.js"></script>
-    <script src="./js/components/select.js"></script>
-
-    <!-- Initialize Vanduo -->
-    <script>
-        if (typeof Vanduo !== 'undefined') {
-            Vanduo.init();
-        }
+    <script type="module">
+        import { Vanduo } from './dist/vanduo.esm.min.js';
+        Vanduo.init();
     </script>
 </body>
 

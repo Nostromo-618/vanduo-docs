@@ -37,13 +37,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <!-- Vanduo Framework CSS -->
-    <link rel="stylesheet" href="./css/vanduo.css">
-
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="./css/icons/icons.css">
+    <link rel="stylesheet" href="./dist/vanduo.min.css">
 
     <!-- Documentation Search -->
-    <link rel="stylesheet" href="./css/components/doc-search.css">
 
     <style>
         /* Smooth scrolling */
@@ -851,11 +847,11 @@ Vanduo.init();</code></pre>
                                 <h3>Quick Migration Script</h3>
                             </div>
                             <div class="vd-card-body">
-                                <p>We've created a Node.js migration script to help automate the class name updates:</p>
-                                <pre class="code-example vd-mt-3"><code># Download the migration script
-curl -O https://vanduo.dev/migrate-v1.1.0.js
+                                <p>We've created a Node.js migration script to help automate the class name updates. You can find it in the migration guide:</p>
+                                <pre class="code-example vd-mt-3"><code># Open the migration guide
+https://github.com/Nostromo-618/vanduo-framework/blob/main/MIGRATION.md
 
-# Run on your project
+# Run on your project (see guide for usage)
 node migrate-v1.1.0.js ./my-project
 
 # Review changes
@@ -1101,24 +1097,13 @@ git diff</code></pre>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <!-- JavaScript Files -->
-    <script src="./js/utils/helpers.js"></script>
-    <script src="./js/vanduo.js"></script>
-    <script src="./js/components/theme-switcher.js"></script>
-    <script src="./js/components/font-switcher.js"></script>
-    <script src="./js/components/theme-customizer.js"></script>
-    <script src="./js/components/navbar.js"></script>
-    <script src="./js/components/parallax.js"></script>
-    <script src="./js/components/select.js"></script>
-    <script src="./js/components/doc-search.js"></script>
+    <!-- Scripts -->
+    <script type="module">
+        import { Vanduo } from './dist/vanduo.esm.min.js';
+        Vanduo.init();
+    </script>
 
     <script>
-        // Initialize Vanduo
-        if (typeof Vanduo !== 'undefined') {
-            Vanduo.init();
-        }
-
         // Range input
         const rangeInput = document.getElementById('range-input');
         const rangeValue = document.getElementById('range-value');

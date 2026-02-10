@@ -37,17 +37,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <!-- Vanduo Framework CSS -->
-    <link rel="stylesheet" href="./css/vanduo.css">
-
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="./css/icons/icons.css">
-    <link rel="stylesheet" href="./icons/phosphor/bold/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/light/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/thin/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/duotone/style.css">
+    <link rel="stylesheet" href="./dist/vanduo.min.css">
 
     <!-- Documentation Search -->
-    <link rel="stylesheet" href="./css/components/doc-search.css">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -5128,37 +5120,14 @@ imageBox.destroy();</code></pre>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="./js/utils/helpers.js"></script>
-    <script src="./js/vanduo.js"></script>
-    <script src="./js/components/theme-switcher.js"></script>
-    <script src="./js/components/font-switcher.js"></script>
-    <script src="./js/components/theme-customizer.js"></script>
-    <script src="./js/components/navbar.js"></script>
-    <script src="./js/components/dropdown.js"></script>
-    <script src="./js/components/modals.js"></script>
-    <script src="./js/components/tooltips.js"></script>
-    <script src="./js/components/collapsible.js"></script>
-    <script src="./js/components/pagination.js"></script>
-    <script src="./js/components/sidenav.js"></script>
-    <script src="./js/components/select.js"></script>
-    <script src="./js/components/preloader.js"></script>
-    <script src="./js/components/tabs.js"></script>
-    <script src="./js/components/toast.js"></script>
-    <script src="./js/components/code-snippet.js"></script>
-    <script src="./js/components/grid.js"></script>
-    <script src="./js/components/doc-search.js"></script>
-    <script src="./js/components/image-box.js"></script>
-
-    <!-- Initialize Vanduo -->
-    <script>
-        if (typeof Vanduo !== 'undefined') {
-            Vanduo.init();
-        }
+    <!-- Scripts -->
+    <script type="module">
+        import { Vanduo } from './dist/vanduo.esm.min.js';
+        Vanduo.init();
     </script>
 
     <script>
-        ready(function () {
+        document.addEventListener('DOMContentLoaded', function () {
             // Range input
             var rangeInput = document.getElementById('range-input');
             var rangeValue = document.getElementById('range-value');

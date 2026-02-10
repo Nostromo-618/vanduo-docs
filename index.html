@@ -37,14 +37,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <!-- Vanduo Framework CSS -->
-    <link rel="stylesheet" href="./css/vanduo.css">
-
-    <!-- Phosphor Icons -->
-    <link rel="stylesheet" href="./css/icons/icons.css">
-    <link rel="stylesheet" href="./icons/phosphor/bold/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/light/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/thin/style.css">
-    <link rel="stylesheet" href="./icons/phosphor/duotone/style.css">
+    <link rel="stylesheet" href="./dist/vanduo.min.css">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -274,18 +267,21 @@
             margin-left: 0;
             margin-right: 0;
         }
-        #philosophy .philosophy-cards > * {
+
+        #philosophy .philosophy-cards>* {
             padding-left: 0;
             padding-right: 0;
             margin-bottom: 0;
             min-width: 0;
             width: auto;
         }
+
         @media (min-width: 768px) {
             #philosophy .philosophy-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         @media (min-width: 992px) {
             #philosophy .philosophy-cards {
                 grid-template-columns: repeat(3, 1fr);
@@ -300,26 +296,31 @@
             margin-left: 0;
             margin-right: 0;
         }
-        #whats-new .whats-new-cards > * {
+
+        #whats-new .whats-new-cards>* {
             padding-left: 0;
             padding-right: 0;
             margin-bottom: 0;
             min-width: 0;
             width: auto;
         }
+
         #whats-new .whats-new-cards .demo-card {
             height: 100%;
             display: flex;
             flex-direction: column;
         }
+
         #whats-new .whats-new-cards .demo-card .vd-card-body {
             flex: 1;
             display: flex;
             flex-direction: column;
         }
+
         #whats-new .vd-card-header h3 {
             text-align: center;
         }
+
         @media (min-width: 768px) {
             #whats-new .whats-new-cards {
                 grid-template-columns: repeat(2, 1fr);
@@ -365,10 +366,11 @@
         <div class="vd-parallax-content hero-content">
             <h1><i class="ph-fill ph-drop" style="color: var(--vd-color-primary); margin-right: 0.15em;"></i>Vanduo
                 Framework</h1>
-            <p class="vd-text-lg vd-text-muted">Essential just like water is.</p>
-            <p>Pure HTML, CSS, JS framework for designing beautiful static websites. No dependencies, no build tools,
+            <p class="vd-text-lg vd-text-muted vd-mb-16">Essential just like water is.</p>
+            <p class="vd-mb-6">Pure HTML, CSS, JS framework for designing beautiful static websites. No dependencies, no
+                build tools,
                 just clean and simple code.</p>
-            <div class="vd-mt-10">
+            <div class="vd-mt-6">
                 <a href="documentation.html" class="vd-btn vd-btn-outline vd-btn-lg">Get Started</a>
                 <a href="https://github.com/Nostromo-618/vanduo-framework"
                     class="vd-btn vd-btn-outline vd-btn-lg vd-ml-6">GitHub</a>
@@ -439,7 +441,8 @@
             <!-- Icons Overview -->
             <section id="icons">
                 <h2 class="icons-section-title vd-mb-3">Phosphor Icons</h2>
-                <p class="icons-section-subtitle vd-text-muted vd-mb-8">1,500+ icons in 6 weights, bundled locally. No CDN
+                <p class="icons-section-subtitle vd-text-muted vd-mb-8">1,500+ icons in 6 weights, bundled locally. No
+                    CDN
                     required.</p>
 
                 <div class="vd-row">
@@ -530,7 +533,7 @@
 
             <!-- What's New v1.1.0 -->
             <section id="whats-new">
-                <h2 class="vd-text-center vd-mb-8">What's New in v1.1.0</h2>
+                <h2 class="vd-text-center vd-mb-8">Core Structural Improvements starting with v1.1.0</h2>
                 <div class="vd-row whats-new-cards">
                     <div class="vd-col-12 vd-col-md-6">
                         <div class="vd-card vd-card-glow demo-card">
@@ -687,21 +690,9 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./js/utils/helpers.js"></script>
-    <script src="./js/vanduo.js"></script>
-    <script src="./js/components/theme-switcher.js"></script>
-    <script src="./js/components/font-switcher.js"></script>
-    <script src="./js/components/theme-customizer.js"></script>
-    <script src="./js/components/navbar.js"></script>
-    <script src="./js/components/parallax.js"></script>
-    <script src="./js/components/select.js"></script>
-
-    <!-- Initialize Vanduo -->
-    <script>
-        // Initialize Vanduo framework
-        if (typeof Vanduo !== 'undefined') {
-            Vanduo.init();
-        }
+    <script type="module">
+        import { Vanduo } from './dist/vanduo.esm.min.js';
+        Vanduo.init();
     </script>
 </body>
 
