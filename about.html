@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Vanduo Framework. Mission, vision, and constraints.">
+    <meta name="author" content="Vanduo Framework">
+    <meta name="keywords" content="Vanduo Framework, about, mission, vision, constraints">
+    <meta name="robots" content="index, follow">
+    <title>About - Vanduo Framework</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://vanduo.dev/about.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vanduo.dev/about.html">
+    <meta property="og:title" content="About - Vanduo Framework">
+    <meta property="og:description" content="About Vanduo Framework. Mission, vision, and constraints.">
+    <meta property="og:image" content="https://vanduo.dev/images/og-image.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Vanduo Framework">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vanduo.dev/about.html">
+    <meta name="twitter:title" content="About - Vanduo Framework">
+    <meta name="twitter:description" content="About Vanduo Framework. Mission, vision, and constraints.">
+    <meta name="twitter:image" content="https://vanduo.dev/images/twitter-card.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- Vanduo Framework CSS -->
+    <link rel="stylesheet" href="./dist/vanduo.min.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vanduo.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://vanduo.dev/about.html"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add space to the left of navbar brand */
+        .vd-navbar-brand {
+            margin-left: 1rem;
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* About page header */
+        .about-header {
+            padding: 144px 0 55px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary-alpha-10), var(--color-info-alpha-10));
+        }
+
+        .about-header h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .about-section {
+            padding: 4rem 0;
+        }
+
+        .about-section + .about-section {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .about-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+
+        .about-card .vd-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 2rem;
+        }
+
+        .about-card .vd-card-body h3 {
+            color: var(--color-primary);
+        }
+
+        .about-card .vd-card-body p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
+        .about-card.aspect-golden {
+            aspect-ratio: auto;
+            min-height: 280px;
+        }
+
+        .about-golden-stack {
+            display: grid;
+            gap: var(--grid-gutter);
+            min-width: 0;
+        }
+
+        .about-card-align-end {
+            grid-column: 2;
+        }
+
+        .about-split {
+            display: grid;
+            gap: var(--grid-gutter);
+            align-items: start;
+        }
+
+        .about-split > * {
+            min-width: 0;
+        }
+
+        .about-support-card {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .about-support-card p {
+            max-width: 720px;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <nav class="vd-navbar vd-navbar-fixed">
+        <div class="vd-navbar-container">
+            <div class="vd-navbar-brand">
+                <a href="index.html"><i class="ph-fill ph-drop"
+                        style="color: var(--color-primary); margin-right: 0.25em;"></i>Vanduo</a>
+            </div>
+            <button class="vd-navbar-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="vd-navbar-menu">
+                <ul class="vd-navbar-nav">
+                    <li><a href="index.html" class="vd-nav-link">Home</a></li>
+                    <li><a href="documentation.html" class="vd-nav-link">Documentation</a></li>
+                    <li><a href="changelog.html" class="vd-nav-link">Changelog</a></li>
+                    <li><a href="about.html" class="vd-nav-link active">About</a></li>
+                </ul>
+
+                <!-- Theme Customizer Trigger (far right) -->
+                <button class="vd-theme-customizer-trigger" data-theme-customizer-trigger
+                    aria-label="Open theme customizer" style="margin-left: auto;">
+                    <i class="ph ph-paint-roller"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="about-header">
+        <div class="vd-container-responsive">
+            <h1 style="color: var(--color-primary);"><i class="ph ph-compass"></i> About</h1>
+            <p class="vd-text-lg vd-text-muted">Mission, vision, and constraints that shape Vanduo Framework</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" style="padding: 3rem 0;">
+        <div class="vd-container-responsive" style="max-width: 1100px;">
+            <section class="about-section">
+                <div class="grid-golden about-split">
+                    <div class="about-golden-stack">
+                        <div class="vd-card vd-card-glow aspect-golden about-card">
+                            <div class="vd-card-body">
+                                <h3>Mission</h3>
+                                <p>To give every developer a framework that feels like writing plain HTML again -- simple enough to start in minutes, powerful enough to ship real products. No abstractions to learn, no toolchains to configure, just water-clear code.</p>
+                            </div>
+                        </div>
+                        <div class="vd-card vd-card-glow aspect-golden about-card">
+                            <div class="vd-card-body">
+                                <h3>Vision</h3>
+                                <p>A web where lightweight sites are the norm, not the exception. Where choosing simplicity is never a compromise on beauty, accessibility, or performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-card vd-card-glow aspect-golden about-card">
+                        <div class="vd-card-body">
+                            <h3>Constraints</h3>
+                            <p>Zero dependencies. No build step. No npm install. Every kilobyte earns its place. Vanduo ships as pure HTML, CSS, and JavaScript -- if a feature can't justify its weight, it doesn't get in. These limits aren't restrictions; they're the reason the framework stays fast, portable, and honest.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="grid-golden-reverse about-split">
+                    <div class="vd-card vd-card-glow aspect-golden about-card">
+                        <div class="vd-card-body">
+                            <h3>Perspective</h3>
+                            <p>We picture a development landscape where reaching for a massive framework is a choice, not a reflex. Vanduo exists so that static sites, landing pages, and documentation can look polished without pulling in hundreds of packages.</p>
+                        </div>
+                    </div>
+                    <div class="vd-card vd-card-glow aspect-golden about-card">
+                        <div class="vd-card-body">
+                            <h3>Discipline</h3>
+                            <p>No transpilers, no bundlers, no runtime surprises. The entire framework fits in a single stylesheet and one ES module. Browser-native features first; polyfills never.</p>
+                        </div>
+                    </div>
+                    <div class="vd-card vd-card-glow aspect-golden about-card about-card-align-end">
+                        <div class="vd-card-body">
+                            <h3>Essence</h3>
+                            <p>Strip away everything that doesn't serve the developer or the end user. What remains is Vanduo -- essential, like water.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="vd-card vd-card-glow about-support-card">
+                    <h2 style="color: var(--color-primary);">Support Vanduo Development</h2>
+                    <p>Help keep the framework lean, accessible, and thoughtfully designed. Your support funds
+                        maintenance, documentation, and new features.</p>
+                    <a href="https://www.buymeacoffee.com/nostromo618" target="_blank" rel="noopener noreferrer"
+                        class="vd-footer-bmac-link" title="Buy Me A Coffee">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+                            class="vd-footer-bmac-logo">
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="vd-footer">
+        <div class="vd-footer-container">
+            <div class="vd-row">
+                <div class="vd-col-12 vd-col-md-4">
+                    <div class="vd-footer-section">
+                        <h4>Vanduo Framework</h4>
+                        <p>Essential just like water is.</p>
+                        <p>Pure HTML, CSS, JS framework for beautiful static websites.</p>
+                    </div>
+                </div>
+                <div class="vd-col-12 vd-col-md-4">
+                    <div class="vd-footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="vd-footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="changelog.html">Changelog</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vd-col-12 vd-col-md-4">
+                    <div class="vd-footer-section">
+                        <h4>Resources</h4>
+                        <ul class="vd-footer-links">
+                            <li><a href="https://github.com/Nostromo-618/vanduo-framework">GitHub</a></li>
+                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="changelog.html">Changelog</a></li>
+                            <li><a href="https://github.com/Nostromo-618/vanduo-framework/blob/main/LICENSE">License</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vd-footer-bottom">
+                <p class="vd-text-center vd-text-muted">&copy; 2026, Vanduo Framework. MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module">
+        import { Vanduo } from './dist/vanduo.esm.min.js';
+        Vanduo.init();
+    </script>
+</body>
+
+</html>
