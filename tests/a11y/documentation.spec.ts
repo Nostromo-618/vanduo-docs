@@ -30,4 +30,15 @@ test.describe('Documentation Page @a11y', () => {
     expect(options).toContain('Rubik');
     expect(options).toContain('Titillium Web');
   });
+
+  test('sidebar includes new component sections', async ({ page }) => {
+    await page.goto('/documentation.html');
+
+    const expectedAnchors = ['#navbar', '#sidenav', '#footer', '#code-snippet'];
+
+    for (const anchor of expectedAnchors) {
+      await expect(page.locator(`.doc-nav-link[href="${anchor}"]`)).toHaveCount(1);
+      await expect(page.locator(`section${anchor}`)).toHaveCount(1);
+    }
+  });
 });
