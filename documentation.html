@@ -453,12 +453,16 @@
                             <li><a href="#forms" class="doc-nav-link">Forms</a></li>
                             <li><a href="#cards" class="doc-nav-link">Cards</a></li>
                             <li><a href="#navigation" class="doc-nav-link">Navigation</a></li>
+                            <li><a href="#navbar" class="doc-nav-link">Navbar</a></li>
+                            <li><a href="#sidenav" class="doc-nav-link">Sidenav</a></li>
+                            <li><a href="#footer" class="doc-nav-link">Footer</a></li>
 
                             <li class="doc-nav-section">Interactive</li>
                             <li><a href="#interactive" class="doc-nav-link">Interactive</a></li>
                             <li><a href="#tabs" class="doc-nav-link">Tabs</a></li>
                             <li><a href="#toasts" class="doc-nav-link">Toasts</a></li>
                             <li><a href="#search" class="doc-nav-link">Search</a></li>
+                            <li><a href="#code-snippet" class="doc-nav-link">Code Snippet</a></li>
 
                             <li class="doc-nav-section">Data Display</li>
                             <li><a href="#collections" class="doc-nav-link">Collections</a></li>
@@ -483,7 +487,7 @@
                 <div class="vd-col-12 vd-col-lg-9 doc-content">
                     <section id="getting-started">
                         <h2 class="demo-title"><i class="ph ph-rocket-launch"></i>Getting Started <code
-                            class="vd-text-sm">v1.1.3</code></h2>
+                            class="vd-text-sm">v1.1.4</code></h2>
 
                         <div class="vd-row">
                             <div class="vd-col-12 vd-mb-4">
@@ -503,7 +507,7 @@
 &lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> Pin to a
                                             version for
-                                            production:<br><code>@v1.1.3</code> instead of <code>@main</code></p>
+                                            production:<br><code>@v1.1.4</code> instead of <code>@main</code></p>
                                     </div>
                                 </div>
                             </div>
@@ -3276,6 +3280,290 @@ document.addEventListener('themeCustomizer:reset', () => {
                         </div>
                     </section>
 
+                    <!-- Navbar Section -->
+                    <section id="navbar">
+                        <h2 class="demo-title"><i class="ph ph-list"></i>Navbar</h2>
+                        <p class="vd-mb-8">Build responsive top navigation with brand, centered links, action buttons,
+                            mobile slide-in menus, and optional dropdowns.</p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Basic Structure</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;nav class="vd-navbar"&gt;
+  &lt;div class="vd-navbar-container"&gt;
+    &lt;a href="#" class="vd-navbar-brand"&gt;Vanduo&lt;/a&gt;
+
+    &lt;button class="vd-navbar-toggle" aria-expanded="false"&gt;
+      &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class="vd-navbar-menu" aria-hidden="true"&gt;
+      &lt;ul class="vd-navbar-nav"&gt;
+        &lt;li&gt;&lt;a class="vd-nav-link active" href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="vd-nav-link" href="#"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="vd-navbar-actions"&gt;
+        &lt;button class="vd-btn vd-btn-primary vd-btn-sm"&gt;Sign in&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Variants & Positioning</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Class</th>
+                                                        <th>Purpose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>.vd-navbar-dark</code></td><td>Dark theme navbar</td></tr>
+                                                    <tr><td><code>.vd-navbar-transparent</code></td><td>Transparent until <code>.vd-navbar-scrolled</code></td></tr>
+                                                    <tr><td><code>.vd-navbar-fixed</code> / <code>.vd-navbar-fixed-top</code></td><td>Fixed at page top</td></tr>
+                                                    <tr><td><code>.vd-navbar-fixed-bottom</code></td><td>Fixed at page bottom</td></tr>
+                                                    <tr><td><code>.vd-navbar-sticky</code></td><td>Sticky while scrolling</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-4">Use <code>.vd-navbar-dropdown</code>,
+                                            <code>.vd-navbar-dropdown-menu</code>, and <code>.vd-navbar-dropdown-item</code>
+                                            for nested navigation menus.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--navbar-bg</code></td><td><code>var(--color-white)</code></td></tr>
+                                                    <tr><td><code>--navbar-text-color</code></td><td><code>var(--text-primary)</code></td></tr>
+                                                    <tr><td><code>--navbar-link-color</code></td><td><code>var(--text-primary)</code></td></tr>
+                                                    <tr><td><code>--navbar-link-hover-color</code></td><td><code>var(--color-primary)</code></td></tr>
+                                                    <tr><td><code>--navbar-height</code></td><td><code>3.4375rem</code> (55px)</td></tr>
+                                                    <tr><td><code>--navbar-nav-gap</code></td><td><code>1.3125rem</code> (21px)</td></tr>
+                                                    <tr><td><code>--navbar-mobile-menu-width</code></td><td><code>233px</code></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sidenav Section -->
+                    <section id="sidenav">
+                        <h2 class="demo-title"><i class="ph ph-sidebar"></i>Sidenav</h2>
+                        <p class="vd-mb-8">Create overlay, push, or fixed side drawers with canonical
+                            <code>vd-sidenav-*</code> variants.
+                        </p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Basic Structure</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;button class="vd-btn vd-btn-primary" data-sidenav-toggle="#demo-sidenav"&gt;
+  Open Sidenav
+&lt;/button&gt;
+
+&lt;aside class="vd-sidenav vd-sidenav-overlay-variant" id="demo-sidenav"&gt;
+  &lt;div class="vd-sidenav-header"&gt;
+    &lt;h3 class="vd-sidenav-title"&gt;Menu&lt;/h3&gt;
+    &lt;button class="vd-sidenav-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="vd-sidenav-body"&gt;
+    &lt;ul class="vd-sidenav-nav"&gt;
+      &lt;li class="vd-sidenav-item active"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="vd-sidenav-item"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Variants</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Class</th>
+                                                        <th>Purpose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>.vd-sidenav-right</code></td><td>Open from right side</td></tr>
+                                                    <tr><td><code>.vd-sidenav-push</code></td><td>Push content on desktop</td></tr>
+                                                    <tr><td><code>.vd-sidenav-fixed</code></td><td>Persistent desktop sidebar</td></tr>
+                                                    <tr><td><code>.vd-sidenav-sm</code></td><td>Small width (233px)</td></tr>
+                                                    <tr><td><code>.vd-sidenav-lg</code></td><td>Large width (377px)</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-4">Runtime state classes:
+                                            <code>.is-open</code> on sidenav and <code>.body-sidenav-open</code> on body.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--sidenav-width</code></td><td><code>233px</code></td></tr>
+                                                    <tr><td><code>--sidenav-width-lg</code></td><td><code>377px</code></td></tr>
+                                                    <tr><td><code>--sidenav-bg</code></td><td><code>var(--color-white)</code></td></tr>
+                                                    <tr><td><code>--sidenav-overlay-bg</code></td><td><code>rgba(0, 0, 0, 0.5)</code></td></tr>
+                                                    <tr><td><code>--sidenav-z-index</code></td><td><code>1040</code></td></tr>
+                                                    <tr><td><code>--sidenav-overlay-z-index</code></td><td><code>1030</code></td></tr>
+                                                    <tr><td><code>--sidenav-transition</code></td><td><code>transform var(--transition-duration-slow) var(--transition-ease)</code></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Section -->
+                    <section id="footer">
+                        <h2 class="demo-title"><i class="ph ph-layout"></i>Footer</h2>
+                        <p class="vd-mb-8">Compose branded multi-column footers with list links, social icons, and
+                            dark/size variants.</p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Core Markup</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;footer class="vd-footer vd-footer-3col"&gt;
+  &lt;div class="vd-footer-section"&gt;
+    &lt;h4 class="vd-footer-heading"&gt;Product&lt;/h4&gt;
+    &lt;ul class="vd-footer-list"&gt;
+      &lt;li class="vd-footer-list-item"&gt;&lt;a class="vd-footer-link" href="#"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="vd-footer-list-item"&gt;&lt;a class="vd-footer-link" href="#"&gt;Components&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Layouts & Variants</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Class</th>
+                                                        <th>Purpose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>.vd-footer-2col</code> / <code>.vd-footer-3col</code> / <code>.vd-footer-4col</code></td><td>Responsive grid columns</td></tr>
+                                                    <tr><td><code>.vd-footer-dark</code></td><td>Dark visual style</td></tr>
+                                                    <tr><td><code>.vd-footer-sm</code> / <code>.vd-footer-lg</code></td><td>Compact or spacious padding</td></tr>
+                                                    <tr><td><code>.vd-footer-brand</code></td><td>Brand/logo block</td></tr>
+                                                    <tr><td><code>.vd-footer-social</code></td><td>Social action links row</td></tr>
+                                                    <tr><td><code>.vd-footer-copyright</code></td><td>Bottom legal row</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--footer-bg</code></td><td><code>var(--bg-secondary)</code></td></tr>
+                                                    <tr><td><code>--footer-link-color</code></td><td><code>var(--text-secondary)</code></td></tr>
+                                                    <tr><td><code>--footer-heading-color</code></td><td><code>var(--text-primary)</code></td></tr>
+                                                    <tr><td><code>--footer-padding-y</code></td><td><code>3.4375rem</code> (55px)</td></tr>
+                                                    <tr><td><code>--footer-padding-y-sm</code></td><td><code>2.125rem</code> (34px)</td></tr>
+                                                    <tr><td><code>--footer-padding-y-lg</code></td><td><code>5.5625rem</code> (89px)</td></tr>
+                                                    <tr><td><code>--footer-section-spacing</code></td><td><code>2.125rem</code> (34px)</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- Interactive Components Section -->
                     <section id="interactive">
                         <h2 class="demo-title"><i class="ph ph-hand-pointing"></i>Interactive Components</h2>
@@ -3931,6 +4219,102 @@ const isOpen = search.isOpen;</code></pre>
                             </div>
                         </div>
                     </section>
+
+                    <!-- Code Snippet Section -->
+                    <section id="code-snippet">
+                        <h2 class="demo-title"><i class="ph ph-code-block"></i>Code Snippet</h2>
+                        <p class="vd-mb-8">Display collapsible, copyable, syntax-highlighted code with optional language
+                            tabs and line numbers.</p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Base Markup</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;div class="vd-code-snippet" data-collapsible&gt;
+  &lt;button class="vd-code-snippet-toggle" aria-expanded="false"&gt;
+    &lt;span class="vd-code-snippet-toggle-icon"&gt;&lt;/span&gt;
+    &lt;span&gt;View Code&lt;/span&gt;
+  &lt;/button&gt;
+
+  &lt;div class="vd-code-snippet-content"&gt;
+    &lt;div class="vd-code-snippet-header"&gt;
+      &lt;div class="vd-code-snippet-tabs" role="tablist"&gt;
+        &lt;button class="vd-code-snippet-tab is-active" data-lang="html"&gt;HTML&lt;/button&gt;
+        &lt;button class="vd-code-snippet-tab" data-lang="css"&gt;CSS&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;button class="vd-code-snippet-copy" aria-label="Copy code"&gt;...&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="vd-code-snippet-body"&gt;
+      &lt;pre class="vd-code-snippet-pane is-active" data-lang="html"&gt;...&lt;/pre&gt;
+      &lt;pre class="vd-code-snippet-pane" data-lang="css"&gt;...&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Options & API</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <ul>
+                                            <li><code>data-collapsible</code>: enables toggle behavior</li>
+                                            <li><code>data-expanded="true"</code>: expanded snippet state</li>
+                                            <li><code>data-visible="true"</code>: content visibility state</li>
+                                            <li><code>data-extract="#selector"</code>: extract HTML from page element</li>
+                                            <li><code>.has-line-numbers</code>: add line numbers column</li>
+                                            <li><code>.vd-code-snippet-single</code>, <code>.vd-code-snippet-inline</code>,
+                                                <code>.vd-code-snippet-compact</code>: display variants
+                                            </li>
+                                        </ul>
+                                        <pre class="code-example"><code>// Programmatic control
+CodeSnippet.expand(el);
+CodeSnippet.collapse(el);
+CodeSnippet.showLang(el, 'js');</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--code-padding-x</code></td><td><code>1.3125rem</code></td></tr>
+                                                    <tr><td><code>--code-padding-y</code></td><td><code>0.8125rem</code></td></tr>
+                                                    <tr><td><code>--code-line-height</code></td><td><code>1.618</code></td></tr>
+                                                    <tr><td><code>--code-tab-active</code></td><td><code>var(--color-primary)</code></td></tr>
+                                                    <tr><td><code>--code-copy-success</code></td><td><code>var(--color-success)</code></td></tr>
+                                                    <tr><td><code>--code-line-highlight</code></td><td><code>rgba(59, 130, 246, 0.1)</code></td></tr>
+                                                    <tr><td><code>--code-tag</code>, <code>--code-attr</code>, <code>--code-string</code>, <code>--code-comment</code></td><td>HTML syntax colors</td></tr>
+                                                    <tr><td><code>--code-selector</code>, <code>--code-property</code>, <code>--code-value</code>, <code>--code-unit</code></td><td>CSS syntax colors</td></tr>
+                                                    <tr><td><code>--code-keyword</code>, <code>--code-function</code>, <code>--code-number</code>, <code>--code-operator</code>, <code>--code-punctuation</code></td><td>JS syntax colors</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <section id="collections">
                         <h2 class="demo-title"><i class="ph ph-list"></i>Collections</h2>
 
@@ -4328,7 +4712,7 @@ const isOpen = search.isOpen;</code></pre>
                         </div>
                     </section>
 
-                    <!-- Skeleton Section -->
+                    <!-- Alerts Section -->
                     <section id="alerts">
                         <h2 class="demo-title"><i class="ph ph-warning"></i>Alerts</h2>
 
@@ -4512,7 +4896,7 @@ const isOpen = search.isOpen;</code></pre>
                         </div>
                     </section>
 
-                    <!-- Avatars Section -->
+                    <!-- Skeleton Section -->
                     <section id="skeleton">
                         <h2 class="demo-title"><i class="ph ph-spinner"></i>Skeleton Loaders</h2>
 
