@@ -1,0 +1,45 @@
+                    <section id="toasts">
+                        <h2 class="demo-title"><i class="ph ph-bell-ringing"></i>Toast Notifications</h2>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Toast Types</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <button class="vd-btn vd-btn-success"
+                                            onclick="Toast.success('Operation completed successfully!')">Success
+                                            Toast</button>
+                                        <button class="vd-btn vd-btn-error"
+                                            onclick="Toast.error('An error occurred!')">Error
+                                            Toast</button>
+                                        <button class="vd-btn vd-btn-warning"
+                                            onclick="Toast.warning('Please review your input.')">Warning Toast</button>
+                                        <button class="vd-btn vd-btn-info"
+                                            onclick="Toast.info('Here is some information.')">Info
+                                            Toast</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Toast Options</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <button class="vd-btn vd-btn-primary"
+                                            onclick="Toast.show({ title: 'With Title', message: 'This toast has a title and message.', type: 'info' })">With
+                                            Title</button>
+                                        <button class="vd-btn vd-btn-primary"
+                                            onclick="Toast.show({ message: 'This toast will stay for 10 seconds.', type: 'success', duration: 10000 })">Long
+                                            Duration</button>
+                                        <button class="vd-btn vd-btn-primary"
+                                            onclick="Toast.show({ message: 'Bottom left position.', type: 'warning', position: 'bottom-left' })">Bottom
+                                            Left</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

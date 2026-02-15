@@ -1,0 +1,318 @@
+{
+  "categories": [
+    {
+      "name": "Getting Started",
+      "sections": [
+        {
+          "id": "getting-started",
+          "title": "Quick Start",
+          "file": "quick-start.html",
+          "preload": true,
+          "icon": "ph-rocket-launch",
+          "keywords": ["install", "cdn", "npm", "setup", "quick start", "getting started"]
+        }
+      ]
+    },
+    {
+      "name": "Core",
+      "sections": [
+        {
+          "id": "icons",
+          "title": "Icons",
+          "file": "core/icons.html",
+          "icon": "ph-images",
+          "keywords": ["phosphor", "icon", "svg", "icons"]
+        },
+        {
+          "id": "color-palette",
+          "title": "Color Palette",
+          "file": "core/color-palette.html",
+          "icon": "ph-palette",
+          "keywords": ["color", "theme", "palette", "css variables"]
+        },
+        {
+          "id": "typography",
+          "title": "Typography",
+          "file": "core/typography.html",
+          "icon": "ph-text-aa",
+          "keywords": ["font", "type", "text", "heading", "paragraph"]
+        },
+        {
+          "id": "grid-system",
+          "title": "Grid System",
+          "file": "core/grid-system.html",
+          "icon": "ph-grid-four",
+          "keywords": ["grid", "layout", "columns", "row", "responsive"]
+        },
+        {
+          "id": "golden-ratio",
+          "title": "Golden Ratio",
+          "file": "core/golden-ratio.html",
+          "icon": "ph-spiral",
+          "keywords": ["golden ratio", "spacing", "scale", "proportion"]
+        },
+        {
+          "id": "shadows-glow",
+          "title": "Shadows & Glow",
+          "file": "core/shadows-glow.html",
+          "icon": "ph-sun",
+          "keywords": ["shadow", "glow", "elevation", "box-shadow"]
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "sections": [
+        {
+          "id": "theme-customizer",
+          "title": "Theme Customizer",
+          "file": "components/theme-customizer.html",
+          "icon": "ph-paint-roller",
+          "keywords": ["theme", "customizer", "runtime", "colors"]
+        },
+        {
+          "id": "buttons",
+          "title": "Buttons",
+          "file": "components/buttons.html",
+          "icon": "ph-cursor-click",
+          "keywords": ["button", "click", "submit", "primary", "secondary"]
+        },
+        {
+          "id": "forms",
+          "title": "Forms",
+          "file": "components/forms.html",
+          "icon": "ph-textbox",
+          "keywords": ["form", "input", "checkbox", "radio", "select"]
+        },
+        {
+          "id": "cards",
+          "title": "Cards",
+          "file": "components/cards.html",
+          "icon": "ph-rectangle",
+          "keywords": ["card", "panel", "content"]
+        },
+        {
+          "id": "navigation",
+          "title": "Navigation",
+          "file": "components/navigation.html",
+          "icon": "ph-compass",
+          "keywords": ["nav", "breadcrumb", "pagination", "tabs"]
+        },
+        {
+          "id": "navbar",
+          "title": "Navbar",
+          "file": "components/navbar.html",
+          "icon": "ph-list",
+          "keywords": ["navbar", "header", "menu", "responsive"]
+        },
+        {
+          "id": "sidenav",
+          "title": "Sidenav",
+          "file": "components/sidenav.html",
+          "icon": "ph-sidebar",
+          "keywords": ["sidenav", "sidebar", "drawer"]
+        },
+        {
+          "id": "footer",
+          "title": "Footer",
+          "file": "components/footer.html",
+          "icon": "ph-layout",
+          "keywords": ["footer", "bottom", "links"]
+        }
+      ]
+    },
+    {
+      "name": "Interactive",
+      "sections": [
+        {
+          "id": "interactive",
+          "title": "Interactive Components",
+          "file": "interactive/interactive.html",
+          "icon": "ph-hand-pointing",
+          "keywords": ["interactive", "collapsible", "accordion", "dropdown", "modal", "tooltip"]
+        },
+        {
+          "id": "tabs",
+          "title": "Tabs",
+          "file": "interactive/tabs.html",
+          "icon": "ph-tabs",
+          "keywords": ["tabs", "tab", "panel", "switch"]
+        },
+        {
+          "id": "toasts",
+          "title": "Toast Notifications",
+          "file": "interactive/toasts.html",
+          "icon": "ph-bell-ringing",
+          "keywords": ["toast", "notification", "alert", "message", "snackbar"]
+        },
+        {
+          "id": "search",
+          "title": "Search",
+          "file": "interactive/search.html",
+          "icon": "ph-magnifying-glass",
+          "keywords": ["search", "find", "filter", "autocomplete", "keyboard"]
+        },
+        {
+          "id": "code-snippet",
+          "title": "Code Snippet",
+          "file": "interactive/code-snippet.html",
+          "icon": "ph-code-block",
+          "keywords": ["code", "snippet", "copy", "syntax", "highlight", "pre"]
+        }
+      ]
+    },
+    {
+      "name": "Data Display",
+      "sections": [
+        {
+          "id": "collections",
+          "title": "Collections",
+          "file": "data-display/collections.html",
+          "icon": "ph-list",
+          "keywords": ["collection", "list", "ordered", "unordered", "definition"]
+        },
+        {
+          "id": "tables",
+          "title": "Tables",
+          "file": "data-display/tables.html",
+          "icon": "ph-table",
+          "keywords": ["table", "data", "row", "column", "striped", "responsive"]
+        },
+        {
+          "id": "badges",
+          "title": "Badges",
+          "file": "data-display/badges.html",
+          "icon": "ph-seal",
+          "keywords": ["badge", "label", "count", "status", "indicator"]
+        },
+        {
+          "id": "avatars",
+          "title": "Avatars",
+          "file": "data-display/avatars.html",
+          "icon": "ph-user-circle",
+          "keywords": ["avatar", "user", "profile", "image", "circle"]
+        }
+      ]
+    },
+    {
+      "name": "Feedback",
+      "sections": [
+        {
+          "id": "alerts",
+          "title": "Alerts",
+          "file": "feedback/alerts.html",
+          "icon": "ph-warning",
+          "keywords": ["alert", "warning", "error", "success", "info", "message"]
+        },
+        {
+          "id": "chips",
+          "title": "Chips & Tags",
+          "file": "feedback/chips.html",
+          "icon": "ph-tag",
+          "keywords": ["chip", "tag", "label", "removable", "filter"]
+        },
+        {
+          "id": "skeleton",
+          "title": "Skeleton Loaders",
+          "file": "feedback/skeleton.html",
+          "icon": "ph-spinner",
+          "keywords": ["skeleton", "loader", "placeholder", "shimmer", "loading"]
+        },
+        {
+          "id": "preloader",
+          "title": "Preloader & Progress Bars",
+          "file": "feedback/preloader.html",
+          "icon": "ph-circle-notch",
+          "keywords": ["preloader", "progress", "spinner", "loading", "bar", "indeterminate", "quad-spinner"]
+        },
+        {
+          "id": "button-groups",
+          "title": "Button Groups",
+          "file": "feedback/button-groups.html",
+          "icon": "ph-squares-four",
+          "keywords": ["button group", "toolbar", "segmented", "toggle"]
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "sections": [
+        {
+          "id": "image-box",
+          "title": "Image Box",
+          "file": "media/image-box.html",
+          "icon": "ph-image",
+          "keywords": ["image", "lightbox", "gallery", "photo", "zoom"]
+        }
+      ]
+    },
+    {
+      "name": "Concepts",
+      "sections": [
+        {
+          "id": "philosophy",
+          "title": "Philosophy",
+          "file": "concepts/philosophy.html",
+          "icon": "ph-heart",
+          "keywords": ["philosophy", "principles", "design", "water", "vanduo"]
+        },
+        {
+          "id": "namespacing",
+          "title": "CSS Namespacing",
+          "file": "concepts/namespacing.html",
+          "icon": "ph-shield",
+          "keywords": ["namespace", "prefix", "vd-", "css", "convention", "conflict"]
+        },
+        {
+          "id": "tokens",
+          "title": "Design Tokens",
+          "file": "concepts/tokens.html",
+          "icon": "ph-palette",
+          "keywords": ["tokens", "variables", "css custom properties", "design system"]
+        },
+        {
+          "id": "lifecycle",
+          "title": "Lifecycle Management",
+          "file": "concepts/lifecycle.html",
+          "icon": "ph-arrows-clockwise",
+          "keywords": ["lifecycle", "init", "destroy", "cleanup", "memory", "SPA"]
+        },
+        {
+          "id": "modules",
+          "title": "Module Formats",
+          "file": "concepts/modules.html",
+          "icon": "ph-package",
+          "keywords": ["module", "esm", "cjs", "iife", "import", "require", "bundle"]
+        },
+        {
+          "id": "migration",
+          "title": "Migration Guide",
+          "file": "concepts/migration.html",
+          "icon": "ph-arrow-right",
+          "keywords": ["migration", "upgrade", "update", "version"]
+        },
+        {
+          "id": "breaking-changes",
+          "title": "Breaking Changes",
+          "file": "concepts/breaking-changes.html",
+          "icon": "ph-warning-circle",
+          "keywords": ["breaking", "changes", "deprecated", "removed", "renamed"]
+        },
+        {
+          "id": "class-prefixes",
+          "title": "Class Prefix Reference",
+          "file": "concepts/class-prefixes.html",
+          "icon": "ph-list-dashes",
+          "keywords": ["class", "prefix", "reference", "naming", "convention"]
+        },
+        {
+          "id": "token-reference",
+          "title": "CSS Token Reference",
+          "file": "concepts/token-reference.html",
+          "icon": "ph-tokens",
+          "keywords": ["token", "reference", "css variable", "custom property", "list"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+<section id="getting-started">
+                        <h2 class="demo-title"><i class="ph ph-rocket-launch"></i>Getting Started <code
+                            class="vd-text-sm">v1.1.5</code></h2>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-mb-4">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3><i class="ph ph-lightning mr-2" style="color: var(--color-warning);"></i>CDN
+                                            (Fastest)</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Load directly from jsDelivr — no download required:</p>
+                                        <pre
+                                            class="code-example"><code>&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.css"&gt;
+
+&lt;!-- JS --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> Pin to a
+                                            version for
+                                            production:<br><code>@v1.1.5</code> instead of <code>@main</code></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-mb-4">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3><i class="ph ph-download-simple mr-2"
+                                                style="color: var(--color-primary);"></i>Download</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p><a href="https://github.com/Nostromo-618/vanduo-framework/tree/main/dist"
+                                                target="_blank"><strong>Download the dist/ folder</strong></a> and
+                                            include locally:</p>
+                                        <pre class="code-example"><code>&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="dist/vanduo.min.css"&gt;
+
+&lt;!-- JS --&gt;
+&lt;script src="dist/vanduo.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-3">The <code>dist/</code> folder is
+                                            self-contained with CSS, JS, fonts, and icons.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-mb-4">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3><i class="ph ph-code mr-2" style="color: var(--color-success);"></i>Source
+                                            Files</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>For development or modular imports:</p>
+                                        <pre class="code-example"><code>&lt;!-- Full framework --&gt;
+&lt;link rel="stylesheet" href="css/vanduo.css"&gt;
+&lt;script src="js/vanduo.js"&gt;&lt;/script&gt;
+&lt;script&gt;Vanduo.init();&lt;/script&gt;
+
+&lt;!-- Or pick individual modules --&gt;
+&lt;link rel="stylesheet" href="css/core/colors.css"&gt;
+&lt;link rel="stylesheet" href="css/components/buttons.css"&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variable Customization</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Override CSS variables in your own stylesheet to customize the entire
+                                            framework:</p>
+                                        <pre class="code-example"><code>:root {
+  /* Brand colors */
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+
+  /* Typography */
+  --font-family-base: 'Inter', sans-serif;
+  --font-size-base: 1rem;
+
+  /* Spacing (Fibonacci-based) */
+  --spacing-1: 1px;   --spacing-2: 2px;
+  --spacing-3: 3px;   --spacing-5: 5px;
+  --spacing-8: 8px;   --spacing-13: 13px;
+
+  /* Borders */
+  --border-color: #e2e8f0;
+  --btn-border-radius: 8px;
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Theme Switching</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Vanduo supports light, dark, and system themes. Preference is stored in
+                                            <code>localStorage</code>.
+                                        </p>
+                                        <pre class="code-example"><code>&lt;!-- Select-based toggle --&gt;
+&lt;select data-toggle="theme"&gt;
+  &lt;option value="system"&gt;System&lt;/option&gt;
+  &lt;option value="light"&gt;Light&lt;/option&gt;
+  &lt;option value="dark"&gt;Dark&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Or button toggle (cycles modes) --&gt;
+&lt;button data-toggle="theme"&gt;Toggle&lt;/button&gt;</code></pre>
+                                        <p class="vd-mt-5"><strong>How it works:</strong></p>
+                                        <ul>
+                                            <li><code>data-toggle="theme"</code> binds the element</li>
+                                            <li>Preference saved to <code>vanduo-theme-preference</code> key</li>
+                                            <li>Sets <code>[data-theme="dark"]</code> on <code>&lt;html&gt;</code></li>
+                                            <li>System mode removes the attribute, deferring to
+                                                <code>prefers-color-scheme</code>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Data Attributes Reference</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>JavaScript components are configured via <code>data-*</code> attributes:</p>
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Attribute</th>
+                                                        <th>Component</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>data-modal="#id"</code></td>
+                                                        <td>Modal trigger</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-dismiss="modal"</code></td>
+                                                        <td>Modal close button</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-tooltip="text"</code></td>
+                                                        <td>Tooltip content</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-tooltip-placement="top|right|bottom|left"</code>
+                                                        </td>
+                                                        <td>Tooltip position</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-toggle="theme"</code></td>
+                                                        <td>Theme switcher</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-toggle="font"</code></td>
+                                                        <td>Font switcher</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-collapsible</code></td>
+                                                        <td>Collapsible container</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data-speed="0.5"</code></td>
+                                                        <td>Parallax layer speed</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>JavaScript API</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>All components register with the global <code>Vanduo</code> object:</p>
+                                        <pre class="code-example"><code>// Re-initialize a component after DOM changes
+Vanduo.reinit('dropdown');
+
+// Destroy all component instances (cleanup)
+Vanduo.destroyAll();
+
+// Register a custom component
+Vanduo.register('myComponent', {
+  init: function() { /* ... */ }
+});
+
+// Show a toast notification
+Vanduo.components.toast.show({
+  title: 'Success',
+  message: 'Item saved.',
+  type: 'success'
+});</code></pre>
+                                        <p class="vd-mt-5"><strong>CSS State Classes:</strong></p>
+                                        <ul>
+                                            <li><code>.is-open</code> — open state (modals, dropdowns, sidenav)</li>
+                                            <li><code>.is-active</code> — active state (tabs, accordion items)</li>
+                                            <li><code>.disabled</code> — disabled state</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

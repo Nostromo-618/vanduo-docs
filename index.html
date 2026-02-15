@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Vanduo Framework v1.1.4. Pure HTML, CSS, JS framework for beautiful static websites. No dependencies, no build tools, just clean code.">
+        content="Vanduo Framework v1.1.5. Pure HTML, CSS, JS framework for beautiful static websites. No dependencies, no build tools, just clean code.">
     <meta name="author" content="Vanduo Framework">
     <meta name="keywords"
         content="CSS framework, HTML framework, JavaScript framework, static website, no dependencies, pure CSS, pure JavaScript, responsive design, UI components, Lithuania">
     <meta name="robots" content="index, follow">
-    <title>Vanduo Framework v1.1.4 - Pure HTML, CSS, JS Framework</title>
+    <title>Vanduo Framework v1.1.5 - Pure HTML, CSS, JS Framework</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://vanduo.dev/">
@@ -18,7 +18,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vanduo.dev/">
-    <meta property="og:title" content="Vanduo Framework v1.1.4 - Pure HTML, CSS, JS Framework">
+    <meta property="og:title" content="Vanduo Framework v1.1.5 - Pure HTML, CSS, JS Framework">
     <meta property="og:description"
         content="Essential just like water is. Zero-dependency framework for beautiful static websites.">
     <meta property="og:image" content="https://vanduo.dev/images/og-image.png">
@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://vanduo.dev/">
-    <meta name="twitter:title" content="Vanduo Framework v1.1.4 - Pure HTML, CSS, JS Framework">
+    <meta name="twitter:title" content="Vanduo Framework v1.1.5 - Pure HTML, CSS, JS Framework">
     <meta name="twitter:description"
         content="Essential just like water is. Zero-dependency framework for beautiful static websites.">
     <meta name="twitter:image" content="https://vanduo.dev/images/twitter-card.png">
@@ -59,7 +59,7 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-            "softwareVersion": "1.1.4",
+            "softwareVersion": "1.1.5",
       "license": "https://opensource.org/licenses/MIT",
       "programmingLanguage": ["HTML", "CSS", "JavaScript"]
     }
@@ -540,83 +540,33 @@
                 </div>
             </section>
 
-            <!-- What's New v1.1.0 -->
+            <!-- What's New -->
             <section id="whats-new">
-                <h2 class="vd-text-center vd-mb-8" style="color: var(--color-primary);">Core Structural Improvements starting with v1.1.0</h2>
+                <h2 class="vd-text-center vd-mb-8" style="color: var(--color-primary);">Vanduo Goes Beyond Static Web Pages</h2>
                 <div class="vd-row whats-new-cards">
-                    <div class="vd-col-12 vd-col-md-6">
+                    <div class="vd-col-12">
                         <div class="vd-card vd-card-glow demo-card">
                             <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-tag mr-2" style="color: var(--color-primary);"></i>CSS Namespace
-                                </h3>
+                                <h3 style="color: var(--color-primary);"><i class="ph ph-lightning mr-2" style="color: var(--color-primary);"></i>Dynamic Web Tab</h3>
                             </div>
                             <div class="vd-card-body">
-                                <p>All CSS classes now use the <code>vd-</code> prefix to prevent collisions with other
-                                    libraries.</p>
-                                <pre class="code-example"><code>&lt;!-- v1.0.x (old) --&gt;
-&lt;button class="btn btn-primary"&gt;Click&lt;/button&gt;
-
-&lt;!-- v1.1.0 (new) --&gt;
-&lt;button class="vd-btn vd-btn-primary"&gt;Click&lt;/button&gt;</code></pre>
-                                <a href="concepts.html#migration" class="vd-btn vd-btn-sm vd-btn-primary vd-mt-3">View
-                                    Migration Guide</a>
+                                <p>Explore SPA-like capabilities without third-party libraries. The new <strong>Dynamic Web</strong> doc tab delivers lazy-loaded sections, client-side routing, and on-demand content loading. All 39 documentation sections load only when you need them &mdash; pure vanilla JS.</p>
+                                <a href="dynamic.html" class="vd-btn vd-btn-sm vd-btn-primary vd-mt-3"><i class="ph ph-lightning mr-2"></i>Try Dynamic Web</a>
                             </div>
                         </div>
                     </div>
-                    <div class="vd-col-12 vd-col-md-6">
+                    <div class="vd-col-12">
                         <div class="vd-card vd-card-glow demo-card">
                             <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-cube mr-2" style="color: var(--color-primary);"></i>ESM & CJS
-                                    Modules</h3>
+                                <h3 style="color: var(--color-primary);"><i class="ph ph-sparkle mr-2" style="color: var(--color-primary);"></i>What&apos;s New in v1.1.5</h3>
                             </div>
                             <div class="vd-card-body">
-                                <p>Three build formats now available: IIFE, ESM, and CommonJS for modern bundler
-                                    compatibility.</p>
-                                <pre class="code-example"><code>&lt;!-- IIFE (Classic) --&gt;
-&lt;script src="vanduo.min.js"&gt;&lt;/script&gt;
-
-&lt;!-- ESM --&gt;
-&lt;script type="module"&gt;
-  import { init } from './vanduo.esm.min.js';
-  init();
-&lt;/script&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6">
-                        <div class="vd-card vd-card-glow demo-card">
-                            <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-refresh mr-2" style="color: var(--color-primary);"></i>Manual
-                                    Initialization</h3>
-                            </div>
-                            <div class="vd-card-body">
-                                <p>Components no longer auto-initialize. You control when Vanduo starts.</p>
-                                <pre class="code-example"><code>&lt;script src="vanduo.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  // Initialize when ready
-  Vanduo.init();
-  
-  // Cleanup when needed (SPAs)
-  // Vanduo.destroyAll();
-&lt;/script&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6">
-                        <div class="vd-card vd-card-glow demo-card">
-                            <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-palette mr-2" style="color: var(--color-primary);"></i>Design
-                                    Tokens</h3>
-                            </div>
-                            <div class="vd-card-body">
-                                <p>Centralized CSS custom properties with <code>--vd-</code> prefix for consistent
-                                    theming.</p>
-                                <pre class="code-example"><code>:root {
-  --vd-color-primary: #22b8cf;
-  --vd-color-primary-dark: #1098ad;
-  --vd-spacing-8: 8px;
-  --vd-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-}</code></pre>
+                                <ul class="vd-footer-links" style="list-style: none; padding-left: 0;">
+                                    <li class="vd-mb-2"><strong>Quad-Spinner Loader</strong> &mdash; New signature <code>vd-dynamic-loader</code> and skeleton overlay variant added to the framework.</li>
+                                    <li class="vd-mb-2"><strong>Ubuntu default font</strong> &mdash; Theme customizer now defaults to Ubuntu for first-time users and reset.</li>
+                                    <li class="vd-mb-2"><strong>Per-section search icons</strong> &mdash; Doc-search extracts icons from headings and custom data; results show correct individual icons.</li>
+                                    <li><strong>Search.create() API</strong> &mdash; <code>create()</code> now auto-initializes the returned instance.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

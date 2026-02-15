@@ -1,0 +1,28 @@
+                    <section id="migration">
+                        <h2 class="demo-title"><i class="ph ph-arrow-right"></i>Migration Guide</h2>
+                        <p class="vd-mb-6">Upgrading from v1.0.x to v1.1.0 requires updating class names and
+                            initialization code. This guide will help you migrate smoothly.</p>
+
+                        <div class="vd-card vd-card-glow demo-card">
+                            <div class="vd-card-header">
+                                <h3>Quick Migration Script</h3>
+                            </div>
+                            <div class="vd-card-body">
+                                <p>We've created a Node.js migration script to help automate the class name updates. You can find it in the migration guide:</p>
+                                <pre class="code-example vd-mt-3"><code># Open the migration guide
+https://github.com/Nostromo-618/vanduo-framework/blob/main/MIGRATION.md
+
+# Run on your project (see guide for usage)
+node migrate-v1.1.0.js ./my-project
+
+# Review changes
+git diff</code></pre>
+                                <p class="vd-mt-3">The script handles:</p>
+                                <ul>
+                                    <li>Adding <code>vd-</code> prefix to all framework classes</li>
+                                    <li>Updating CSS variable references</li>
+                                    <li>Converting initialization code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
