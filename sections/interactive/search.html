@@ -1,0 +1,292 @@
+                    <section id="search">
+                        <h2 class="demo-title"><i class="ph ph-magnifying-glass"></i>Search</h2>
+                        <p class="vd-mb-8">A configurable client-side search component with keyboard navigation,
+                            debounced
+                            input, category grouping, and full accessibility support. Perfect for documentation sites,
+                            knowledge bases, or any content-heavy application.</p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Quick Start</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Include the CSS and JS files, then add the search markup:</p>
+                                        <pre class="code-example"><code>&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="css/components/doc-search.css"&gt;
+
+&lt;!-- HTML --&gt;
+&lt;div class="vd-doc-search"&gt;
+    &lt;div class="vd-doc-search-input-wrapper"&gt;
+        &lt;i class="ph ph-magnifying-glass vd-doc-search-icon"&gt;&lt;/i&gt;
+        &lt;input type="search" class="vd-doc-search-input"
+               placeholder="Search..."
+               aria-label="Search"
+               aria-controls="search-results"
+               aria-expanded="false"
+               autocomplete="off"&gt;
+        &lt;kbd class="vd-doc-search-shortcut"&gt;⌘K&lt;/kbd&gt;
+    &lt;/div&gt;
+    &lt;div class="vd-doc-search-results" id="search-results"
+         role="listbox" aria-label="Search results"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- JS --&gt;
+&lt;script src="js/components/doc-search.js"&gt;&lt;/script&gt;</code></pre>
+                                        <p class="vd-mt-5 vd-text-sm vd-text-muted">The component auto-initializes on
+                                            page load
+                                            and indexes all <code>&lt;section&gt;</code> elements with <code>id</code>
+                                            attributes.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Features</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <ul>
+                                            <li><strong>Keyboard Navigation:</strong> Arrow keys, Enter to select,
+                                                Escape to close</li>
+                                            <li><strong>Keyboard Shortcut:</strong> <kbd>⌘K</kbd> (Mac) /
+                                                <kbd>Ctrl+K</kbd> (Windows) to focus
+                                            </li>
+                                            <li><strong>Debounced Input:</strong> 150ms delay prevents excessive
+                                                searches</li>
+                                            <li><strong>Category Grouping:</strong> Results grouped by section with
+                                                icons</li>
+                                            <li><strong>Highlight Matching:</strong> Search terms highlighted in results
+                                            </li>
+                                            <li><strong>ARIA Accessible:</strong> Full screen reader support</li>
+                                            <li><strong>Dark Mode:</strong> Automatic theme adaptation</li>
+                                            <li><strong>Reduced Motion:</strong> Respects
+                                                <code>prefers-reduced-motion</code>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Custom Instance</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Create a custom search instance with your own data and callbacks:</p>
+                                        <pre class="code-example"><code>// Create custom search instance
+const mySearch = Search.create({
+    // Custom selectors
+    inputSelector: '.my-search-input',
+    resultsSelector: '.my-search-results',
+    
+    // Custom data source (optional)
+    data: [
+        {
+            title: 'Getting Started',
+            content: 'Learn how to install...',
+            category: 'Guides',
+            url: '#getting-started'
+        },
+        // ... more items
+    ],
+    
+    // Callbacks
+    onSelect: (item) => {
+        console.log('Selected:', item);
+        window.location.hash = item.url;
+    },
+    onSearch: (query, results) => {
+        console.log(`Found ${results.length} results`);
+    },
+    onOpen: () => console.log('Search opened'),
+    onClose: () => console.log('Search closed')
+});</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Configuration Options</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Option</th>
+                                                        <th>Default</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><code>inputSelector</code></td>
+                                                        <td><code>.doc-search-input</code></td>
+                                                        <td>Search input element selector</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>resultsSelector</code></td>
+                                                        <td><code>.doc-search-results</code></td>
+                                                        <td>Results container selector</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>data</code></td>
+                                                        <td><code>null</code></td>
+                                                        <td>Custom data array (auto-indexes DOM if null)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>debounceMs</code></td>
+                                                        <td><code>150</code></td>
+                                                        <td>Debounce delay in milliseconds</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>maxResults</code></td>
+                                                        <td><code>20</code></td>
+                                                        <td>Maximum results to display</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><code>minQueryLength</code></td>
+                                                        <td><code>2</code></td>
+                                                        <td>Minimum characters to trigger search</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>JavaScript API</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>// Access the default instance
+const search = DocSearch;
+
+// Or create a custom instance
+const search = Search.create({ /* options */ });
+
+// Methods
+search.open();           // Open/focus search
+search.close();          // Close results
+search.clear();          // Clear input and results
+search.destroy();        // Remove all event listeners
+
+// Update search index (after DOM changes)
+search.reindex();
+
+// Search programmatically
+search.search('query');
+
+// Get current state
+const isOpen = search.isOpen;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Category Icons</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Customize icons for each category:</p>
+                                        <pre class="code-example"><code>const search = Search.create({
+    categoryIcons: {
+        'Getting Started': 'ph-rocket',
+        'Components': 'ph-cube',
+        'API': 'ph-code',
+        'Guides': 'ph-book-open',
+        'default': 'ph-file-text'
+    }
+});</code></pre>
+                                        <p class="vd-mt-5 vd-text-sm vd-text-muted">Icons use Phosphor Icons classes.
+                                            The
+                                            <code>default</code> key is used for categories without a specific icon.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Customization</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p>Override CSS variables to customize the appearance:</p>
+                                        <pre class="code-example"><code>.vd-doc-search {
+    /* Input styling */
+    --vd-doc-search-input-bg: var(--vd-bg-secondary);
+    --vd-doc-search-input-border: var(--vd-border-color);
+    --vd-doc-search-input-radius: var(--vd-btn-border-radius);
+    
+    /* Results panel */
+    --vd-doc-search-results-bg: var(--vd-bg-primary);
+    --vd-doc-search-results-shadow: var(--vd-shadow-lg);
+    --vd-doc-search-results-max-height: 400px;
+    
+    /* Result items */
+    --vd-doc-search-item-hover-bg: var(--vd-bg-secondary);
+    --vd-doc-search-highlight-bg: rgba(var(--vd-color-primary-rgb), 0.2);
+    --vd-doc-search-highlight-color: var(--vd-color-primary);
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Keyboard Shortcuts</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Key</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><kbd>⌘K</kbd> / <kbd>Ctrl+K</kbd></td>
+                                                        <td>Focus search input</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><kbd>↑</kbd> / <kbd>↓</kbd></td>
+                                                        <td>Navigate through results</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><kbd>Enter</kbd></td>
+                                                        <td>Select highlighted result</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><kbd>Escape</kbd></td>
+                                                        <td>Close results / clear input</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

@@ -1,0 +1,55 @@
+                    <section id="breaking-changes">
+                        <h2 class="demo-title"><i class="ph ph-warning-circle"></i>Breaking Changes</h2>
+
+                        <div class="vd-card vd-card-glow demo-card">
+                            <div class="vd-card-header">
+                                <h3>Summary of Breaking Changes in v1.1.0</h3>
+                            </div>
+                            <div class="vd-card-body">
+                                <div class="table-responsive">
+                                    <table class="comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Change</th>
+                                                <th>v1.0.x</th>
+                                                <th>v1.1.0</th>
+                                                <th>Impact</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>CSS Classes</td>
+                                                <td><code>.btn</code>, <code>.card</code></td>
+                                                <td><code>.vd-btn</code>, <code>.vd-card</code></td>
+                                                <td>High — All HTML needs updating</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CSS Variables</td>
+                                                <td><code>--color-primary</code></td>
+                                                <td><code>--vd-color-primary</code></td>
+                                                <td>Medium — Custom CSS needs updating</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Initialization</td>
+                                                <td>Auto-init on page load</td>
+                                                <td>Manual <code>Vanduo.init()</code></td>
+                                                <td>High — JS code needs updating</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Module Format</td>
+                                                <td>IIFE only</td>
+                                                <td>IIFE, ESM, CJS</td>
+                                                <td>Low — Backward compatible</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lifecycle</td>
+                                                <td>No cleanup API</td>
+                                                <td><code>Vanduo.destroyAll()</code></td>
+                                                <td>Low — New feature</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

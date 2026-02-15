@@ -225,6 +225,104 @@
     <main id="main-content" style="padding: 3rem 0;">
         <div class="vd-container-responsive" style="max-width: 900px;">
 
+            <!-- Version 1.1.5 -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.5</span>
+                    <span style="color: var(--text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>February 15, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="change-category">
+                        <h4 style="color: var(--color-primary);">
+                            <i class="ph ph-cube"></i> Framework Changes
+                        </h4>
+                        <ul class="change-list">
+                            <li class="change-item">
+                                <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                <div>
+                                    <strong>New: Quad-Spinner Loader component</strong>
+                                    <p><code>.vd-dynamic-loader</code>, <code>.vd-dynamic-loader-grid</code>, <code>.vd-dynamic-loader-text</code> added to <code>spinner.css</code>. Skeleton card overlay variant via <code>.vd-dynamic-loader-card</code>.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Improvement: Ubuntu as default font</strong>
+                                    <p>Theme customizer <code>DEFAULTS.FONT</code> changed from <code>jetbrains-mono</code> to <code>ubuntu</code>.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Improvement: Per-section icons in search</strong>
+                                    <p><code>doc-search.js</code> <code>buildIndex()</code> now extracts icons from section headings (DOM path) or custom data <code>icon</code> field. Search results prefer per-item icon over category fallback.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                <div>
+                                    <strong>Fix: Search.create() auto-initialization</strong>
+                                    <p><code>Search.create()</code> now calls <code>.init()</code> on the returned instance automatically.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="change-category">
+                        <h4 style="color: var(--color-info);">
+                            <i class="ph ph-book-open-text"></i> Documentation Changes
+                        </h4>
+                        <ul class="change-list">
+                            <li class="change-item">
+                                <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                <div>
+                                    <strong>New: Dynamic Web tab</strong>
+                                    <p>Third documentation tab with SPA-like lazy loading. Sections load on demand via <code>sections.json</code> registry. Client-side routing, scroll-spy, and skeleton+quad-spinner loading placeholder.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                <div>
+                                    <strong>New: 24 additional section fragments</strong>
+                                    <p>All documentation and concepts sections extracted as lazy-loadable HTML fragments (39 total).</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Improvement: Per-section icons in sidebar</strong>
+                                    <p>All three doc pages now show matching icons in sidebar navigation links.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                <div>
+                                    <strong>Improvement: Sidebar text size increased</strong>
+                                    <p><code>.doc-nav-link</code> bumped to <code>0.875rem</code>, <code>.doc-nav-section</code> to <code>0.8125rem</code>, with improved icon spacing.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                <div>
+                                    <strong>Fix: Icon consistency</strong>
+                                    <p>Unified icons across sidebar, search results, and section body headings on all pages. Fixed 7 mismatched icons in <code>sections.json</code>.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                <div>
+                                    <strong>Fix: Section insertion order</strong>
+                                    <p>Dynamic page now inserts loaded sections in registry order using <code>insertBefore</code>, preventing scroll-spy confusion.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
             <!-- Version 1.1.4 -->
             <article class="version-card">
                 <header class="version-header">
@@ -232,7 +330,6 @@
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>February 14, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="change-category">

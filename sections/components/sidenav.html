@@ -1,0 +1,97 @@
+                    <section id="sidenav">
+                        <h2 class="demo-title"><i class="ph ph-sidebar"></i>Sidenav</h2>
+                        <p class="vd-mb-8">Create overlay, push, or fixed side drawers with canonical
+                            <code>vd-sidenav-*</code> variants.
+                        </p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Basic Structure</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;button class="vd-btn vd-btn-primary" data-sidenav-toggle="#demo-sidenav"&gt;
+  Open Sidenav
+&lt;/button&gt;
+
+&lt;aside class="vd-sidenav vd-sidenav-overlay-variant" id="demo-sidenav"&gt;
+  &lt;div class="vd-sidenav-header"&gt;
+    &lt;h3 class="vd-sidenav-title"&gt;Menu&lt;/h3&gt;
+    &lt;button class="vd-sidenav-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="vd-sidenav-body"&gt;
+    &lt;ul class="vd-sidenav-nav"&gt;
+      &lt;li class="vd-sidenav-item active"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="vd-sidenav-item"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Variants</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Class</th>
+                                                        <th>Purpose</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>.vd-sidenav-right</code></td><td>Open from right side</td></tr>
+                                                    <tr><td><code>.vd-sidenav-push</code></td><td>Push content on desktop</td></tr>
+                                                    <tr><td><code>.vd-sidenav-fixed</code></td><td>Persistent desktop sidebar</td></tr>
+                                                    <tr><td><code>.vd-sidenav-sm</code></td><td>Small width (233px)</td></tr>
+                                                    <tr><td><code>.vd-sidenav-lg</code></td><td>Large width (377px)</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-4">Runtime state classes:
+                                            <code>.is-open</code> on sidenav and <code>.body-sidenav-open</code> on body.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--sidenav-width</code></td><td><code>233px</code></td></tr>
+                                                    <tr><td><code>--sidenav-width-lg</code></td><td><code>377px</code></td></tr>
+                                                    <tr><td><code>--sidenav-bg</code></td><td><code>var(--color-white)</code></td></tr>
+                                                    <tr><td><code>--sidenav-overlay-bg</code></td><td><code>rgba(0, 0, 0, 0.5)</code></td></tr>
+                                                    <tr><td><code>--sidenav-z-index</code></td><td><code>1040</code></td></tr>
+                                                    <tr><td><code>--sidenav-overlay-z-index</code></td><td><code>1030</code></td></tr>
+                                                    <tr><td><code>--sidenav-transition</code></td><td><code>transform var(--transition-duration-slow) var(--transition-ease)</code></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Section -->

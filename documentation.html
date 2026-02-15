@@ -265,7 +265,7 @@
         }
 
         .doc-nav-section {
-            font-size: var(--font-size-xs);
+            font-size: 0.8125rem;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -283,7 +283,7 @@
             padding: 0.3125rem 0.8125rem;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: var(--font-size-sm);
+            font-size: 0.875rem;
             border-left: 2px solid transparent;
             transition: all 0.2s ease;
         }
@@ -298,6 +298,8 @@
             border-left-color: var(--color-primary);
             font-weight: 500;
         }
+
+        .doc-nav-link i { font-size: 1.1em; margin-right: 0.375rem; }
 
         /* Mobile sidebar toggle */
         .doc-sidebar-toggle {
@@ -415,6 +417,9 @@
                 <a href="concepts.html" class="doc-tab">
                     <i class="ph ph-lightbulb"></i>Concepts & Architecture
                 </a>
+                <a href="dynamic.html" class="doc-tab">
+                    <i class="ph ph-lightning"></i>Dynamic Web
+                </a>
             </div>
 
             <div class="vd-row">
@@ -437,48 +442,48 @@
                     <nav class="doc-nav" aria-label="Documentation sections">
                         <ul class="doc-nav-list">
                             <li class="doc-nav-section">Getting Started</li>
-                            <li><a href="#getting-started" class="doc-nav-link active">Quick Start</a></li>
+                            <li><a href="#getting-started" class="doc-nav-link active"><i class="ph ph-rocket-launch mr-2"></i>Quick Start</a></li>
 
                             <li class="doc-nav-section">Core</li>
-                            <li><a href="#icons" class="doc-nav-link">Icons</a></li>
-                            <li><a href="#color-palette" class="doc-nav-link">Color Palette</a></li>
-                            <li><a href="#typography" class="doc-nav-link">Typography</a></li>
-                            <li><a href="#grid-system" class="doc-nav-link">Grid System</a></li>
-                            <li><a href="#golden-ratio" class="doc-nav-link">Golden Ratio</a></li>
-                            <li><a href="#shadows-glow" class="doc-nav-link">Shadows & Glow</a></li>
+                            <li><a href="#icons" class="doc-nav-link"><i class="ph ph-images mr-2"></i>Icons</a></li>
+                            <li><a href="#color-palette" class="doc-nav-link"><i class="ph ph-palette mr-2"></i>Color Palette</a></li>
+                            <li><a href="#typography" class="doc-nav-link"><i class="ph ph-text-aa mr-2"></i>Typography</a></li>
+                            <li><a href="#grid-system" class="doc-nav-link"><i class="ph ph-grid-four mr-2"></i>Grid System</a></li>
+                            <li><a href="#golden-ratio" class="doc-nav-link"><i class="ph ph-spiral mr-2"></i>Golden Ratio</a></li>
+                            <li><a href="#shadows-glow" class="doc-nav-link"><i class="ph ph-sun mr-2"></i>Shadows & Glow</a></li>
 
                             <li class="doc-nav-section">Components</li>
-                            <li><a href="#theme-customizer" class="doc-nav-link">Theme Customizer</a></li>
-                            <li><a href="#buttons" class="doc-nav-link">Buttons</a></li>
-                            <li><a href="#forms" class="doc-nav-link">Forms</a></li>
-                            <li><a href="#cards" class="doc-nav-link">Cards</a></li>
-                            <li><a href="#navigation" class="doc-nav-link">Navigation</a></li>
-                            <li><a href="#navbar" class="doc-nav-link">Navbar</a></li>
-                            <li><a href="#sidenav" class="doc-nav-link">Sidenav</a></li>
-                            <li><a href="#footer" class="doc-nav-link">Footer</a></li>
+                            <li><a href="#theme-customizer" class="doc-nav-link"><i class="ph ph-paint-roller mr-2"></i>Theme Customizer</a></li>
+                            <li><a href="#buttons" class="doc-nav-link"><i class="ph ph-cursor-click mr-2"></i>Buttons</a></li>
+                            <li><a href="#forms" class="doc-nav-link"><i class="ph ph-textbox mr-2"></i>Forms</a></li>
+                            <li><a href="#cards" class="doc-nav-link"><i class="ph ph-rectangle mr-2"></i>Cards</a></li>
+                            <li><a href="#navigation" class="doc-nav-link"><i class="ph ph-compass mr-2"></i>Navigation</a></li>
+                            <li><a href="#navbar" class="doc-nav-link"><i class="ph ph-list mr-2"></i>Navbar</a></li>
+                            <li><a href="#sidenav" class="doc-nav-link"><i class="ph ph-sidebar mr-2"></i>Sidenav</a></li>
+                            <li><a href="#footer" class="doc-nav-link"><i class="ph ph-layout mr-2"></i>Footer</a></li>
 
                             <li class="doc-nav-section">Interactive</li>
-                            <li><a href="#interactive" class="doc-nav-link">Interactive</a></li>
-                            <li><a href="#tabs" class="doc-nav-link">Tabs</a></li>
-                            <li><a href="#toasts" class="doc-nav-link">Toasts</a></li>
-                            <li><a href="#search" class="doc-nav-link">Search</a></li>
-                            <li><a href="#code-snippet" class="doc-nav-link">Code Snippet</a></li>
+                            <li><a href="#interactive" class="doc-nav-link"><i class="ph ph-hand-pointing mr-2"></i>Interactive</a></li>
+                            <li><a href="#tabs" class="doc-nav-link"><i class="ph ph-tabs mr-2"></i>Tabs</a></li>
+                            <li><a href="#toasts" class="doc-nav-link"><i class="ph ph-bell-ringing mr-2"></i>Toasts</a></li>
+                            <li><a href="#search" class="doc-nav-link"><i class="ph ph-magnifying-glass mr-2"></i>Search</a></li>
+                            <li><a href="#code-snippet" class="doc-nav-link"><i class="ph ph-code-block mr-2"></i>Code Snippet</a></li>
 
                             <li class="doc-nav-section">Data Display</li>
-                            <li><a href="#collections" class="doc-nav-link">Collections</a></li>
-                            <li><a href="#tables" class="doc-nav-link">Tables</a></li>
-                            <li><a href="#badges" class="doc-nav-link">Badges</a></li>
-                            <li><a href="#avatars" class="doc-nav-link">Avatars</a></li>
+                            <li><a href="#collections" class="doc-nav-link"><i class="ph ph-list mr-2"></i>Collections</a></li>
+                            <li><a href="#tables" class="doc-nav-link"><i class="ph ph-table mr-2"></i>Tables</a></li>
+                            <li><a href="#badges" class="doc-nav-link"><i class="ph ph-seal mr-2"></i>Badges</a></li>
+                            <li><a href="#avatars" class="doc-nav-link"><i class="ph ph-user-circle mr-2"></i>Avatars</a></li>
 
                             <li class="doc-nav-section">Feedback</li>
-                            <li><a href="#alerts" class="doc-nav-link">Alerts</a></li>
-                            <li><a href="#chips" class="doc-nav-link">Chips</a></li>
-                            <li><a href="#skeleton" class="doc-nav-link">Skeleton</a></li>
-                            <li><a href="#preloader" class="doc-nav-link">Preloader</a></li>
-                            <li><a href="#button-groups" class="doc-nav-link">Button Groups</a></li>
+                            <li><a href="#alerts" class="doc-nav-link"><i class="ph ph-warning mr-2"></i>Alerts</a></li>
+                            <li><a href="#chips" class="doc-nav-link"><i class="ph ph-tag mr-2"></i>Chips</a></li>
+                            <li><a href="#skeleton" class="doc-nav-link"><i class="ph ph-spinner mr-2"></i>Skeleton</a></li>
+                            <li><a href="#preloader" class="doc-nav-link"><i class="ph ph-circle-notch mr-2"></i>Preloader</a></li>
+                            <li><a href="#button-groups" class="doc-nav-link"><i class="ph ph-squares-four mr-2"></i>Button Groups</a></li>
 
                             <li class="doc-nav-section">Media</li>
-                            <li><a href="#image-box" class="doc-nav-link">Image Box</a></li>
+                            <li><a href="#image-box" class="doc-nav-link"><i class="ph ph-image mr-2"></i>Image Box</a></li>
                         </ul>
                     </nav>
                 </aside>
@@ -487,7 +492,7 @@
                 <div class="vd-col-12 vd-col-lg-9 doc-content">
                     <section id="getting-started">
                         <h2 class="demo-title"><i class="ph ph-rocket-launch"></i>Getting Started <code
-                            class="vd-text-sm">v1.1.4</code></h2>
+                            class="vd-text-sm">v1.1.5</code></h2>
 
                         <div class="vd-row">
                             <div class="vd-col-12 vd-mb-4">
@@ -507,7 +512,7 @@
 &lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> Pin to a
                                             version for
-                                            production:<br><code>@v1.1.4</code> instead of <code>@main</code></p>
+                                            production:<br><code>@v1.1.5</code> instead of <code>@main</code></p>
                                     </div>
                                 </div>
                             </div>
@@ -5105,6 +5110,111 @@ CodeSnippet.showLang(el, 'js');</code></pre>
                                         <div class="vd-spinner vd-spinner-warning vd-mr-3"></div>
                                         <div class="vd-spinner vd-spinner-error vd-mr-3"></div>
                                         <div class="vd-spinner vd-spinner-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Quad-Spinner Loader</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-3">The signature Vanduo Docs loader — four colored spinners arranged in a 2&times;2 grid with desynchronized animation. Used as the default loading indicator throughout the documentation.</p>
+                                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; gap: 1rem; border: 1px solid var(--border-color); border-radius: var(--btn-border-radius);">
+                                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                                <div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"></div>
+                                                <div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"></div>
+                                                <div class="vd-spinner vd-spinner-sm vd-spinner-error" style="animation-delay: -0.3s;"></div>
+                                                <div class="vd-spinner vd-spinner-sm vd-spinner-info" style="animation-delay: -0.45s;"></div>
+                                            </div>
+                                            <span style="color: var(--text-muted); font-size: var(--font-size-sm);">Loading section...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Quad-Spinner with Skeleton</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-3">Combine with skeleton cards for rich content placeholders. The spinner overlays the skeleton to indicate active loading.</p>
+                                        <div style="position: relative; min-height: 200px; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--btn-border-radius); overflow: hidden;">
+                                            <div class="vd-skeleton vd-skeleton-heading-lg" style="margin-bottom: 1rem;"></div>
+                                            <div class="vd-skeleton vd-skeleton-paragraph">
+                                                <div class="vd-skeleton vd-skeleton-text"></div>
+                                                <div class="vd-skeleton vd-skeleton-text"></div>
+                                                <div class="vd-skeleton vd-skeleton-text"></div>
+                                            </div>
+                                            <div style="margin-top: 1rem;"></div>
+                                            <div class="vd-skeleton vd-skeleton-rect-sm"></div>
+                                            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;">
+                                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                                    <div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"></div>
+                                                    <div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"></div>
+                                                    <div class="vd-spinner vd-spinner-sm vd-spinner-error" style="animation-delay: -0.3s;"></div>
+                                                    <div class="vd-spinner vd-spinner-sm vd-spinner-info" style="animation-delay: -0.45s;"></div>
+                                                </div>
+                                                <span style="color: var(--text-muted); font-size: var(--font-size-sm);">Loading section...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Quad-Spinner Usage</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;!-- Standalone Quad-Spinner Loader --&gt;
+&lt;div class="vd-dynamic-loader"&gt;
+  &lt;div class="vd-dynamic-loader-grid"&gt;
+    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"&gt;&lt;/div&gt;
+    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"&gt;&lt;/div&gt;
+    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-error"   style="animation-delay: -0.3s;"&gt;&lt;/div&gt;
+    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-info"    style="animation-delay: -0.45s;"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="vd-dynamic-loader-text"&gt;Loading section...&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Required CSS (add to your stylesheet or &lt;style&gt; block) --&gt;
+&lt;style&gt;
+.vd-dynamic-loader {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 4rem 1rem; gap: 1rem;
+}
+.vd-dynamic-loader-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+}
+.vd-dynamic-loader-text {
+  color: var(--text-muted); font-size: var(--font-size-sm);
+}
+&lt;/style&gt;
+
+&lt;!-- Overlay on Skeleton Card (for lazy-loaded content) --&gt;
+&lt;div class="vd-skeleton-card" style="position: relative; min-height: 300px; padding: 2rem; overflow: hidden;"&gt;
+  &lt;div class="vd-skeleton vd-skeleton-heading-lg"&gt;&lt;/div&gt;
+  &lt;div class="vd-skeleton vd-skeleton-paragraph"&gt;
+    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
+    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
+    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Spinner overlay --&gt;
+  &lt;div class="vd-dynamic-loader" style="position: absolute; inset: 0;"&gt;
+    &lt;div class="vd-dynamic-loader-grid"&gt;...spinners...&lt;/div&gt;
+    &lt;span class="vd-dynamic-loader-text"&gt;Loading...&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> The negative <code>animation-delay</code> values desynchronize each spinner, creating the signature "quad" effect. Adjust the delay values to change the visual rhythm.</p>
                                     </div>
                                 </div>
                             </div>

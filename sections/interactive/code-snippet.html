@@ -1,0 +1,94 @@
+                    <section id="code-snippet">
+                        <h2 class="demo-title"><i class="ph ph-code-block"></i>Code Snippet</h2>
+                        <p class="vd-mb-8">Display collapsible, copyable, syntax-highlighted code with optional language
+                            tabs and line numbers.</p>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Base Markup</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <pre class="code-example"><code>&lt;div class="vd-code-snippet" data-collapsible&gt;
+  &lt;button class="vd-code-snippet-toggle" aria-expanded="false"&gt;
+    &lt;span class="vd-code-snippet-toggle-icon"&gt;&lt;/span&gt;
+    &lt;span&gt;View Code&lt;/span&gt;
+  &lt;/button&gt;
+
+  &lt;div class="vd-code-snippet-content"&gt;
+    &lt;div class="vd-code-snippet-header"&gt;
+      &lt;div class="vd-code-snippet-tabs" role="tablist"&gt;
+        &lt;button class="vd-code-snippet-tab is-active" data-lang="html"&gt;HTML&lt;/button&gt;
+        &lt;button class="vd-code-snippet-tab" data-lang="css"&gt;CSS&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;button class="vd-code-snippet-copy" aria-label="Copy code"&gt;...&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="vd-code-snippet-body"&gt;
+      &lt;pre class="vd-code-snippet-pane is-active" data-lang="html"&gt;...&lt;/pre&gt;
+      &lt;pre class="vd-code-snippet-pane" data-lang="css"&gt;...&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vd-col-12 vd-col-md-6">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Options & API</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <ul>
+                                            <li><code>data-collapsible</code>: enables toggle behavior</li>
+                                            <li><code>data-expanded="true"</code>: expanded snippet state</li>
+                                            <li><code>data-visible="true"</code>: content visibility state</li>
+                                            <li><code>data-extract="#selector"</code>: extract HTML from page element</li>
+                                            <li><code>.has-line-numbers</code>: add line numbers column</li>
+                                            <li><code>.vd-code-snippet-single</code>, <code>.vd-code-snippet-inline</code>,
+                                                <code>.vd-code-snippet-compact</code>: display variants
+                                            </li>
+                                        </ul>
+                                        <pre class="code-example"><code>// Programmatic control
+CodeSnippet.expand(el);
+CodeSnippet.collapse(el);
+CodeSnippet.showLang(el, 'js');</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>CSS Variables</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Variable</th>
+                                                        <th>Default</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td><code>--code-padding-x</code></td><td><code>1.3125rem</code></td></tr>
+                                                    <tr><td><code>--code-padding-y</code></td><td><code>0.8125rem</code></td></tr>
+                                                    <tr><td><code>--code-line-height</code></td><td><code>1.618</code></td></tr>
+                                                    <tr><td><code>--code-tab-active</code></td><td><code>var(--color-primary)</code></td></tr>
+                                                    <tr><td><code>--code-copy-success</code></td><td><code>var(--color-success)</code></td></tr>
+                                                    <tr><td><code>--code-line-highlight</code></td><td><code>rgba(59, 130, 246, 0.1)</code></td></tr>
+                                                    <tr><td><code>--code-tag</code>, <code>--code-attr</code>, <code>--code-string</code>, <code>--code-comment</code></td><td>HTML syntax colors</td></tr>
+                                                    <tr><td><code>--code-selector</code>, <code>--code-property</code>, <code>--code-value</code>, <code>--code-unit</code></td><td>CSS syntax colors</td></tr>
+                                                    <tr><td><code>--code-keyword</code>, <code>--code-function</code>, <code>--code-number</code>, <code>--code-operator</code>, <code>--code-punctuation</code></td><td>JS syntax colors</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

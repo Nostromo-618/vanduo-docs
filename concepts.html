@@ -178,7 +178,7 @@
         }
 
         .doc-nav-section {
-            font-size: var(--vd-font-size-xs);
+            font-size: 0.8125rem;
             font-weight: 600;
             color: var(--vd-text-muted);
             text-transform: uppercase;
@@ -196,7 +196,7 @@
             padding: 0.3125rem 0.8125rem;
             color: var(--vd-text-primary);
             text-decoration: none;
-            font-size: var(--vd-font-size-sm);
+            font-size: 0.875rem;
             border-left: 2px solid transparent;
             transition: all 0.2s ease;
         }
@@ -211,6 +211,8 @@
             border-left-color: var(--vd-color-primary);
             font-weight: 500;
         }
+
+        .doc-nav-link i { font-size: 1.1em; margin-right: 0.375rem; }
 
         /* Philosophy cards */
         .philosophy-card {
@@ -365,6 +367,9 @@
                 <a href="concepts.html" class="doc-tab active">
                     <i class="ph ph-lightbulb"></i>Concepts & Architecture
                 </a>
+                <a href="dynamic.html" class="doc-tab">
+                    <i class="ph ph-lightning"></i>Dynamic Web
+                </a>
             </div>
 
             <div class="vd-row">
@@ -387,21 +392,21 @@
                     <nav class="doc-nav" aria-label="Documentation sections">
                         <ul class="doc-nav-list">
                             <li class="doc-nav-section">Overview</li>
-                            <li><a href="#philosophy" class="doc-nav-link active">Philosophy</a></li>
-                            <li><a href="#namespacing" class="doc-nav-link">CSS Namespacing</a></li>
-                            <li><a href="#tokens" class="doc-nav-link">Design Tokens</a></li>
+                            <li><a href="#philosophy" class="doc-nav-link active"><i class="ph ph-heart mr-2"></i>Philosophy</a></li>
+                            <li><a href="#namespacing" class="doc-nav-link"><i class="ph ph-shield mr-2"></i>CSS Namespacing</a></li>
+                            <li><a href="#tokens" class="doc-nav-link"><i class="ph ph-palette mr-2"></i>Design Tokens</a></li>
 
                             <li class="doc-nav-section">Architecture</li>
-                            <li><a href="#lifecycle" class="doc-nav-link">Lifecycle Management</a></li>
-                            <li><a href="#modules" class="doc-nav-link">Module Formats</a></li>
+                            <li><a href="#lifecycle" class="doc-nav-link"><i class="ph ph-arrows-clockwise mr-2"></i>Lifecycle Management</a></li>
+                            <li><a href="#modules" class="doc-nav-link"><i class="ph ph-package mr-2"></i>Module Formats</a></li>
 
                             <li class="doc-nav-section">Migration</li>
-                            <li><a href="#migration" class="doc-nav-link">Migration Guide</a></li>
-                            <li><a href="#breaking-changes" class="doc-nav-link">Breaking Changes</a></li>
+                            <li><a href="#migration" class="doc-nav-link"><i class="ph ph-arrow-right mr-2"></i>Migration Guide</a></li>
+                            <li><a href="#breaking-changes" class="doc-nav-link"><i class="ph ph-warning-circle mr-2"></i>Breaking Changes</a></li>
 
                             <li class="doc-nav-section">Reference</li>
-                            <li><a href="#class-prefixes" class="doc-nav-link">Class Prefixes</a></li>
-                            <li><a href="#token-reference" class="doc-nav-link">Token Reference</a></li>
+                            <li><a href="#class-prefixes" class="doc-nav-link"><i class="ph ph-list-dashes mr-2"></i>Class Prefixes</a></li>
+                            <li><a href="#token-reference" class="doc-nav-link"><i class="ph ph-tokens mr-2"></i>Token Reference</a></li>
                         </ul>
                     </nav>
                 </aside>
