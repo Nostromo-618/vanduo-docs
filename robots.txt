@@ -7,5 +7,5 @@ Allow: /
 # Sitemap location
 Sitemap: https://vanduo.dev/sitemap.xml
 
-# Disallow crawling of development utilities
-
+# Disallow crawling of development utilities and section fragments
+Disallow: /sections/
