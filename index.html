@@ -59,308 +59,258 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-            "softwareVersion": "1.1.5",
+      "softwareVersion": "1.1.5",
       "license": "https://opensource.org/licenses/MIT",
       "programmingLanguage": ["HTML", "CSS", "JavaScript"]
     }
     </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://vanduo.dev/"
-        }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Vanduo Framework",
-      "url": "https://vanduo.dev/",
-      "logo": "https://vanduo.dev/images/logo.png",
-      "description": "Essential just like Water is. Pure HTML, CSS, JS framework for beautiful static websites.",
-      "foundingLocation": {
-        "@type": "Country",
-        "name": "Lithuania"
-      }
-    }
-    </script>
-
     <style>
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Add space to the left of navbar brand */
-        .vd-navbar-brand {
-            margin-left: 1rem;
-        }
-
-        /* Skip to content link for accessibility */
+        /* ── Global ─────────────────────────────────────── */
+        html { scroll-behavior: smooth; overscroll-behavior-y: none; background-color: var(--bg-primary); }
+        body { overscroll-behavior-y: none; }
+        .vd-navbar-brand { margin-left: 1rem; }
         .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--vd-color-primary);
-            color: var(--vd-color-white);
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
+            position: absolute; top: -40px; left: 0;
+            background: var(--color-primary); color: var(--color-white);
+            padding: 8px; text-decoration: none; z-index: 100;
         }
+        .skip-link:focus { top: 0; }
+        .vd-tooltip:not(.is-visible) { display: none !important; }
 
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Icons section */
-        .icons-section-title,
-        .icons-section-subtitle {
-            text-align: center;
-        }
-
-        .icons-card {
-            padding: 2rem;
-        }
-
-        .icons-weights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .icons-weight-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .icons-weight-item i {
-            font-size: 48px;
-        }
-
-        .icons-sample-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 900px;
-        }
-
-        .icons-footer {
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-
-        /* Open Color section */
-        .open-color-title,
-        .open-color-subtitle {
-            text-align: center;
-        }
-
-        .open-color-card {
-            padding: 2rem;
-        }
-
-        .open-color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-        }
-
-        .open-color-swatch {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 64px;
-            border-radius: var(--vd-btn-border-radius);
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--vd-color-white);
-            letter-spacing: 0.02em;
-        }
-
-        .open-color-swatch.is-light {
-            color: var(--vd-color-gray-900);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .open-color-footer {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-
-        /* Section spacing */
+        /* ── Docs layout ────────────────────────────────── */
         section {
-            padding: 4rem 0;
-            scroll-margin-top: 80px;
+            padding: 4rem 0; scroll-margin-top: 80px;
+            border-bottom: 1px solid var(--border-color);
         }
-
-        section:first-of-type {
-            padding-top: 2rem;
+        section:first-of-type { padding-top: 2rem; }
+        section:last-of-type { border-bottom: none; padding-bottom: 0; }
+        .demo-card { margin-bottom: 2rem; }
+        .demo-title {
+            display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-primary);
+            font-size: 1.75rem; color: var(--color-primary);
         }
-
-        /* Hero section */
-        section.hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 233px;
-            padding-bottom: 89px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-            margin: 0 auto;
-        }
-
-        /* Hero spacing: more room between tagline, description, and buttons */
-        .hero-content .vd-text-lg.vd-text-muted {
-            margin-bottom: 3rem !important;
-        }
-        .hero-content .vd-mt-6 {
-            margin-top: 2.5rem;
-        }
-
-        /* Component demo cards */
-        .demo-card {
-            margin-bottom: 2rem;
-        }
-
-        /* Code examples */
+        .demo-card .vd-card-header h3, .demo-card .vd-card-body h3,
+        .demo-card .vd-card-body h4, .vd-footer h4 { color: var(--color-primary); }
+        .demo-title i { font-size: 1.25em; color: var(--color-primary); }
+        .demo-title code { font-size: 0.5em; vertical-align: middle; margin-left: auto; }
         .code-example {
-            background: var(--vd-bg-secondary);
-            padding: 1rem;
-            border-radius: var(--vd-btn-border-radius);
-            margin-top: 1rem;
-            font-family: var(--vd-font-family-mono);
-            font-size: var(--vd-font-size-sm);
-            overflow-x: auto;
+            background: var(--bg-secondary); padding: 1rem; border-radius: var(--btn-border-radius);
+            margin-top: 1rem; font-family: var(--font-family-mono);
+            font-size: var(--font-size-sm); overflow-x: auto;
         }
 
-        /* Feature icons */
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--vd-color-primary);
-            margin-bottom: 1rem;
+        /* ── Sidebar ────────────────────────────────────── */
+        .doc-sidebar {
+            position: sticky; top: 70px; height: calc(100vh - 80px);
+            overflow: visible; padding-right: 1rem; border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
         }
-
-        /* Philosophy cards: equal vertical and horizontal gap */
-        #philosophy .philosophy-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--grid-gutter);
-            margin-left: 0;
-            margin-right: 0;
+        .doc-sidebar .vd-doc-search {
+            flex-shrink: 0; position: sticky; top: 70px; z-index: 2;
+            background: var(--bg-primary); padding-top: 0.5rem; padding-bottom: 0.5rem;
         }
-
-        #philosophy .philosophy-cards>* {
-            padding-left: 0;
-            padding-right: 0;
-            margin-bottom: 0;
-            min-width: 0;
-            width: auto;
+        .doc-sidebar .doc-nav { overflow-y: auto; flex: 1; }
+        .doc-nav-list { list-style: none; padding: 0; margin: 0; }
+        .doc-nav-section {
+            font-size: 0.8125rem; font-weight: 600; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 0.5rem 0.8125rem; margin-top: 1rem;
         }
-
-        @media (min-width: 768px) {
-            #philosophy .philosophy-cards {
-                grid-template-columns: repeat(2, 1fr);
+        .doc-nav-section:first-child { margin-top: 0; }
+        .doc-nav-link {
+            display: block; padding: 0.3125rem 0.8125rem; color: var(--text-primary);
+            text-decoration: none; font-size: 0.875rem;
+            border-left: 2px solid transparent; transition: all 0.2s ease;
+        }
+        .doc-nav-link:hover { color: var(--color-primary); background-color: var(--bg-secondary); }
+        .doc-nav-link.active { color: var(--color-primary); border-left-color: var(--color-primary); font-weight: 500; }
+        .doc-nav-link i { font-size: 1.1em; margin-right: 0.375rem; }
+        @media (max-width: 991px) {
+            .doc-sidebar {
+                position: sticky; top: 70px; height: auto; max-height: calc(100vh - 80px);
+                overflow: visible; display: flex; flex-direction: column;
+                border-right: none; padding-right: 0; margin-bottom: 2rem;
+                background: var(--bg-primary); z-index: 10;
             }
+            .doc-sidebar .vd-doc-search {
+                flex-shrink: 0; position: sticky; top: 70px; z-index: 2;
+                background: var(--bg-primary); padding-top: 0.5rem; padding-bottom: 0.5rem;
+            }
+            .doc-nav { display: none; overflow-y: auto; flex: 1; max-height: calc(100vh - 200px); }
+            .doc-nav.is-open { display: block; }
         }
 
+        /* ── Footer tweaks ──────────────────────────────── */
+        .vd-footer { padding: var(--footer-padding-y-sm) var(--footer-padding-x) 0; }
+        .vd-footer-made-with { margin-top: 1rem; padding: 1rem 0; }
+        .vd-footer-bottom { padding: 0.75rem 0 1rem; }
+
+        /* ── Home: Hero ─────────────────────────────────── */
+        .hero-content {
+            position: relative; z-index: 2; max-width: 800px;
+            padding: 2rem; margin: 0 auto;
+        }
+        .hero-content .vd-text-lg.vd-text-muted { margin-bottom: 3rem !important; }
+        .hero-content .vd-mt-6 { margin-top: 2.5rem; }
+        .feature-icon { font-size: 2.5rem; color: var(--vd-color-primary); margin-bottom: 1rem; }
+
+        /* Home: icons section */
+        .icons-section-title, .icons-section-subtitle { text-align: center; }
+        .icons-card { padding: 2rem; }
+        .icons-weights {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .icons-weight-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .icons-weight-item i { font-size: 48px; }
+        .icons-sample-row {
+            display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center;
+            justify-content: center; font-size: 32px; margin: 0 auto; max-width: 900px;
+        }
+        .icons-footer { margin-top: 2.5rem; text-align: center; }
+
+        /* Home: Open Color section */
+        .open-color-title, .open-color-subtitle { text-align: center; }
+        .open-color-card { padding: 2rem; }
+        .open-color-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;
+        }
+        .open-color-swatch {
+            display: flex; align-items: center; justify-content: center; height: 64px;
+            border-radius: var(--vd-btn-border-radius); font-size: 0.875rem;
+            font-weight: 600; color: var(--vd-color-white); letter-spacing: 0.02em;
+        }
+        .open-color-swatch.is-light { color: var(--vd-color-gray-900); border: 1px solid rgba(255,255,255,0.1); }
+        .open-color-footer { margin-top: 1.5rem; text-align: center; }
+
+        /* Home: Philosophy cards */
+        #philosophy .philosophy-cards,
+        #home #philosophy .philosophy-cards {
+            display: grid; grid-template-columns: 1fr; gap: var(--grid-gutter);
+            margin-left: 0; margin-right: 0;
+        }
+        #philosophy .philosophy-cards > *,
+        #home #philosophy .philosophy-cards > * {
+            padding-left: 0; padding-right: 0; margin-bottom: 0; min-width: 0; width: auto;
+        }
+        @media (min-width: 768px) {
+            #philosophy .philosophy-cards,
+            #home #philosophy .philosophy-cards { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (min-width: 992px) {
-            #philosophy .philosophy-cards {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            #philosophy .philosophy-cards,
+            #home #philosophy .philosophy-cards { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* What's New cards: equal vertical/horizontal gap, equal height */
+        /* Home: What's New cards */
         #whats-new .whats-new-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--grid-gutter);
-            margin-left: 0;
-            margin-right: 0;
+            display: grid; grid-template-columns: 1fr; gap: var(--grid-gutter);
+            margin-left: 0; margin-right: 0;
         }
-
-        #whats-new .whats-new-cards>* {
-            padding-left: 0;
-            padding-right: 0;
-            margin-bottom: 0;
-            min-width: 0;
-            width: auto;
+        #whats-new .whats-new-cards > * {
+            padding-left: 0; padding-right: 0; margin-bottom: 0; min-width: 0; width: auto;
         }
-
         #whats-new .whats-new-cards .demo-card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            height: 100%; display: flex; flex-direction: column;
         }
-
         #whats-new .whats-new-cards .demo-card .vd-card-body {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+            flex: 1; display: flex; flex-direction: column;
         }
-
-        #whats-new .vd-card-header h3 {
-            text-align: center;
-        }
-
+        #whats-new .vd-card-header h3 { text-align: center; }
         @media (min-width: 768px) {
-            #whats-new .whats-new-cards {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 1fr;
-            }
+            #whats-new .whats-new-cards { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; }
         }
+
+        /* ── About page styles ──────────────────────────── */
+        .about-header {
+            padding: 144px 0 55px; text-align: center;
+            background: linear-gradient(135deg, var(--color-primary-alpha-10), var(--color-info-alpha-10));
+        }
+        .about-header h1 { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .about-section { padding: 4rem 0; }
+        .about-section + .about-section { border-top: 1px solid var(--border-color); }
+        .about-card {
+            display: flex; flex-direction: column; min-height: 200px;
+        }
+        .about-card .vd-card-body {
+            flex: 1; display: flex; flex-direction: column; gap: 0.75rem; padding: 2rem;
+        }
+        .about-card .vd-card-body h3 { color: var(--color-primary); }
+        .about-card .vd-card-body p { margin: 0; color: var(--text-secondary); }
+        .about-card.aspect-golden { aspect-ratio: auto; min-height: 280px; }
+        .about-golden-stack { display: grid; gap: var(--grid-gutter); min-width: 0; }
+        .about-card-align-end { grid-column: 2; }
+        @media (max-width: 767.98px) { .about-card-align-end { grid-column: auto; } }
+        .about-split { display: grid; gap: var(--grid-gutter); align-items: start; }
+        .about-split > * { min-width: 0; }
+        .about-support-card {
+            padding: 2.5rem; display: flex; flex-direction: column;
+            align-items: center; text-align: center; gap: 1rem;
+        }
+        .about-support-card p { max-width: 720px; margin: 0; color: var(--text-secondary); }
+
+        /* ── Changelog page styles ──────────────────────── */
+        .changelog-header {
+            padding: 144px 0 55px; text-align: center;
+            background: linear-gradient(135deg, var(--color-primary-alpha-10), var(--color-info-alpha-10));
+        }
+        .changelog-header h1 { display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .version-card {
+            margin-bottom: 2rem; border: 1px solid var(--border-color);
+            border-radius: var(--card-border-radius); overflow: hidden;
+        }
+        .version-header {
+            padding: 1.25rem 1.5rem; display: flex; align-items: center;
+            gap: 1rem; flex-wrap: wrap;
+            background: linear-gradient(135deg, var(--color-primary-alpha-10), var(--color-info-alpha-10));
+        }
+        .version-body { padding: 1.5rem; }
+        .change-category { margin-bottom: 1.5rem; }
+        .change-category:last-child { margin-bottom: 0; }
+        .change-category h4 {
+            display: flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 1rem; font-size: 1.1rem;
+        }
+        .change-list { list-style: none; padding: 0; margin: 0; }
+        .change-item {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);
+        }
+        .change-item:last-child { border-bottom: none; }
+        .change-item i { margin-top: 0.2rem; flex-shrink: 0; }
+        .change-item strong { display: block; margin-bottom: 0.25rem; }
+        .change-item p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+        .version-initial {
+            background: linear-gradient(135deg, var(--color-success-alpha-10), var(--color-primary-alpha-10));
+        }
+
+        /* ── View visibility ────────────────────────────── */
+        #docs-view { display: none; }
+        #page-view { display: none; }
+        #docs-view.is-active { display: block; }
+        #page-view.is-active { display: block; }
     </style>
 </head>
 
 <body>
-    <!-- Skip to content link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navbar -->
+    <!-- ── Navbar ──────────────────────────────────────── -->
     <nav class="vd-navbar vd-navbar-fixed">
         <div class="vd-navbar-container">
             <div class="vd-navbar-brand">
-                <a href="index.html"><i class="ph-fill ph-drop"
-                        style="color: var(--vd-color-primary); margin-right: 0.25em;"></i>Vanduo</a>
+                <a href="#home" data-route="home"><i class="ph-fill ph-drop" style="color: var(--vd-color-primary); margin-right: 0.25em;"></i>Vanduo</a>
             </div>
-            <button class="vd-navbar-toggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
+            <button class="vd-navbar-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
             <div class="vd-navbar-menu">
                 <ul class="vd-navbar-nav">
-                    <li><a href="index.html" class="vd-nav-link active">Home</a></li>
-                    <li><a href="documentation.html" class="vd-nav-link">Documentation</a></li>
-                    <li><a href="changelog.html" class="vd-nav-link">Changelog</a></li>
-                    <li><a href="about.html" class="vd-nav-link">About</a></li>
+                    <li><a href="#home" class="vd-nav-link" data-route="home">Home</a></li>
+                    <li><a href="#docs" class="vd-nav-link" data-route="docs">Documentation</a></li>
+                    <li><a href="#changelog" class="vd-nav-link" data-route="changelog">Changelog</a></li>
+                    <li><a href="#about" class="vd-nav-link" data-route="about">About</a></li>
                 </ul>
-
-                <!-- Theme Customizer Trigger (far right) -->
                 <button class="vd-theme-customizer-trigger" data-theme-customizer-trigger
                     aria-label="Open theme customizer" style="margin-left: auto;">
                     <i class="ph ph-paint-roller"></i>
@@ -369,274 +319,500 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero vd-parallax">
-        <div class="vd-parallax-layer" data-speed="0.5"></div>
-        <div class="vd-parallax-content hero-content">
-            <h1 style="color: var(--color-primary);"><i class="ph-fill ph-drop" style="color: var(--color-primary); margin-right: 0.15em;"></i>Vanduo
-                Framework</h1>
-            <p class="vd-text-lg vd-text-muted vd-mb-16">Essential just like water is.</p>
-            <p class="vd-mb-6">Pure HTML, CSS, JS framework for designing beautiful static websites. No dependencies, no
-                build tools,
-                just clean and simple code.</p>
-            <div class="vd-mt-6">
-                <a href="documentation.html" class="vd-btn vd-btn-outline vd-btn-lg">Get Started</a>
-                <a href="https://github.com/Nostromo-618/vanduo-framework"
-                    class="vd-btn vd-btn-outline vd-btn-lg vd-ml-6">GitHub</a>
+    <!-- ── Main Content Area ──────────────────────────── -->
+    <main id="main-content" style="padding-top: 80px;">
+
+        <!-- Page view (Home / About / Changelog) -->
+        <div id="page-view"></div>
+
+        <!-- Docs view (Components / Concepts tabs) -->
+        <div id="docs-view">
+            <div class="vd-container-responsive">
+                <div class="doc-tabs">
+                    <a href="#docs" class="doc-tab" data-tab="components"><i class="ph ph-cube"></i>Components</a>
+                    <a href="#docs/concepts" class="doc-tab" data-tab="concepts"><i class="ph ph-lightbulb"></i>Concepts &amp; Architecture</a>
+                </div>
+
+                <div class="vd-row">
+                    <aside class="vd-col-12 vd-col-lg-3 doc-sidebar">
+                        <div class="vd-doc-search">
+                            <div class="vd-doc-search-input-wrapper">
+                                <i class="ph ph-magnifying-glass vd-doc-search-icon"></i>
+                                <input type="search" class="vd-doc-search-input" placeholder="Search docs..."
+                                    aria-label="Search documentation" aria-controls="doc-search-results-list"
+                                    aria-expanded="false" autocomplete="off">
+                                <kbd class="vd-doc-search-shortcut">&#231;K</kbd>
+                            </div>
+                            <div class="vd-doc-search-results" id="doc-search-results-list" role="listbox" aria-label="Search results"></div>
+                        </div>
+                        <nav class="doc-nav" aria-label="Documentation sections">
+                            <ul class="doc-nav-list" id="dynamic-nav-list"></ul>
+                        </nav>
+                    </aside>
+
+                    <div class="vd-col-12 vd-col-lg-9 doc-content" id="dynamic-content"></div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <div class="vd-container-responsive">
-
-            <!-- Core Philosophy -->
-            <section id="philosophy">
-                <h2 class="vd-text-center vd-mb-8" style="color: var(--color-primary);">Features</h2>
-                <div class="vd-row philosophy-cards" style="align-items: stretch;">
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-leaf feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Zero Dependencies</h3>
-                            <p class="vd-text-muted">Pure HTML, CSS, and JavaScript. No build tools, no package
-                                managers,
-                                no complexity.</p>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-spiral feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Fibonacci Design</h3>
-                            <p class="vd-text-muted">Spacing, typography, and grid layouts built on the Golden Ratio and
-                                Fibonacci sequence for natural harmony.</p>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-puzzle-piece feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Modular CSS</h3>
-                            <p class="vd-text-muted">Import the full framework or pick only the components you need. No
-                                bloat, just what you use.</p>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-wheelchair feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Accessibility First</h3>
-                            <p class="vd-text-muted">ARIA attributes, focus-visible states, reduced motion support, and
-                                semantic HTML built-in.</p>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-moon-stars feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Dark Mode Ready</h3>
-                            <p class="vd-text-muted">Light, dark, and system themes with smooth transitions. Includes a
-                                customizable theme switcher component.</p>
-                        </div>
-                    </div>
-                    <div class="vd-col-12 vd-col-md-6 vd-col-lg-4">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 2rem; height: 100%;">
-                            <i class="ph ph-lightning feature-icon"></i>
-                            <h3 style="color: var(--color-primary);">Lightweight & Fast</h3>
-                            <p class="vd-text-muted">Minimal footprint with optimized CSS. No JavaScript required for
-                                styling—scripts are optional enhancements.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Icons Overview -->
-            <section id="icons">
-                <h2 class="icons-section-title vd-mb-3" style="color: var(--color-primary);">Phosphor Icons</h2>
-                <p class="icons-section-subtitle vd-text-muted vd-mb-8">1,500+ icons in 6 weights, bundled locally. No
-                    CDN
-                    required.</p>
-
-                <div class="vd-row">
-                    <div class="vd-col-12">
-                        <div class="vd-card vd-card-glow icons-card">
-                            <div class="icons-weights">
-                                <div class="icons-weight-item">
-                                    <i class="ph ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Regular</p>
-                                </div>
-                                <div class="icons-weight-item">
-                                    <i class="ph-fill ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Fill</p>
-                                </div>
-                                <div class="icons-weight-item">
-                                    <i class="ph-bold ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Bold</p>
-                                </div>
-                                <div class="icons-weight-item">
-                                    <i class="ph-light ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Light</p>
-                                </div>
-                                <div class="icons-weight-item">
-                                    <i class="ph-thin ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Thin</p>
-                                </div>
-                                <div class="icons-weight-item">
-                                    <i class="ph-duotone ph-heart"></i>
-                                    <p class="vd-text-sm vd-text-muted">Duotone</p>
-                                </div>
-                            </div>
-                            <div class="icons-sample-row">
-                                <i class="ph ph-house"></i>
-                                <i class="ph ph-user"></i>
-                                <i class="ph ph-gear"></i>
-                                <i class="ph ph-bell"></i>
-                                <i class="ph ph-envelope"></i>
-                                <i class="ph ph-magnifying-glass"></i>
-                                <i class="ph ph-download"></i>
-                                <i class="ph ph-upload"></i>
-                                <i class="ph ph-trash"></i>
-                                <i class="ph ph-pencil"></i>
-                                <i class="ph-fill ph-heart" style="color: var(--vd-color-error);"></i>
-                                <i class="ph-fill ph-star" style="color: var(--vd-color-warning);"></i>
-                                <i class="ph ph-check-circle" style="color: var(--vd-color-success);"></i>
-                                <i class="ph ph-warning" style="color: var(--vd-color-warning);"></i>
-                                <i class="ph ph-x-circle" style="color: var(--vd-color-error);"></i>
-                                <i class="ph ph-info" style="color: var(--vd-color-info);"></i>
-                            </div>
-                            <p class="icons-footer vd-text-sm vd-text-muted">
-                                <i class="ph ph-heart-straight" style="color: var(--vd-color-error);"></i>
-                                Icons by <a href="https://phosphoricons.com" target="_blank"
-                                    rel="noopener"><strong>Phosphor Icons</strong></a> — MIT Licensed.
-                                <a href="documentation.html#icons">See full documentation &rarr;</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Open Color Overview -->
-            <section id="open-color">
-                <h2 class="open-color-title vd-mb-3" style="color: var(--color-primary);">Open Color Palette</h2>
-                <p class="open-color-subtitle vd-text-muted vd-mb-8">Vanduo is built on the Open Color system — clean,
-                    accessible hues with consistent 10-step scales.</p>
-
-                <div class="vd-row">
-                    <div class="vd-col-12">
-                        <div class="vd-card vd-card-glow open-color-card">
-                            <div class="open-color-grid">
-                                <div class="open-color-swatch" style="background: var(--primary-5);">Primary</div>
-                                <div class="open-color-swatch" style="background: var(--secondary-5);">Secondary</div>
-                                <div class="open-color-swatch" style="background: var(--success-5);">Success</div>
-                                <div class="open-color-swatch" style="background: var(--warning-5);">Warning</div>
-                                <div class="open-color-swatch" style="background: var(--error-5);">Error</div>
-                                <div class="open-color-swatch" style="background: var(--info-5);">Info</div>
-                                <div class="open-color-swatch is-light" style="background: var(--gray-1);">Gray 1</div>
-                                <div class="open-color-swatch" style="background: var(--gray-8);">Gray 8</div>
-                            </div>
-                            <p class="open-color-footer vd-text-sm vd-text-muted">Based on <a
-                                    href="https://yeun.github.io/open-color/" target="_blank"
-                                    rel="noopener"><strong>Open Color</strong></a> (MIT Licensed). See full palette
-                                in the documentation.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- What's New -->
-            <section id="whats-new">
-                <h2 class="vd-text-center vd-mb-8" style="color: var(--color-primary);">Vanduo Goes Beyond Static Web Pages</h2>
-                <div class="vd-row whats-new-cards">
-                    <div class="vd-col-12">
-                        <div class="vd-card vd-card-glow demo-card">
-                            <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-lightning mr-2" style="color: var(--color-primary);"></i>Dynamic Web Tab</h3>
-                            </div>
-                            <div class="vd-card-body">
-                                <p>Explore SPA-like capabilities without third-party libraries. The new <strong>Dynamic Web</strong> doc tab delivers lazy-loaded sections, client-side routing, and on-demand content loading. All 39 documentation sections load only when you need them &mdash; pure vanilla JS.</p>
-                                <a href="dynamic.html" class="vd-btn vd-btn-sm vd-btn-primary vd-mt-3"><i class="ph ph-lightning mr-2"></i>Try Dynamic Web</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vd-col-12">
-                        <div class="vd-card vd-card-glow demo-card">
-                            <div class="vd-card-header">
-                                <h3 style="color: var(--color-primary);"><i class="ph ph-sparkle mr-2" style="color: var(--color-primary);"></i>What&apos;s New in v1.1.5</h3>
-                            </div>
-                            <div class="vd-card-body">
-                                <ul class="vd-footer-links" style="list-style: none; padding-left: 0;">
-                                    <li class="vd-mb-2"><strong>Quad-Spinner Loader</strong> &mdash; New signature <code>vd-dynamic-loader</code> and skeleton overlay variant added to the framework.</li>
-                                    <li class="vd-mb-2"><strong>Ubuntu default font</strong> &mdash; Theme customizer now defaults to Ubuntu for first-time users and reset.</li>
-                                    <li class="vd-mb-2"><strong>Per-section search icons</strong> &mdash; Doc-search extracts icons from headings and custom data; results show correct individual icons.</li>
-                                    <li><strong>Search.create() API</strong> &mdash; <code>create()</code> now auto-initializes the returned instance.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Call to Action -->
-            <section id="cta" style="padding: 5rem 0;">
-                <div class="vd-row">
-                    <div class="vd-col-12">
-                        <div class="vd-card vd-card-glow vd-text-center" style="padding: 3rem 2rem;">
-                            <i class="ph ph-book-open"
-                                style="font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem;"></i>
-                            <h3 style="color: var(--color-primary);">Browse Documentation</h3>
-                            <p class="vd-text-muted vd-mb-5">Explore all components, utilities, and code examples.</p>
-                            <a href="documentation.html" class="vd-btn vd-btn-outline vd-btn-lg">Documentation</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- ── Footer ─────────────────────────────────────── -->
     <footer class="vd-footer">
         <div class="vd-footer-container">
             <div class="vd-row">
                 <div class="vd-col-12 vd-col-md-4">
                     <div class="vd-footer-section">
-                        <h4 style="color: var(--color-primary);">Vanduo Framework</h4>
+                        <h4>Vanduo Framework</h4>
                         <p>Essential just like water is.</p>
                         <p>Pure HTML, CSS, JS framework for beautiful static websites.</p>
                     </div>
                 </div>
                 <div class="vd-col-12 vd-col-md-4">
                     <div class="vd-footer-section">
-                        <h4 style="color: var(--color-primary);">Quick Links</h4>
+                        <h4>Quick Links</h4>
                         <ul class="vd-footer-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="documentation.html">Documentation</a></li>
-                            <li><a href="changelog.html">Changelog</a></li>
+                            <li><a href="#home" data-route="home">Home</a></li>
+                            <li><a href="#docs" data-route="docs">Documentation</a></li>
+                            <li><a href="#changelog" data-route="changelog">Changelog</a></li>
+                            <li><a href="#about" data-route="about">About</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="vd-footer-section">
-                    <h4 style="color: var(--color-primary);">Resources</h4>
-                    <ul class="vd-footer-links">
-                        <li><a href="https://github.com/Nostromo-618/vanduo-framework">GitHub</a></li>
-                        <li><a href="documentation.html">Documentation</a></li>
-                        <li><a href="changelog.html">Changelog</a></li>
-                        <li><a href="concepts.html#migration">Migration Guide</a></li>
-                        <li><a href="https://github.com/Nostromo-618/vanduo-framework/blob/main/LICENSE">License</a>
-                        </li>
-                    </ul>
+                <div class="vd-col-12 vd-col-md-4">
+                    <div class="vd-footer-section">
+                        <h4>Resources</h4>
+                        <ul class="vd-footer-links">
+                            <li><a href="https://github.com/Nostromo-618/vanduo-framework">GitHub</a></li>
+                            <li><a href="#docs" data-route="docs">Documentation</a></li>
+                            <li><a href="#changelog" data-route="changelog">Changelog</a></li>
+                            <li><a href="#docs/migration" data-route="docs/migration">Migration Guide</a></li>
+                            <li><a href="https://github.com/Nostromo-618/vanduo-framework/blob/main/LICENSE">License</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="vd-footer-bottom">
-            <p class="vd-text-center vd-text-muted">&copy; 2026, Vanduo Framework. MIT License.</p>
-        </div>
+            <div class="vd-footer-bottom">
+                <p class="vd-text-center vd-text-muted">&copy; 2026, Vanduo Framework. MIT License.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ── Noscript fallback ──────────────────────────── -->
+    <noscript>
+        <div style="padding: 4rem 2rem; text-align: center; max-width: 600px; margin: 100px auto;">
+            <h1 style="color: var(--color-primary);">JavaScript Required</h1>
+            <p>The Vanduo Framework documentation site requires JavaScript to load content dynamically.</p>
+            <p>Please enable JavaScript in your browser settings.</p>
+        </div>
+    </noscript>
+
+    <!-- ── SPA Engine ─────────────────────────────────── -->
     <script type="module">
         import { Vanduo } from './dist/vanduo.esm.min.js';
         Vanduo.init();
+
+        /* ── Constants ────────────────────────────────── */
+        const SECTIONS_BASE = './sections/';
+        let registry = { pages: [], tabs: {} };
+        const loadedSections = new Set();
+        let searchInstance = null;
+        let scrollSpyObserver = null;
+        let currentView = null;
+        let currentTab = null;
+
+        /* ── Loading placeholders ─────────────────────── */
+        function getLoadingPlaceholderHtml() {
+            return '<div style="padding: 4rem 0; scroll-margin-top: 80px; border-bottom: 1px solid var(--border-color);">'
+                + '<div class="vd-skeleton-card" style="position: relative; min-height: 300px; padding: 2rem; overflow: hidden;">'
+                + '<div class="vd-skeleton vd-skeleton-heading-lg" style="margin-bottom: 1.5rem;"></div>'
+                + '<div class="vd-skeleton vd-skeleton-paragraph">'
+                + '<div class="vd-skeleton vd-skeleton-text"></div>'
+                + '<div class="vd-skeleton vd-skeleton-text"></div>'
+                + '<div class="vd-skeleton vd-skeleton-text"></div>'
+                + '<div class="vd-skeleton vd-skeleton-text"></div></div>'
+                + '<div style="margin-top: 1.5rem;"></div>'
+                + '<div class="vd-skeleton vd-skeleton-rect-sm" style="margin-bottom: 1.5rem;"></div>'
+                + '<div class="vd-skeleton vd-skeleton-paragraph">'
+                + '<div class="vd-skeleton vd-skeleton-text"></div>'
+                + '<div class="vd-skeleton vd-skeleton-text"></div></div>'
+                + '<div class="vd-dynamic-loader" style="position: absolute; inset: 0;">'
+                + '<div class="vd-dynamic-loader-grid">'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-error" style="animation-delay: -0.3s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-info" style="animation-delay: -0.45s;"></div></div>'
+                + '<span class="vd-dynamic-loader-text">Loading section...</span></div></div></div>';
+        }
+
+        function getPagePlaceholderHtml() {
+            return '<div style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">'
+                + '<div class="vd-dynamic-loader">'
+                + '<div class="vd-dynamic-loader-grid">'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-error" style="animation-delay: -0.3s;"></div>'
+                + '<div class="vd-spinner vd-spinner-sm vd-spinner-info" style="animation-delay: -0.45s;"></div></div>'
+                + '<span class="vd-dynamic-loader-text">Loading...</span></div></div>';
+        }
+
+        /* ── Registry helpers ─────────────────────────── */
+        function findSectionMeta(sectionId) {
+            for (var tabKey of Object.keys(registry.tabs)) {
+                var tab = registry.tabs[tabKey];
+                for (var cat of tab.categories) {
+                    var sec = cat.sections.find(function(s) { return s.id === sectionId; });
+                    if (sec) return { section: sec, category: cat.name, tab: tabKey };
+                }
+            }
+            return null;
+        }
+
+        function findPageMeta(pageId) {
+            return registry.pages.find(function(p) { return p.id === pageId; }) || null;
+        }
+
+        function getTabForSection(sectionId) {
+            var meta = findSectionMeta(sectionId);
+            return meta ? meta.tab : null;
+        }
+
+        function getOrderedIds(tabKey) {
+            var tab = registry.tabs[tabKey];
+            if (!tab) return [];
+            return tab.categories.flatMap(function(c) { return c.sections.map(function(s) { return s.id; }); });
+        }
+
+        /* ── Registry loading ─────────────────────────── */
+        async function loadRegistry() {
+            var res = await fetch(SECTIONS_BASE + 'sections.json');
+            if (!res.ok) throw new Error('Failed to load sections.json');
+            registry = await res.json();
+        }
+
+        /* ── Sidebar navigation builder ───────────────── */
+        function buildSidebar(tabKey) {
+            var navList = document.getElementById('dynamic-nav-list');
+            if (!navList) return;
+            navList.innerHTML = '';
+            var tab = registry.tabs[tabKey];
+            if (!tab) return;
+            tab.categories.forEach(function(cat) {
+                var liSec = document.createElement('li');
+                liSec.className = 'doc-nav-section';
+                liSec.textContent = cat.name;
+                navList.appendChild(liSec);
+                cat.sections.forEach(function(sec) {
+                    var li = document.createElement('li');
+                    var a = document.createElement('a');
+                    a.href = '#docs/' + sec.id;
+                    a.className = 'doc-nav-link';
+                    a.setAttribute('data-section', sec.id);
+                    a.innerHTML = sec.icon ? '<i class="ph ' + sec.icon + ' mr-2"></i>' + sec.title : sec.title;
+                    li.appendChild(a);
+                    navList.appendChild(li);
+                });
+            });
+        }
+
+        /* ── Doc-tabs state ───────────────────────────── */
+        function setActiveTab(tabKey) {
+            document.querySelectorAll('.doc-tab').forEach(function(tab) {
+                tab.classList.toggle('active', tab.getAttribute('data-tab') === tabKey);
+            });
+        }
+
+        /* ── Navbar active state ──────────────────────── */
+        function setActiveNavbarLink(route) {
+            document.querySelectorAll('.vd-navbar-nav .vd-nav-link').forEach(function(link) {
+                var r = link.getAttribute('data-route');
+                if (route === 'docs') {
+                    link.classList.toggle('active', r === 'docs');
+                } else {
+                    link.classList.toggle('active', r === route);
+                }
+            });
+        }
+
+        /* ── Sidebar nav-link active state ────────────── */
+        function setActiveNavLink(sectionId) {
+            document.querySelectorAll('.doc-nav-link').forEach(function(link) {
+                link.classList.toggle('active', link.getAttribute('data-section') === sectionId);
+            });
+        }
+
+        /* ── View switching ───────────────────────────── */
+        function showView(view) {
+            var pageView = document.getElementById('page-view');
+            var docsView = document.getElementById('docs-view');
+            if (view === 'docs') {
+                pageView.classList.remove('is-active');
+                docsView.classList.add('is-active');
+            } else {
+                docsView.classList.remove('is-active');
+                pageView.classList.add('is-active');
+            }
+            currentView = view;
+        }
+
+        /* ── Page loading (Home / About / Changelog) ── */
+        async function loadPage(pageId) {
+            if (currentView === pageId && document.getElementById(pageId)) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            showView(pageId);
+            setActiveNavbarLink(pageId);
+            var container = document.getElementById('page-view');
+
+            container.innerHTML = getPagePlaceholderHtml();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            var page = findPageMeta(pageId);
+            if (!page) {
+                container.innerHTML = '<div class="vd-alert vd-alert-error" style="margin: 2rem;">Page not found.</div>';
+                return;
+            }
+            try {
+                var res = await fetch(SECTIONS_BASE + page.file);
+                if (!res.ok) throw new Error('Failed to load ' + page.file);
+                var html = await res.text();
+                container.innerHTML = html.trim();
+                if (typeof Vanduo !== 'undefined') Vanduo.init();
+                wireRouteLinks(container);
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<div class="vd-alert vd-alert-error" style="margin: 2rem;">Failed to load page. Check console.</div>';
+            }
+        }
+
+        /* ── Section loading (docs) ───────────────────── */
+        async function loadSection(sectionId) {
+            if (loadedSections.has(sectionId)) {
+                var el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveNavLink(sectionId);
+                return;
+            }
+            var meta = findSectionMeta(sectionId);
+            if (!meta) return;
+
+            var container = document.getElementById('dynamic-content');
+            var orderedIds = getOrderedIds(meta.tab);
+
+            var placeholder = document.createElement('div');
+            placeholder.id = 'dynamic-placeholder-' + sectionId;
+            placeholder.innerHTML = getLoadingPlaceholderHtml();
+
+            var myIndex = orderedIds.indexOf(sectionId);
+            var insertBeforeEl = null;
+            for (var i = myIndex + 1; i < orderedIds.length; i++) {
+                var existing = document.getElementById(orderedIds[i])
+                    || document.getElementById('dynamic-placeholder-' + orderedIds[i]);
+                if (existing) { insertBeforeEl = existing; break; }
+            }
+            if (insertBeforeEl) {
+                container.insertBefore(placeholder, insertBeforeEl);
+            } else {
+                container.appendChild(placeholder);
+            }
+
+            placeholder.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setActiveNavLink(sectionId);
+
+            try {
+                var url = SECTIONS_BASE + meta.section.file;
+                var res = await fetch(url);
+                if (!res.ok) throw new Error('Failed to load ' + url);
+                var html = await res.text();
+                var wrap = document.createElement('div');
+                wrap.innerHTML = html.trim();
+                var sectionEl = wrap.firstElementChild;
+                if (sectionEl) {
+                    container.replaceChild(sectionEl, placeholder);
+                    loadedSections.add(sectionId);
+                    if (typeof Vanduo !== 'undefined') Vanduo.init();
+                    wireRouteLinks(sectionEl);
+                } else {
+                    placeholder.remove();
+                }
+                setupScrollSpy();
+                var target = document.getElementById(sectionId);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveNavLink(sectionId);
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, '', '#docs/' + sectionId);
+                }
+            } catch (err) {
+                placeholder.remove();
+                console.error(err);
+                container.insertAdjacentHTML('beforeend',
+                    '<div class="vd-alert vd-alert-error">Failed to load section. Check console.</div>');
+            }
+        }
+
+        /* ── Switch docs tab ──────────────────────────── */
+        async function switchTab(tabKey) {
+            if (currentTab === tabKey) return;
+            currentTab = tabKey;
+            setActiveTab(tabKey);
+
+            var container = document.getElementById('dynamic-content');
+            container.innerHTML = '';
+            loadedSections.clear();
+
+            buildSidebar(tabKey);
+            initSearch(tabKey);
+
+            var orderedIds = getOrderedIds(tabKey);
+            if (orderedIds.length > 0) {
+                await loadSection(orderedIds[0]);
+            }
+        }
+
+        /* ── Scroll-spy ───────────────────────────────── */
+        function setupScrollSpy() {
+            var content = document.getElementById('dynamic-content');
+            if (!content) return;
+            if (scrollSpyObserver) scrollSpyObserver.disconnect();
+            var sections = content.querySelectorAll('section[id]');
+            if (!sections.length) return;
+            scrollSpyObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        setActiveNavLink(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+            sections.forEach(function(sec) { scrollSpyObserver.observe(sec); });
+        }
+
+        /* ── Search ───────────────────────────────────── */
+        function initSearch(tabKey) {
+            var data = [];
+            var tab = registry.tabs[tabKey];
+            if (tab) {
+                tab.categories.forEach(function(cat) {
+                    cat.sections.forEach(function(sec) {
+                        data.push({
+                            id: sec.id,
+                            title: sec.title,
+                            content: (sec.keywords || []).join(' '),
+                            category: cat.name,
+                            icon: sec.icon || ''
+                        });
+                    });
+                });
+            }
+            if (window.Search) {
+                searchInstance = window.Search.init({
+                    containerSelector: '.vd-doc-search',
+                    inputSelector: '.vd-doc-search-input',
+                    resultsSelector: '.vd-doc-search-results',
+                    contentSelector: '#dynamic-content section[id]',
+                    data: data,
+                    onSelect: function(result) {
+                        if (result && result.id) loadSection(result.id);
+                    }
+                });
+            }
+        }
+
+        /* ── Wire data-route links ────────────────────── */
+        function wireRouteLinks(container) {
+            container.querySelectorAll('[data-route]').forEach(function(el) {
+                if (el._routeWired) return;
+                el._routeWired = true;
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var route = el.getAttribute('data-route');
+                    navigate(route);
+                });
+            });
+        }
+
+        /* ── Router ───────────────────────────────────── */
+        function parseHash(hash) {
+            var h = (hash || '').replace(/^#\/?/, '');
+            if (!h || h === 'home') return { view: 'home' };
+            if (h === 'about') return { view: 'about' };
+            if (h === 'changelog') return { view: 'changelog' };
+            if (h === 'docs' || h === 'docs/components') return { view: 'docs', tab: 'components', section: null };
+            if (h === 'docs/concepts') return { view: 'docs', tab: 'concepts', section: null };
+            if (h.startsWith('docs/')) {
+                var sectionId = h.slice(5);
+                var tabKey = getTabForSection(sectionId);
+                if (tabKey) return { view: 'docs', tab: tabKey, section: sectionId };
+                return { view: 'docs', tab: 'components', section: null };
+            }
+            return { view: 'home' };
+        }
+
+        async function navigate(route) {
+            if (window.history && window.history.pushState) {
+                window.history.pushState(null, '', '#' + route);
+            }
+            await handleRoute();
+        }
+
+        async function handleRoute() {
+            var parsed = parseHash(location.hash);
+
+            if (parsed.view === 'home' || parsed.view === 'about' || parsed.view === 'changelog') {
+                await loadPage(parsed.view);
+                return;
+            }
+
+            showView('docs');
+            setActiveNavbarLink('docs');
+
+            if (currentTab !== parsed.tab) {
+                await switchTab(parsed.tab);
+            }
+
+            if (parsed.section) {
+                await loadSection(parsed.section);
+            }
+        }
+
+        /* ── Event listeners ──────────────────────────── */
+        document.querySelectorAll('.vd-navbar-nav .vd-nav-link[data-route]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var route = link.getAttribute('data-route');
+                navigate(route);
+            });
+        });
+
+        document.querySelector('.vd-navbar-brand a[data-route]').addEventListener('click', function(e) {
+            e.preventDefault();
+            navigate('home');
+        });
+
+        document.querySelectorAll('.doc-tab[data-tab]').forEach(function(tab) {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                var tabKey = tab.getAttribute('data-tab');
+                navigate(tabKey === 'concepts' ? 'docs/concepts' : 'docs');
+            });
+        });
+
+        document.getElementById('dynamic-nav-list').addEventListener('click', function(e) {
+            var link = e.target.closest('.doc-nav-link[data-section]');
+            if (!link) return;
+            e.preventDefault();
+            var id = link.getAttribute('data-section');
+            navigate('docs/' + id);
+        });
+
+        wireRouteLinks(document.querySelector('.vd-footer'));
+
+        window.addEventListener('hashchange', function() { handleRoute(); });
+
+        /* ── Init ─────────────────────────────────────── */
+        (async function() {
+            await loadRegistry();
+            await handleRoute();
+        })();
     </script>
 </body>
-
 </html>
