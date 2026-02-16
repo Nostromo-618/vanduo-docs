@@ -70,6 +70,24 @@
         html { scroll-behavior: smooth; overscroll-behavior-y: none; background-color: var(--bg-primary); }
         body { overscroll-behavior-y: none; }
         .vd-navbar-brand { margin-left: 1rem; }
+        .vd-navbar-brand-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .vd-lt-flag-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        .vd-lt-flag-link img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
         .skip-link {
             position: absolute; top: -40px; left: 0;
             background: var(--color-primary); color: var(--color-white);
@@ -127,6 +145,30 @@
         .doc-nav-link:hover { color: var(--color-primary); background-color: var(--bg-secondary); }
         .doc-nav-link.active { color: var(--color-primary); border-left-color: var(--color-primary); font-weight: 500; }
         .doc-nav-link i { font-size: 1.1em; margin-right: 0.375rem; }
+
+        /* ── Mobile TOC toggle ───────────────────────────── */
+        .doc-sidebar-toggle {
+            display: none;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--btn-border-radius);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .doc-sidebar-toggle::after {
+            content: '\25BC';
+            float: right;
+            transition: transform 0.2s;
+        }
+        .doc-sidebar-toggle.is-open::after {
+            transform: rotate(180deg);
+        }
+
         @media (max-width: 991px) {
             .doc-sidebar {
                 position: sticky; top: 70px; height: auto; max-height: calc(100vh - 80px);
@@ -137,6 +179,10 @@
             .doc-sidebar .vd-doc-search {
                 flex-shrink: 0; position: sticky; top: 70px; z-index: 2;
                 background: var(--bg-primary); padding-top: 0.5rem; padding-bottom: 0.5rem;
+            }
+            .doc-sidebar-toggle {
+                display: block;
+                flex-shrink: 0;
             }
             .doc-nav { display: none; overflow-y: auto; flex: 1; max-height: calc(100vh - 200px); }
             .doc-nav.is-open { display: block; }
@@ -301,7 +347,13 @@
     <nav class="vd-navbar vd-navbar-fixed">
         <div class="vd-navbar-container">
             <div class="vd-navbar-brand">
-                <a href="#home" data-route="home"><i class="ph-fill ph-drop" style="color: var(--vd-color-primary); margin-right: 0.25em;"></i>Vanduo</a>
+                <div class="vd-navbar-brand-wrap">
+                    <a href="#home" data-route="home"><i class="ph-fill ph-drop" style="color: var(--vd-color-primary); margin-right: 0.25em;"></i>Vanduo</a>
+                    <a href="https://share.google/kxPWyj1FeVq2kT2w3" target="_blank" rel="noopener noreferrer"
+                        class="vd-lt-flag-link" aria-label="Lithuania link (Google)">
+                        <img src="./images/lithuania-waving-flag.svg" alt="Lithuania flag">
+                    </a>
+                </div>
             </div>
             <button class="vd-navbar-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
             <div class="vd-navbar-menu">
@@ -345,6 +397,7 @@
                             </div>
                             <div class="vd-doc-search-results" id="doc-search-results-list" role="listbox" aria-label="Search results"></div>
                         </div>
+                        <button class="doc-sidebar-toggle" aria-label="Toggle navigation" aria-expanded="false">Table of Contents</button>
                         <nav class="doc-nav" aria-label="Documentation sections">
                             <ul class="doc-nav-list" id="dynamic-nav-list"></ul>
                         </nav>
@@ -661,6 +714,7 @@
             loadedSections.clear();
 
             buildSidebar(tabKey);
+            closeMobileToc();
             initSearch(tabKey);
 
             var orderedIds = getOrderedIds(tabKey);
@@ -796,11 +850,31 @@
             });
         });
 
+        /* ── Mobile TOC toggle ─────────────────────── */
+        var sidebarToggle = document.querySelector('.doc-sidebar-toggle');
+        var sidebarNav = document.querySelector('.doc-nav');
+        if (sidebarToggle && sidebarNav) {
+            sidebarToggle.addEventListener('click', function() {
+                var isOpen = sidebarNav.classList.toggle('is-open');
+                sidebarToggle.classList.toggle('is-open', isOpen);
+                sidebarToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        function closeMobileToc() {
+            if (sidebarToggle && sidebarNav) {
+                sidebarNav.classList.remove('is-open');
+                sidebarToggle.classList.remove('is-open');
+                sidebarToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+
         document.getElementById('dynamic-nav-list').addEventListener('click', function(e) {
             var link = e.target.closest('.doc-nav-link[data-section]');
             if (!link) return;
             e.preventDefault();
             var id = link.getAttribute('data-section');
+            closeMobileToc();
             navigate('docs/' + id);
         });
 
