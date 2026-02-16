@@ -4,6 +4,56 @@
                             tabs and line numbers.</p>
 
                         <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h3>Live Preview</h3>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-5">A working code snippet component with collapsible toggle, language tabs, and copy button:</p>
+
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css">CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js">JS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-header"</span>&gt;
+    &lt;<span class="code-tag">h3</span>&gt;Hello Vanduo&lt;/<span class="code-tag">h3</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+    &lt;<span class="code-tag">p</span>&gt;Essential just like water is.&lt;/<span class="code-tag">p</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                    <pre class="vd-code-snippet-pane" data-lang="css"><code><span class="code-selector">.vd-card</span> {
+  <span class="code-property">border-radius</span>: <span class="code-value">var</span>(<span class="code-value">--card-border-radius</span>);
+  <span class="code-property">border</span>: <span class="code-number">1</span><span class="code-unit">px</span> <span class="code-value">solid</span> <span class="code-value">var</span>(<span class="code-value">--border-color</span>);
+  <span class="code-property">background</span>: <span class="code-value">var</span>(<span class="code-value">--bg-primary</span>);
+}</code></pre>
+                                                    <pre class="vd-code-snippet-pane" data-lang="js"><code><span class="code-keyword">import</span> { Vanduo } <span class="code-keyword">from</span> <span class="code-string">'./dist/vanduo.esm.min.js'</span>;
+<span class="code-function">Vanduo</span>.<span class="code-function">init</span>();</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vd-row">
                             <div class="vd-col-12 vd-col-md-6">
                                 <div class="vd-card vd-card-glow demo-card">
                                     <div class="vd-card-header">
