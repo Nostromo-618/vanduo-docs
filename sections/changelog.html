@@ -16,7 +16,7 @@
                 <header class="version-header">
                     <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.5</span>
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
-                        <i class="ph ph-calendar mr-1"></i>February 15, 2026
+                        <i class="ph ph-calendar mr-1"></i>February 16, 2026
                     </span>
                     <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
@@ -65,22 +65,22 @@
                             <li class="change-item">
                                 <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                 <div>
-                                    <strong>New: Dynamic Web tab</strong>
-                                    <p>Third documentation tab with SPA-like lazy loading. Sections load on demand via <code>sections.json</code> registry. Client-side routing, scroll-spy, and skeleton+quad-spinner loading placeholder.</p>
+                                    <strong>New: Fully dynamic single-page application</strong>
+                                    <p>Entire documentation site redesigned as a hash-routed SPA. All pages (Home, Docs, Changelog, About) load dynamically from HTML fragments—no full page reloads. Client-side router with <code>pushState</code>, scroll-spy, skeleton+quad-spinner loading placeholders, and back/forward history support.</p>
                                 </div>
                             </li>
                             <li class="change-item">
                                 <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                 <div>
-                                    <strong>New: 24 additional section fragments</strong>
-                                    <p>All documentation and concepts sections extracted as lazy-loadable HTML fragments (39 total).</p>
+                                    <strong>New: Tabbed documentation (Components &amp; Concepts)</strong>
+                                    <p>Documentation split into Components and Concepts &amp; Architecture tabs. Sections load on demand via <code>sections.json</code> registry (39 lazy-loadable HTML fragments).</p>
                                 </div>
                             </li>
                             <li class="change-item">
                                 <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                 <div>
                                     <strong>Improvement: Per-section icons in sidebar</strong>
-                                    <p>All three doc pages now show matching icons in sidebar navigation links.</p>
+                                    <p>Both doc tabs now show matching icons in sidebar navigation links.</p>
                                 </div>
                             </li>
                             <li class="change-item">
@@ -101,7 +101,21 @@
                                 <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                 <div>
                                     <strong>Fix: Section insertion order</strong>
-                                    <p>Dynamic page now inserts loaded sections in registry order using <code>insertBefore</code>, preventing scroll-spy confusion.</p>
+                                    <p>Sections insert in registry order using <code>insertBefore</code>, preventing scroll-spy confusion.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                <div>
+                                    <strong>New: Lithuania flag in navbar</strong>
+                                    <p>Waving Lithuania flag SVG added next to the "Vanduo" brand text, linking to information panel about Lithuania celebrating Day of Restoration of State.</p>
+                                </div>
+                            </li>
+                            <li class="change-item">
+                                <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                <div>
+                                    <strong>New: Mobile Table of Contents dropdown</strong>
+                                    <p>Restored the mobile TOC toggle button for documentation pages. Appears below the search bar on viewports ≤991px with expand/collapse arrow indicator. Auto-closes when a section is selected or tabs are switched.</p>
                                 </div>
                             </li>
                         </ul>
