@@ -1,0 +1,164 @@
+# Vanduo Documentation Site
+
+> Static single-page documentation and website for the Vanduo Framework — pure HTML, CSS, and JavaScript with no build tools, hash-based SPA routing, and registry-driven navigation. Served at https://vanduo.dev.
+
+## Project Overview
+
+This repository is the **Vanduo documentation and website** (vanduo-docs). It is a documentation SPA for the [Vanduo Framework](https://github.com/Nostromo-618/vanduo-framework), a zero-dependency HTML/CSS/JS framework for static sites.
+
+- **Tech stack**: Pure HTML, CSS, and JavaScript. No build step, no bundlers, no frameworks.
+- **Live site**: https://vanduo.dev
+- **Framework repo**: https://github.com/Nostromo-618/vanduo-framework
+- **Versioning**: Documentation site v1.1.6; documented framework version v1.1.5. The `dist/` folder contains vendored framework assets synced from the framework repo.
+
+## Architecture
+
+- **SPA with hash-based routing**: Routes are `#home`, `#about`, `#changelog` (page view) and `#docs`, `#docs/concepts`, `#docs/guides`, `#docs/section-id` (docs view).
+- **Two view modes**: (1) Page view — full-page content for Home, About, Changelog. (2) Docs view — tabbed (Components / Concepts & Architecture / Guides) with a sidebar and dynamically loaded section content.
+- **Dynamic content loading**: The app loads [sections/sections.json](sections/sections.json) as the navigation registry, then fetches HTML fragments from `sections/` via `fetch()` and injects them into the DOM. Sections are lazy-loaded except those marked `preload: true`.
+- **Framework initialization**: After each dynamic load, `Vanduo.init()` is called so new components (modals, tooltips, code snippets, etc.) work.
+
+Key architectural files:
+
+- [index.html](index.html): Main SPA shell — navbar, page/docs views, sidebar, tabs, search, and all routing logic. HTML and doc-specific CSS are in the first ~490 lines; inline module script (routing, registry, fetch, scroll-spy) runs from ~line 493 to ~922.
+- [sections/sections.json](sections/sections.json): Single source of truth for navigation. Defines `pages` (home, about, changelog), and `tabs` (components, concepts, guides) with categories and sections (id, title, file, icon, keywords, optional preload).
+- [dist/](dist/): Vendored Vanduo Framework assets — minified and unminified CSS/JS (ESM, CJS, IIFE), build-info.json, and Phosphor icons. Do not edit; sync from the framework repo when upgrading.
+
+## Directory Structure
+
+```
+vanduo-docs/
+├── index.html              # SPA shell and inline router
+├── llms.txt                # This file
+├── package.json            # Scripts and devDependencies (Playwright, http-server)
+├── playwright.config.ts    # Playwright config (port 8787, browsers, devices)
+├── pnpm-lock.yaml
+├── README.md
+├── robots.txt              # SEO; crawlers allowed except /sections/
+├── sitemap.xml             # SEO sitemap
+├── favicon.svg
+├── .cursor/rules/          # Cursor IDE rules (e.g. Snyk security)
+├── .github/workflows/      # CI (Playwright) and GitHub Pages deployment
+├── .vscode/settings.json
+├── dist/                   # Framework assets — DO NOT MODIFY (synced from vanduo-framework)
+│   ├── vanduo.min.css, vanduo.css
+│   ├── vanduo.min.js, vanduo.js, vanduo.esm.min.js, vanduo.cjs.min.js
+│   ├── build-info.json
+│   └── icons/phosphor/     # Regular, fill, bold, light, thin, duotone
+├── images/                 # Static images (e.g. og-image, flag)
+├── sections/               # Documentation content (HTML fragments)
+│   ├── sections.json       # Navigation registry — edit to add/order sections
+│   ├── home.html, about.html, changelog.html
+│   ├── quick-start.html
+│   ├── components/         # Buttons, cards, forms, navbar, sidenav, footer, theme-customizer, etc.
+│   ├── concepts/          # Philosophy, namespacing, tokens, lifecycle, modules, migration, breaking-changes, class-prefixes, token-reference
+│   ├── core/               # Icons, color-palette, typography, grid-system, golden-ratio, shadows-glow
+│   ├── data-display/       # Collections, tables, badges, avatars
+│   ├── feedback/           # Alerts, chips, skeleton, preloader, button-groups
+│   ├── guides/             # Step-by-step guides (getting-started, esm-vs-iife, first-layout, etc.)
+│   ├── interactive/       # Interactive components, tabs, toasts, search, code-snippet
+│   └── media/              # Image box
+└── tests/                  # Playwright tests (e.g. tests/a11y/documentation.spec.ts)
+```
+
+## Coding Conventions
+
+- **CSS classes**: All Vanduo classes use the `vd-` prefix (e.g. `vd-btn`, `vd-card`, `vd-col-md-6`, `vd-mb-6`, `vd-alert-info`). Do not introduce non-prefixed framework-style classes.
+- **CSS custom properties**: Framework tokens use the `--vd-` prefix; docs also use `--color-primary`, `--bg-primary` from the framework.
+- **State classes**: Use `is-active`, `is-open`, `is-visible` for component state.
+- **Doc-specific classes**: `demo-card`, `demo-title`, `doc-sidebar`, `doc-nav`, `doc-nav-link`, `doc-tab`, `doc-content`, `doc-search`, `code-example`.
+- **HTML file names**: kebab-case (e.g. `quick-start.html`, `theme-customizer.html`, `getting-started-guide.html`).
+- **Section IDs**: kebab-case; must match the `id` field in [sections/sections.json](sections/sections.json) for the section’s route (e.g. `#docs/quick-start` ↔ id `getting-started` and file `quick-start.html`).
+- **Icons**: Phosphor Icons. Use classes like `ph ph-rocket-launch`, `ph-fill ph-star`. Icon names are from [Phosphor](https://phosphoricons.com); assets live under `dist/icons/phosphor/`.
+- **Grid**: 12-column system with `vd-row`, `vd-col-12`, `vd-col-md-6`, etc., and breakpoint modifiers.
+- **No build step**: All code is vanilla HTML/CSS/JS; no transpilation or bundling.
+
+## Section HTML Template
+
+Each documentation section is an HTML fragment (no `<html>`, `<head>`, or `<body>`). Use this structure:
+
+- Wrap the whole content in `<section id="section-id">` where `section-id` matches the section’s `id` in `sections.json`.
+- Start with an `<h2 class="demo-title">` containing a Phosphor icon and the title; optional `<code>` badges can follow.
+- Follow with an intro paragraph (e.g. `class="vd-mb-6"`).
+- Use cards for content blocks: `vd-card vd-card-glow demo-card`, with `vd-card-header` and `vd-card-body`.
+- Use the `vd-code-snippet` component for code examples (with copy button and optional tabs). Fallback: `pre` with `class="code-example"` and escaped HTML in `<code>`.
+- Use `vd-alert` (e.g. `vd-alert-info`, `vd-alert-warning`) for tips, warnings, or notes.
+- Use the grid: `vd-row` and `vd-col-*` for layout.
+
+Example skeleton:
+
+```html
+<section id="my-section">
+    <h2 class="demo-title"><i class="ph ph-icon-name"></i>Section Title</h2>
+    <p class="vd-mb-6">Introduction text.</p>
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header"><h3>Card Title</h3></div>
+                <div class="vd-card-body">Content and optionally vd-code-snippet or vd-alert.</div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+## Common Tasks
+
+**Add a new documentation section**
+
+1. Create a new HTML fragment in the appropriate `sections/` subdirectory (e.g. `sections/components/`, `sections/guides/`). Use the Section HTML Template above; `id` must be unique.
+2. Add an entry to [sections/sections.json](sections/sections.json) in the right tab and category: `id`, `title`, `file` (path relative to `sections/`), `icon` (Phosphor class, e.g. `ph-cube`), `keywords` (array for search). Optionally set `preload: true`.
+3. No other code changes are required; the SPA loads the registry and builds nav from it.
+
+**Add a new category**
+
+1. In [sections/sections.json](sections/sections.json), under the correct tab’s `categories` array, add `{ "name": "Category Name", "sections": [ ... ] }`.
+2. Add section entries inside that `sections` array as above.
+
+**Add a new guide**
+
+1. Create the HTML file in `sections/guides/` (e.g. `sections/guides/my-guide.html`) following the section template.
+2. In `sections.json`, under `tabs.guides.categories`, add the section to an existing category or create a new category and add the section there.
+
+**Modify the SPA shell**
+
+1. Edit [index.html](index.html): structure and doc-specific styles in the first ~490 lines; routing, sidebar, search, and load logic in the inline `<script type="module">` (~lines 493–922). There is no separate router file.
+
+**Update framework assets**
+
+1. Do not edit files in `dist/`. To upgrade the framework, sync from the [vanduo-framework](https://github.com/Nostromo-618/vanduo-framework) repo (e.g. copy the latest `dist/` contents) and commit.
+
+**Add or run tests**
+
+1. Playwright tests live in `tests/` (e.g. `tests/a11y/documentation.spec.ts`). Run with `pnpm test`. Config: [playwright.config.ts](playwright.config.ts). Tests use `http-server` on port 8787.
+
+## Key Files Reference
+
+- [index.html](index.html): SPA shell, layout, routing, and doc-specific CSS/JS.
+- [sections/sections.json](sections/sections.json): Navigation registry (pages, tabs, categories, sections).
+- [package.json](package.json): Scripts (`pnpm test`, `test:a11y`, etc.) and devDependencies.
+- [playwright.config.ts](playwright.config.ts): Playwright port, projects, reporters.
+- [dist/vanduo.min.css](dist/vanduo.min.css): Framework stylesheet (vendored).
+- [dist/vanduo.esm.min.js](dist/vanduo.esm.min.js): Framework JS as ES module (vendored).
+- [.github/workflows/ci.yml](.github/workflows/ci.yml): CI (Playwright on push/PR).
+- [.github/workflows/static.yml](.github/workflows/static.yml): GitHub Pages deployment on push to `main`.
+- [robots.txt](robots.txt): Crawler rules.
+- [sitemap.xml](sitemap.xml): Sitemap for SEO.
+
+## Development
+
+- **Package manager**: pnpm (see `packageManager` in package.json, e.g. pnpm@10.28.2).
+- **Node**: >= 18.0.0 (see `engines` in package.json).
+- **Local preview**: Open [index.html](index.html) in a browser, or run `npx http-server -p 8787 -s` (Playwright expects 8787).
+- **Testing**: `pnpm test` runs Playwright; `pnpm test:a11y` runs only @a11y tests.
+- **Deployment**: GitHub Pages deploys automatically on push to `main` via [.github/workflows/static.yml](.github/workflows/static.yml).
+- **Build**: None. The site is static files only.
+
+## Important Constraints
+
+- **Never modify files in `dist/`** — they are vendored from the framework repo. Updating the framework means replacing `dist/` with a fresh copy from the framework repo.
+- **All Vanduo UI classes must use the `vd-` prefix** so they do not conflict with other CSS.
+- **Section files are HTML fragments only** — no `<html>`, `<head>`, or `<body>`.
+- **The SPA router lives entirely in [index.html](index.html)** — there is no separate router or app JS file.
+- **Navigation structure is defined only in [sections/sections.json](sections/sections.json)** — the sidebar and tabs are generated from this file.
+- **Phosphor Icons are loaded from `dist/icons/phosphor/`** — no CDN; keep icon usage consistent with the framework’s icon set.

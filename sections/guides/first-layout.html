@@ -1,0 +1,632 @@
+<section id="first-layout">
+    <h2 class="demo-title"><i class="ph ph-layout"></i>Building Your First Layout <code class="vd-text-sm">Guide</code></h2>
+    <p class="vd-mb-5">Every web page needs structure — where does the sidebar go? How wide is the content area? How does it look on a phone? This guide teaches you Vanduo's grid system from the ground up, with live examples you can tweak and learn from.</p>
+
+    <!-- Mental Model -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-brain"></i> The Mental Model: Container → Row → Columns</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Vanduo's grid has three layers. Think of it like a bookshelf:</p>
+                    <ul class="vd-mb-5">
+                        <li><strong>Container</strong> — The bookshelf itself. Centers your content and sets the maximum width.</li>
+                        <li><strong>Row</strong> — A shelf. Creates a horizontal strip that holds columns.</li>
+                        <li><strong>Columns</strong> — The books on the shelf. Each row splits into <strong>12 equal columns</strong>, and you decide how many each piece of content gets.</li>
+                    </ul>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;           <span class="code-comment">&lt;!-- The bookshelf --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;              <span class="code-comment">&lt;!-- A shelf --&gt;</span>
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt; <span class="code-comment">&lt;!-- Left half (6 of 12) --&gt;</span>
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt; <span class="code-comment">&lt;!-- Right half (6 of 12) --&gt;</span>
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-primary vd-mt-4">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Why 12 columns?</strong> Because 12 divides evenly by 2, 3, 4, and 6 — giving you maximum flexibility. Want 2 equal columns? 6+6. Three columns? 4+4+4. Four columns? 3+3+3+3. A sidebar + main? 3+9.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 1: Container -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 1 of 5</span> <i class="ph ph-frame-corners"></i> The Container</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Every layout starts with a container. You have two choices:</p>
+
+                    <div class="vd-row vd-mt-4">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-primary);">
+                                <div class="vd-card-body">
+                                    <h4><code>vd-container</code></h4>
+                                    <p class="vd-text-sm">Fixed max-width, centered. Gets wider at each breakpoint. <strong>Best for most pages.</strong></p>
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+    <span class="code-comment">&lt;!-- Content is centered with
+         max-width at each breakpoint --&gt;</span>
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-info);">
+                                <div class="vd-card-body">
+                                    <h4><code>vd-container-fluid</code></h4>
+                                    <p class="vd-text-sm">Full width, always. Stretches to the edge of the viewport. <strong>Best for dashboards or wide layouts.</strong></p>
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container-fluid"</span>&gt;
+    <span class="code-comment">&lt;!-- Content stretches to fill
+         the full viewport width --&gt;</span>
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-3">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> You can also use <strong>responsive containers</strong> like <code>vd-container-md</code> or <code>vd-container-lg</code> that become fluid below their breakpoint. This gives you full-width on mobile and centered on desktop.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Rows and Columns -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 2 of 5</span> <i class="ph ph-columns"></i> Rows and Columns</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Inside a container, create rows and fill them with columns. Here are the most common patterns:</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Two equal columns</h4>
+                    <div class="vd-row vd-mb-4">
+                        <div class="vd-col-6">
+                            <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-6</div>
+                        </div>
+                        <div class="vd-col-6">
+                            <div style="background: var(--color-info); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-6</div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;Left half&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;Right half&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3">Three equal columns</h4>
+                    <div class="vd-row vd-mb-4">
+                        <div class="vd-col-4">
+                            <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-4</div>
+                        </div>
+                        <div class="vd-col-4">
+                            <div style="background: var(--color-success); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-4</div>
+                        </div>
+                        <div class="vd-col-4">
+                            <div style="background: var(--color-info); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-4</div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;One third&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;One third&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;One third&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3">Sidebar + Main content</h4>
+                    <div class="vd-row vd-mb-4">
+                        <div class="vd-col-3">
+                            <div style="background: var(--color-warning); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-3<br>(sidebar)</div>
+                        </div>
+                        <div class="vd-col-9">
+                            <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-9 (main content)</div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-3"</span>&gt;Sidebar&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-9"</span>&gt;Main content&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Responsive Breakpoints -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 3 of 5</span> <i class="ph ph-devices"></i> Responsive Breakpoints</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>The real power of the grid is making layouts <strong>adapt to different screen sizes</strong>. Add a breakpoint suffix to your column classes:</p>
+
+                    <div class="vd-table-responsive vd-mt-4 vd-mb-5">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Prefix</th>
+                                    <th>Breakpoint</th>
+                                    <th>Typical Device</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>vd-col-</code></td><td>0px+ (always)</td><td>All screens</td></tr>
+                                <tr><td><code>vd-col-sm-</code></td><td>576px+</td><td>Phones (landscape)</td></tr>
+                                <tr><td><code>vd-col-md-</code></td><td>768px+</td><td>Tablets</td></tr>
+                                <tr><td><code>vd-col-lg-</code></td><td>992px+</td><td>Laptops</td></tr>
+                                <tr><td><code>vd-col-xl-</code></td><td>1200px+</td><td>Desktops</td></tr>
+                                <tr><td><code>vd-col-2xl-</code></td><td>1400px+</td><td>Large desktops</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>Example:</strong> Full width on mobile, 2 columns on tablet, 3 columns on desktop:</p>
+
+                    <div class="vd-row vd-mb-4 vd-mt-4">
+                        <div class="vd-col-12 vd-col-md-6 vd-col-lg-4 vd-mb-3">
+                            <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">Item 1</div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-col-lg-4 vd-mb-3">
+                            <div style="background: var(--color-success); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">Item 2</div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-col-lg-4 vd-mb-3">
+                            <div style="background: var(--color-info); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">Item 3</div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-lg-4"</span>&gt;Item 1&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-lg-4"</span>&gt;Item 2&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-lg-4"</span>&gt;Item 3&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+<span class="code-comment">&lt;!--
+    Mobile (0-767px):     1 column  (vd-col-12 = full width each)
+    Tablet (768-991px):   2 columns (vd-col-md-6 = half width each)
+    Desktop (992px+):     3 columns (vd-col-lg-4 = one-third each)
+--&gt;</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Always design <strong>mobile-first</strong>. Start with <code>vd-col-12</code> (full width), then add breakpoint overrides like <code>vd-col-md-6</code> and <code>vd-col-lg-4</code> for wider screens.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4: Nesting -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 4 of 5</span> <i class="ph ph-tree-structure"></i> Nesting Columns</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>You can put a new <code>vd-row</code> inside any column to create sub-grids. This is how real-world layouts are built — a main structure with nested detail:</p>
+
+                    <div class="vd-row vd-mt-4 vd-mb-4">
+                        <div class="vd-col-12 vd-col-md-3">
+                            <div style="background: var(--color-warning); color: white; padding: 1rem; border-radius: var(--radius-md); min-height: 150px;">
+                                <strong>Sidebar</strong>
+                                <p class="vd-text-sm vd-mt-2">Nav links here</p>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-9">
+                            <div style="background: var(--color-bg-secondary); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong>Main Content</strong>
+                                <div class="vd-row vd-mt-3">
+                                    <div class="vd-col-6">
+                                        <div style="background: var(--color-primary); color: white; padding: 0.75rem; border-radius: var(--radius-md); text-align: center;">Card</div>
+                                    </div>
+                                    <div class="vd-col-6">
+                                        <div style="background: var(--color-info); color: white; padding: 0.75rem; border-radius: var(--radius-md); text-align: center;">Card</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-3"</span>&gt;
+        <span class="code-comment">&lt;!-- Sidebar --&gt;</span>
+        &lt;<span class="code-tag">nav</span>&gt;...&lt;/<span class="code-tag">nav</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-9"</span>&gt;
+        <span class="code-comment">&lt;!-- Main content with nested grid --&gt;</span>
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;Card 1&lt;/<span class="code-tag">div</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6"</span>&gt;Card 2&lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5: Offsets and Ordering -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 5 of 5</span> <i class="ph ph-arrows-horizontal"></i> Offsets and Ordering</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p><strong>Offsets</strong> push columns to the right by a number of column widths. Great for centering a narrow column:</p>
+
+                    <div class="vd-row vd-mt-4 vd-mb-4">
+                        <div class="vd-col-6 vd-offset-3">
+                            <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-md); text-align: center;">vd-col-6 vd-offset-3 (centered)</div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    <span class="code-comment">&lt;!-- 3 columns of empty space + 6 columns of content + 3 remaining = centered --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-6 vd-offset-3"</span>&gt;Centered content&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="vd-mt-8"><strong>Ordering</strong> lets you rearrange columns without changing your HTML. Useful when you want a sidebar on the right on desktop but on top on mobile:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+    <span class="code-comment">&lt;!-- On mobile: sidebar appears first (order-1), main second (order-2)
+         On desktop: main appears first (md-order-1), sidebar second (md-order-2) --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-3 vd-order-1 vd-order-md-2"</span>&gt;Sidebar&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-9 vd-order-2 vd-order-md-1"</span>&gt;Main Content&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Layout Recipes -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-cookbook"></i> Common Layout Recipes</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Copy-paste these patterns to quickly build common page layouts:</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3"><i class="ph ph-newspaper"></i> Blog Layout</h4>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">main</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-lg-8"</span>&gt;
+            <span class="code-comment">&lt;!-- Blog posts go here --&gt;</span>
+        &lt;/<span class="code-tag">main</span>&gt;
+        &lt;<span class="code-tag">aside</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-lg-4"</span>&gt;
+            <span class="code-comment">&lt;!-- Sidebar: recent posts, tags, about --&gt;</span>
+        &lt;/<span class="code-tag">aside</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3"><i class="ph ph-chart-line-up"></i> Dashboard Layout</h4>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container-fluid"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">nav</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-lg-2"</span>&gt;
+            <span class="code-comment">&lt;!-- Sidebar navigation --&gt;</span>
+        &lt;/<span class="code-tag">nav</span>&gt;
+        &lt;<span class="code-tag">main</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-lg-10"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-xl-3"</span>&gt;Stat Card 1&lt;/<span class="code-tag">div</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-xl-3"</span>&gt;Stat Card 2&lt;/<span class="code-tag">div</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-xl-3"</span>&gt;Stat Card 3&lt;/<span class="code-tag">div</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6 vd-col-xl-3"</span>&gt;Stat Card 4&lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">main</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3"><i class="ph ph-megaphone"></i> Landing Page</h4>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+    <span class="code-comment">&lt;!-- Hero: centered, narrow --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-8 vd-offset-md-2"</span> <span class="code-attr">style</span>=<span class="code-string">"text-align: center;"</span>&gt;
+            &lt;<span class="code-tag">h1</span>&gt;Big headline&lt;/<span class="code-tag">h1</span>&gt;
+            &lt;<span class="code-tag">p</span>&gt;Subheading text&lt;/<span class="code-tag">p</span>&gt;
+            &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-primary vd-btn-lg"</span>&gt;Call to Action&lt;/<span class="code-tag">a</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+
+    <span class="code-comment">&lt;!-- Features: 3-column grid --&gt;</span>
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-mt-13"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4"</span>&gt;Feature 1&lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4"</span>&gt;Feature 2&lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4"</span>&gt;Feature 3&lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-5">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Open your browser's DevTools (F12) and toggle the responsive design mode to see your layout adapt in real time. This is the best way to learn how breakpoints feel.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

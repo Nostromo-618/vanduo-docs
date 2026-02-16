@@ -585,6 +585,123 @@
           ]
         }
       ]
+    },
+    "guides": {
+      "label": "Guides",
+      "icon": "ph-compass",
+      "categories": [
+        {
+          "name": "Start Here",
+          "sections": [
+            {
+              "id": "getting-started-guide",
+              "title": "Getting Started from Zero",
+              "file": "guides/getting-started-guide.html",
+              "preload": true,
+              "icon": "ph-rocket-launch",
+              "keywords": [
+                "beginner",
+                "start",
+                "setup",
+                "project",
+                "first page",
+                "tutorial",
+                "hello world"
+              ]
+            },
+            {
+              "id": "esm-vs-iife",
+              "title": "ESM vs IIFE vs Legacy",
+              "file": "guides/esm-vs-iife.html",
+              "icon": "ph-package",
+              "keywords": [
+                "esm",
+                "iife",
+                "cjs",
+                "module",
+                "import",
+                "require",
+                "script",
+                "bundler",
+                "format"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Layout & Design",
+          "sections": [
+            {
+              "id": "first-layout",
+              "title": "Building Your First Layout",
+              "file": "guides/first-layout.html",
+              "icon": "ph-layout",
+              "keywords": [
+                "grid",
+                "layout",
+                "container",
+                "row",
+                "column",
+                "responsive",
+                "breakpoint",
+                "tutorial"
+              ]
+            },
+            {
+              "id": "fibonacci-vs-standard",
+              "title": "Fibonacci vs Standard Grid",
+              "file": "guides/fibonacci-vs-standard.html",
+              "icon": "ph-spiral",
+              "keywords": [
+                "fibonacci",
+                "golden ratio",
+                "grid",
+                "layout",
+                "proportion",
+                "harmony",
+                "toggle"
+              ]
+            },
+            {
+              "id": "theme-customizer-guide",
+              "title": "Theme Customizer Walkthrough",
+              "file": "guides/theme-customizer-guide.html",
+              "icon": "ph-paint-brush",
+              "keywords": [
+                "theme",
+                "customizer",
+                "color",
+                "font",
+                "brand",
+                "dark mode",
+                "light mode",
+                "walkthrough"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Best Practices",
+          "sections": [
+            {
+              "id": "accessibility-essentials",
+              "title": "Accessibility Essentials",
+              "file": "guides/accessibility-essentials.html",
+              "icon": "ph-wheelchair",
+              "keywords": [
+                "accessibility",
+                "a11y",
+                "aria",
+                "screen reader",
+                "keyboard",
+                "contrast",
+                "wcag",
+                "inclusive"
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 }
