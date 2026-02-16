@@ -1,0 +1,644 @@
+<section id="getting-started-guide">
+    <h2 class="demo-title"><i class="ph ph-rocket-launch"></i>Getting Started from Zero <code class="vd-text-sm">Guide</code></h2>
+    <p class="vd-mb-5">Welcome! This guide walks you through building your very first web page with Vanduo — from an empty folder to a working, styled site. No prior framework experience needed. Think of this as a senior developer sitting next to you, walking you through every step.</p>
+
+    <!-- What You'll Build -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-eye"></i> What You'll Build</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>By the end of this guide, you'll have a complete page with:</p>
+                    <ul>
+                        <li><i class="ph ph-check-circle" style="color: var(--color-success);"></i> A responsive <strong>navbar</strong> with logo and links</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--color-success);"></i> A <strong>hero section</strong> with text and a call-to-action button</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--color-success);"></i> A <strong>card grid</strong> showing content in columns</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--color-success);"></i> A <strong>footer</strong> at the bottom</li>
+                        <li><i class="ph ph-check-circle" style="color: var(--color-success);"></i> <strong>Dark/light theme</strong> toggle built in</li>
+                    </ul>
+                    <p class="vd-text-sm vd-text-muted vd-mt-3">All of this in about 60 lines of HTML — no CSS to write, no JavaScript to configure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 1: Create Your Project Folder -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 1 of 7</span> <i class="ph ph-folder-simple"></i> Create Your Project Folder</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Open your terminal and create a new folder for your project. This is where all your files will live:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="shell">Shell</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="shell"><code>mkdir my-first-vanduo-site
+cd my-first-vanduo-site</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-4">Now create an <code>index.html</code> file. You can use any text editor — VS Code, Sublime Text, or even Notepad:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="shell">Shell</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="shell"><code>touch index.html</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> If you're using VS Code, you can open the folder directly with <code>code .</code> after creating it. VS Code's Live Server extension is great for auto-refreshing as you edit!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2: Add Vanduo -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 2 of 7</span> <i class="ph ph-download-simple"></i> Add Vanduo to Your Page</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>The fastest way to get started is via <strong>CDN</strong> — no downloads, no installs, just two lines in your HTML. Open <code>index.html</code> and paste this starter template:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!DOCTYPE html&gt;</span>
+&lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-string">"en"</span> <span class="code-attr">data-theme</span>=<span class="code-string">"light"</span>&gt;
+&lt;<span class="code-tag">head</span>&gt;
+    &lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-string">"UTF-8"</span>&gt;
+    &lt;<span class="code-tag">meta</span> <span class="code-attr">name</span>=<span class="code-string">"viewport"</span> <span class="code-attr">content</span>=<span class="code-string">"width=device-width, initial-scale=1.0"</span>&gt;
+    &lt;<span class="code-tag">title</span>&gt;My First Vanduo Site&lt;/<span class="code-tag">title</span>&gt;
+
+    <span class="code-comment">&lt;!-- Vanduo CSS — this gives you the entire design system --&gt;</span>
+    &lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.css"</span>&gt;
+&lt;/<span class="code-tag">head</span>&gt;
+&lt;<span class="code-tag">body</span>&gt;
+
+    <span class="code-comment">&lt;!-- Your content will go here --&gt;</span>
+
+    <span class="code-comment">&lt;!-- Vanduo JS — enables interactive components --&gt;</span>
+    &lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+    &lt;<span class="code-tag">script</span>&gt;Vanduo.init();&lt;/<span class="code-tag">script</span>&gt;
+&lt;/<span class="code-tag">body</span>&gt;
+&lt;/<span class="code-tag">html</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> For production, pin to a specific version like <code>@v1.1.6</code> instead of <code>@main</code> so your site doesn't unexpectedly change when the framework updates.
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-primary vd-mt-3">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Why CDN?</strong> CDN (Content Delivery Network) hosts the files for you on fast servers worldwide. Your visitors download Vanduo from the nearest server — no setup on your end. Perfect for learning and prototyping.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Add a Navbar -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 3 of 7</span> <i class="ph ph-list"></i> Add a Navbar</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Replace the <code>&lt;!-- Your content will go here --&gt;</code> comment with a navbar. This gives you a responsive navigation bar that collapses on mobile:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">nav</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+        &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-brand"</span>&gt;My Site&lt;/<span class="code-tag">a</span>&gt;
+        &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-toggler"</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"collapse"</span> <span class="code-attr">data-target</span>=<span class="code-string">"#mainNav"</span>
+                <span class="code-attr">aria-label</span>=<span class="code-string">"Toggle navigation"</span>&gt;
+            &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-list"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+        &lt;/<span class="code-tag">button</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">id</span>=<span class="code-string">"mainNav"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-collapse"</span>&gt;
+            &lt;<span class="code-tag">ul</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-nav"</span>&gt;
+                &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;Home&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+                &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;About&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+                &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;Contact&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+            &lt;/<span class="code-tag">ul</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">nav</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-4"><strong>What's happening here:</strong></p>
+                    <ul>
+                        <li><code>vd-navbar</code> — The main navbar wrapper, handles styling and layout</li>
+                        <li><code>vd-navbar-brand</code> — Your site name or logo</li>
+                        <li><code>vd-navbar-toggler</code> — The hamburger button that appears on mobile</li>
+                        <li><code>data-toggle="collapse"</code> — Tells Vanduo's JS to make this a collapsible element</li>
+                        <li><code>vd-navbar-nav</code> — The list of navigation links</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4: Add a Hero Section -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 4 of 7</span> <i class="ph ph-star"></i> Add a Hero Section</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Below the <code>&lt;/nav&gt;</code> tag, add a hero section — the big, eye-catching area at the top of your page:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">section</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container vd-py-13"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-8"</span>&gt;
+            &lt;<span class="code-tag">h1</span>&gt;Welcome to My Site&lt;/<span class="code-tag">h1</span>&gt;
+            &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-string">"vd-text-lg vd-text-muted vd-mb-8"</span>&gt;
+                This is my first website built with the Vanduo framework.
+                It looks great and I didn't write a single line of CSS!
+            &lt;/<span class="code-tag">p</span>&gt;
+            &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-primary vd-btn-lg"</span>&gt;
+                &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-rocket-launch"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Get Started
+            &lt;/<span class="code-tag">a</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">section</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-primary vd-mt-4">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Why <code>vd-col-md-8</code>?</strong> This means "take up 8 out of 12 columns on medium screens and above." On mobile, it stretches full width (<code>vd-col-12</code>). This keeps your text readable — nobody likes lines that stretch across the entire screen!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 5: Add Content Cards -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 5 of 7</span> <i class="ph ph-rectangle"></i> Add Content Cards</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Below the hero, let's add a grid of cards — a common pattern for showcasing features, blog posts, or services:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">section</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container vd-py-8"</span>&gt;
+    &lt;<span class="code-tag">h2</span> <span class="code-attr">class</span>=<span class="code-string">"vd-mb-8"</span>&gt;Features&lt;/<span class="code-tag">h2</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                    &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-lightning"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Fast&lt;/<span class="code-tag">h3</span>&gt;
+                    &lt;<span class="code-tag">p</span>&gt;Lightweight CSS with no heavy dependencies.&lt;/<span class="code-tag">p</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                    &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-devices"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Responsive&lt;/<span class="code-tag">h3</span>&gt;
+                    &lt;<span class="code-tag">p</span>&gt;Looks great on phones, tablets, and desktops.&lt;/<span class="code-tag">p</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                    &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-moon"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Dark Mode&lt;/<span class="code-tag">h3</span>&gt;
+                    &lt;<span class="code-tag">p</span>&gt;Built-in light and dark theme support.&lt;/<span class="code-tag">p</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">section</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-4"><strong>The grid in action:</strong> Each card uses <code>vd-col-md-4</code> (4 out of 12 = one-third width), so you get 3 columns on desktop. On mobile they stack vertically because of <code>vd-col-12</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 6: Add a Footer -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 6 of 7</span> <i class="ph ph-layout"></i> Add a Footer</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Every site needs a footer. Add this before the closing <code>&lt;/body&gt;</code> tag (but above the <code>&lt;script&gt;</code> tags):</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">footer</span> <span class="code-attr">class</span>=<span class="code-string">"vd-footer"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6"</span>&gt;
+                &lt;<span class="code-tag">p</span>&gt;&amp;copy; 2026 My Site. Built with Vanduo.&lt;/<span class="code-tag">p</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6"</span> <span class="code-attr">style</span>=<span class="code-string">"text-align: right;"</span>&gt;
+                &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Privacy&lt;/<span class="code-tag">a</span>&gt; &amp;middot;
+                &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Terms&lt;/<span class="code-tag">a</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">footer</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 7: Open in Browser -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 7 of 7</span> <i class="ph ph-browser"></i> Open in Your Browser</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Save your <code>index.html</code> and open it in a web browser. You can simply double-click the file, or use a local server:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="shell">Shell</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="shell"><code><span class="code-comment"># Option A: Just double-click index.html in your file manager</span>
+
+<span class="code-comment"># Option B: Use a simple HTTP server (recommended)</span>
+npx http-server . -p 3000
+<span class="code-comment"># Then open http://localhost:3000</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-success vd-mt-4">
+                        <i class="ph ph-check-circle"></i>
+                        <div>
+                            <strong>If you see a styled page with a navbar, hero, cards, and footer — you did it!</strong> You've built your first Vanduo site. The navbar collapses on mobile, the cards stack responsively, and everything has consistent typography and spacing.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Theme Toggle (Bonus) -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-sun"></i> Bonus: Add a Theme Toggle</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Want dark mode? Just add a button anywhere in your page (the navbar is a great spot):</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">button</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"theme"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Toggle theme"</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-moon"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-3">That's it — one attribute. Vanduo's JS handles the rest: toggling <code>data-theme</code> on the <code>&lt;html&gt;</code> element, saving the preference to <code>localStorage</code>, and updating all colors automatically.</p>
+                    <div class="vd-alert vd-alert-primary vd-mt-3">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Why does this work?</strong> Vanduo uses CSS custom properties (variables) that change based on the <code>data-theme</code> attribute. When you switch themes, every color in the system updates — buttons, cards, text, backgrounds — all from a single attribute change.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Complete File -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-file-code"></i> The Complete File</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Here's everything together — a complete, working page you can copy and paste:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!DOCTYPE html&gt;</span>
+&lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-string">"en"</span> <span class="code-attr">data-theme</span>=<span class="code-string">"light"</span>&gt;
+&lt;<span class="code-tag">head</span>&gt;
+    &lt;<span class="code-tag">meta</span> <span class="code-attr">charset</span>=<span class="code-string">"UTF-8"</span>&gt;
+    &lt;<span class="code-tag">meta</span> <span class="code-attr">name</span>=<span class="code-string">"viewport"</span> <span class="code-attr">content</span>=<span class="code-string">"width=device-width, initial-scale=1.0"</span>&gt;
+    &lt;<span class="code-tag">title</span>&gt;My First Vanduo Site&lt;/<span class="code-tag">title</span>&gt;
+    &lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.css"</span>&gt;
+&lt;/<span class="code-tag">head</span>&gt;
+&lt;<span class="code-tag">body</span>&gt;
+    &lt;<span class="code-tag">nav</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+            &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-brand"</span>&gt;My Site&lt;/<span class="code-tag">a</span>&gt;
+            &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-toggler"</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"collapse"</span> <span class="code-attr">data-target</span>=<span class="code-string">"#mainNav"</span>
+                    <span class="code-attr">aria-label</span>=<span class="code-string">"Toggle navigation"</span>&gt;
+                &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-list"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+            &lt;/<span class="code-tag">button</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">id</span>=<span class="code-string">"mainNav"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-collapse"</span>&gt;
+                &lt;<span class="code-tag">ul</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar-nav"</span>&gt;
+                    &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;Home&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+                    &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;About&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+                    &lt;<span class="code-tag">li</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-nav-link"</span>&gt;Contact&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+                &lt;/<span class="code-tag">ul</span>&gt;
+                &lt;<span class="code-tag">button</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"theme"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Toggle theme"</span> <span class="code-attr">style</span>=<span class="code-string">"margin-left: auto;"</span>&gt;
+                    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-moon"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+                &lt;/<span class="code-tag">button</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">nav</span>&gt;
+
+    &lt;<span class="code-tag">section</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container vd-py-13"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-8"</span>&gt;
+                &lt;<span class="code-tag">h1</span>&gt;Welcome to My Site&lt;/<span class="code-tag">h1</span>&gt;
+                &lt;<span class="code-tag">p</span> <span class="code-attr">class</span>=<span class="code-string">"vd-text-lg vd-text-muted vd-mb-8"</span>&gt;
+                    Built with the Vanduo framework — no custom CSS needed.
+                &lt;/<span class="code-tag">p</span>&gt;
+                &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-primary vd-btn-lg"</span>&gt;
+                    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-rocket-launch"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Get Started
+                &lt;/<span class="code-tag">a</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">section</span>&gt;
+
+    &lt;<span class="code-tag">section</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container vd-py-8"</span>&gt;
+        &lt;<span class="code-tag">h2</span> <span class="code-attr">class</span>=<span class="code-string">"vd-mb-8"</span>&gt;Features&lt;/<span class="code-tag">h2</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                        &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-lightning"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Fast&lt;/<span class="code-tag">h3</span>&gt;
+                        &lt;<span class="code-tag">p</span>&gt;Lightweight CSS with no heavy dependencies.&lt;/<span class="code-tag">p</span>&gt;
+                    &lt;/<span class="code-tag">div</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                        &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-devices"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Responsive&lt;/<span class="code-tag">h3</span>&gt;
+                        &lt;<span class="code-tag">p</span>&gt;Looks great on phones, tablets, and desktops.&lt;/<span class="code-tag">p</span>&gt;
+                    &lt;/<span class="code-tag">div</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-4 vd-mb-5"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card"</span>&gt;
+                    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-card-body"</span>&gt;
+                        &lt;<span class="code-tag">h3</span>&gt;&lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-moon"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Dark Mode&lt;/<span class="code-tag">h3</span>&gt;
+                        &lt;<span class="code-tag">p</span>&gt;Built-in light and dark theme support.&lt;/<span class="code-tag">p</span>&gt;
+                    &lt;/<span class="code-tag">div</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">section</span>&gt;
+
+    &lt;<span class="code-tag">footer</span> <span class="code-attr">class</span>=<span class="code-string">"vd-footer"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+            &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6"</span>&gt;
+                    &lt;<span class="code-tag">p</span>&gt;&amp;copy; 2026 My Site. Built with Vanduo.&lt;/<span class="code-tag">p</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+                &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-12 vd-col-md-6"</span> <span class="code-attr">style</span>=<span class="code-string">"text-align: right;"</span>&gt;
+                    &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Privacy&lt;/<span class="code-tag">a</span>&gt; &amp;middot; &lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Terms&lt;/<span class="code-tag">a</span>&gt;
+                &lt;/<span class="code-tag">div</span>&gt;
+            &lt;/<span class="code-tag">div</span>&gt;
+        &lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">footer</span>&gt;
+
+    &lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+    &lt;<span class="code-tag">script</span>&gt;Vanduo.init();&lt;/<span class="code-tag">script</span>&gt;
+&lt;/<span class="code-tag">body</span>&gt;
+&lt;/<span class="code-tag">html</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-arrow-right"></i> Next Steps</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>You've got a working page — now what? Here's where to go next:</p>
+                    <div class="vd-row vd-mt-4">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <a class="vd-card vd-card-glow" href="#docs/guides/esm-vs-iife" data-route="docs/guides/esm-vs-iife" style="display:block;">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-package"></i> ESM vs IIFE vs Legacy</h4>
+                                    <p class="vd-text-sm">Learn which module format is right for your project — and why it matters.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <a class="vd-card vd-card-glow" href="#docs/guides/first-layout" data-route="docs/guides/first-layout" style="display:block;">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-layout"></i> Building Your First Layout</h4>
+                                    <p class="vd-text-sm">Master the grid system — containers, rows, columns, and responsive breakpoints.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <a class="vd-card vd-card-glow" href="#docs/guides/fibonacci-vs-standard" data-route="docs/guides/fibonacci-vs-standard" style="display:block;">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-spiral"></i> Fibonacci vs Standard Grid</h4>
+                                    <p class="vd-text-sm">Discover Vanduo's unique Fibonacci layouts for naturally beautiful proportions.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <a class="vd-card vd-card-glow" href="#docs/guides/theme-customizer-guide" data-route="docs/guides/theme-customizer-guide" style="display:block;">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-paint-brush"></i> Theme Customizer Walkthrough</h4>
+                                    <p class="vd-text-sm">Brand your site with custom colors, fonts, and radius — all at runtime.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

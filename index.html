@@ -337,6 +337,35 @@
         #page-view { display: none; }
         #docs-view.is-active { display: block; }
         #page-view.is-active { display: block; }
+
+        /* ── Sticky doc-tabs on desktop & tablet ──────── */
+        @media (min-width: 768px) {
+            .doc-tabs {
+                position: sticky;
+                top: 70px;
+                z-index: 11;
+                background: var(--bg-primary);
+                padding: 1rem 0 0.75rem;
+                margin: 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .doc-sidebar {
+                top: 140px;
+            }
+            .doc-sidebar .vd-doc-search {
+                top: 140px;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+            .doc-sidebar {
+                max-height: calc(100vh - 150px);
+            }
+        }
+        @media (min-width: 992px) {
+            .doc-sidebar {
+                height: calc(100vh - 150px);
+            }
+        }
     </style>
 </head>
 
@@ -383,6 +412,7 @@
                 <div class="doc-tabs">
                     <a href="#docs" class="doc-tab" data-tab="components"><i class="ph ph-cube"></i>Components</a>
                     <a href="#docs/concepts" class="doc-tab" data-tab="concepts"><i class="ph ph-lightbulb"></i>Concepts &amp; Architecture</a>
+                    <a href="#docs/guides" class="doc-tab" data-tab="guides"><i class="ph ph-compass"></i>Guides</a>
                 </div>
 
                 <div class="vd-row">
@@ -463,6 +493,23 @@
     <script type="module">
         import { Vanduo } from './dist/vanduo.esm.min.js';
         Vanduo.init();
+
+        /* ── Disabled code-snippet tab → info toast ────── */
+        (function() {
+            var lastToast = 0;
+            function handleDisabledTab(e) {
+                var now = Date.now();
+                if (now - lastToast < 1500) return;
+                var el = document.elementFromPoint(e.clientX, e.clientY);
+                if (!el || !el.matches || !el.matches('.vd-code-snippet-tab[disabled]')) return;
+                lastToast = now;
+                var lang = (el.getAttribute('data-lang') || '').toUpperCase();
+                if (typeof Toast !== 'undefined') {
+                    Toast.info(lang + ' is not used in this example.');
+                }
+            }
+            document.addEventListener('mousedown', handleDisabledTab, true);
+        })();
 
         /* ── Constants ────────────────────────────────── */
         const SECTIONS_BASE = './sections/';
@@ -792,6 +839,7 @@
             if (h === 'changelog') return { view: 'changelog' };
             if (h === 'docs' || h === 'docs/components') return { view: 'docs', tab: 'components', section: null };
             if (h === 'docs/concepts') return { view: 'docs', tab: 'concepts', section: null };
+            if (h === 'docs/guides') return { view: 'docs', tab: 'guides', section: null };
             if (h.startsWith('docs/')) {
                 var sectionId = h.slice(5);
                 var tabKey = getTabForSection(sectionId);
@@ -846,7 +894,8 @@
             tab.addEventListener('click', function(e) {
                 e.preventDefault();
                 var tabKey = tab.getAttribute('data-tab');
-                navigate(tabKey === 'concepts' ? 'docs/concepts' : 'docs');
+                var tabRoutes = { concepts: 'docs/concepts', guides: 'docs/guides' };
+                navigate(tabRoutes[tabKey] || 'docs');
             });
         });
 

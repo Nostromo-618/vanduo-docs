@@ -1,0 +1,424 @@
+<section id="fibonacci-vs-standard">
+    <h2 class="demo-title"><i class="ph ph-spiral"></i>Fibonacci vs Standard Grid <code class="vd-text-sm">Guide</code></h2>
+    <p class="vd-mb-5">Most CSS frameworks give you equal columns — 4+4+4 or 6+6. Vanduo goes further with <strong>Fibonacci-based layouts</strong> that follow the proportions found in nature: 1, 1, 2, 3, 5, 8, 13… These ratios create visual harmony that feels "right" even if you can't explain why. Let's explore the difference.</p>
+
+    <!-- What is the Fibonacci Sequence? -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-math-operations"></i> What is the Fibonacci Sequence?</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Each number is the sum of the two before it:</p>
+                    <div style="font-size: 1.5rem; font-weight: bold; text-align: center; padding: 1rem; letter-spacing: 0.1em;" class="vd-mb-4">
+                        <span style="color: var(--color-text-muted);">1</span> &middot;
+                        <span style="color: var(--color-text-muted);">1</span> &middot;
+                        <span style="color: var(--color-info);">2</span> &middot;
+                        <span style="color: var(--color-success);">3</span> &middot;
+                        <span style="color: var(--color-primary);">5</span> &middot;
+                        <span style="color: var(--color-warning);">8</span> &middot;
+                        <span style="color: var(--color-danger);">13</span> &middot;
+                        <span style="color: var(--color-text-muted);">21</span> &middot;
+                        <span style="color: var(--color-text-muted);">34</span> &middot; …
+                    </div>
+                    <p>As the numbers grow, the ratio between consecutive numbers approaches <strong>~1.618</strong> — the <strong>Golden Ratio</strong> (φ). This ratio appears in sunflowers, seashells, galaxies, and the proportions of classical architecture.</p>
+                    <div class="vd-alert vd-alert-primary vd-mt-4">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Why does this matter for web design?</strong> Our brains are wired to find Golden Ratio proportions pleasing. Using Fibonacci ratios in your layouts creates a subtle sense of balance and sophistication that equal-width columns simply can't achieve.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Before/After Comparison -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-swap"></i> Before / After: See the Difference</h3>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-5">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-text-muted);">
+                                <div class="vd-card-header">
+                                    <h4>Standard Grid (equal columns)</h4>
+                                </div>
+                                <div class="vd-card-body">
+                                    <div class="vd-row" style="gap: 4px;">
+                                        <div class="vd-col-4" style="padding: 0;">
+                                            <div style="background: var(--color-primary); opacity: 0.7; height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">4 cols</div>
+                                        </div>
+                                        <div class="vd-col-4" style="padding: 0;">
+                                            <div style="background: var(--color-primary); opacity: 0.7; height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">4 cols</div>
+                                        </div>
+                                        <div class="vd-col-4" style="padding: 0;">
+                                            <div style="background: var(--color-primary); opacity: 0.7; height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">4 cols</div>
+                                        </div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-3">Equal widths: 33% + 33% + 33%. Balanced, but uniform — every section gets the same emphasis.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-5">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-success);">
+                                <div class="vd-card-header">
+                                    <h4>Fibonacci Grid (golden proportions)</h4>
+                                </div>
+                                <div class="vd-card-body">
+                                    <div style="display: flex; gap: 4px;">
+                                        <div style="flex: 3; background: var(--color-success); opacity: 0.8; height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">3fr</div>
+                                        <div style="flex: 5; background: var(--color-success); height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">5fr</div>
+                                        <div style="flex: 8; background: var(--color-success); opacity: 0.6; height: 80px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">8fr</div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-3">Fibonacci widths: ~19% + ~31% + ~50%. Natural hierarchy — your eye moves from small to large, creating visual flow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fibonacci Layouts in Vanduo -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 1 of 4</span> <i class="ph ph-grid-four"></i> Fibonacci Layout Classes</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Vanduo provides ready-made Fibonacci layouts. Just swap your row class:</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">4-Column Fibonacci (1:2:3:5)</h4>
+                    <div class="vd-row-fib-4 vd-mb-4" style="gap: 4px;">
+                        <div style="background: var(--color-danger); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">1</div>
+                        <div style="background: var(--color-warning); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">2</div>
+                        <div style="background: var(--color-info); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">3</div>
+                        <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">5</div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row-fib-4"</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Narrow (1 part)&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Small (2 parts)&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Medium (3 parts)&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Wide (5 parts)&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3">3-Column Fibonacci (3:5:8)</h4>
+                    <div class="vd-row-fib-3-alt vd-mb-4" style="gap: 4px;">
+                        <div style="background: var(--color-success); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">3</div>
+                        <div style="background: var(--color-primary); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">5</div>
+                        <div style="background: var(--color-info); color: white; padding: 1rem; border-radius: var(--radius-sm); text-align: center;">8</div>
+                    </div>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row-fib-3-alt"</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Sidebar (3 parts)&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Secondary (5 parts)&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;Main content (8 parts)&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Fibonacci layouts are great for <strong>content-heavy pages</strong> — blog layouts, article pages, portfolios. The widest column naturally draws the eye to your main content.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS Grid Fibonacci -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 2 of 4</span> <i class="ph ph-squares-four"></i> CSS Grid Fibonacci</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Prefer CSS Grid over Flexbox? Vanduo has you covered with <code>vd-grid-fib-*</code> classes that use <code>grid-template-columns</code> with fractional units:</p>
+
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- CSS Grid: 4-column Fibonacci (1fr 2fr 3fr 5fr) --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-grid-fib-4"</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;1fr&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;2fr&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;3fr&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;5fr&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- CSS Grid: 3-column Fibonacci (3fr 5fr 8fr) --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-grid-fib-3-alt"</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;3fr&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;5fr&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span>&gt;8fr&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-primary vd-mt-4">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Flexbox vs CSS Grid?</strong> Both give you Fibonacci proportions. Use <code>vd-row-fib-*</code> (Flexbox) when you want wrapping behavior on small screens. Use <code>vd-grid-fib-*</code> (CSS Grid) when you want strict column placement and alignment across rows.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fibonacci Gap Utilities -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 3 of 4</span> <i class="ph ph-arrows-out-line-horizontal"></i> Fibonacci Gap Utilities</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Fibonacci isn't just for column widths — Vanduo also provides <strong>Fibonacci-based spacing</strong> between grid items:</p>
+
+                    <div class="vd-row vd-mt-5">
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <code>vd-gap-fib-3</code>
+                                    <div style="display: flex; gap: 3px; justify-content: center; margin-top: 1rem;">
+                                        <div style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-sm);"></div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">3px gap — tight</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <code>vd-gap-fib-8</code>
+                                    <div style="display: flex; gap: 8px; justify-content: center; margin-top: 1rem;">
+                                        <div style="width: 40px; height: 40px; background: var(--color-success); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-success); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-success); border-radius: var(--radius-sm);"></div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">8px gap — comfortable</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <code>vd-gap-fib-21</code>
+                                    <div style="display: flex; gap: 21px; justify-content: center; margin-top: 1rem;">
+                                        <div style="width: 40px; height: 40px; background: var(--color-warning); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-warning); border-radius: var(--radius-sm);"></div>
+                                        <div style="width: 40px; height: 40px; background: var(--color-warning); border-radius: var(--radius-sm);"></div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">21px gap — spacious</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Fibonacci gaps --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-gap-fib-3"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;   <span class="code-comment">&lt;!-- 3px gap --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-gap-fib-5"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;   <span class="code-comment">&lt;!-- 5px gap --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-gap-fib-8"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;   <span class="code-comment">&lt;!-- 8px gap --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-gap-fib-13"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;  <span class="code-comment">&lt;!-- 13px gap --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row vd-gap-fib-21"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;  <span class="code-comment">&lt;!-- 21px gap --&gt;</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid Mode Toggle -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Step 4 of 4</span> <i class="ph ph-toggle-left"></i> The Grid Mode Toggle</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Here's something unique to Vanduo: you can let users <strong>switch between Standard and Fibonacci grid</strong> at runtime with a toggle button. Great for dashboards or design tools where users want to control the layout:</p>
+
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Add this button anywhere in your page --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">data-grid-toggle</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Toggle grid mode"</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-grid-four"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Toggle Grid Mode
+&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- Mark the section that should switch --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">data-layout-mode</span> <span class="code-attr">class</span>=<span class="code-string">"vd-container"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-row"</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;Column 1&lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;Column 2&lt;/<span class="code-tag">div</span>&gt;
+        &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-col-4"</span>&gt;Column 3&lt;/<span class="code-tag">div</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="vd-mt-4">When the toggle is clicked, Vanduo swaps the grid from equal columns to Fibonacci proportions. The <code>data-layout-mode</code> attribute on the container tells Vanduo which section to transform.</p>
+
+                    <div class="vd-alert vd-alert-warning vd-mt-4">
+                        <i class="ph ph-warning"></i>
+                        <div>
+                            <strong>Watch out:</strong> The grid toggle works on <code>vd-row</code> elements inside the <code>data-layout-mode</code> container. Make sure your columns add up to 12 in standard mode — Fibonacci mode recalculates proportions automatically.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- When to Use Which -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-compass"></i> When to Use Which</h3>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-primary);">
+                                <div class="vd-card-header"><h4><i class="ph ph-grid-four"></i> Use Standard Grid When…</h4></div>
+                                <div class="vd-card-body">
+                                    <ul>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Building data-heavy dashboards (equal emphasis on all metrics)</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Creating forms with aligned columns</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> E-commerce product grids (uniform card sizes)</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Any layout where symmetry is desired</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-success);">
+                                <div class="vd-card-header"><h4><i class="ph ph-spiral"></i> Use Fibonacci Grid When…</h4></div>
+                                <div class="vd-card-body">
+                                    <ul>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Designing content-first pages (blogs, articles, portfolios)</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Creating visual hierarchy (main content + sidebar)</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Marketing / landing pages (guide the eye to the CTA)</li>
+                                        <li><i class="ph ph-check" style="color: var(--color-success);"></i> Any layout where you want one area to dominate</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> You can mix both in the same page! Use a standard grid for your header and footer, and Fibonacci for the main content area. There's no rule against combining them.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

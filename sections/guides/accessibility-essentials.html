@@ -1,0 +1,589 @@
+<section id="accessibility-essentials">
+    <h2 class="demo-title"><i class="ph ph-wheelchair"></i>Accessibility Essentials <code class="vd-text-sm">Guide</code></h2>
+    <p class="vd-mb-5">Accessibility isn't a feature you bolt on at the end — it's about making sure everyone can use what you build. People with visual impairments, motor disabilities, cognitive differences, or temporary injuries (a broken arm, bright sunlight on a screen) all benefit from accessible design. This guide shows you what Vanduo handles for you, and what you need to do yourself.</p>
+
+    <!-- Why Accessibility Matters -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-heart"></i> Why This Matters</h3>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <i class="ph ph-users-three" style="font-size: 2.5rem; color: var(--color-primary);"></i>
+                                    <h4 class="vd-mt-3">1 in 4 Adults</h4>
+                                    <p class="vd-text-sm vd-text-muted">have some form of disability. That's 25% of your potential users.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <i class="ph ph-hand-waving" style="font-size: 2.5rem; color: var(--color-success);"></i>
+                                    <h4 class="vd-mt-3">It Helps Everyone</h4>
+                                    <p class="vd-text-sm vd-text-muted">Captions help in noisy rooms. High contrast helps in sunlight. Keyboard nav helps power users.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card" style="text-align: center;">
+                                <div class="vd-card-body">
+                                    <i class="ph ph-scales" style="font-size: 2.5rem; color: var(--color-warning);"></i>
+                                    <h4 class="vd-mt-3">It's Often Required</h4>
+                                    <p class="vd-text-sm vd-text-muted">Laws like ADA, Section 508, and EAA mandate accessibility for many websites.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-alert vd-alert-primary vd-mt-4">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>The right mindset:</strong> Don't think of accessibility as "extra work for edge cases." Think of it as building something that <em>actually works</em> for everyone — the same way a ramp helps wheelchairs, strollers, delivery carts, and tired hikers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What Vanduo Gives You for Free -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-success" style="margin-right: 8px;">Built-in</span> <i class="ph ph-gift"></i> What Vanduo Gives You for Free</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Good news — Vanduo's components are built with accessibility in mind. Here's what you get out of the box:</p>
+                    <div class="vd-table-responsive vd-mt-4">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>What Vanduo Does</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ARIA attributes</strong></td>
+                                    <td>Modals, tooltips, dropdowns, and collapsibles get <code>aria-expanded</code>, <code>aria-hidden</code>, and <code>role</code> attributes automatically via JS</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Focus management</strong></td>
+                                    <td>Modals trap focus inside them. When you close a modal, focus returns to the trigger element</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Focus-visible styles</strong></td>
+                                    <td>Keyboard users see clear focus rings, while mouse users don't — using <code>:focus-visible</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Color contrast</strong></td>
+                                    <td>The default theme meets WCAG AA contrast ratios for text and interactive elements</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Semantic HTML</strong></td>
+                                    <td>Components use proper elements: <code>&lt;button&gt;</code> for actions, <code>&lt;nav&gt;</code> for navigation, <code>&lt;table&gt;</code> for data</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Keyboard interaction</strong></td>
+                                    <td>Escape closes modals/dropdowns, Enter/Space activates buttons, arrow keys navigate tabs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Navigation -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Essential 1</span> <i class="ph ph-keyboard"></i> Keyboard Navigation</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Many users navigate with keyboards alone — Tab to move between elements, Enter/Space to activate, Escape to close. Here's how to ensure your site works without a mouse:</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Tab Order</h4>
+                    <p>By default, browsers tab through elements in DOM order. If your visual layout differs from the source order (e.g., using CSS Grid reordering), users may get confused. Use <code>tabindex</code> sparingly and only when necessary:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- DON'T: Manually managing tab order gets messy fast --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">tabindex</span>=<span class="code-string">"3"</span>&gt;Third&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span> <span class="code-attr">tabindex</span>=<span class="code-string">"1"</span>&gt;First&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span> <span class="code-attr">tabindex</span>=<span class="code-string">"2"</span>&gt;Second&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- DO: Let the natural DOM order be the tab order --&gt;</span>
+&lt;<span class="code-tag">button</span>&gt;First&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span>&gt;Second&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span>&gt;Third&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-8 vd-mb-3">Skip-to-Content Link</h4>
+                    <p>Help keyboard users skip past the navbar to the main content:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- First element in &lt;body&gt; --&gt;</span>
+&lt;<span class="code-tag">a</span> <span class="code-attr">href</span>=<span class="code-string">"#main-content"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skip-link"</span>&gt;Skip to main content&lt;/<span class="code-tag">a</span>&gt;
+
+&lt;<span class="code-tag">nav</span> <span class="code-attr">class</span>=<span class="code-string">"vd-navbar"</span>&gt;...&lt;/<span class="code-tag">nav</span>&gt;
+
+&lt;<span class="code-tag">main</span> <span class="code-attr">id</span>=<span class="code-string">"main-content"</span>&gt;
+    <span class="code-comment">&lt;!-- Your page content --&gt;</span>
+&lt;/<span class="code-tag">main</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Test your entire site using only the keyboard. Unplug your mouse (or just don't touch it) and try to complete every user action. You'll immediately find problems — elements you can't reach, invisible focus states, trapped focus.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen Reader Essentials -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Essential 2</span> <i class="ph ph-speaker-high"></i> Screen Reader Essentials</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Screen readers convert your page into speech or Braille. They rely on HTML structure and ARIA attributes to convey meaning. Here's what you need to add yourself:</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Label Everything</h4>
+                    <div class="vd-row vd-mt-3">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-text-muted);">
+                                <div class="vd-card-header"><h4><i class="ph ph-x-circle" style="color: var(--color-danger);"></i> Without Labels</h4></div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Screen reader says: "Button" --&gt;</span>
+&lt;<span class="code-tag">button</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-x"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- Screen reader says: "Image" --&gt;</span>
+&lt;<span class="code-tag">img</span> <span class="code-attr">src</span>=<span class="code-string">"hero.jpg"</span>&gt;
+
+<span class="code-comment">&lt;!-- Screen reader says: "Edit text" --&gt;</span>
+&lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"text"</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">Users have no idea what these elements do.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-success);">
+                                <div class="vd-card-header"><h4><i class="ph ph-check-circle" style="color: var(--color-success);"></i> With Labels</h4></div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- "Close dialog" --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Close dialog"</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-x"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- "Sunset over the ocean" --&gt;</span>
+&lt;<span class="code-tag">img</span> <span class="code-attr">src</span>=<span class="code-string">"hero.jpg"</span> <span class="code-attr">alt</span>=<span class="code-string">"Sunset over the ocean"</span>&gt;
+
+<span class="code-comment">&lt;!-- "Email address, edit text" --&gt;</span>
+&lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"email"</span>&gt;Email address&lt;/<span class="code-tag">label</span>&gt;
+&lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"text"</span> <span class="code-attr">id</span>=<span class="code-string">"email"</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">Every element communicates its purpose.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Use Semantic Elements</h4>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- DON'T: Divs with click handlers --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">onclick</span>=<span class="code-string">"doSomething()"</span>&gt;Click me&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- DO: Use the right element --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">onclick</span>=<span class="code-string">"doSomething()"</span>&gt;Click me&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- Buttons are focusable, announce as "button", and respond to
+     Enter/Space automatically. Divs do none of that. --&gt;</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Color and Contrast -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Essential 3</span> <i class="ph ph-eye"></i> Color and Contrast</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Text needs enough contrast against its background to be readable. WCAG requires:</p>
+                    <ul>
+                        <li><strong>AA (minimum):</strong> 4.5:1 ratio for normal text, 3:1 for large text (18px+ bold or 24px+)</li>
+                        <li><strong>AAA (enhanced):</strong> 7:1 ratio for normal text, 4.5:1 for large text</li>
+                    </ul>
+
+                    <div class="vd-alert vd-alert-warning vd-mt-4">
+                        <i class="ph ph-warning"></i>
+                        <div>
+                            <strong>Watch out:</strong> When you change colors using the Theme Customizer, you might accidentally create low-contrast combinations. Always check that your text remains readable after customization — especially with lighter primary colors like <code>amber</code> or <code>lime</code> on white backgrounds.
+                        </div>
+                    </div>
+
+                    <p class="vd-mt-4"><strong>Never rely on color alone</strong> to convey information:</p>
+                    <div class="vd-row vd-mt-3">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-text-muted);">
+                                <div class="vd-card-header"><h4><i class="ph ph-x-circle" style="color: var(--color-danger);"></i> Color Only</h4></div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Red text means error... but
+     colorblind users can't tell --&gt;</span>
+&lt;<span class="code-tag">p</span> <span class="code-attr">style</span>=<span class="code-string">"color: red;"</span>&gt;
+    Invalid email
+&lt;/<span class="code-tag">p</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-success);">
+                                <div class="vd-card-header"><h4><i class="ph ph-check-circle" style="color: var(--color-success);"></i> Color + Icon + Text</h4></div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Clear even without color --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-alert vd-alert-danger"</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-warning-circle"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+    &lt;<span class="code-tag">strong</span>&gt;Error:&lt;/<span class="code-tag">strong</span>&gt;
+    Please enter a valid email address.
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forms Accessibility -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Essential 4</span> <i class="ph ph-textbox"></i> Forms Accessibility</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Forms are where accessibility creates or breaks the experience. Every input field needs a proper label, and errors need to be communicated clearly:</p>
+
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Accessible form field with error --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+    &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"user-email"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-label"</span>&gt;Email Address&lt;/<span class="code-tag">label</span>&gt;
+    &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"email"</span>
+           <span class="code-attr">id</span>=<span class="code-string">"user-email"</span>
+           <span class="code-attr">class</span>=<span class="code-string">"vd-form-control"</span>
+           <span class="code-attr">aria-describedby</span>=<span class="code-string">"email-error"</span>
+           <span class="code-attr">aria-invalid</span>=<span class="code-string">"true"</span>
+           <span class="code-attr">placeholder</span>=<span class="code-string">"you@example.com"</span>&gt;
+    &lt;<span class="code-tag">p</span> <span class="code-attr">id</span>=<span class="code-string">"email-error"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-error"</span> <span class="code-attr">role</span>=<span class="code-string">"alert"</span>&gt;
+        &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-warning-circle"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+        Please enter a valid email address.
+    &lt;/<span class="code-tag">p</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="vd-mt-4"><strong>Key patterns:</strong></p>
+                    <ul>
+                        <li><code>for="id"</code> on <code>&lt;label&gt;</code> connects it to the input — clicking the label focuses the input</li>
+                        <li><code>aria-describedby</code> connects the input to its error message — screen readers read both</li>
+                        <li><code>aria-invalid="true"</code> tells screen readers this field has an error</li>
+                        <li><code>role="alert"</code> on the error message makes screen readers announce it immediately when it appears</li>
+                    </ul>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Never use <code>placeholder</code> as a replacement for <code>&lt;label&gt;</code>. Placeholders disappear when users start typing, leaving them wondering what they're supposed to enter. Always use a visible label.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testing Your Work -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Essential 5</span> <i class="ph ph-test-tube"></i> Testing Your Work</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>You don't need to be an accessibility expert to test your site. Here are the most effective approaches, from easiest to most thorough:</p>
+
+                    <div class="vd-row vd-mt-4">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-keyboard" style="color: var(--color-primary);"></i> 1. Keyboard Test</h4>
+                                    <p class="vd-text-sm">Don't touch your mouse. Tab through every page. Can you reach everything? Can you see where focus is? Can you activate buttons with Enter?</p>
+                                    <p class="vd-text-sm vd-text-muted">Time: 5 minutes per page</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-browser" style="color: var(--color-info);"></i> 2. Browser DevTools</h4>
+                                    <p class="vd-text-sm">Chrome's Lighthouse (Audits tab) has an Accessibility score. Run it and aim for 90+. It catches missing labels, low contrast, and missing ARIA.</p>
+                                    <p class="vd-text-sm vd-text-muted">Time: 1 minute per page</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-plug" style="color: var(--color-success);"></i> 3. axe DevTools Extension</h4>
+                                    <p class="vd-text-sm">A free browser extension that finds accessibility issues and explains how to fix them. Much more detailed than Lighthouse.</p>
+                                    <p class="vd-text-sm vd-text-muted">Time: 2-3 minutes per page</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body">
+                                    <h4><i class="ph ph-speaker-high" style="color: var(--color-warning);"></i> 4. Screen Reader</h4>
+                                    <p class="vd-text-sm">Try VoiceOver (macOS: Cmd+F5), NVDA (Windows, free), or TalkBack (Android). Listen to your site — does it make sense?</p>
+                                    <p class="vd-text-sm vd-text-muted">Time: 10-15 minutes (first time)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-3">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> Vanduo's own documentation site uses Playwright for automated a11y testing. If you have Playwright set up, you can use <code>@axe-core/playwright</code> to catch accessibility regressions in CI.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Checklist -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-check-square"></i> Accessibility Checklist</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Bookmark this quick-reference checklist for every page you build:</p>
+
+                    <h4 class="vd-mt-4 vd-mb-3">Structure</h4>
+                    <ul>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Page has one <code>&lt;h1&gt;</code> and headings don't skip levels (h1 → h2 → h3)</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Page uses <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> landmarks</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Page has a <code>&lt;title&gt;</code> that describes the content</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Language is set: <code>&lt;html lang="en"&gt;</code></li>
+                    </ul>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Images &amp; Media</h4>
+                    <ul>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> All <code>&lt;img&gt;</code> tags have <code>alt</code> text (or <code>alt=""</code> for decorative images)</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Icons used as buttons have <code>aria-label</code></li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Videos have captions or transcripts</li>
+                    </ul>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Interaction</h4>
+                    <ul>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> All interactive elements are reachable via keyboard (Tab / Shift+Tab)</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Focus is visible on all focusable elements</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Clickable elements use <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code>, not <code>&lt;div&gt;</code></li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Escape closes modals, dropdowns, and overlays</li>
+                    </ul>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Forms</h4>
+                    <ul>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Every input has a visible <code>&lt;label&gt;</code></li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Required fields are indicated (not just with color)</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Error messages use <code>aria-describedby</code> and <code>role="alert"</code></li>
+                    </ul>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Color &amp; Visual</h4>
+                    <ul>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Text contrast is at least 4.5:1 (check with DevTools)</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Information isn't conveyed by color alone</li>
+                        <li><i class="ph ph-square" style="color: var(--color-text-muted);"></i> Site is usable when zoomed to 200%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

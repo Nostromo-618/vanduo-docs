@@ -1,0 +1,548 @@
+<section id="esm-vs-iife">
+    <h2 class="demo-title"><i class="ph ph-package"></i>ESM vs IIFE vs Legacy <code class="vd-text-sm">Guide</code></h2>
+    <p class="vd-mb-5">JavaScript module formats can feel confusing — ESM, IIFE, CJS, UMD… what do these acronyms even mean? This guide breaks it all down in plain language, helps you pick the right one for your project, and shows you exactly how to set each up with Vanduo.</p>
+
+    <!-- The Big Picture -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-binoculars"></i> The Big Picture</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>When you include JavaScript on a web page, the browser needs to know <em>how</em> that code is packaged. Think of module formats like different types of packaging for the same product:</p>
+                    <div class="vd-row vd-mt-5">
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body" style="text-align: center;">
+                                    <i class="ph ph-browser" style="font-size: 2.5rem; color: var(--color-primary);"></i>
+                                    <h4 class="vd-mt-3">IIFE</h4>
+                                    <p class="vd-text-sm vd-text-muted">Immediately Invoked Function Expression</p>
+                                    <p class="vd-text-sm">The classic <code>&lt;script&gt;</code> tag approach. Drop it in, it just works. Creates a global <code>Vanduo</code> object.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body" style="text-align: center;">
+                                    <i class="ph ph-tree-structure" style="font-size: 2.5rem; color: var(--color-success);"></i>
+                                    <h4 class="vd-mt-3">ESM</h4>
+                                    <p class="vd-text-sm vd-text-muted">ECMAScript Modules</p>
+                                    <p class="vd-text-sm">The modern standard. Use <code>import</code> / <code>export</code>. Works with bundlers like Vite, Webpack, Rollup.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                            <div class="vd-card">
+                                <div class="vd-card-body" style="text-align: center;">
+                                    <i class="ph ph-clock-counter-clockwise" style="font-size: 2.5rem; color: var(--color-warning);"></i>
+                                    <h4 class="vd-mt-3">CJS (Legacy)</h4>
+                                    <p class="vd-text-sm vd-text-muted">CommonJS</p>
+                                    <p class="vd-text-sm">The Node.js format. Uses <code>require()</code>. For older build tools or server-side rendering.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decision Tree -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-flow-arrow"></i> Which One Should I Choose?</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Follow this decision tree to find the right format for your project:</p>
+
+                    <div class="vd-card vd-mt-5 vd-mb-4" style="border-left: 4px solid var(--color-primary);">
+                        <div class="vd-card-body">
+                            <p><strong><i class="ph ph-question"></i> Are you using a bundler?</strong> (Vite, Webpack, Rollup, Parcel, esbuild)</p>
+                            <div class="vd-row vd-mt-3">
+                                <div class="vd-col-12 vd-col-md-6">
+                                    <div class="vd-card" style="border-left: 4px solid var(--color-success);">
+                                        <div class="vd-card-body">
+                                            <p><strong>Yes →</strong> Use <strong>ESM</strong> <i class="ph ph-check-circle" style="color: var(--color-success);"></i></p>
+                                            <p class="vd-text-sm vd-text-muted">You get tree-shaking (smaller bundles), modern syntax, and the best developer experience.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vd-col-12 vd-col-md-6">
+                                    <div class="vd-card" style="border-left: 4px solid var(--color-warning);">
+                                        <div class="vd-card-body">
+                                            <p><strong>No →</strong> Next question...</p>
+                                            <div class="vd-card vd-mt-3" style="border-left: 4px solid var(--color-info);">
+                                                <div class="vd-card-body">
+                                                    <p><strong><i class="ph ph-question"></i> Do you need to support very old browsers?</strong> (IE11, old Edge)</p>
+                                                    <div class="vd-row vd-mt-3">
+                                                        <div class="vd-col-6">
+                                                            <p><strong>Yes →</strong> Use <strong>CJS</strong> with a bundler/transpiler</p>
+                                                        </div>
+                                                        <div class="vd-col-6">
+                                                            <p><strong>No →</strong> Use <strong>IIFE</strong> <i class="ph ph-check-circle" style="color: var(--color-success);"></i></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-lightbulb"></i>
+                        <div>
+                            <strong>Pro tip:</strong> If you're just getting started or building a simple site, <strong>IIFE is your best friend</strong>. No build tools, no configuration — just a <code>&lt;script&gt;</code> tag and you're done. You can always switch to ESM later when you adopt a bundler.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IIFE Explained -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-primary" style="margin-right: 8px;">Format 1</span> <i class="ph ph-browser"></i> IIFE — The Drop-In Approach</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p><strong>Best for:</strong> Static sites, prototypes, learning, WordPress themes, simple projects without a build step.</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Add these before &lt;/body&gt; --&gt;</span>
+&lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+&lt;<span class="code-tag">script</span>&gt;
+    // Vanduo is now available as a global object
+    Vanduo.init();
+
+    // Use any component
+    Vanduo.components.toast.show({
+        title: 'Hello!',
+        message: 'IIFE is working.',
+        type: 'success'
+    });
+&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-4"><strong>How it works:</strong> The browser downloads the script, executes it immediately, and attaches <code>Vanduo</code> to the global <code>window</code> object. Every component is included — you don't pick and choose.</p>
+
+                    <div class="vd-row vd-mt-5">
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-check-circle" style="color: var(--color-success);"></i> Pros:</strong></p>
+                            <ul>
+                                <li>Zero configuration</li>
+                                <li>Works everywhere</li>
+                                <li>No build tools needed</li>
+                                <li>Great for CDN delivery</li>
+                            </ul>
+                        </div>
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-x-circle" style="color: var(--color-danger);"></i> Cons:</strong></p>
+                            <ul>
+                                <li>Loads the entire library (no tree-shaking)</li>
+                                <li>One global variable (potential naming conflicts)</li>
+                                <li>No static analysis from your editor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESM Explained -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-success" style="margin-right: 8px;">Format 2</span> <i class="ph ph-tree-structure"></i> ESM — The Modern Standard</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p><strong>Best for:</strong> Projects using Vite, Webpack, Rollup, or any modern bundler. SPAs, React/Vue/Svelte apps, production sites where bundle size matters.</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="js">JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="js"><code><span class="code-comment">// In your main JavaScript file (e.g., main.js or app.js)</span>
+<span class="code-keyword">import</span> { Vanduo } <span class="code-keyword">from</span> <span class="code-string">'./dist/vanduo.esm.js'</span>;
+
+<span class="code-comment">// Or if installed via npm:</span>
+<span class="code-comment">// import { Vanduo } from 'vanduo-framework';</span>
+
+<span class="code-comment">// Initialize</span>
+Vanduo.<span class="code-function">init</span>();
+
+<span class="code-comment">// Use components with full IntelliSense support</span>
+Vanduo.components.toast.<span class="code-function">show</span>({
+    title: <span class="code-string">'Hello!'</span>,
+    message: <span class="code-string">'ESM is working.'</span>,
+    type: <span class="code-string">'success'</span>
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="vd-mt-4">To use ESM directly in a browser (without a bundler), you need <code>type="module"</code>:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">script</span> <span class="code-attr">type</span>=<span class="code-string">"module"</span>&gt;
+    import { Vanduo } from './dist/vanduo.esm.js';
+    Vanduo.init();
+&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-warning vd-mt-4">
+                        <i class="ph ph-warning"></i>
+                        <div>
+                            <strong>Watch out:</strong> <code>type="module"</code> scripts are deferred by default and have their own scope — you can't access variables from a module script in a regular script or inline <code>onclick</code> handlers. If you need global access, stick with IIFE.
+                        </div>
+                    </div>
+
+                    <div class="vd-row vd-mt-5">
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-check-circle" style="color: var(--color-success);"></i> Pros:</strong></p>
+                            <ul>
+                                <li>Tree-shaking (smaller bundles)</li>
+                                <li>Better editor IntelliSense</li>
+                                <li>Static analysis and linting</li>
+                                <li>The web platform standard</li>
+                            </ul>
+                        </div>
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-x-circle" style="color: var(--color-danger);"></i> Cons:</strong></p>
+                            <ul>
+                                <li>Needs a bundler for best results</li>
+                                <li>Slightly more setup</li>
+                                <li>Module scope can surprise beginners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CJS / Legacy Explained -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><span class="vd-badge vd-badge-warning" style="margin-right: 8px;">Format 3</span> <i class="ph ph-clock-counter-clockwise"></i> CJS — The Legacy Path</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p><strong>Best for:</strong> Node.js environments, server-side rendering (SSR), older bundlers that don't support ESM, legacy codebases being gradually modernized.</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="js">JS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="js"><code><span class="code-comment">// CommonJS / require() syntax</span>
+<span class="code-keyword">const</span> { Vanduo } = <span class="code-function">require</span>(<span class="code-string">'vanduo-framework'</span>);
+
+<span class="code-comment">// Or point directly to the CJS file:</span>
+<span class="code-keyword">const</span> { Vanduo } = <span class="code-function">require</span>(<span class="code-string">'./dist/vanduo.cjs.js'</span>);
+
+Vanduo.<span class="code-function">init</span>();</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vd-alert vd-alert-warning vd-mt-4">
+                        <i class="ph ph-warning"></i>
+                        <div>
+                            <strong>Watch out:</strong> CJS does not work in browsers without a bundler. If you're building a client-side website, use IIFE or ESM instead. CJS is primarily for server-side code and build pipelines.
+                        </div>
+                    </div>
+
+                    <div class="vd-row vd-mt-5">
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-check-circle" style="color: var(--color-success);"></i> Pros:</strong></p>
+                            <ul>
+                                <li>Works with Node.js natively</li>
+                                <li>Compatible with older tooling</li>
+                                <li>Synchronous loading</li>
+                            </ul>
+                        </div>
+                        <div class="vd-col-6">
+                            <p><strong><i class="ph ph-x-circle" style="color: var(--color-danger);"></i> Cons:</strong></p>
+                            <ul>
+                                <li>No tree-shaking</li>
+                                <li>Not browser-native</li>
+                                <li>Being superseded by ESM in Node.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Before/After Comparison -->
+    <div class="vd-row vd-mb-6">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-swap"></i> Before / After: Loading Components</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>Here's the real-world difference — loading Vanduo with each format when you only need toasts and modals:</p>
+                    <div class="vd-row vd-mt-4">
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-text-muted);">
+                                <div class="vd-card-header">
+                                    <h4><i class="ph ph-browser"></i> IIFE / CJS</h4>
+                                    <span class="vd-badge vd-badge-warning vd-text-sm">Full bundle</span>
+                                </div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="css" disabled>CSS</button>
+                                                        <button class="vd-code-snippet-tab" data-lang="js" disabled>JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Loads ALL components --&gt;</span>
+&lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+&lt;<span class="code-tag">script</span>&gt;
+    Vanduo.init();
+    // You get toast + modal + every
+    // other component whether you
+    // use them or not
+&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">Loads: ~45 KB gzipped (entire framework)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                            <div class="vd-card" style="border-top: 3px solid var(--color-success);">
+                                <div class="vd-card-header">
+                                    <h4><i class="ph ph-tree-structure"></i> ESM with Bundler</h4>
+                                    <span class="vd-badge vd-badge-success vd-text-sm">Tree-shaken</span>
+                                </div>
+                                <div class="vd-card-body">
+                                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                            <span class="vd-code-snippet-toggle-icon"></span>
+                                            <span>View Code</span>
+                                        </button>
+                                        <div class="vd-code-snippet-content">
+                                            <div class="vd-code-snippet-header">
+                                                <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="js">JS</button>
+                                                </div>
+                                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                    <span class="vd-code-snippet-copy-icon"></span>
+                                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                                </button>
+                                            </div>
+                                            <div class="vd-code-snippet-body">
+                                                        <pre class="vd-code-snippet-pane is-active" data-lang="js"><code><span class="code-comment">// Only imports what you use</span>
+<span class="code-keyword">import</span> { Vanduo } <span class="code-keyword">from</span> <span class="code-string">'vanduo-framework'</span>;
+
+Vanduo.<span class="code-function">init</span>();
+<span class="code-comment">// Your bundler strips out unused</span>
+<span class="code-comment">// components automatically</span>
+<span class="code-comment">// (tree-shaking)</span></code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="vd-text-sm vd-text-muted vd-mt-2">Loads: Only the code you actually use</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cheat Sheet -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-table"></i> Cheat Sheet</h3>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th><i class="ph ph-browser"></i> IIFE</th>
+                                    <th><i class="ph ph-tree-structure"></i> ESM</th>
+                                    <th><i class="ph ph-clock-counter-clockwise"></i> CJS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Setup complexity</strong></td>
+                                    <td><span style="color: var(--color-success);">Minimal</span> — one script tag</td>
+                                    <td><span style="color: var(--color-warning);">Moderate</span> — needs bundler or type=module</td>
+                                    <td><span style="color: var(--color-warning);">Moderate</span> — needs Node.js / bundler</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bundle size</strong></td>
+                                    <td>Full library loaded</td>
+                                    <td><span style="color: var(--color-success);">Tree-shakeable</span></td>
+                                    <td>Full library loaded</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Browser support</strong></td>
+                                    <td><span style="color: var(--color-success);">All browsers</span></td>
+                                    <td>Modern browsers (ES2015+)</td>
+                                    <td>Not browser-native</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Editor IntelliSense</strong></td>
+                                    <td>Limited</td>
+                                    <td><span style="color: var(--color-success);">Full support</span></td>
+                                    <td>Good</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Best for</strong></td>
+                                    <td>Simple sites, CDN, learning</td>
+                                    <td>Production apps, SPAs, modern stacks</td>
+                                    <td>SSR, Node.js, legacy tooling</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>File to use</strong></td>
+                                    <td><code>vanduo.min.js</code></td>
+                                    <td><code>vanduo.esm.js</code></td>
+                                    <td><code>vanduo.cjs.js</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="vd-alert vd-alert-primary vd-mt-5">
+                        <i class="ph ph-question"></i>
+                        <div>
+                            <strong>Still not sure?</strong> Start with <strong>IIFE</strong>. It works without any tooling, and you can always migrate to ESM later when your project grows. See the <strong>Module Formats</strong> reference in Concepts &amp; Architecture for the full technical details.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Package.json Exports -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3><i class="ph ph-file-js"></i> For npm Users: Package Exports</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>If you install Vanduo via npm, the <code>package.json</code> exports field automatically gives you the right format:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="shell">Shell</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="js"><code># Install
+npm install vanduo-framework
+
+# In your code:
+<span class="code-keyword">import</span> { Vanduo } <span class="code-keyword">from</span> <span class="code-string">'vanduo-framework'</span>;  <span class="code-comment">// → gets ESM</span>
+<span class="code-keyword">const</span> { Vanduo } = <span class="code-function">require</span>(<span class="code-string">'vanduo-framework'</span>); <span class="code-comment">// → gets CJS</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-3 vd-text-sm vd-text-muted">Your bundler reads the <code>"exports"</code> field in <code>package.json</code> and selects the correct file automatically. You don't need to specify the file path.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
