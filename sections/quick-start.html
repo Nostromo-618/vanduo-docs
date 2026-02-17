@@ -26,13 +26,31 @@
                                     </div>
                                     <div class="vd-card-body">
                                         <p>Load directly from jsDelivr — no download required:</p>
-                                        <pre
-                                            class="code-example"><code>&lt;!-- CSS --&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.css"&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- CSS --&gt;</span>
+&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.css"</span>&gt;
 
-&lt;!-- JS --&gt;
-&lt;script src="https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
+<span class="code-comment">&lt;!-- JS --&gt;</span>
+&lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdn.jsdelivr.net/gh/Nostromo-618/vanduo-framework@main/dist/vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+&lt;<span class="code-tag">script</span>&gt;Vanduo.<span class="code-function">init</span>();&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> Pin to a
                                             version for
                                             production:<br><code>@v1.1.6</code> instead of <code>@main</code></p>
@@ -50,12 +68,31 @@
                                         <p><a href="https://github.com/Nostromo-618/vanduo-framework/tree/main/dist"
                                                 target="_blank"><strong>Download the dist/ folder</strong></a> and
                                             include locally:</p>
-                                        <pre class="code-example"><code>&lt;!-- CSS --&gt;
-&lt;link rel="stylesheet" href="dist/vanduo.min.css"&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- CSS --&gt;</span>
+&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"dist/vanduo.min.css"</span>&gt;
 
-&lt;!-- JS --&gt;
-&lt;script src="dist/vanduo.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;Vanduo.init();&lt;/script&gt;</code></pre>
+<span class="code-comment">&lt;!-- JS --&gt;</span>
+&lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"dist/vanduo.min.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+&lt;<span class="code-tag">script</span>&gt;Vanduo.<span class="code-function">init</span>();&lt;/<span class="code-tag">script</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3">The <code>dist/</code> folder is
                                             self-contained with CSS, JS, fonts, and icons.</p>
                                     </div>
@@ -70,14 +107,33 @@
                                     </div>
                                     <div class="vd-card-body">
                                         <p>For development or modular imports:</p>
-                                        <pre class="code-example"><code>&lt;!-- Full framework --&gt;
-&lt;link rel="stylesheet" href="css/vanduo.css"&gt;
-&lt;script src="js/vanduo.js"&gt;&lt;/script&gt;
-&lt;script&gt;Vanduo.init();&lt;/script&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Full framework --&gt;</span>
+&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"css/vanduo.css"</span>&gt;
+&lt;<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"js/vanduo.js"</span>&gt;&lt;/<span class="code-tag">script</span>&gt;
+&lt;<span class="code-tag">script</span>&gt;Vanduo.<span class="code-function">init</span>();&lt;/<span class="code-tag">script</span>&gt;
 
-&lt;!-- Or pick individual modules --&gt;
-&lt;link rel="stylesheet" href="css/core/colors.css"&gt;
-&lt;link rel="stylesheet" href="css/components/buttons.css"&gt;</code></pre>
+<span class="code-comment">&lt;!-- Or pick individual modules --&gt;</span>
+&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"css/core/colors.css"</span>&gt;
+&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"css/components/buttons.css"</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -92,25 +148,44 @@
                                     <div class="vd-card-body">
                                         <p>Override CSS variables in your own stylesheet to customize the entire
                                             framework:</p>
-                                        <pre class="code-example"><code>:root {
-  /* Brand colors */
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-primary-light: #818cf8;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="css">CSS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="css"><code><span class="code-selector">:root</span> {
+  <span class="code-comment">/* Brand colors */</span>
+  <span class="code-property">--color-primary</span>: <span class="code-value">#6366f1</span>;
+  <span class="code-property">--color-primary-dark</span>: <span class="code-value">#4f46e5</span>;
+  <span class="code-property">--color-primary-light</span>: <span class="code-value">#818cf8</span>;
 
-  /* Typography */
-  --font-family-base: 'Inter', sans-serif;
-  --font-size-base: 1rem;
+  <span class="code-comment">/* Typography */</span>
+  <span class="code-property">--font-family-base</span>: <span class="code-string">'Inter', sans-serif</span>;
+  <span class="code-property">--font-size-base</span>: <span class="code-number">1</span><span class="code-unit">rem</span>;
 
-  /* Spacing (Fibonacci-based) */
-  --spacing-1: 1px;   --spacing-2: 2px;
-  --spacing-3: 3px;   --spacing-5: 5px;
-  --spacing-8: 8px;   --spacing-13: 13px;
+  <span class="code-comment">/* Spacing (Fibonacci-based) */</span>
+  <span class="code-property">--spacing-1</span>: <span class="code-number">1</span><span class="code-unit">px</span>;   <span class="code-property">--spacing-2</span>: <span class="code-number">2</span><span class="code-unit">px</span>;
+  <span class="code-property">--spacing-3</span>: <span class="code-number">3</span><span class="code-unit">px</span>;   <span class="code-property">--spacing-5</span>: <span class="code-number">5</span><span class="code-unit">px</span>;
+  <span class="code-property">--spacing-8</span>: <span class="code-number">8</span><span class="code-unit">px</span>;   <span class="code-property">--spacing-13</span>: <span class="code-number">13</span><span class="code-unit">px</span>;
 
-  /* Borders */
-  --border-color: #e2e8f0;
-  --btn-border-radius: 8px;
+  <span class="code-comment">/* Borders */</span>
+  <span class="code-property">--border-color</span>: <span class="code-value">#e2e8f0</span>;
+  <span class="code-property">--btn-border-radius</span>: <span class="code-number">8</span><span class="code-unit">px</span>;
 }</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -124,15 +199,34 @@
                                         <p>Vanduo supports light, dark, and system themes. Preference is stored in
                                             <code>localStorage</code>.
                                         </p>
-                                        <pre class="code-example"><code>&lt;!-- Select-based toggle --&gt;
-&lt;select data-toggle="theme"&gt;
-  &lt;option value="system"&gt;System&lt;/option&gt;
-  &lt;option value="light"&gt;Light&lt;/option&gt;
-  &lt;option value="dark"&gt;Dark&lt;/option&gt;
-&lt;/select&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Select-based toggle --&gt;</span>
+&lt;<span class="code-tag">select</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"theme"</span>&gt;
+  &lt;<span class="code-tag">option</span> <span class="code-attr">value</span>=<span class="code-string">"system"</span>&gt;System&lt;/<span class="code-tag">option</span>&gt;
+  &lt;<span class="code-tag">option</span> <span class="code-attr">value</span>=<span class="code-string">"light"</span>&gt;Light&lt;/<span class="code-tag">option</span>&gt;
+  &lt;<span class="code-tag">option</span> <span class="code-attr">value</span>=<span class="code-string">"dark"</span>&gt;Dark&lt;/<span class="code-tag">option</span>&gt;
+&lt;/<span class="code-tag">select</span>&gt;
 
-&lt;!-- Or button toggle (cycles modes) --&gt;
-&lt;button data-toggle="theme"&gt;Toggle&lt;/button&gt;</code></pre>
+<span class="code-comment">&lt;!-- Or button toggle (cycles modes) --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">data-toggle</span>=<span class="code-string">"theme"</span>&gt;Toggle&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-mt-5"><strong>How it works:</strong></p>
                                         <ul>
                                             <li><code>data-toggle="theme"</code> binds the element</li>
@@ -211,23 +305,42 @@
                                     </div>
                                     <div class="vd-card-body">
                                         <p>All components register with the global <code>Vanduo</code> object:</p>
-                                        <pre class="code-example"><code>// Re-initialize a component after DOM changes
-Vanduo.reinit('dropdown');
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Re-initialize a component after DOM changes</span>
+Vanduo.<span class="code-function">reinit</span>(<span class="code-string">'dropdown'</span>);
 
-// Destroy all component instances (cleanup)
-Vanduo.destroyAll();
+<span class="code-comment">// Destroy all component instances (cleanup)</span>
+Vanduo.<span class="code-function">destroyAll</span>();
 
-// Register a custom component
-Vanduo.register('myComponent', {
-  init: function() { /* ... */ }
+<span class="code-comment">// Register a custom component</span>
+Vanduo.<span class="code-function">register</span>(<span class="code-string">'myComponent'</span>, {
+  <span class="code-function">init</span>: <span class="code-keyword">function</span>() { <span class="code-comment">/* ... */</span> }
 });
 
-// Show a toast notification
-Vanduo.components.toast.show({
-  title: 'Success',
-  message: 'Item saved.',
-  type: 'success'
+<span class="code-comment">// Show a toast notification</span>
+Vanduo.components.toast.<span class="code-function">show</span>({
+  title: <span class="code-string">'Success'</span>,
+  message: <span class="code-string">'Item saved.'</span>,
+  type: <span class="code-string">'success'</span>
 });</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-mt-5"><strong>CSS State Classes:</strong></p>
                                         <ul>
                                             <li><code>.is-open</code> — open state (modals, dropdowns, sidenav)</li>

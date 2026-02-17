@@ -2,14 +2,71 @@
     <!-- Page Header -->
     <div class="changelog-header">
         <div class="vd-container-responsive">
-            <h1 style="color: var(--color-primary);"><i class="ph ph-scroll" style="color: var(--color-primary);"></i> Changelog</h1>
-            <p class="vd-text-lg vd-text-muted">All notable changes to <strong>Vanduo Framework</strong> and <strong>Vanduo Docs</strong> are documented here — side by side.</p>
+            <h1 style="color: var(--color-primary);"><i class="ph ph-scroll" style="color: var(--color-primary);"></i>
+                Changelog</h1>
+            <p class="vd-text-lg vd-text-muted">All notable changes to <strong>Vanduo Framework</strong> and
+                <strong>Vanduo Docs</strong> are documented here — side by side.</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <div style="padding: 3rem 0;">
         <div class="vd-container-responsive" style="max-width: 1200px;">
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- Version 1.1.7                                   -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.7</span>
+                    <span style="color: var(--text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>February 17, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <div class="change-category">
+                                <h4 style="color: var(--color-primary);">
+                                    <i class="ph ph-cube"></i> Framework
+                                </h4>
+                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No framework
+                                        changes in this release.</em></p>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <div class="change-category">
+                                <h4 style="color: var(--color-info);">
+                                    <i class="ph ph-book-open-text"></i> Documentation
+                                </h4>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                        <div>
+                                            <strong>Improvement: Lithuanian flag relocated</strong>
+                                            <p>Moved the Lithuanian flag SVG from the navbar to the "What Vanduo Means"
+                                                section on the About page, alongside a Wikipedia link for the Lithuanian
+                                                language.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Getting Started "Next Steps" card navigation</strong>
+                                            <p>All four "Next Steps" cards in the Getting Started guide incorrectly
+                                                routed to <code>#docs/getting-started</code> instead of their intended
+                                                guide pages. Fixed <code>data-route</code> attributes from
+                                                <code>docs/guides/&lt;id&gt;</code> to <code>docs/&lt;id&gt;</code> to
+                                                match the SPA router's section ID lookup.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
             <!-- ═══════════════════════════════════════════════ -->
             <!-- Version 1.1.6                                   -->
@@ -20,7 +77,6 @@
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>February 16, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
@@ -34,7 +90,12 @@
                                         <i class="ph ph-bug" style="color: var(--color-danger);"></i>
                                         <div>
                                             <strong>Fix: Code snippet "Copied!" text truncated</strong>
-                                            <p>The <code>::after</code> pseudo-element on <code>.code-snippet-copy-text</code> inherited <code>font-size: 0</code> from its parent, making the "d!" portion of "Copied!" invisible. Added explicit <code>font-size: var(--code-font-size)</code> to the <code>::after</code> rule so the full "Copied!" feedback displays correctly.</p>
+                                            <p>The <code>::after</code> pseudo-element on
+                                                <code>.code-snippet-copy-text</code> inherited <code>font-size: 0</code>
+                                                from its parent, making the "d!" portion of "Copied!" invisible. Added
+                                                explicit <code>font-size: var(--code-font-size)</code> to the
+                                                <code>::after</code> rule so the full "Copied!" feedback displays
+                                                correctly.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -50,77 +111,96 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Guides tab</strong>
-                                            <p>Added a third documentation tab — <strong>Guides</strong> — with 6 illustrated, step-by-step walkthroughs aimed at junior developers: Getting Started from Zero, ESM vs IIFE vs Legacy, Building Your First Layout, Fibonacci vs Standard Grid, Theme Customizer Walkthrough, and Accessibility Essentials.</p>
+                                            <p>Added a third documentation tab — <strong>Guides</strong> — with 6
+                                                illustrated, step-by-step walkthroughs aimed at junior developers:
+                                                Getting Started from Zero, ESM vs IIFE vs Legacy, Building Your First
+                                                Layout, Fibonacci vs Standard Grid, Theme Customizer Walkthrough, and
+                                                Accessibility Essentials.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Guide visual patterns</strong>
-                                            <p>Guides feature step indicators, tip/warning/why callouts, and before/after comparison cards — all built with existing Vanduo components.</p>
+                                            <p>Guides feature step indicators, tip/warning/why callouts, and
+                                                before/after comparison cards — all built with existing Vanduo
+                                                components.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: SPA router extended</strong>
-                                            <p>Hash-based router updated to support <code>#docs/guides</code> route. Tab-click handler refactored to use a route map object.</p>
+                                            <p>Hash-based router updated to support <code>#docs/guides</code> route.
+                                                Tab-click handler refactored to use a route map object.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Quick Start cross-link</strong>
-                                            <p>Quick Start page now includes a callout linking new developers to the Guides tab.</p>
+                                            <p>Quick Start page now includes a callout linking new developers to the
+                                                Guides tab.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Two-column changelog</strong>
-                                            <p>Changelog redesigned with separate Framework and Documentation columns for clearer change tracking. All historical entries migrated to the new format.</p>
+                                            <p>Changelog redesigned with separate Framework and Documentation columns
+                                                for clearer change tracking. All historical entries migrated to the new
+                                                format.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Founder's Message</strong>
-                                            <p>About page now features a full Founder's Message section with the story behind Vanduo, an author avatar, and a personal note from the creator.</p>
+                                            <p>About page now features a full Founder's Message section with the story
+                                                behind Vanduo, an author avatar, and a personal note from the creator.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Concept pages enriched</strong>
-                                            <p>Breaking Changes, Class Prefixes, Migration, and Token Reference pages substantially expanded with visual chip references, search tips, and richer example content.</p>
+                                            <p>Breaking Changes, Class Prefixes, Migration, and Token Reference pages
+                                                substantially expanded with visual chip references, search tips, and
+                                                richer example content.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: llms.txt</strong>
-                                            <p>Added <code>llms.txt</code> for LLM and AI agent discoverability, describing Vanduo's structure and capabilities in a machine-readable format.</p>
+                                            <p>Added <code>llms.txt</code> for LLM and AI agent discoverability,
+                                                describing Vanduo's structure and capabilities in a machine-readable
+                                                format.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Sticky doc-tabs</strong>
-                                            <p>Documentation tab bar now sticks to the top of the viewport on desktop and tablet for faster navigation while scrolling.</p>
+                                            <p>Documentation tab bar now sticks to the top of the viewport on desktop
+                                                and tablet for faster navigation while scrolling.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Disabled tab feedback</strong>
-                                            <p>Clicking a disabled code-snippet tab now shows an info toast explaining why the tab is unavailable, instead of silently ignoring the click.</p>
+                                            <p>Clicking a disabled code-snippet tab now shows an info toast explaining
+                                                why the tab is unavailable, instead of silently ignoring the click.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: "Shape of the Water" card</strong>
-                                            <p>Home page features a new highlight card introducing the philosophy behind Vanduo's name and water-inspired design principles.</p>
+                                            <p>Home page features a new highlight card introducing the philosophy behind
+                                                Vanduo's name and water-inspired design principles.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -152,28 +232,35 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Quad-Spinner Loader component</strong>
-                                            <p><code>.vd-dynamic-loader</code>, <code>.vd-dynamic-loader-grid</code>, <code>.vd-dynamic-loader-text</code> added to <code>spinner.css</code>. Skeleton card overlay variant via <code>.vd-dynamic-loader-card</code>.</p>
+                                            <p><code>.vd-dynamic-loader</code>, <code>.vd-dynamic-loader-grid</code>,
+                                                <code>.vd-dynamic-loader-text</code> added to <code>spinner.css</code>.
+                                                Skeleton card overlay variant via <code>.vd-dynamic-loader-card</code>.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Ubuntu as default font</strong>
-                                            <p>Theme customizer <code>DEFAULTS.FONT</code> changed from <code>jetbrains-mono</code> to <code>ubuntu</code>.</p>
+                                            <p>Theme customizer <code>DEFAULTS.FONT</code> changed from
+                                                <code>jetbrains-mono</code> to <code>ubuntu</code>.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Per-section icons in search</strong>
-                                            <p><code>doc-search.js</code> <code>buildIndex()</code> now extracts icons from section headings (DOM path) or custom data <code>icon</code> field. Search results prefer per-item icon over category fallback.</p>
+                                            <p><code>doc-search.js</code> <code>buildIndex()</code> now extracts icons
+                                                from section headings (DOM path) or custom data <code>icon</code> field.
+                                                Search results prefer per-item icon over category fallback.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Search.create() auto-initialization</strong>
-                                            <p><code>Search.create()</code> now calls <code>.init()</code> on the returned instance automatically.</p>
+                                            <p><code>Search.create()</code> now calls <code>.init()</code> on the
+                                                returned instance automatically.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -189,14 +276,20 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Fully dynamic single-page application</strong>
-                                            <p>Entire documentation site redesigned as a hash-routed SPA. All pages (Home, Docs, Changelog, About) load dynamically from HTML fragments—no full page reloads. Client-side router with <code>pushState</code>, scroll-spy, skeleton+quad-spinner loading placeholders, and back/forward history support.</p>
+                                            <p>Entire documentation site redesigned as a hash-routed SPA. All pages
+                                                (Home, Docs, Changelog, About) load dynamically from HTML fragments—no
+                                                full page reloads. Client-side router with <code>pushState</code>,
+                                                scroll-spy, skeleton+quad-spinner loading placeholders, and back/forward
+                                                history support.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Tabbed documentation (Components &amp; Concepts)</strong>
-                                            <p>Documentation split into Components and Concepts &amp; Architecture tabs. Sections load on demand via <code>sections.json</code> registry (39 lazy-loadable HTML fragments).</p>
+                                            <p>Documentation split into Components and Concepts &amp; Architecture tabs.
+                                                Sections load on demand via <code>sections.json</code> registry (39
+                                                lazy-loadable HTML fragments).</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -210,63 +303,82 @@
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Sidebar text size increased</strong>
-                                            <p><code>.doc-nav-link</code> bumped to <code>0.875rem</code>, <code>.doc-nav-section</code> to <code>0.8125rem</code>, with improved icon spacing.</p>
+                                            <p><code>.doc-nav-link</code> bumped to <code>0.875rem</code>,
+                                                <code>.doc-nav-section</code> to <code>0.8125rem</code>, with improved
+                                                icon spacing.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Icon consistency</strong>
-                                            <p>Unified icons across sidebar, search results, and section body headings on all pages. Fixed 7 mismatched icons in <code>sections.json</code>.</p>
+                                            <p>Unified icons across sidebar, search results, and section body headings
+                                                on all pages. Fixed 7 mismatched icons in <code>sections.json</code>.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Section insertion order</strong>
-                                            <p>Sections insert in registry order using <code>insertBefore</code>, preventing scroll-spy confusion.</p>
+                                            <p>Sections insert in registry order using <code>insertBefore</code>,
+                                                preventing scroll-spy confusion.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Lithuania flag in navbar</strong>
-                                            <p>Waving Lithuania flag SVG added next to the "Vanduo" brand text, linking to information panel about Lithuania celebrating Day of Restoration of State.</p>
+                                            <p>Waving Lithuania flag SVG added next to the "Vanduo" brand text, linking
+                                                to information panel about Lithuania celebrating Day of Restoration of
+                                                State.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Mobile Table of Contents dropdown</strong>
-                                            <p>Restored the mobile TOC toggle button for documentation pages. Appears below the search bar on viewports ≤991px with expand/collapse arrow indicator. Auto-closes when a section is selected or tabs are switched.</p>
+                                            <p>Restored the mobile TOC toggle button for documentation pages. Appears
+                                                below the search bar on viewports ≤991px with expand/collapse arrow
+                                                indicator. Auto-closes when a section is selected or tabs are switched.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Colored progress bars</strong>
-                                            <p>Progress bars now use correct <code>vd-progress-bar-success/warning/error/info</code> classes matching quad-spinner colors instead of non-functional <code>vd-bg-*</code> utilities.</p>
+                                            <p>Progress bars now use correct
+                                                <code>vd-progress-bar-success/warning/error/info</code> classes matching
+                                                quad-spinner colors instead of non-functional <code>vd-bg-*</code>
+                                                utilities.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Code Snippet live preview</strong>
-                                            <p>Code Snippet section now includes a working interactive demo with collapsible toggle, HTML/CSS/JS language tabs, and copy button.</p>
+                                            <p>Code Snippet section now includes a working interactive demo with
+                                                collapsible toggle, HTML/CSS/JS language tabs, and copy button.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Modal component</strong>
-                                            <p>Added missing <code>#demo-modal</code> element with proper <code>vd-modal</code> markup (backdrop, dialog, header, body, footer). "Open Modal" button now works.</p>
+                                            <p>Added missing <code>#demo-modal</code> element with proper
+                                                <code>vd-modal</code> markup (backdrop, dialog, header, body, footer).
+                                                "Open Modal" button now works.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Form controls styling</strong>
-                                            <p>Checkboxes, radios, and toggle switch now use correct unprefixed classes (<code>checkbox</code>, <code>radio</code>, <code>switch</code>, <code>switch-slider</code>) matching framework CSS. No longer render as unstyled browser defaults.</p>
+                                            <p>Checkboxes, radios, and toggle switch now use correct unprefixed classes
+                                                (<code>checkbox</code>, <code>radio</code>, <code>switch</code>,
+                                                <code>switch-slider</code>) matching framework CSS. No longer render as
+                                                unstyled browser defaults.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -298,21 +410,26 @@
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Playwright fixture server root stability</strong>
-                                            <p>Playwright web server now serves from the project root explicitly, preventing intermittent fixture 404s when tests are launched from different working directories.</p>
+                                            <p>Playwright web server now serves from the project root explicitly,
+                                                preventing intermittent fixture 404s when tests are launched from
+                                                different working directories.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Code Snippet tab ID and ARIA linkage</strong>
-                                            <p>Each code snippet instance now generates unique tab and panel IDs, with correct <code>aria-controls</code>/<code>aria-labelledby</code> relationships across repeated snippets.</p>
+                                            <p>Each code snippet instance now generates unique tab and panel IDs, with
+                                                correct <code>aria-controls</code>/<code>aria-labelledby</code>
+                                                relationships across repeated snippets.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Navbar/Sidenav runtime class compatibility</strong>
-                                            <p>Component logic now prefers canonical <code>vd-*</code> selectors and class variants while preserving legacy fallback behavior.</p>
+                                            <p>Component logic now prefers canonical <code>vd-*</code> selectors and
+                                                class variants while preserving legacy fallback behavior.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -328,7 +445,8 @@
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Expanded component documentation</strong>
-                                            <p>Added dedicated documentation sections and navigation links for Navbar, Sidenav, Footer, and Code Snippet components.</p>
+                                            <p>Added dedicated documentation sections and navigation links for Navbar,
+                                                Sidenav, Footer, and Code Snippet components.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -360,14 +478,18 @@
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Theme customizer panel positioning</strong>
-                                            <p>Panel no longer overlaps the trigger button and now appears with an 8px gap below it. Right edge aligns with the trigger button's right edge.</p>
+                                            <p>Panel no longer overlaps the trigger button and now appears with an 8px
+                                                gap below it. Right edge aligns with the trigger button's right edge.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Panel border and spacing</strong>
-                                            <p>Restored top border and uniform border-radius. Fixed 55px phantom padding caused by the navbar fixed-sibling CSS rule bleeding into the panel. Header and footer padding are now symmetrical.</p>
+                                            <p>Restored top border and uniform border-radius. Fixed 55px phantom padding
+                                                caused by the navbar fixed-sibling CSS rule bleeding into the panel.
+                                                Header and footer padding are now symmetrical.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -378,7 +500,8 @@
                                 <h4 style="color: var(--color-info);">
                                     <i class="ph ph-book-open-text"></i> Documentation
                                 </h4>
-                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation changes in this release.</em></p>
+                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation
+                                        changes in this release.</em></p>
                             </div>
                         </div>
                     </div>
@@ -407,21 +530,25 @@
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: IIFE export shadow resolved</strong>
-                                            <p>Removed the esbuild global wrapper so the bundled IIFE no longer overwrites <code>window.Vanduo</code>, restoring <code>Vanduo.init()</code> across all pages.</p>
+                                            <p>Removed the esbuild global wrapper so the bundled IIFE no longer
+                                                overwrites <code>window.Vanduo</code>, restoring
+                                                <code>Vanduo.init()</code> across all pages.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Theme customizer visibility</strong>
-                                            <p>Font dropdown now initializes reliably, keeping all Google Font options visible in the customizer.</p>
+                                            <p>Font dropdown now initializes reliably, keeping all Google Font options
+                                                visible in the customizer.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Aligned module outputs</strong>
-                                            <p>IIFE, ESM, and CJS bundles now share consistent named/default exports for smoother consumption in any build setup.</p>
+                                            <p>IIFE, ESM, and CJS bundles now share consistent named/default exports for
+                                                smoother consumption in any build setup.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -437,7 +564,8 @@
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Docs load Vanduo via ESM</strong>
-                                            <p>Documentation site now imports <code>vanduo.esm.min.js</code> directly, matching modern module usage and reducing bootstrap quirks.</p>
+                                            <p>Documentation site now imports <code>vanduo.esm.min.js</code> directly,
+                                                matching modern module usage and reducing bootstrap quirks.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -469,42 +597,48 @@
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Theme switcher preference guard</strong>
-                                            <p>Prevented theme customizer sync from writing to an uninitialized theme switcher state during component startup order.</p>
+                                            <p>Prevented theme customizer sync from writing to an uninitialized theme
+                                                switcher state during component startup order.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Safe storage fallbacks</strong>
-                                            <p>Theme and font preferences now use guarded storage access to avoid crashes when localStorage is unavailable.</p>
+                                            <p>Theme and font preferences now use guarded storage access to avoid
+                                                crashes when localStorage is unavailable.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Pagination class consistency</strong>
-                                            <p>Rendered items now include <code>vd-</code> prefixed classes so click handling and styling stay aligned.</p>
+                                            <p>Rendered items now include <code>vd-</code> prefixed classes so click
+                                                handling and styling stay aligned.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Manual initialization is consistent</strong>
-                                            <p>Removed component auto-init blocks so <code>Vanduo.init()</code> is the single entry point.</p>
+                                            <p>Removed component auto-init blocks so <code>Vanduo.init()</code> is the
+                                                single entry point.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Idempotent init and cleanup hooks</strong>
-                                            <p>Repeated <code>Vanduo.init()</code> calls no longer duplicate listeners, and cleanup is standardized across components.</p>
+                                            <p>Repeated <code>Vanduo.init()</code> calls no longer duplicate listeners,
+                                                and cleanup is standardized across components.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: DestroyAll coverage expanded</strong>
-                                            <p>Search and Image Box now participate in <code>Vanduo.destroyAll()</code> for SPA cleanup.</p>
+                                            <p>Search and Image Box now participate in <code>Vanduo.destroyAll()</code>
+                                                for SPA cleanup.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -515,7 +649,8 @@
                                 <h4 style="color: var(--color-info);">
                                     <i class="ph ph-book-open-text"></i> Documentation
                                 </h4>
-                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation changes in this release.</em></p>
+                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation
+                                        changes in this release.</em></p>
                             </div>
                         </div>
                     </div>
@@ -545,35 +680,47 @@
                                         <i class="ph ph-warning" style="color: var(--color-warning);"></i>
                                         <div>
                                             <strong>Breaking: CSS Class Prefixing</strong>
-                                            <p>All CSS classes now use the <code>vd-</code> prefix to prevent collisions with other frameworks. Examples: <code>.btn</code> &rarr; <code>.vd-btn</code>, <code>.container</code> &rarr; <code>.vd-container</code>, <code>.card</code> &rarr; <code>.vd-card</code>. See MIGRATION.md for complete class mapping.</p>
+                                            <p>All CSS classes now use the <code>vd-</code> prefix to prevent collisions
+                                                with other frameworks. Examples: <code>.btn</code> &rarr;
+                                                <code>.vd-btn</code>, <code>.container</code> &rarr;
+                                                <code>.vd-container</code>, <code>.card</code> &rarr;
+                                                <code>.vd-card</code>. See MIGRATION.md for complete class mapping.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-warning" style="color: var(--color-warning);"></i>
                                         <div>
                                             <strong>Breaking: Manual Initialization Required</strong>
-                                            <p>Framework no longer auto-initializes on page load. You must explicitly call <code>Vanduo.init()</code> after loading the script. This allows better control over initialization timing in SPAs and complex applications.</p>
+                                            <p>Framework no longer auto-initializes on page load. You must explicitly
+                                                call <code>Vanduo.init()</code> after loading the script. This allows
+                                                better control over initialization timing in SPAs and complex
+                                                applications.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Multiple Module Formats</strong>
-                                            <p>Added ESM (<code>vanduo.esm.js</code>) and CJS (<code>vanduo.cjs.js</code>) build outputs alongside IIFE format. Modern bundlers can now tree-shake unused components.</p>
+                                            <p>Added ESM (<code>vanduo.esm.js</code>) and CJS
+                                                (<code>vanduo.cjs.js</code>) build outputs alongside IIFE format. Modern
+                                                bundlers can now tree-shake unused components.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Package.json Exports Map</strong>
-                                            <p>Added proper <code>exports</code> field in package.json for clean imports: <code>import { Vanduo } from 'vanduo-framework'</code>.</p>
+                                            <p>Added proper <code>exports</code> field in package.json for clean
+                                                imports: <code>import { Vanduo } from 'vanduo-framework'</code>.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: CSS Namespace Isolation</strong>
-                                            <p>The <code>vd-</code> prefix ensures Vanduo can be safely embedded in applications using Bootstrap, Tailwind, or other CSS frameworks without class name collisions.</p>
+                                            <p>The <code>vd-</code> prefix ensures Vanduo can be safely embedded in
+                                                applications using Bootstrap, Tailwind, or other CSS frameworks without
+                                                class name collisions.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -584,7 +731,8 @@
                                 <h4 style="color: var(--color-info);">
                                     <i class="ph ph-book-open-text"></i> Documentation
                                 </h4>
-                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation changes in this release.</em></p>
+                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No documentation
+                                        changes in this release.</em></p>
                             </div>
                         </div>
                     </div>
@@ -613,14 +761,19 @@
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Image Box Dynamic Sizing</strong>
-                                            <p>Enlarged images now display with a maximum size of 50% of the viewport (50vw/50vh) instead of filling the entire screen. Mobile breakpoints use 90vw/80vh for better usability on small screens.</p>
+                                            <p>Enlarged images now display with a maximum size of 50% of the viewport
+                                                (50vw/50vh) instead of filling the entire screen. Mobile breakpoints use
+                                                90vw/80vh for better usability on small screens.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Broken Image Styling</strong>
-                                            <p>Added graceful fallback styling for broken or missing images. Broken images now display with a subtle gradient background, dashed border, and centered image icon instead of the browser's default broken image icon.</p>
+                                            <p>Added graceful fallback styling for broken or missing images. Broken
+                                                images now display with a subtle gradient background, dashed border, and
+                                                centered image icon instead of the browser's default broken image icon.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
@@ -636,21 +789,28 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Image Box Placeholder Images</strong>
-                                            <p>Added 9 placeholder images for documentation code examples, eliminating 404 console errors. Placeholders feature dark theme with teal accents matching the framework aesthetic.</p>
+                                            <p>Added 9 placeholder images for documentation code examples, eliminating
+                                                404 console errors. Placeholders feature dark theme with teal accents
+                                                matching the framework aesthetic.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Updated CSS Customization Docs</strong>
-                                            <p>Documentation now reflects the new default values for <code>--image-box-max-width</code> (50vw) and <code>--image-box-max-height</code> (50vh).</p>
+                                            <p>Documentation now reflects the new default values for
+                                                <code>--image-box-max-width</code> (50vw) and
+                                                <code>--image-box-max-height</code> (50vh).</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Documentation Page UX</strong>
-                                            <p>Added Phosphor icons to all 26 section headers for visual consistency with search results. Improved section spacing with uniform divider lines and primary-colored header underlines. Added code snippet examples to Collections, Badges, Chips, Avatars, and Skeleton sections.</p>
+                                            <p>Added Phosphor icons to all 26 section headers for visual consistency
+                                                with search results. Improved section spacing with uniform divider lines
+                                                and primary-colored header underlines. Added code snippet examples to
+                                                Collections, Badges, Chips, Avatars, and Skeleton sections.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -682,28 +842,36 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Google Fonts Collection</strong>
-                                            <p>Added 4 new self-hosted Google Fonts: Ubuntu, Open Sans, Rubik, and Titillium Web. All fonts are privacy-friendly with no external requests. Total font collection now includes 10 fonts.</p>
+                                            <p>Added 4 new self-hosted Google Fonts: Ubuntu, Open Sans, Rubik, and
+                                                Titillium Web. All fonts are privacy-friendly with no external requests.
+                                                Total font collection now includes 10 fonts.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Card Glow Effect</strong>
-                                            <p>Added gentle glow effect to cards on hover with <code>.vd-card-glow</code> class. The glow color dynamically adapts to the theme's primary color via Theme Customizer. Includes reusable glow utilities (<code>.vd-hover-glow</code>, <code>.vd-glow-success</code>, etc.) for any element.</p>
+                                            <p>Added gentle glow effect to cards on hover with
+                                                <code>.vd-card-glow</code> class. The glow color dynamically adapts to
+                                                the theme's primary color via Theme Customizer. Includes reusable glow
+                                                utilities (<code>.vd-hover-glow</code>, <code>.vd-glow-success</code>,
+                                                etc.) for any element.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Theme Customizer Font Options</strong>
-                                            <p>Updated Theme Customizer with all 10 font options in the font family dropdown.</p>
+                                            <p>Updated Theme Customizer with all 10 font options in the font family
+                                                dropdown.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Font Switcher Updates</strong>
-                                            <p>Extended Font Switcher component to support the new Google Fonts collection.</p>
+                                            <p>Extended Font Switcher component to support the new Google Fonts
+                                                collection.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -719,7 +887,8 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Typography Documentation</strong>
-                                            <p>Added comprehensive font families section to documentation with descriptions of all 10 available fonts.</p>
+                                            <p>Added comprehensive font families section to documentation with
+                                                descriptions of all 10 available fonts.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -751,28 +920,34 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Search Component</strong>
-                                            <p>New client-side search with keyboard navigation (&lcub;&plus;K/Ctrl+K), debounced input, category grouping, and full ARIA accessibility. Includes <code>Search.create()</code> factory for custom instances.</p>
+                                            <p>New client-side search with keyboard navigation (&lcub;&plus;K/Ctrl+K),
+                                                debounced input, category grouping, and full ARIA accessibility.
+                                                Includes <code>Search.create()</code> factory for custom instances.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Search component refactored</strong>
-                                            <p>Refactored to be more generic and configurable with custom data sources, callbacks, and category icons.</p>
+                                            <p>Refactored to be more generic and configurable with custom data sources,
+                                                callbacks, and category icons.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: ReDoS protection</strong>
-                                            <p>Added protection against Regular Expression Denial of Service in search highlight function.</p>
+                                            <p>Added protection against Regular Expression Denial of Service in search
+                                                highlight function.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
                                         <div>
                                             <strong>Improvement: Enhanced ARIA attributes</strong>
-                                            <p>Added <code>aria-controls</code>, <code>aria-expanded</code>, and <code>role="listbox"</code> to search component for better screen reader support.</p>
+                                            <p>Added <code>aria-controls</code>, <code>aria-expanded</code>, and
+                                                <code>role="listbox"</code> to search component for better screen reader
+                                                support.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -795,7 +970,9 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>New: Search component documentation</strong>
-                                            <p>Added comprehensive documentation for the Search component including quick start, configuration options, JavaScript API, and CSS customization.</p>
+                                            <p>Added comprehensive documentation for the Search component including
+                                                quick start, configuration options, JavaScript API, and CSS
+                                                customization.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -827,21 +1004,25 @@
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Vertical button group alignment</strong>
-                                            <p>Fixed <code>.vd-btn-group-vertical</code> alignment by changing <code>align-items</code> to <code>stretch</code> for consistent button widths.</p>
+                                            <p>Fixed <code>.vd-btn-group-vertical</code> alignment by changing
+                                                <code>align-items</code> to <code>stretch</code> for consistent button
+                                                widths.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Dark mode table styling</strong>
-                                            <p>Tables now have proper dark mode backgrounds. Added <code>[data-theme="dark"]</code> overrides for table variables.</p>
+                                            <p>Tables now have proper dark mode backgrounds. Added
+                                                <code>[data-theme="dark"]</code> overrides for table variables.</p>
                                         </div>
                                     </li>
                                     <li class="change-item">
                                         <i class="ph ph-bug" style="color: var(--color-success);"></i>
                                         <div>
                                             <strong>Fix: Range slider track visibility</strong>
-                                            <p>Range slider track is now visible in dark mode using <code>--color-gray-400</code> for better contrast.</p>
+                                            <p>Range slider track is now visible in dark mode using
+                                                <code>--color-gray-400</code> for better contrast.</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -962,7 +1143,8 @@
                                         <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
                                         <div>
                                             <strong>Initial documentation site</strong>
-                                            <p>Comprehensive documentation covering all components, getting started guide, and API reference.</p>
+                                            <p>Comprehensive documentation covering all components, getting started
+                                                guide, and API reference.</p>
                                         </div>
                                     </li>
                                 </ul>

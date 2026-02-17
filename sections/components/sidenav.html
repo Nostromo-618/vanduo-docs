@@ -10,23 +10,43 @@
                                     <div class="vd-card-header">
                                         <h3>Basic Structure</h3>
                                     </div>
-                                    <div class="vd-card-body">
-                                        <pre class="code-example"><code>&lt;button class="vd-btn vd-btn-primary" data-sidenav-toggle="#demo-sidenav"&gt;
+                                     <div class="vd-card-body">
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Trigger button --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-primary"</span> <span class="code-attr">data-sidenav-toggle</span>=<span class="code-string">"#demo-sidenav"</span>&gt;
   Open Sidenav
-&lt;/button&gt;
+&lt;/<span class="code-tag">button</span>&gt;
 
-&lt;aside class="vd-sidenav vd-sidenav-overlay-variant" id="demo-sidenav"&gt;
-  &lt;div class="vd-sidenav-header"&gt;
-    &lt;h3 class="vd-sidenav-title"&gt;Menu&lt;/h3&gt;
-    &lt;button class="vd-sidenav-close" aria-label="Close"&gt;&amp;times;&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="vd-sidenav-body"&gt;
-    &lt;ul class="vd-sidenav-nav"&gt;
-      &lt;li class="vd-sidenav-item active"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Overview&lt;/a&gt;&lt;/li&gt;
-      &lt;li class="vd-sidenav-item"&gt;&lt;a class="vd-sidenav-link" href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/aside&gt;</code></pre>
+&lt;<span class="code-tag">aside</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav"</span> <span class="code-attr">id</span>=<span class="code-string">"demo-sidenav"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-header"</span>&gt;
+    &lt;<span class="code-tag">h3</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-title"</span>&gt;Menu&lt;/<span class="code-tag">h3</span>&gt;
+    &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-close"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Close"</span>&gt;&amp;times;&lt;/<span class="code-tag">button</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-body"</span>&gt;
+    &lt;<span class="code-tag">ul</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-nav"</span>&gt;
+      &lt;<span class="code-tag">li</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-item active"</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-link"</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Overview&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+      &lt;<span class="code-tag">li</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-item"</span>&gt;&lt;<span class="code-tag">a</span> <span class="code-attr">class</span>=<span class="code-string">"vd-sidenav-link"</span> <span class="code-attr">href</span>=<span class="code-string">"#"</span>&gt;Settings&lt;/<span class="code-tag">a</span>&gt;&lt;/<span class="code-tag">li</span>&gt;
+    &lt;/<span class="code-tag">ul</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">aside</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

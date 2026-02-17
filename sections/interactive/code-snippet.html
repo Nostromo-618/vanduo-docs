@@ -59,27 +59,46 @@
                                     <div class="vd-card-header">
                                         <h3>Base Markup</h3>
                                     </div>
-                                    <div class="vd-card-body">
-                                        <pre class="code-example"><code>&lt;div class="vd-code-snippet" data-collapsible&gt;
-  &lt;button class="vd-code-snippet-toggle" aria-expanded="false"&gt;
-    &lt;span class="vd-code-snippet-toggle-icon"&gt;&lt;/span&gt;
-    &lt;span&gt;View Code&lt;/span&gt;
-  &lt;/button&gt;
+                                     <div class="vd-card-body">
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet"</span> <span class="code-attr">data-collapsible</span>&gt;
+  &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-toggle"</span> <span class="code-attr">aria-expanded</span>=<span class="code-string">"false"</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-toggle-icon"</span>&gt;&lt;/<span class="code-tag">span</span>&gt;
+    &lt;<span class="code-tag">span</span>&gt;View Code&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">button</span>&gt;
 
-  &lt;div class="vd-code-snippet-content"&gt;
-    &lt;div class="vd-code-snippet-header"&gt;
-      &lt;div class="vd-code-snippet-tabs" role="tablist"&gt;
-        &lt;button class="vd-code-snippet-tab is-active" data-lang="html"&gt;HTML&lt;/button&gt;
-        &lt;button class="vd-code-snippet-tab" data-lang="css"&gt;CSS&lt;/button&gt;
-      &lt;/div&gt;
-      &lt;button class="vd-code-snippet-copy" aria-label="Copy code"&gt;...&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class="vd-code-snippet-body"&gt;
-      &lt;pre class="vd-code-snippet-pane is-active" data-lang="html"&gt;...&lt;/pre&gt;
-      &lt;pre class="vd-code-snippet-pane" data-lang="css"&gt;...&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-content"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-header"</span>&gt;
+      &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-tabs"</span> <span class="code-attr">role</span>=<span class="code-string">"tablist"</span>&gt;
+        &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-tab is-active"</span> <span class="code-attr">data-lang</span>=<span class="code-string">"html"</span>&gt;HTML&lt;/<span class="code-tag">button</span>&gt;
+        &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-tab"</span> <span class="code-attr">data-lang</span>=<span class="code-string">"css"</span>&gt;CSS&lt;/<span class="code-tag">button</span>&gt;
+      &lt;/<span class="code-tag">div</span>&gt;
+      &lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-copy"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Copy code"</span>&gt;...&lt;/<span class="code-tag">button</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-body"</span>&gt;
+      &lt;<span class="code-tag">pre</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-pane is-active"</span> <span class="code-attr">data-lang</span>=<span class="code-string">"html"</span>&gt;...&lt;/<span class="code-tag">pre</span>&gt;
+      &lt;<span class="code-tag">pre</span> <span class="code-attr">class</span>=<span class="code-string">"vd-code-snippet-pane"</span> <span class="code-attr">data-lang</span>=<span class="code-string">"css"</span>&gt;...&lt;/<span class="code-tag">pre</span>&gt;
+    &lt;/<span class="code-tag">div</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +109,7 @@
                                         <h3>Options & API</h3>
                                     </div>
                                     <div class="vd-card-body">
-                                        <ul>
+                                         <ul>
                                             <li><code>data-collapsible</code>: enables toggle behavior</li>
                                             <li><code>data-expanded="true"</code>: expanded snippet state</li>
                                             <li><code>data-visible="true"</code>: content visibility state</li>
@@ -100,10 +119,29 @@
                                                 <code>.vd-code-snippet-compact</code>: display variants
                                             </li>
                                         </ul>
-                                        <pre class="code-example"><code>// Programmatic control
-CodeSnippet.expand(el);
-CodeSnippet.collapse(el);
-CodeSnippet.showLang(el, 'js');</code></pre>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Programmatic control</span>
+CodeSnippet.<span class="code-function">expand</span>(el);
+CodeSnippet.<span class="code-function">collapse</span>(el);
+CodeSnippet.<span class="code-function">showLang</span>(el, <span class="code-string">'js'</span>);</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

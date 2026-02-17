@@ -467,27 +467,46 @@
                                     <div class="vd-card-header">
                                         <h3>CSS Variable Usage</h3>
                                     </div>
-                                    <div class="vd-card-body">
-                                        <pre class="code-example"><code>/* Direct scale access */
-.my-element {
-  background: var(--primary-0);  /* Lightest */
-  color: var(--primary-9);       /* Darkest */
+                                     <div class="vd-card-body">
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="css">CSS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="css"><code><span class="code-comment">/* Direct scale access */</span>
+<span class="code-selector">.my-element</span> {
+  <span class="code-property">background</span>: <span class="code-value">var(--primary-0)</span>;  <span class="code-comment">/* Lightest */</span>
+  <span class="code-property">color</span>: <span class="code-value">var(--primary-9)</span>;       <span class="code-comment">/* Darkest */</span>
 }
 
-/* Semantic aliases (recommended) */
-.my-button {
-  background: var(--color-primary);
-  border-color: var(--color-primary-dark);
+<span class="code-comment">/* Semantic aliases (recommended) */</span>
+<span class="code-selector">.my-button</span> {
+  <span class="code-property">background</span>: <span class="code-value">var(--color-primary)</span>;
+  <span class="code-property">border-color</span>: <span class="code-value">var(--color-primary-dark)</span>;
 }
 
-/* Hover states using scale */
-.my-button:hover {
-  background: var(--primary-6);
+<span class="code-comment">/* Hover states using scale */</span>
+<span class="code-selector">.my-button:hover</span> {
+  <span class="code-property">background</span>: <span class="code-value">var(--primary-6)</span>;
 }
 
-.my-button:active {
-  background: var(--primary-7);
+<span class="code-selector">.my-button:active</span> {
+  <span class="code-property">background</span>: <span class="code-value">var(--primary-7)</span>;
 }</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -497,22 +516,41 @@
                                     <div class="vd-card-header">
                                         <h3>Theming Guide</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <p class="vd-mb-3">To change the primary color to another Open Color hue (e.g.,
                                             Violet):</p>
-                                        <pre class="code-example"><code>:root {
-  /* Swap Cyan with Violet */
-  --primary-0: #f3f0ff;
-  --primary-1: #e5dbff;
-  --primary-2: #d0bfff;
-  --primary-3: #b197fc;
-  --primary-4: #9775fa;
-  --primary-5: #845ef7;
-  --primary-6: #7950f2;
-  --primary-7: #7048e8;
-  --primary-8: #6741d9;
-  --primary-9: #5f3dc4;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="css">CSS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="css"><code><span class="code-selector">:root</span> {
+  <span class="code-comment">/* Swap Cyan with Violet */</span>
+  <span class="code-property">--primary-0</span>: <span class="code-value">#f3f0ff</span>;
+  <span class="code-property">--primary-1</span>: <span class="code-value">#e5dbff</span>;
+  <span class="code-property">--primary-2</span>: <span class="code-value">#d0bfff</span>;
+  <span class="code-property">--primary-3</span>: <span class="code-value">#b197fc</span>;
+  <span class="code-property">--primary-4</span>: <span class="code-value">#9775fa</span>;
+  <span class="code-property">--primary-5</span>: <span class="code-value">#845ef7</span>;
+  <span class="code-property">--primary-6</span>: <span class="code-value">#7950f2</span>;
+  <span class="code-property">--primary-7</span>: <span class="code-value">#7048e8</span>;
+  <span class="code-property">--primary-8</span>: <span class="code-value">#6741d9</span>;
+  <span class="code-property">--primary-9</span>: <span class="code-value">#5f3dc4</span>;
 }</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3">All components using
                                             <code>--primary-*</code>
                                             or <code>--color-primary</code> will automatically update.</p>
