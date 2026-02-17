@@ -7,7 +7,7 @@
                                     <div class="vd-card-header">
                                         <h3>Input Fields</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <div class="vd-form-group">
                                             <label for="text-input">Text Input</label>
                                             <input type="text" id="text-input" class="vd-input"
@@ -51,6 +51,74 @@
                                                 <option>Option 3</option>
                                             </select>
                                         </div>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Text Input --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"text-input"</span>&gt;Text Input&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"text"</span> <span class="code-attr">id</span>=<span class="code-string">"text-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input"</span>
+      <span class="code-attr">placeholder</span>=<span class="code-string">"Enter text"</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Email Input --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"email-input"</span>&gt;Email Input&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"email"</span> <span class="code-attr">id</span>=<span class="code-string">"email-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input"</span>
+      <span class="code-attr">placeholder</span>=<span class="code-string">"email@example.com"</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Password Input --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"password-input"</span>&gt;Password Input&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"password"</span> <span class="code-attr">id</span>=<span class="code-string">"password-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input"</span>
+      <span class="code-attr">placeholder</span>=<span class="code-string">"Password"</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Textarea --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"textarea-input"</span>&gt;Textarea&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">textarea</span> <span class="code-attr">id</span>=<span class="code-string">"textarea-input"</span> <span class="code-attr">class</span>=<span class="code-string">"textarea"</span> <span class="code-attr">rows</span>=<span class="code-string">"4"</span>
+      <span class="code-attr">placeholder</span>=<span class="code-string">"Enter your message"</span>&gt;&lt;/<span class="code-tag">textarea</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Select --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"select-input"</span>&gt;Select&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">select</span> <span class="code-attr">id</span>=<span class="code-string">"select-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input"</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 1&lt;/<span class="code-tag">option</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 2&lt;/<span class="code-tag">option</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 3&lt;/<span class="code-tag">option</span>&gt;
+  &lt;/<span class="code-tag">select</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Custom Select --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"custom-select-input"</span>&gt;Custom Select&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">select</span> <span class="code-attr">id</span>=<span class="code-string">"custom-select-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input vd-custom-select-input"</span>
+      <span class="code-attr">data-custom-select</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Choose an option&lt;/<span class="code-tag">option</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 1&lt;/<span class="code-tag">option</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 2&lt;/<span class="code-tag">option</span>&gt;
+    &lt;<span class="code-tag">option</span>&gt;Option 3&lt;/<span class="code-tag">option</span>&gt;
+  &lt;/<span class="code-tag">select</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +128,7 @@
                                     <div class="vd-card-header">
                                         <h3>Form Controls</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <div class="vd-form-group">
                                             <label class="checkbox">
                                                 <input type="checkbox" checked>
@@ -109,6 +177,56 @@
                                             <input type="range" id="range-input" class="range" min="0" max="100"
                                                 value="50">
                                         </div>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Checkbox --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">class</span>=<span class="code-string">"checkbox"</span>&gt;
+    &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"checkbox"</span> <span class="code-attr">checked</span>&gt;
+    &lt;<span class="code-tag">span</span>&gt;Checked checkbox&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">label</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Radio --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">class</span>=<span class="code-string">"radio"</span>&gt;
+    &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"radio"</span> <span class="code-attr">name</span>=<span class="code-string">"radio-demo"</span> <span class="code-attr">checked</span>&gt;
+    &lt;<span class="code-tag">span</span>&gt;Radio option 1&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">label</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Switch --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">class</span>=<span class="code-string">"switch"</span>&gt;
+    &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"checkbox"</span> <span class="code-attr">checked</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"switch-slider"</span>&gt;&lt;/<span class="code-tag">span</span>&gt;
+    &lt;<span class="code-tag">span</span>&gt;Toggle switch&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">label</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Range --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"range-input"</span>&gt;Range: &lt;<span class="code-tag">span</span> <span class="code-attr">id</span>=<span class="code-string">"range-value"</span>&gt;50&lt;/<span class="code-tag">span</span>&gt;&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"range"</span> <span class="code-attr">id</span>=<span class="code-string">"range-input"</span> <span class="code-attr">class</span>=<span class="code-string">"range"</span> <span class="code-attr">min</span>=<span class="code-string">"0"</span> <span class="code-attr">max</span>=<span class="code-string">"100"</span>
+      <span class="code-attr">value</span>=<span class="code-string">"50"</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +238,7 @@
                                     <div class="vd-card-header">
                                         <h3>Form Validation States</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <div class="vd-form-group">
                                             <label for="valid-input">Valid Input</label>
                                             <input type="text" id="valid-input" class="vd-input vd-input-valid"
@@ -135,6 +253,41 @@
                                             <div class="vd-form-feedback vd-form-feedback-invalid">Please provide a
                                                 valid
                                                 value.</div>
+                                        </div>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Valid state --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"valid-input"</span>&gt;Valid Input&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"text"</span> <span class="code-attr">id</span>=<span class="code-string">"valid-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input vd-input-valid"</span>
+      <span class="code-attr">value</span>=<span class="code-string">"Valid value"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-feedback vd-form-feedback-valid"</span>&gt;Looks good!&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Invalid state --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-group"</span>&gt;
+  &lt;<span class="code-tag">label</span> <span class="code-attr">for</span>=<span class="code-string">"invalid-input"</span>&gt;Invalid Input&lt;/<span class="code-tag">label</span>&gt;
+  &lt;<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"text"</span> <span class="code-attr">id</span>=<span class="code-string">"invalid-input"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-input vd-input-invalid"</span>
+      <span class="code-attr">value</span>=<span class="code-string">"Invalid value"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-form-feedback vd-form-feedback-invalid"</span>&gt;Please provide a
+    valid value.&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

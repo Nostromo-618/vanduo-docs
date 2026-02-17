@@ -7,7 +7,7 @@
                                     <div class="vd-card-header">
                                         <h3>Toast Types</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <button class="vd-btn vd-btn-success"
                                             onclick="Toast.success('Operation completed successfully!')">Success
                                             Toast</button>
@@ -19,6 +19,30 @@
                                         <button class="vd-btn vd-btn-info"
                                             onclick="Toast.info('Here is some information.')">Info
                                             Toast</button>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Simple toast types</span>
+Toast.<span class="code-function">success</span>(<span class="code-string">'Operation completed successfully!'</span>);
+Toast.<span class="code-function">error</span>(<span class="code-string">'An error occurred!'</span>);
+Toast.<span class="code-function">warning</span>(<span class="code-string">'Please review your input.'</span>);
+Toast.<span class="code-function">info</span>(<span class="code-string">'Here is some information.'</span>);</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -28,7 +52,7 @@
                                     <div class="vd-card-header">
                                         <h3>Toast Options</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <button class="vd-btn vd-btn-primary"
                                             onclick="Toast.show({ title: 'With Title', message: 'This toast has a title and message.', type: 'info' })">With
                                             Title</button>
@@ -38,6 +62,45 @@
                                         <button class="vd-btn vd-btn-primary"
                                             onclick="Toast.show({ message: 'Bottom left position.', type: 'warning', position: 'bottom-left' })">Bottom
                                             Left</button>
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Toast with title</span>
+Toast.<span class="code-function">show</span>({
+  title: <span class="code-string">'With Title'</span>,
+  message: <span class="code-string">'This toast has a title and message.'</span>,
+  type: <span class="code-string">'info'</span>
+});
+
+<span class="code-comment">// Long duration (10 seconds)</span>
+Toast.<span class="code-function">show</span>({
+  message: <span class="code-string">'This toast will stay for 10 seconds.'</span>,
+  type: <span class="code-string">'success'</span>,
+  duration: <span class="code-number">10000</span>
+});
+
+<span class="code-comment">// Custom position</span>
+Toast.<span class="code-function">show</span>({
+  message: <span class="code-string">'Bottom left position.'</span>,
+  type: <span class="code-string">'warning'</span>,
+  position: <span class="code-string">'bottom-left'</span>
+});</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

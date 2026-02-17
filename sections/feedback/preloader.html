@@ -192,20 +192,36 @@
                                     <div class="vd-card-header">
                                         <h3>Quad-Spinner Usage</h3>
                                     </div>
-                                    <div class="vd-card-body">
-                                        <pre class="code-example"><code>&lt;!-- Standalone Quad-Spinner Loader --&gt;
-&lt;div class="vd-dynamic-loader"&gt;
-  &lt;div class="vd-dynamic-loader-grid"&gt;
-    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-success" style="animation-delay: 0s;"&gt;&lt;/div&gt;
-    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-warning" style="animation-delay: -0.15s;"&gt;&lt;/div&gt;
-    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-error"   style="animation-delay: -0.3s;"&gt;&lt;/div&gt;
-    &lt;div class="vd-spinner vd-spinner-sm vd-spinner-info"    style="animation-delay: -0.45s;"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;span class="vd-dynamic-loader-text"&gt;Loading section...&lt;/span&gt;
-&lt;/div&gt;
+                                     <div class="vd-card-body">
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Standalone Quad-Spinner Loader --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader-grid"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-spinner vd-spinner-sm vd-spinner-success"</span> <span class="code-attr">style</span>=<span class="code-string">"animation-delay: 0s;"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-spinner vd-spinner-sm vd-spinner-warning"</span> <span class="code-attr">style</span>=<span class="code-string">"animation-delay: -0.15s;"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-spinner vd-spinner-sm vd-spinner-error"</span>   <span class="code-attr">style</span>=<span class="code-string">"animation-delay: -0.3s;"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-spinner vd-spinner-sm vd-spinner-info"</span>    <span class="code-attr">style</span>=<span class="code-string">"animation-delay: -0.45s;"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader-text"</span>&gt;Loading section...&lt;/<span class="code-tag">span</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
 
-&lt;!-- Required CSS (add to your stylesheet or &lt;style&gt; block) --&gt;
-&lt;style&gt;
+<span class="code-comment">&lt;!-- Required CSS (add to your stylesheet or &lt;style&gt; block) --&gt;</span>
+&lt;<span class="code-tag">style</span>&gt;
 .vd-dynamic-loader {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -217,22 +233,25 @@
 .vd-dynamic-loader-text {
   color: var(--text-muted); font-size: var(--font-size-sm);
 }
-&lt;/style&gt;
+&lt;/<span class="code-tag">style</span>&gt;
 
-&lt;!-- Overlay on Skeleton Card (for lazy-loaded content) --&gt;
-&lt;div class="vd-skeleton-card" style="position: relative; min-height: 300px; padding: 2rem; overflow: hidden;"&gt;
-  &lt;div class="vd-skeleton vd-skeleton-heading-lg"&gt;&lt;/div&gt;
-  &lt;div class="vd-skeleton vd-skeleton-paragraph"&gt;
-    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
-    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
-    &lt;div class="vd-skeleton vd-skeleton-text"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;!-- Spinner overlay --&gt;
-  &lt;div class="vd-dynamic-loader" style="position: absolute; inset: 0;"&gt;
-    &lt;div class="vd-dynamic-loader-grid"&gt;...spinners...&lt;/div&gt;
-    &lt;span class="vd-dynamic-loader-text"&gt;Loading...&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+<span class="code-comment">&lt;!-- Overlay on Skeleton Card (for lazy-loaded content) --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton-card"</span> <span class="code-attr">style</span>=<span class="code-string">"position: relative; min-height: 300px; padding: 2rem; overflow: hidden;"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton vd-skeleton-heading-lg"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton vd-skeleton-paragraph"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton vd-skeleton-text"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton vd-skeleton-text"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-skeleton vd-skeleton-text"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-comment">!-- Spinner overlay --&gt;</span>
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader"</span> <span class="code-attr">style</span>=<span class="code-string">"position: absolute; inset: 0;"</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader-grid"</span>&gt;...spinners...&lt;/<span class="code-tag">div</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-dynamic-loader-text"</span>&gt;Loading...&lt;/<span class="code-tag">span</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3"><strong>Tip:</strong> The negative <code>animation-delay</code> values desynchronize each spinner, creating the signature "quad" effect. Adjust the delay values to change the visual rhythm.</p>
                                     </div>
                                 </div>

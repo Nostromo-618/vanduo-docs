@@ -13,30 +13,49 @@
                                     </div>
                                     <div class="vd-card-body">
                                         <p>Include the CSS and JS files, then add the search markup:</p>
-                                        <pre class="code-example"><code>&lt;!-- CSS --&gt;
-&lt;link rel="stylesheet" href="css/components/doc-search.css"&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment"><!-- CSS --></span>
+<<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span> <span class="code-attr">href</span>=<span class="code-string">"css/components/doc-search.css"</span>>
 
-&lt;!-- HTML --&gt;
-&lt;div class="vd-doc-search"&gt;
-    &lt;div class="vd-doc-search-input-wrapper"&gt;
-        &lt;i class="ph ph-magnifying-glass vd-doc-search-icon"&gt;&lt;/i&gt;
-        &lt;input type="search" class="vd-doc-search-input"
-               placeholder="Search..."
-               aria-label="Search"
-               aria-controls="search-results"
-               aria-expanded="false"
-               autocomplete="off"&gt;
-        &lt;kbd class="vd-doc-search-shortcut"&gt;⌘K&lt;/kbd&gt;
-    &lt;/div&gt;
-    &lt;div class="vd-doc-search-results" id="search-results"
-         role="listbox" aria-label="Search results"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<span class="code-comment"><!-- HTML --></span>
+<<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-doc-search"</span>>
+    <<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-doc-search-input-wrapper"</span>>
+        <<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-magnifying-glass vd-doc-search-icon"</span>></<span class="code-tag">i</span>>
+        <<span class="code-tag">input</span> <span class="code-attr">type</span>=<span class="code-string">"search"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-doc-search-input"</span>
+               <span class="code-attr">placeholder</span>=<span class="code-string">"Search..."</span>
+               <span class="code-attr">aria-label</span>=<span class="code-string">"Search"</span>
+               <span class="code-attr">aria-controls</span>=<span class="code-string">"search-results"</span>
+               <span class="code-attr">aria-expanded</span>=<span class="code-string">"false"</span>
+               <span class="code-attr">autocomplete</span>=<span class="code-string">"off"</span>>
+        <<span class="code-tag">kbd</span> <span class="code-attr">class</span>=<span class="code-string">"vd-doc-search-shortcut"</span>>⌘K</<span class="code-tag">kbd</span>>
+    </<span class="code-tag">div</span>>
+    <<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-doc-search-results"</span> <span class="code-attr">id</span>=<span class="code-string">"search-results"</span>
+         <span class="code-attr">role</span>=<span class="code-string">"listbox"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Search results"</span>></<span class="code-tag">div</span>>
+</<span class="code-tag">div</span>>
 
-&lt;!-- JS --&gt;
-&lt;script src="js/components/doc-search.js"&gt;&lt;/script&gt;</code></pre>
+<span class="code-comment"><!-- JS --></span>
+<<span class="code-tag">script</span> <span class="code-attr">src</span>=<span class="code-string">"js/components/doc-search.js"</span>></<span class="code-tag">script</span>></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-mt-5 vd-text-sm vd-text-muted">The component auto-initializes on
                                             page load
-                                            and indexes all <code>&lt;section&gt;</code> elements with <code>id</code>
+                                            and indexes all <code><section></code> elements with <code>id</code>
                                             attributes.</p>
                                     </div>
                                 </div>
@@ -79,34 +98,53 @@
                                     </div>
                                     <div class="vd-card-body">
                                         <p>Create a custom search instance with your own data and callbacks:</p>
-                                        <pre class="code-example"><code>// Create custom search instance
-const mySearch = Search.create({
-    // Custom selectors
-    inputSelector: '.my-search-input',
-    resultsSelector: '.my-search-results',
-    
-    // Custom data source (optional)
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Create custom search instance</span>
+<span class="code-keyword">const</span> mySearch = Search.<span class="code-function">create</span>({
+    <span class="code-comment">// Custom selectors</span>
+    inputSelector: <span class="code-string">'.my-search-input'</span>,
+    resultsSelector: <span class="code-string">'.my-search-results'</span>,
+
+    <span class="code-comment">// Custom data source (optional)</span>
     data: [
         {
-            title: 'Getting Started',
-            content: 'Learn how to install...',
-            category: 'Guides',
-            url: '#getting-started'
+            title: <span class="code-string">'Getting Started'</span>,
+            content: <span class="code-string">'Learn how to install...'</span>,
+            category: <span class="code-string">'Guides'</span>,
+            url: <span class="code-string">'#getting-started'</span>
         },
-        // ... more items
+        <span class="code-comment">// ... more items</span>
     ],
-    
-    // Callbacks
+
+    <span class="code-comment">// Callbacks</span>
     onSelect: (item) => {
-        console.log('Selected:', item);
+        console.<span class="code-function">log</span>(<span class="code-string">'Selected:'</span>, item);
         window.location.hash = item.url;
     },
     onSearch: (query, results) => {
-        console.log(`Found ${results.length} results`);
+        console.<span class="code-function">log</span>(<span class="code-string">`Found ${results.length} results`</span>);
     },
-    onOpen: () => console.log('Search opened'),
-    onClose: () => console.log('Search closed')
+    onOpen: () => console.<span class="code-function">log</span>(<span class="code-string">'Search opened'</span>),
+    onClose: () => console.<span class="code-function">log</span>(<span class="code-string">'Search closed'</span>)
 });</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -172,26 +210,45 @@ const mySearch = Search.create({
                                         <h3>JavaScript API</h3>
                                     </div>
                                     <div class="vd-card-body">
-                                        <pre class="code-example"><code>// Access the default instance
-const search = DocSearch;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Access the default instance</span>
+<span class="code-keyword">const</span> search = DocSearch;
 
-// Or create a custom instance
-const search = Search.create({ /* options */ });
+<span class="code-comment">// Or create a custom instance</span>
+<span class="code-keyword">const</span> search = Search.<span class="code-function">create</span>({ <span class="code-comment">/* options */</span> });
 
-// Methods
-search.open();           // Open/focus search
-search.close();          // Close results
-search.clear();          // Clear input and results
-search.destroy();        // Remove all event listeners
+<span class="code-comment">// Methods</span>
+search.<span class="code-function">open</span>();           <span class="code-comment">// Open/focus search</span>
+search.<span class="code-function">close</span>();          <span class="code-comment">// Close results</span>
+search.<span class="code-function">clear</span>();          <span class="code-comment">// Clear input and results</span>
+search.<span class="code-function">destroy</span>();        <span class="code-comment">// Remove all event listeners</span>
 
-// Update search index (after DOM changes)
-search.reindex();
+<span class="code-comment">// Update search index (after DOM changes)</span>
+search.<span class="code-function">reindex</span>();
 
-// Search programmatically
-search.search('query');
+<span class="code-comment">// Search programmatically</span>
+search.<span class="code-function">search</span>(<span class="code-string">'query'</span>);
 
-// Get current state
-const isOpen = search.isOpen;</code></pre>
+<span class="code-comment">// Get current state</span>
+<span class="code-keyword">const</span> isOpen = search.isOpen;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -203,15 +260,34 @@ const isOpen = search.isOpen;</code></pre>
                                     </div>
                                     <div class="vd-card-body">
                                         <p>Customize icons for each category:</p>
-                                        <pre class="code-example"><code>const search = Search.create({
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="javascript">JavaScript</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-keyword">const</span> search = Search.<span class="code-function">create</span>({
     categoryIcons: {
-        'Getting Started': 'ph-rocket',
-        'Components': 'ph-cube',
-        'API': 'ph-code',
-        'Guides': 'ph-book-open',
-        'default': 'ph-file-text'
+        <span class="code-string">'Getting Started'</span>: <span class="code-string">'ph-rocket'</span>,
+        <span class="code-string">'Components'</span>: <span class="code-string">'ph-cube'</span>,
+        <span class="code-string">'API'</span>: <span class="code-string">'ph-code'</span>,
+        <span class="code-string">'Guides'</span>: <span class="code-string">'ph-book-open'</span>,
+        <span class="code-keyword">default</span>: <span class="code-string">'ph-file-text'</span>
     }
 });</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-mt-5 vd-text-sm vd-text-muted">Icons use Phosphor Icons classes.
                                             The
                                             <code>default</code> key is used for categories without a specific icon.
@@ -229,22 +305,41 @@ const isOpen = search.isOpen;</code></pre>
                                     </div>
                                     <div class="vd-card-body">
                                         <p>Override CSS variables to customize the appearance:</p>
-                                        <pre class="code-example"><code>.vd-doc-search {
-    /* Input styling */
-    --vd-doc-search-input-bg: var(--vd-bg-secondary);
-    --vd-doc-search-input-border: var(--vd-border-color);
-    --vd-doc-search-input-radius: var(--vd-btn-border-radius);
-    
-    /* Results panel */
-    --vd-doc-search-results-bg: var(--vd-bg-primary);
-    --vd-doc-search-results-shadow: var(--vd-shadow-lg);
-    --vd-doc-search-results-max-height: 400px;
-    
-    /* Result items */
-    --vd-doc-search-item-hover-bg: var(--vd-bg-secondary);
-    --vd-doc-search-highlight-bg: rgba(var(--vd-color-primary-rgb), 0.2);
-    --vd-doc-search-highlight-color: var(--vd-color-primary);
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="css">CSS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="css"><code><span class="code-selector">.vd-doc-search</span> {
+    <span class="code-comment">/* Input styling */</span>
+    <span class="code-property">--vd-doc-search-input-bg</span>: <span class="code-value">var(--vd-bg-secondary)</span>;
+    <span class="code-property">--vd-doc-search-input-border</span>: <span class="code-value">var(--vd-border-color)</span>;
+    <span class="code-property">--vd-doc-search-input-radius</span>: <span class="code-value">var(--vd-btn-border-radius)</span>;
+
+    <span class="code-comment">/* Results panel */</span>
+    <span class="code-property">--vd-doc-search-results-bg</span>: <span class="code-value">var(--vd-bg-primary)</span>;
+    <span class="code-property">--vd-doc-search-results-shadow</span>: <span class="code-value">var(--vd-shadow-lg)</span>;
+    <span class="code-property">--vd-doc-search-results-max-height</span>: <span class="code-value">400px</span>;
+
+    <span class="code-comment">/* Result items */</span>
+    <span class="code-property">--vd-doc-search-item-hover-bg</span>: <span class="code-value">var(--vd-bg-secondary)</span>;
+    <span class="code-property">--vd-doc-search-highlight-bg</span>: <span class="code-value">rgba(var(--vd-color-primary-rgb), 0.2)</span>;
+    <span class="code-property">--vd-doc-search-highlight-color</span>: <span class="code-value">var(--vd-color-primary)</span>;
 }</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -44,13 +44,32 @@
 
                                         <h4 class="vd-mb-3">Switching Fonts</h4>
                                         <p>Use the <code>data-font</code> attribute on the HTML element:</p>
-                                        <pre class="code-example"><code>&lt;!-- Set font on HTML element --&gt;
-&lt;html data-font="ubuntu"&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Set font on HTML element --&gt;</span>
+&lt;<span class="code-tag">html</span> <span class="code-attr">data-font</span>=<span class="code-string">"ubuntu"</span>&gt;
 
-&lt;!-- Or use the Theme Customizer (paint roller icon) to preview and select fonts --&gt;
-&lt;button data-theme-customizer-trigger&gt;
-    &lt;i class="ph ph-paint-roller"&gt;&lt;/i&gt;
-&lt;/button&gt;</code></pre>
+<span class="code-comment">&lt;!-- Or use the Theme Customizer (paint roller icon) to preview and select fonts --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">data-theme-customizer-trigger</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-paint-roller"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-text-sm vd-text-muted vd-mt-3">Font preference is persisted to
                                             <code>localStorage</code> and restored on page load.
                                         </p>
@@ -63,24 +82,62 @@
                                                 target="_blank" rel="noopener">Google Fonts</a> and add them to your
                                             <code>fonts/</code> folder. Follow the same pattern as existing fonts:
                                         </p>
-                                        <pre class="code-example"><code>1. Create folder: fonts/my-font/
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="text">Steps</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="text"><code>1. Create folder: fonts/my-font/
 2. Add woff2 files
 3. Add @font-face rules to css/core/fonts.css
 4. Add [data-font="my-font"] selector to css/core/typography.css
 5. Register in js/components/font-switcher.js</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <h5 class="vd-mb-2 vd-mt-4">Option 2: Google Fonts CDN</h5>
                                         <p class="vd-text-sm">For quick prototyping, use Google Fonts CDN link in your
                                             HTML
                                             head:</p>
-                                        <pre class="code-example"><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"&gt;
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"preconnect"</span> <span class="code-attr">href</span>=<span class="code-string">"https://fonts.googleapis.com"</span>&gt;
+&lt;<span class="code-tag">link</span> <span class="code-attr">href</span>=<span class="code-string">"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span>&gt;
 
-&lt;style&gt;
-  [data-font="roboto"] {
-    --font-family-sans: 'Roboto', sans-serif;
+&lt;<span class="code-tag">style</span>&gt;
+  <span class="code-selector">[data-font="roboto"]</span> {
+    <span class="code-property">--font-family-sans</span>: <span class="code-string">'Roboto', sans-serif</span>;
   }
-&lt;/style&gt;</code></pre>
+&lt;/<span class="code-tag">style</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

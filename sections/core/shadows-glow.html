@@ -101,18 +101,37 @@
                                                 <code>.hover-glow-lg</code><br><strong>Strong (30px blur)</strong>
                                             </div>
                                         </div>
-                                        <pre class="code-example vd-mt-5"><code>&lt;!-- Basic glow on any element --&gt;
-&lt;div class="vd-hover-glow"&gt;Hover for primary glow&lt;/div&gt;
+                                         <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Basic glow on any element --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-hover-glow"</span>&gt;Hover for primary glow&lt;/<span class="code-tag">div</span>&gt;
 
-&lt;!-- Glow with specific color --&gt;
-&lt;button class="vd-btn vd-btn-success vd-hover-glow-success"&gt;Success Glow&lt;/button&gt;
-&lt;button class="vd-btn vd-btn-warning vd-hover-glow-warning"&gt;Warning Glow&lt;/button&gt;
-&lt;button class="vd-btn vd-btn-error vd-hover-glow-error"&gt;Error Glow&lt;/button&gt;
+<span class="code-comment">&lt;!-- Glow with specific color --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-success vd-hover-glow-success"</span>&gt;Success Glow&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-warning vd-hover-glow-warning"</span>&gt;Warning Glow&lt;/<span class="code-tag">button</span>&gt;
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-error vd-hover-glow-error"</span>&gt;Error Glow&lt;/<span class="code-tag">button</span>&gt;
 
-&lt;!-- Glow intensity variants --&gt;
-&lt;div class="vd-hover-glow-sm"&gt;Subtle glow&lt;/div&gt;
-&lt;div class="vd-hover-glow-md"&gt;Medium glow&lt;/div&gt;
-&lt;div class="vd-hover-glow-lg"&gt;Strong glow&lt;/div&gt;</code></pre>
+<span class="code-comment">&lt;!-- Glow intensity variants --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-hover-glow-sm"</span>&gt;Subtle glow&lt;/<span class="code-tag">div</span>&gt;
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-hover-glow-md"</span>&gt;Medium glow&lt;/<span class="code-tag">div</span>&gt;
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-hover-glow-lg"</span>&gt;Strong glow&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -151,19 +170,38 @@
                                     <div class="vd-card-header">
                                         <h3>CSS Variables</h3>
                                     </div>
-                                    <div class="vd-card-body">
+                                     <div class="vd-card-body">
                                         <p class="vd-mb-3">Customize glow colors via CSS variables:</p>
-                                        <pre class="code-example"><code>:root {
-  /* Glow colors */
-  --glow-primary-color: rgba(34, 184, 207, 0.25);
-  --glow-success-color: rgba(64, 192, 87, 0.25);
-  --glow-warning-color: rgba(250, 176, 5, 0.25);
-  --glow-error-color: rgba(250, 82, 82, 0.25);
-  
-  /* Card glow (uses primary by default) */
-  --card-glow-color: rgba(34, 184, 207, 0.25);
-  --card-glow-border-color: rgba(34, 184, 207, 0.4);
+                                        <div class="vd-code-snippet" data-collapsible>
+                                            <button class="vd-code-snippet-toggle" aria-expanded="false">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="css">CSS</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="css"><code><span class="code-selector">:root</span> {
+  <span class="code-comment">/* Glow colors */</span>
+  <span class="code-property">--glow-primary-color</span>: <span class="code-value">rgba(34, 184, 207, 0.25)</span>;
+  <span class="code-property">--glow-success-color</span>: <span class="code-value">rgba(64, 192, 87, 0.25)</span>;
+  <span class="code-property">--glow-warning-color</span>: <span class="code-value">rgba(250, 176, 5, 0.25)</span>;
+  <span class="code-property">--glow-error-color</span>: <span class="code-value">rgba(250, 82, 82, 0.25)</span>;
+
+  <span class="code-comment">/* Card glow (uses primary by default) */</span>
+  <span class="code-property">--card-glow-color</span>: <span class="code-value">rgba(34, 184, 207, 0.25)</span>;
+  <span class="code-property">--card-glow-border-color</span>: <span class="code-value">rgba(34, 184, 207, 0.4)</span>;
 }</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="vd-mt-3 vd-text-sm vd-text-muted">Note: Glow intensity is
                                             automatically
                                             increased in dark mode for better visibility.</p>
