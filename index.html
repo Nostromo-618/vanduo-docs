@@ -440,6 +440,36 @@
             text-align: center;
         }
 
+        /* Philosophy cards (docs page #docs/philosophy) */
+        #philosophy .vd-row {
+            align-items: stretch;
+        }
+
+        #philosophy .vd-col-12 .philosophy-card {
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #philosophy .philosophy-card .vd-card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.75rem 1.25rem;
+        }
+
+        #philosophy .philosophy-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        #philosophy .philosophy-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
         /* Home: Philosophy cards */
         #philosophy .philosophy-cards,
         #home #philosophy .philosophy-cards {
@@ -465,6 +495,14 @@
             #home #philosophy .philosophy-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            #philosophy .vd-col-12 .philosophy-card {
+                min-height: 220px;
+            }
+
+            #philosophy .philosophy-card .vd-card-body {
+                padding: 2rem 1.5rem;
+            }
         }
 
         @media (min-width: 992px) {
@@ -472,6 +510,18 @@
             #philosophy .philosophy-cards,
             #home #philosophy .philosophy-cards {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            #philosophy .vd-col-12 .philosophy-card {
+                min-height: 240px;
+            }
+
+            #philosophy .philosophy-card .vd-card-body {
+                padding: 2.25rem 1.5rem;
+            }
+
+            #philosophy .philosophy-icon {
+                font-size: 2.25rem;
             }
         }
 
@@ -502,10 +552,30 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            padding-bottom: 1.25rem;
+        }
+
+        /* Buttons align to bottom with consistent spacing */
+        #whats-new .whats-new-cards .demo-card .vd-card-body > a.vd-btn {
+            margin-top: auto;
+        }
+
+        /* Big card: button at 50% width, centered */
+        #whats-new .whats-new-cards > .vd-col-12:nth-child(3) .vd-card-body > a.vd-btn {
+            width: 50%;
+            min-width: fit-content;
+            align-self: center;
         }
 
         #whats-new .vd-card-header h3 {
             text-align: center;
+        }
+
+        /* Separator and space above "The Shape of the Water" card */
+        #whats-new .whats-new-cards > .vd-col-12:nth-child(3) {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--color-primary);
         }
 
         @media (min-width: 768px) {
@@ -513,6 +583,58 @@
                 grid-template-columns: repeat(2, 1fr);
                 grid-auto-rows: 1fr;
             }
+
+            /* "The Shape of the Water" card spans full width of the two above */
+            #whats-new .whats-new-cards > .vd-col-12:nth-child(3) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Home: Kilo OSS section */
+        #kilo-oss .kilo-heart-outline {
+            color: var(--color-primary);
+            margin-right: 0.5rem;
+        }
+
+        #kilo-oss .kilo-heart-filled {
+            color: var(--color-error);
+            margin-left: 0.25rem;
+            vertical-align: middle;
+        }
+
+        #kilo-oss .kilo-trophy-icon {
+            color: var(--color-warning);
+            margin-right: 0.75rem;
+        }
+
+        #kilo-oss .kilo-oss-card {
+            position: relative;
+        }
+
+        #kilo-oss .kilo-oss-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #0d5c2e !important;
+            border-color: #0d5c2e !important;
+            color: white !important;
+        }
+
+        #kilo-oss .kilo-oss-card .vd-card-header {
+            padding-right: 9rem;
+        }
+
+        #kilo-oss .kilo-oss-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        #kilo-oss .kilo-oss-actions .vd-btn {
+            width: 50%;
+            min-width: fit-content;
         }
 
         /* ── About page styles ──────────────────────────── */
