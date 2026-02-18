@@ -20,7 +20,7 @@
                 <header class="version-header">
                     <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.7</span>
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
-                        <i class="ph ph-calendar mr-1"></i>February 17, 2026
+                        <i class="ph ph-calendar mr-1"></i>February 18, 2026
                     </span>
                     <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
@@ -31,8 +31,40 @@
                                 <h4 style="color: var(--color-primary);">
                                     <i class="ph ph-cube"></i> Framework
                                 </h4>
-                                <p class="vd-text-sm vd-text-muted" style="padding-left: 1.5rem;"><em>No framework
-                                        changes in this release.</em></p>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Primary color not following OS dark/light switch</strong>
+                                            <p>When theme mode was set to "System", toggling the OS between dark and
+                                                light mode changed backgrounds and text but left the primary accent
+                                                color unchanged. Added a
+                                                <code>prefers-color-scheme</code> media-query change listener in
+                                                <code>ThemeCustomizer</code> that auto-switches the primary color
+                                                between <code>black</code> (light) and <code>amber</code> (dark) when
+                                                the user hasn't explicitly chosen a non-default color.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Default primary color was amber instead of black in light
+                                                mode</strong>
+                                            <p><code>DEFAULTS.PRIMARY_LIGHT</code> corrected from
+                                                <code>'amber'</code> to <code>'black'</code> so first-time visitors in
+                                                light mode see the intended neutral primary color.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-bug" style="color: var(--color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Default neutral color was slate instead of neutral</strong>
+                                            <p><code>DEFAULTS.NEUTRAL</code> corrected from <code>'slate'</code> to
+                                                <code>'neutral'</code> to match the intended true-neutral gray
+                                                scale.</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="vd-col-12 vd-col-md-6">

@@ -3672,9 +3672,9 @@
     },
     // Default values
     DEFAULTS: {
-      PRIMARY_LIGHT: "black",
+      PRIMARY_LIGHT: "amber",
       PRIMARY_DARK: "amber",
-      NEUTRAL: "neutral",
+      NEUTRAL: "slate",
       RADIUS: "0.5",
       FONT: "ubuntu",
       THEME: "system"
