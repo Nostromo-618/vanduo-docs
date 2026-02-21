@@ -22,7 +22,6 @@ Vanduo.init();
 const SECTIONS_BASE = './sections/';
 let registry = { pages: [], tabs: {} };
 const loadedSections = new Set();
-let searchInstance = null;
 let scrollSpyObserver = null;
 let currentView = null;
 let currentTab = null;
@@ -126,7 +125,12 @@ function buildSidebar(tabKey) {
             a.href = '#docs/' + sec.id;
             a.className = 'doc-nav-link';
             a.setAttribute('data-section', sec.id);
-            a.innerHTML = sec.icon ? '<i class="ph ' + sec.icon + ' mr-2"></i>' + sec.title : sec.title;
+            a.textContent = sec.title;
+            if (sec.icon) {
+                var iElement = document.createElement('i');
+                iElement.className = 'ph ' + sec.icon + ' mr-2';
+                a.prepend(iElement);
+            }
             li.appendChild(a);
             navList.appendChild(li);
         });
@@ -330,7 +334,7 @@ function initSearch(tabKey) {
         });
     }
     if (window.Search) {
-        searchInstance = window.Search.init({
+        window.Search.init({
             containerSelector: '.vd-doc-search',
             inputSelector: '.vd-doc-search-input',
             resultsSelector: '.vd-doc-search-results',
@@ -345,6 +349,7 @@ function initSearch(tabKey) {
 
 /* ── Wire data-route links ────────────────────── */
 function wireRouteLinks(container) {
+    if (!container) return;
     container.querySelectorAll('[data-route]').forEach(function (el) {
         if (el._routeWired) return;
         el._routeWired = true;
@@ -410,10 +415,13 @@ document.querySelectorAll('.vd-navbar-nav .vd-nav-link[data-route]').forEach(fun
     });
 });
 
-document.querySelector('.vd-navbar-brand a[data-route]').addEventListener('click', function (e) {
-    e.preventDefault();
-    navigate('home');
-});
+var brandLink = document.querySelector('.vd-navbar-brand a[data-route]');
+if (brandLink) {
+    brandLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        navigate('home');
+    });
+}
 
 document.querySelectorAll('.doc-tab[data-tab]').forEach(function (tab) {
     tab.addEventListener('click', function (e) {
@@ -443,14 +451,17 @@ function closeMobileToc() {
     }
 }
 
-document.getElementById('dynamic-nav-list').addEventListener('click', function (e) {
-    var link = e.target.closest('.doc-nav-link[data-section]');
-    if (!link) return;
-    e.preventDefault();
-    var id = link.getAttribute('data-section');
-    closeMobileToc();
-    navigate('docs/' + id);
-});
+var dynamicNavList = document.getElementById('dynamic-nav-list');
+if (dynamicNavList) {
+    dynamicNavList.addEventListener('click', function (e) {
+        var link = e.target.closest('.doc-nav-link[data-section]');
+        if (!link) return;
+        e.preventDefault();
+        var id = link.getAttribute('data-section');
+        closeMobileToc();
+        navigate('docs/' + id);
+    });
+}
 
 /* ── Interactive Demos (Event Delegation) ─────── */
 document.addEventListener('click', function (e) {
@@ -564,7 +575,7 @@ function globalSearch(query) {
         });
 
         // Slight boost for page entries so they surface when searched directly
-        if (entry.category === 'Pages' && score > 0) score -= 5;
+        if (entry.category === 'Pages' && score > 0) score += 5;
 
         if (score > 0) {
             scored.push(Object.assign({ score: score }, entry));
