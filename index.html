@@ -556,12 +556,12 @@
         }
 
         /* Buttons align to bottom with consistent spacing */
-        #whats-new .whats-new-cards .demo-card .vd-card-body > a.vd-btn {
+        #whats-new .whats-new-cards .demo-card .vd-card-body>a.vd-btn {
             margin-top: auto;
         }
 
         /* Big card: button at 50% width, centered */
-        #whats-new .whats-new-cards > .vd-col-12:nth-child(3) .vd-card-body > a.vd-btn {
+        #whats-new .whats-new-cards>.vd-col-12:nth-child(3) .vd-card-body>a.vd-btn {
             width: 50%;
             min-width: fit-content;
             align-self: center;
@@ -572,7 +572,7 @@
         }
 
         /* Separator and space above "The Shape of the Water" card */
-        #whats-new .whats-new-cards > .vd-col-12:nth-child(3) {
+        #whats-new .whats-new-cards>.vd-col-12:nth-child(3) {
             margin-top: 3rem;
             padding-top: 3rem;
             border-top: 1px solid var(--color-primary);
@@ -585,7 +585,7 @@
             }
 
             /* "The Shape of the Water" card spans full width of the two above */
-            #whats-new .whats-new-cards > .vd-col-12:nth-child(3) {
+            #whats-new .whats-new-cards>.vd-col-12:nth-child(3) {
                 grid-column: 1 / -1;
             }
         }
@@ -1427,6 +1427,32 @@
             var id = link.getAttribute('data-section');
             closeMobileToc();
             navigate('docs/' + id);
+        });
+
+        /* ── Interactive Demos (Event Delegation) ─────── */
+        document.addEventListener('click', function (e) {
+            // Draggable: Programmatic Control Demo
+            if (e.target.closest('#make-draggable-btn')) {
+                var el = document.querySelector('#programmatic-element');
+                if (el && window.VanduoDraggable) {
+                    VanduoDraggable.makeDraggable(el, { data: 'programmatic-item' });
+                    el.textContent = '✅ I am now draggable!';
+                }
+            }
+            if (e.target.closest('#remove-draggable-btn')) {
+                var el = document.querySelector('#programmatic-element');
+                if (el && window.VanduoDraggable) {
+                    VanduoDraggable.removeDraggable(el);
+                    el.textContent = "I'm not draggable yet...";
+                }
+            }
+        });
+
+        document.addEventListener('draggable:drop', function (e) {
+            // Draggable: Drop Zone Demo
+            if (e.target.id === 'demo-drop-zone') {
+                e.target.appendChild(e.detail.element);
+            }
         });
 
         wireRouteLinks(document.querySelector('.vd-footer'));

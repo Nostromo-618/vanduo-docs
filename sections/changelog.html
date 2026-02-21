@@ -5,13 +5,86 @@
             <h1 style="color: var(--color-primary);"><i class="ph ph-scroll" style="color: var(--color-primary);"></i>
                 Changelog</h1>
             <p class="vd-text-lg vd-text-muted">All notable changes to <strong>Vanduo Framework</strong> and
-                <strong>Vanduo Docs</strong> are documented here — side by side.</p>
+                <strong>Vanduo Docs</strong> are documented here — side by side.
+            </p>
         </div>
     </div>
 
     <!-- Main Content -->
     <div style="padding: 3rem 0;">
         <div class="vd-container-responsive" style="max-width: 1200px;">
+
+            <!-- ═══════════════════════════════════════════════ -->
+            <!-- Version 1.1.8                                   -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.1.8</span>
+                    <span style="color: var(--text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>February 21, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <div class="change-category">
+                                <h4 style="color: var(--color-primary);">
+                                    <i class="ph ph-cube"></i> Framework
+                                </h4>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                        <div>
+                                            <strong>New: Draggable Component</strong>
+                                            <p>A zero-dependency <code>vd-draggable</code> component featuring touch
+                                                support, native HTML5 drag-and-drop for desktop, keyboard sorting, and
+                                                ARIA live region integration.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                        <div>
+                                            <strong>New: Sortable Containers</strong>
+                                            <p><code>vd-draggable-container</code> provides automatic DOM reordering on
+                                                drag over, so dragged items visually push siblings aside and drop right
+                                                into place seamlessly.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-arrow-up" style="color: var(--color-info);"></i>
+                                        <div>
+                                            <strong>Improvement: Custom Drag Events</strong>
+                                            <p>Comprehensive event bus (<code>draggable:start</code>,
+                                                <code>draggable:drag</code>, <code>draggable:drop</code>,
+                                                <code>draggable:reorder</code>, etc.) for app integration.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <div class="change-category">
+                                <h4 style="color: var(--color-info);">
+                                    <i class="ph ph-book-open-text"></i> Documentation
+                                </h4>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-sparkle" style="color: var(--color-primary);"></i>
+                                        <div>
+                                            <strong>New: Extensive Interactive Demos</strong>
+                                            <p>Added a new Interactive section with 10+ demos including standard
+                                                dragging, vertical sortable lists, drop zones, custom feedback styling,
+                                                programmatic initialization via JavaScript, and accessibility features.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
             <!-- ═══════════════════════════════════════════════ -->
             <!-- Version 1.1.7                                   -->
@@ -22,7 +95,6 @@
                     <span style="color: var(--text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>February 18, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
@@ -42,7 +114,8 @@
                                                 <code>prefers-color-scheme</code> media-query change listener in
                                                 <code>ThemeCustomizer</code> that auto-switches the primary color
                                                 between <code>black</code> (light) and <code>amber</code> (dark) when
-                                                the user hasn't explicitly chosen a non-default color.</p>
+                                                the user hasn't explicitly chosen a non-default color.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -52,7 +125,8 @@
                                                 mode</strong>
                                             <p><code>DEFAULTS.PRIMARY_LIGHT</code> corrected from
                                                 <code>'amber'</code> to <code>'black'</code> so first-time visitors in
-                                                light mode see the intended neutral primary color.</p>
+                                                light mode see the intended neutral primary color.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -61,7 +135,8 @@
                                             <strong>Fix: Default neutral color was slate instead of neutral</strong>
                                             <p><code>DEFAULTS.NEUTRAL</code> corrected from <code>'slate'</code> to
                                                 <code>'neutral'</code> to match the intended true-neutral gray
-                                                scale.</p>
+                                                scale.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
@@ -81,7 +156,8 @@
                                                 routed to <code>#docs/getting-started</code> instead of their intended
                                                 guide pages. Fixed <code>data-route</code> attributes from
                                                 <code>docs/guides/&lt;id&gt;</code> to <code>docs/&lt;id&gt;</code> to
-                                                match the SPA router's section ID lookup.</p>
+                                                match the SPA router's section ID lookup.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -94,7 +170,8 @@
                                                 (code-tag, code-attr, code-string), copy buttons, and language tabs
                                                 (HTML, CSS, JavaScript) where applicable. Updated 27 files across
                                                 Components, Data-display, Feedback, Interactive, Core, and Quick Start
-                                                sections.</p>
+                                                sections.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
@@ -131,7 +208,8 @@
                                                 from its parent, making the "d!" portion of "Copied!" invisible. Added
                                                 explicit <code>font-size: var(--code-font-size)</code> to the
                                                 <code>::after</code> rule so the full "Copied!" feedback displays
-                                                correctly.</p>
+                                                correctly.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
@@ -279,7 +357,8 @@
                                         <div>
                                             <strong>Improvement: Ubuntu as default font</strong>
                                             <p>Theme customizer <code>DEFAULTS.FONT</code> changed from
-                                                <code>jetbrains-mono</code> to <code>ubuntu</code>.</p>
+                                                <code>jetbrains-mono</code> to <code>ubuntu</code>.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -341,7 +420,8 @@
                                             <strong>Improvement: Sidebar text size increased</strong>
                                             <p><code>.doc-nav-link</code> bumped to <code>0.875rem</code>,
                                                 <code>.doc-nav-section</code> to <code>0.8125rem</code>, with improved
-                                                icon spacing.</p>
+                                                icon spacing.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -387,7 +467,8 @@
                                             <p>Progress bars now use correct
                                                 <code>vd-progress-bar-success/warning/error/info</code> classes matching
                                                 quad-spinner colors instead of non-functional <code>vd-bg-*</code>
-                                                utilities.</p>
+                                                utilities.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -404,7 +485,8 @@
                                             <strong>Fix: Modal component</strong>
                                             <p>Added missing <code>#demo-modal</code> element with proper
                                                 <code>vd-modal</code> markup (backdrop, dialog, header, body, footer).
-                                                "Open Modal" button now works.</p>
+                                                "Open Modal" button now works.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -414,7 +496,8 @@
                                             <p>Checkboxes, radios, and toggle switch now use correct unprefixed classes
                                                 (<code>checkbox</code>, <code>radio</code>, <code>switch</code>,
                                                 <code>switch-slider</code>) matching framework CSS. No longer render as
-                                                unstyled browser defaults.</p>
+                                                unstyled browser defaults.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>
@@ -568,7 +651,8 @@
                                             <strong>Fix: IIFE export shadow resolved</strong>
                                             <p>Removed the esbuild global wrapper so the bundled IIFE no longer
                                                 overwrites <code>window.Vanduo</code>, restoring
-                                                <code>Vanduo.init()</code> across all pages.</p>
+                                                <code>Vanduo.init()</code> across all pages.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -720,7 +804,8 @@
                                                 with other frameworks. Examples: <code>.btn</code> &rarr;
                                                 <code>.vd-btn</code>, <code>.container</code> &rarr;
                                                 <code>.vd-container</code>, <code>.card</code> &rarr;
-                                                <code>.vd-card</code>. See MIGRATION.md for complete class mapping.</p>
+                                                <code>.vd-card</code>. See MIGRATION.md for complete class mapping.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -836,7 +921,8 @@
                                             <strong>Improvement: Updated CSS Customization Docs</strong>
                                             <p>Documentation now reflects the new default values for
                                                 <code>--image-box-max-width</code> (50vw) and
-                                                <code>--image-box-max-height</code> (50vh).</p>
+                                                <code>--image-box-max-height</code> (50vh).
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -891,7 +977,8 @@
                                                 <code>.vd-card-glow</code> class. The glow color dynamically adapts to
                                                 the theme's primary color via Theme Customizer. Includes reusable glow
                                                 utilities (<code>.vd-hover-glow</code>, <code>.vd-glow-success</code>,
-                                                etc.) for any element.</p>
+                                                etc.) for any element.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -983,7 +1070,8 @@
                                             <strong>Improvement: Enhanced ARIA attributes</strong>
                                             <p>Added <code>aria-controls</code>, <code>aria-expanded</code>, and
                                                 <code>role="listbox"</code> to search component for better screen reader
-                                                support.</p>
+                                                support.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -1042,7 +1130,8 @@
                                             <strong>Fix: Vertical button group alignment</strong>
                                             <p>Fixed <code>.vd-btn-group-vertical</code> alignment by changing
                                                 <code>align-items</code> to <code>stretch</code> for consistent button
-                                                widths.</p>
+                                                widths.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -1050,7 +1139,8 @@
                                         <div>
                                             <strong>Fix: Dark mode table styling</strong>
                                             <p>Tables now have proper dark mode backgrounds. Added
-                                                <code>[data-theme="dark"]</code> overrides for table variables.</p>
+                                                <code>[data-theme="dark"]</code> overrides for table variables.
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="change-item">
@@ -1058,7 +1148,8 @@
                                         <div>
                                             <strong>Fix: Range slider track visibility</strong>
                                             <p>Range slider track is now visible in dark mode using
-                                                <code>--color-gray-400</code> for better contrast.</p>
+                                                <code>--color-gray-400</code> for better contrast.
+                                            </p>
                                         </div>
                                     </li>
                                 </ul>

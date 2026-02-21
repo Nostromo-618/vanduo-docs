@@ -1,0 +1,604 @@
+<section id="draggable">
+    <h2 class="demo-title"><i class="ph ph-arrows-out-cardinal"></i>Draggable Components</h2>
+    <p class="vd-mb-8">Flexible and accessible drag-and-drop system supporting mouse, touch, and keyboard interactions.
+        Elements can be dragged, dropped into zones, and reordered within containers.</p>
+
+    <!-- Basic Draggable -->
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Basic Draggable</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Add <code>.vd-draggable</code> to any element to make it draggable:</p>
+
+                    <div class="vd-draggable" data-draggable="item-1">
+                        <span class="vd-draggable-handle">☰</span>
+                        Drag me around
+                    </div>
+                    <div class="vd-draggable" data-draggable="item-2">
+                        <span class="vd-draggable-handle">☰</span>
+                        I'm draggable too
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable"</span> <span class="code-attr">data-draggable</span>=<span class="code-string">"item-1"</span>&gt;
+  &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-handle"</span>&gt;☰&lt;/<span class="code-tag">span</span>&gt;
+  Drag me around
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>With Handle</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Use <code>.vd-draggable-handle</code> to create a visible grab handle:</p>
+
+                    <div class="vd-draggable" data-draggable="handle-1">
+                        <span class="vd-draggable-handle"><i class="ph ph-dots-six-vertical"></i></span>
+                        Item with icon handle
+                    </div>
+                    <div class="vd-draggable" data-draggable="handle-2">
+                        <span class="vd-draggable-handle"><i class="ph ph-dots-six-vertical"></i></span>
+                        Another item with handle
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable"</span>&gt;
+  &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-handle"</span>&gt;
+    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-dots-six-vertical"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+  &lt;/<span class="code-tag">span</span>&gt;
+  Item with icon handle
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vertical Container & Drop Zone -->
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Sortable Container</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Wrap items in <code>.vd-draggable-container-vertical</code> for
+                        keyboard-reorderable lists:</p>
+
+                    <div class="vd-draggable-container-vertical">
+                        <div class="vd-draggable-item" data-draggable="sort-1">
+                            <span class="vd-draggable-handle"><i class="ph ph-dots-six-vertical"></i></span>
+                            🥇 First item
+                        </div>
+                        <div class="vd-draggable-item" data-draggable="sort-2">
+                            <span class="vd-draggable-handle"><i class="ph ph-dots-six-vertical"></i></span>
+                            🥈 Second item
+                        </div>
+                        <div class="vd-draggable-item" data-draggable="sort-3">
+                            <span class="vd-draggable-handle"><i class="ph ph-dots-six-vertical"></i></span>
+                            🥉 Third item
+                        </div>
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-container-vertical"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-item"</span> <span class="code-attr">data-draggable</span>=<span class="code-string">"sort-1"</span>&gt;
+    &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-handle"</span>&gt;☰&lt;/<span class="code-tag">span</span>&gt;
+    First item
+  &lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-item"</span> <span class="code-attr">data-draggable</span>=<span class="code-string">"sort-2"</span>&gt;...&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Drop Zone</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Use <code>.vd-drop-zone</code> to create areas that accept dragged items:</p>
+
+                    <div class="vd-draggable" data-draggable="drop-item-1">
+                        <span class="vd-draggable-handle">☰</span>
+                        Drag me into the zone ↓
+                    </div>
+
+                    <div class="vd-drop-zone" id="demo-drop-zone" aria-label="Drop items here"
+                        style="min-height: 80px; margin-top: 1rem;"></div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable"</span> <span class="code-attr">data-draggable</span>=<span class="code-string">"item"</span>&gt;
+  Drag me into the zone
+&lt;/<span class="code-tag">div</span>&gt;
+
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-drop-zone"</span>
+     <span class="code-attr">aria-label</span>=<span class="code-string">"Drop items here"</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Programmatic API & Disabled -->
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Programmatic Control</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Use the JavaScript API to add or remove draggable at runtime:</p>
+
+                    <div id="programmatic-element"
+                        style="padding: 0.8125rem; border: 1px dashed var(--border-color); border-radius: var(--border-radius); margin-bottom: 1rem;">
+                        I'm not draggable yet...
+                    </div>
+                    <button class="vd-btn vd-btn-primary vd-btn-sm" id="make-draggable-btn"><i class="ph ph-plus"></i>
+                        Make Draggable</button>
+                    <button class="vd-btn vd-btn-outline vd-btn-sm" id="remove-draggable-btn"><i
+                            class="ph ph-minus"></i> Remove</button>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active"
+                                        data-lang="javascript">JavaScript</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-comment">// Make any element draggable</span>
+<span class="code-keyword">const</span> el = <span class="code-function">document.querySelector</span>(<span class="code-string">'#my-element'</span>);
+VanduoDraggable.<span class="code-function">makeDraggable</span>(el, {
+  data: <span class="code-string">'custom-data'</span>
+});
+
+<span class="code-comment">// Remove draggable behavior</span>
+VanduoDraggable.<span class="code-function">removeDraggable</span>(el);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Disabled State</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Add <code>.is-disabled</code> to prevent interaction:</p>
+
+                    <div class="vd-draggable is-disabled" data-draggable="disabled-1">
+                        <span class="vd-draggable-handle">☰</span>
+                        I can't be dragged
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable is-disabled"</span>&gt;
+  &lt;<span class="code-tag">span</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable-handle"</span>&gt;☰&lt;/<span class="code-tag">span</span>&gt;
+  I can't be dragged
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customization -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Custom Styling</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Override CSS variables for a custom look:</p>
+
+                    <div class="vd-draggable" data-draggable="custom-1"
+                        style="--draggable-bg: var(--color-primary-alpha-5); --draggable-border-color: var(--color-primary); --draggable-hover-bg: var(--color-primary-alpha-10);">
+                        <span class="vd-draggable-handle"><i class="ph ph-paint-brush"></i></span>
+                        Custom styled draggable
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                    <button class="vd-code-snippet-tab" data-lang="css">CSS</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-draggable custom-drag"</span>&gt;
+  Custom styled draggable
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                                <pre class="vd-code-snippet-pane" data-lang="css"><code><span class="code-selector">.custom-drag</span> {
+  <span class="code-property">--draggable-bg</span>: <span class="code-value">var</span>(<span class="code-value">--color-primary-alpha-5</span>);
+  <span class="code-property">--draggable-border-color</span>: <span class="code-value">var</span>(<span class="code-value">--color-primary</span>);
+  <span class="code-property">--draggable-hover-bg</span>: <span class="code-value">var</span>(<span class="code-value">--color-primary-alpha-10</span>);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Accessibility</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p>The draggable component is fully accessible with keyboard navigation and screen reader support.
+                    </p>
+
+                    <h4>Keyboard Shortcuts</h4>
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><kbd>Tab</kbd></td>
+                                    <td>Move focus between draggable items</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
+                                    <td>Activate (click) the focused item</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>Arrow Up</kbd> / <kbd>Arrow Left</kbd></td>
+                                    <td>Move item up / left within container</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>Arrow Down</kbd> / <kbd>Arrow Right</kbd></td>
+                                    <td>Move item down / right within container</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>Escape</kbd></td>
+                                    <td>Cancel current drag operation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>ARIA Attributes (auto-applied)</h4>
+                    <ul>
+                        <li><code>role="option"</code> on draggable items</li>
+                        <li><code>role="listbox"</code> on containers</li>
+                        <li><code>aria-grabbed</code> toggles during drag</li>
+                        <li><code>aria-roledescription="draggable item"</code> for screen readers</li>
+                        <li><code>aria-dropeffect="move"</code> on drop zones</li>
+                        <li><code>tabindex="0"</code> added automatically</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Reference -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>Events Reference</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">All events bubble and include a <code>detail</code> object.</p>
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Fired On</th>
+                                    <th><code>detail</code> Payload</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>draggable:start</code></td>
+                                    <td>Draggable element</td>
+                                    <td><code>{ element, data, position: { x, y } }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>draggable:drag</code></td>
+                                    <td>Draggable element</td>
+                                    <td><code>{ element, data, position, delta: { x, y } }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>draggable:end</code></td>
+                                    <td>Draggable element</td>
+                                    <td><code>{ element, data, position, delta }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>draggable:drop</code></td>
+                                    <td>Drop zone</td>
+                                    <td><code>{ zone, element, data, position }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>draggable:reorder</code></td>
+                                    <td>Draggable element</td>
+                                    <td><code>{ element, direction: 'up'|'down' }</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active"
+                                        data-lang="javascript">JavaScript</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="javascript"><code><span class="code-keyword">const</span> el = <span class="code-function">document.querySelector</span>(<span class="code-string">'.vd-draggable'</span>);
+
+el.<span class="code-function">addEventListener</span>(<span class="code-string">'draggable:start'</span>, (e) =&gt; {
+  <span class="code-function">console.log</span>(<span class="code-string">'Drag started:'</span>, e.detail.data);
+});
+
+el.<span class="code-function">addEventListener</span>(<span class="code-string">'draggable:end'</span>, (e) =&gt; {
+  <span class="code-function">console.log</span>(<span class="code-string">'Drag ended at:'</span>, e.detail.position);
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS Variables -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>CSS Variables</h3>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>--draggable-bg</code></td>
+                                    <td><code>var(--color-white)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-border-color</code></td>
+                                    <td><code>var(--border-color)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-hover-bg</code></td>
+                                    <td><code>var(--bg-secondary)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-hover-border-color</code></td>
+                                    <td><code>var(--color-primary)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-dragging-bg</code></td>
+                                    <td><code>var(--bg-secondary)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-dragging-border-color</code></td>
+                                    <td><code>var(--color-primary)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-dragging-shadow</code></td>
+                                    <td><code>var(--shadow-lg)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--drop-zone-bg</code></td>
+                                    <td><code>var(--color-primary-alpha-5)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--drop-zone-border-color</code></td>
+                                    <td><code>var(--color-primary-alpha-30)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-padding</code></td>
+                                    <td><code>0.8125rem</code> (Fibonacci 13px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>--draggable-margin</code></td>
+                                    <td><code>0.5rem</code> (Fibonacci 8px)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript API -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h3>JavaScript API</h3>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Use the global <code>VanduoDraggable</code> object for programmatic control:</p>
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Parameters</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>makeDraggable(el, opts)</code></td>
+                                    <td><code>el</code>: Element, <code>opts</code>: <code>{ data? }</code></td>
+                                    <td>Make any element draggable</td>
+                                </tr>
+                                <tr>
+                                    <td><code>removeDraggable(el)</code></td>
+                                    <td><code>el</code>: Element</td>
+                                    <td>Remove draggable behavior</td>
+                                </tr>
+                                <tr>
+                                    <td><code>destroy(el)</code></td>
+                                    <td><code>el</code>: Element</td>
+                                    <td>Alias for <code>removeDraggable</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>destroyAll()</code></td>
+                                    <td>—</td>
+                                    <td>Remove all instances</td>
+                                </tr>
+                                <tr>
+                                    <td><code>getData(el)</code></td>
+                                    <td><code>el</code>: Element</td>
+                                    <td>Get <code>data-draggable</code> value</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
