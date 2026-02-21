@@ -9,7 +9,7 @@ This repository is the **Vanduo documentation and website** (vanduo-docs). It is
 - **Tech stack**: Pure HTML, CSS, and JavaScript. No build step, no bundlers, no frameworks.
 - **Live site**: https://vanduo.dev
 - **Framework repo**: https://github.com/Nostromo-618/vanduo-framework
-- **Versioning**: Documentation site v1.1.6; documented framework version v1.1.5. The `dist/` folder contains vendored framework assets synced from the framework repo.
+- **Versioning**: Documentation site v1.1.8; documented framework version v1.1.8. The `dist/` folder contains vendored framework assets synced from the framework repo.
 
 ## Architecture
 
@@ -50,7 +50,7 @@ vanduo-docs/
 │   ├── sections.json       # Navigation registry — edit to add/order sections
 │   ├── home.html, about.html, changelog.html
 │   ├── quick-start.html
-│   ├── components/         # Buttons, cards, forms, navbar, sidenav, footer, theme-customizer, etc.
+│   ├── components/         # Buttons, cards, forms, navbar, sidenav, footer, theme-customizer, draggable, etc.
 │   ├── concepts/          # Philosophy, namespacing, tokens, lifecycle, modules, migration, breaking-changes, class-prefixes, token-reference
 │   ├── core/               # Icons, color-palette, typography, grid-system, golden-ratio, shadows-glow
 │   ├── data-display/       # Collections, tables, badges, avatars
