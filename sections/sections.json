@@ -288,6 +288,21 @@
                 "highlight",
                 "pre"
               ]
+            },
+            {
+              "id": "draggable",
+              "title": "Draggable Components",
+              "file": "interactive/draggable.html",
+              "icon": "ph-arrows-out-cardinal",
+              "keywords": [
+                "draggable",
+                "drag and drop",
+                "dnd",
+                "reorder",
+                "move",
+                "drag",
+                "drop"
+              ]
             }
           ]
         },
