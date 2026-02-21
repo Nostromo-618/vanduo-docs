@@ -60,7 +60,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npx http-server -p 8787 -s',
+    command: 'npx serve -l 8787',
     url: 'http://localhost:8787',
     reuseExistingServer: !process.env.CI,
     timeout: 10 * 1000,
