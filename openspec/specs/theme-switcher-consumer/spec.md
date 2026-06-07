@@ -22,21 +22,28 @@ The docs navbar SHALL use the framework menu variant (`.vd-theme-switcher[data-t
 - WHEN the user selects a theme option
 - THEN the theme applies immediately and the menu closes
 
-### Requirement: Live demo parity
+### Requirement: Live demo shows both variants
 
-The theme-switcher documentation page live demo SHALL mirror the navbar implementation.
+The theme-switcher documentation page live demo SHALL present the icon menu and cycle button side by side in a two-column layout.
 
-#### Scenario: Demo uses menu markup
+#### Scenario: Demo uses menu and cycle markup
 
 - GIVEN the user navigates to `#docs/components/theme-switcher`
 - WHEN the live demo section renders
-- THEN it contains `.vd-theme-switcher[data-theme-ui="menu"]` in a navbar-style action strip
-- AND does not use separate large labeled demo buttons as the primary demo
+- THEN it contains `.vd-theme-switcher[data-theme-ui="menu"]` in the Icon Menu column
+- AND it contains a cycle toggle with `data-toggle="theme"` and `[data-theme-icon]` in the Cycle Button column
+- AND both toggles share the same demo styling (38px, matching border radius and background)
+
+#### Scenario: Demo menu stacks above page content
+
+- GIVEN the live demo icon menu is open
+- WHEN the dropdown extends over content below the demo card
+- THEN the menu panel is fully opaque and paints above subsequent sections
 
 #### Scenario: Demo shows current theme
 
 - GIVEN the live demo is visible
-- WHEN the user changes theme via the demo menu
+- WHEN the user changes theme via the demo menu or cycle button
 - THEN `#demo-current-theme` reflects the stored preference
 
 ### Requirement: Docs theme resolution override

@@ -16,7 +16,7 @@ Flowchart Package: https://www.npmjs.com/package/@vanduo-oss/flowchart
 - Production docs load the pinned framework CDN bundle from `@v1.4.4`, while local preview resolves framework assets from `./dist` and refreshes them from the sibling framework repo when available.
 - Theme docs now treat `--vd-*` semantic and component tokens as the strict Vanduo API.
 - Framework integration docs now recommend scoped `Vanduo.init(root)`, `Vanduo.destroy(root)`, and `Vanduo.reinit(name, root)` for SPAs and dynamic DOM.
-- **v1.4.4 Theme Switcher:** navbar and the theme-switcher live demo use the framework **menu variant** (icon toggle opens a picker; no cycle-on-click). Docs omit optional `data-tooltip` on the switcher; the framework supports tooltips when consumers opt in.
+- **v1.4.4 Theme Switcher:** navbar uses the framework **menu variant** (icon toggle opens a picker). The theme-switcher live demo shows **icon menu and cycle button** side by side in a two-column layout with a shared opaque dropdown. Docs omit optional `data-tooltip` on the switcher; the framework supports tooltips when consumers opt in.
 - Theme demo label updates on section init (no persistent `MutationObserver` on `#docs-view`) to avoid SPA tab freeze when navigating via global search.
 - OpenSpec consumer spec: [openspec/specs/theme-switcher-consumer/spec.md](openspec/specs/theme-switcher-consumer/spec.md).
 
