@@ -62,9 +62,6 @@
                 cssHref: basePath + '/vanduo.min.css' + assetQuery,
                 jsSrc: basePath + '/vanduo.min.js' + assetQuery
             };
-            window.__VANDUO_TEMPLATES_BASE_URL = (params.get('vanduo-templates')
-                || (isLocalPreview ? 'http://localhost:8788' : 'https://templates.vanduo.dev'))
-                .replace(/\/+$/, '');
             document.documentElement.setAttribute('data-framework-assets', mode);
         })();
     </script>
@@ -108,26 +105,10 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/app.css?v=1.4.4-docs-2">
     <link rel="stylesheet" href="css/vanduo-charts.css">
     <link rel="stylesheet" href="css/vanduo-flowchart.css">
     <link rel="stylesheet" href="css/vanduo-music-player.css">
-    <link id="vanduo-templates-css" rel="stylesheet">
-    <script>
-        (function () {
-            var templatesCss = document.getElementById('vanduo-templates-css');
-            if (!templatesCss) return;
-            var isNestedDocsPath = /^\/docs(\/|$)/.test(window.location.pathname || '/');
-            var primaryHref = isNestedDocsPath ? './docs/templates/templates.css' : './templates/templates.css';
-            var fallbackHref = isNestedDocsPath ? './templates/templates.css' : './docs/templates/templates.css';
-            templatesCss.setAttribute('href', primaryHref);
-            templatesCss.addEventListener('error', function handleError() {
-                if (templatesCss.getAttribute('href') !== fallbackHref) {
-                    templatesCss.setAttribute('href', fallbackHref);
-                }
-            });
-        })();
-    </script>
 </head>
 
 <body>

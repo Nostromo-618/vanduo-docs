@@ -535,8 +535,10 @@ export function initInteractiveDemos() {
             }
         }
 
-        if (e.target.closest('[data-theme-value]') && document.getElementById('demo-current-theme')) {
-            setTimeout(updateThemeSwitcherDemoLabel, 10);
+        if (document.getElementById('demo-current-theme')) {
+            if (e.target.closest('[data-theme-value]') || e.target.closest('#theme-switcher [data-toggle="theme"]')) {
+                setTimeout(updateThemeSwitcherDemoLabel, 10);
+            }
         }
 
         var themeModeBtn = e.target.closest('.theme-mode-btn');

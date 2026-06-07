@@ -45,48 +45,6 @@ export function showView(view) {
     state.currentView = view;
 }
 
-function initTemplatesPage(templateSlug) {
-    var root = document.getElementById('templates');
-    if (!root) return;
-
-    rewriteTemplatePreviewLinks(root);
-
-    var gallery = root.querySelector('[data-template-view="gallery"]');
-    var details = Array.from(root.querySelectorAll('[data-template-detail]'));
-    var hero = root.querySelector('.templates-hero');
-    var activeDetail = templateSlug
-        ? details.find(function (detail) {
-            return detail.getAttribute('data-template-detail') === templateSlug;
-        })
-        : null;
-
-    var inDetail = Boolean(activeDetail);
-    if (gallery) gallery.hidden = inDetail;
-    if (hero) hero.classList.toggle('is-collapsed', inDetail);
-    details.forEach(function (detail) {
-        detail.hidden = detail !== activeDetail;
-    });
-
-    if (activeDetail) {
-        var title = activeDetail.querySelector('h2');
-        if (title) setDocumentTitle(title.textContent + ' Template');
-        requestAnimationFrame(function () {
-            activeDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            var focusTarget = activeDetail.querySelector('.template-back-link') || activeDetail;
-            focusTarget.focus({ preventScroll: true });
-        });
-    }
-}
-
-function rewriteTemplatePreviewLinks(root) {
-    var configuredBase = window.__VANDUO_TEMPLATES_BASE_URL || 'https://templates.vanduo.dev';
-    var base = String(configuredBase).replace(/\/+$/, '');
-    root.querySelectorAll('a[href^="https://templates.vanduo.dev/"]').forEach(function (link) {
-        var sourcePath = link.getAttribute('href').replace('https://templates.vanduo.dev', '');
-        link.href = base + sourcePath;
-    });
-}
-
 export function initChangelogPagination(pageId, container) {
     if (pageId !== 'changelog' || !container) return;
 
@@ -147,9 +105,6 @@ export function initChangelogPagination(pageId, container) {
 export async function loadPage(pageId, options = {}) {
     hideDocScrollLoader();
     if (state.currentView === pageId && document.getElementById(pageId)) {
-        if (pageId === 'templates') {
-            initTemplatesPage(options.templateSlug || null);
-        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
     }
@@ -181,9 +136,6 @@ export async function loadPage(pageId, options = {}) {
         if (pageId === 'home') {
             initHeroSubtitleRotate(container);
         }
-        if (pageId === 'templates') {
-            initTemplatesPage(options.templateSlug || null);
-        }
     } catch (err) {
         console.error(err);
         container.innerHTML = '<div class="vd-alert vd-alert-error" style="margin: 2rem;">Failed to load page. Check console.</div>';
@@ -195,8 +147,6 @@ export function parseHash(hash) {
     if (!h || h === 'home') return { view: 'home' };
     if (h === 'about') return { view: 'about' };
     if (h === 'changelog') return { view: 'changelog' };
-    if (h === 'templates') return { view: 'templates' };
-    if (h.startsWith('templates/')) return { view: 'templates', template: h.slice(10).split('/')[0] };
     if (h === 'kilo-oss') return { view: 'kilo-oss' };
     if (h === 'docs') return { view: 'docs-landing' };
     if (h === 'docs/components') return { view: 'docs', tab: 'components', section: null };
@@ -239,8 +189,8 @@ export async function handleRoute() {
 
     var parsed = parseHash(location.hash);
 
-    if (parsed.view === 'home' || parsed.view === 'about' || parsed.view === 'changelog' || parsed.view === 'templates' || parsed.view === 'kilo-oss' || parsed.view === 'docs-landing') {
-        await loadPage(parsed.view, { templateSlug: parsed.template });
+    if (parsed.view === 'home' || parsed.view === 'about' || parsed.view === 'changelog' || parsed.view === 'kilo-oss' || parsed.view === 'docs-landing') {
+        await loadPage(parsed.view);
         if (parsed.view === 'docs-landing') {
             setActiveNavbarLink('docs');
         }

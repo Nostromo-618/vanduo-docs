@@ -5,7 +5,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const failures = [];
-const releaseVersion = '1.4.1';
+const releaseVersion = '1.4.4';
 
 const scanEntries = [
   'README.md',
@@ -14,7 +14,6 @@ const scanEntries = [
   'package.json',
   'css',
   'sections',
-  'templates',
   'js/app.js',
   'js/section-cache.js',
   'js/components/vd-hex.js',
@@ -103,6 +102,13 @@ for (const file of files) {
       /(?:1\.4\.0-docs|v140-docs\d|vanduo-sections-v140)/g,
       'stale v1.4.0 docs cache key in active runtime'
     );
+
+    addPatternFailure(
+      relPath,
+      content,
+      /(?:@v1\.4\.3|framework@v?1\.4\.3|\bv1\.4\.3-docs|\bv1\.4\.3\b)/g,
+      'stale v1.4.3 reference in active docs'
+    );
   }
 
   addPatternFailure(
@@ -132,6 +138,13 @@ for (const file of files) {
       content,
       /class="code-example"/g,
       'legacy code-example block used; prefer the unified .vd-code-snippet component'
+    );
+
+    addPatternFailure(
+      relPath,
+      content,
+      /#(?:docs\/)?starter-templates|data-route="(?:docs\/)?starter-templates"|#templates(?:\/|$)|data-route="templates/g,
+      'halted templates project referenced in active docs'
     );
   }
 
@@ -186,8 +199,8 @@ const packageJson = readJson('package.json');
 if (packageJson && packageJson.version !== releaseVersion) {
   failures.push('package.json: expected version ' + releaseVersion + ', found ' + packageJson.version);
 }
-if (packageJson && (!packageJson.scripts || packageJson.scripts['audit:v141'] !== 'node scripts/audit-v140-docs.js')) {
-  failures.push('package.json: missing audit:v141 script');
+if (packageJson && (!packageJson.scripts || packageJson.scripts['audit:v144'] !== 'node scripts/audit-v144-docs.js')) {
+  failures.push('package.json: missing audit:v144 script');
 }
 
 const buildInfo = readJson('dist/build-info.json');
@@ -230,11 +243,11 @@ for (const id of requiredGuideIds) {
 }
 
 if (failures.length > 0) {
-  console.error('[audit:v141] Found ' + failures.length + ' release drift issue(s):');
+  console.error('[audit:v144] Found ' + failures.length + ' release drift issue(s):');
   for (const failure of failures) {
     console.error('  - ' + failure);
   }
   process.exit(1);
 }
 
-console.log('[audit:v141] Docs release drift audit passed.');
+console.log('[audit:v144] Docs release drift audit passed.');
