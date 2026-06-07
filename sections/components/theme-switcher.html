@@ -10,22 +10,32 @@
             <h6><i class="ph ph-play-circle"></i>Live Demo</h6>
         </div>
         <div class="vd-card-body">
-            <p class="vd-mb-5">Click any button below to change the theme:</p>
-            <div class="vd-d-flex vd-gap-3 vd-align-items-center">
-                <button class="vd-btn vd-btn-secondary theme-switcher-demo-btn" data-theme-value="system" aria-label="System theme">
-                    <i class="ph ph-desktop"></i>
-                    <span>System</span>
-                </button>
-                <button class="vd-btn vd-btn-secondary theme-switcher-demo-btn" data-theme-value="light" aria-label="Light theme">
-                    <i class="ph ph-sun"></i>
-                    <span>Light</span>
-                </button>
-                <button class="vd-btn vd-btn-secondary theme-switcher-demo-btn" data-theme-value="dark" aria-label="Dark theme">
-                    <i class="ph ph-moon"></i>
-                    <span>Dark</span>
-                </button>
+            <p class="vd-mb-5">Same icon menu used in the docs navbar — click the toggle to open, then pick a theme:</p>
+            <div class="theme-switcher-demo-strip vd-d-flex vd-align-items-center vd-justify-content-end vd-mb-5" id="theme-switcher-demo">
+                <div class="navbar-actions-always theme-switcher-demo-actions">
+                    <div class="vd-theme-switcher vd-theme-switcher-menu-end" data-theme-ui="menu">
+                        <button type="button" class="vd-theme-switcher-toggle dark-mode-toggle"
+                            aria-label="Theme: System">
+                            <i class="ph ph-desktop" data-theme-icon aria-hidden="true"></i>
+                        </button>
+                        <div class="vd-theme-switcher-menu" role="menu" aria-hidden="true">
+                            <button type="button" role="menuitemradio" data-theme-value="system"
+                                aria-checked="true">
+                                <i class="ph ph-desktop" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" role="menuitemradio" data-theme-value="light"
+                                aria-checked="false">
+                                <i class="ph ph-sun" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" role="menuitemradio" data-theme-value="dark"
+                                aria-checked="false">
+                                <i class="ph ph-moon" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="vd-mt-5 vd-text-sm vd-text-muted">Current theme: <span id="demo-current-theme" class="vd-font-semibold">system</span></p>
+            <p class="vd-text-sm vd-text-muted">Current theme: <span id="demo-current-theme" class="vd-font-semibold">system</span></p>
         </div>
     </div>
 
@@ -42,10 +52,56 @@
         <div class="vd-col-12 vd-col-md-6">
             <div class="vd-card vd-card-glow demo-card">
                 <div class="vd-card-header">
-                    <h6>Button Toggle</h6>
+                    <h6>Icon Menu (Recommended)</h6>
                 </div>
                 <div class="vd-card-body">
-                    <p>Add <code>data-toggle="theme"</code> to any button to enable theme cycling:</p>
+                    <p>Use the menu variant for navbars — toggle opens an icon-only picker without changing theme until the user chooses:</p>
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active"
+                                    data-lang="html"><code><span class="code-comment"><!-- Icon menu (recommended for navbar) --></span>
+<<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher vd-theme-switcher-menu-end"</span> <span class="code-attr">data-theme-ui</span>=<span class="code-string">"menu"</span>>
+    <<span class="code-tag">button</span> <span class="code-attr">type</span>=<span class="code-string">"button"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher-toggle"</span>
+            <span class="code-attr">aria-label</span>=<span class="code-string">"Theme: System"</span> <span class="code-attr">data-tooltip</span>=<span class="code-string">"Theme: System"</span>>
+        <<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-desktop"</span> <span class="code-attr">data-theme-icon</span> <span class="code-attr">aria-hidden</span>=<span class="code-string">"true"</span>></<span class="code-tag">i</span>>
+    </<span class="code-tag">button</span>>
+    <<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher-menu"</span> <span class="code-attr">role</span>=<span class="code-string">"menu"</span>>
+        <<span class="code-tag">button</span> <span class="code-attr">type</span>=<span class="code-string">"button"</span> <span class="code-attr">role</span>=<span class="code-string">"menuitemradio"</span> <span class="code-attr">data-theme-value</span>=<span class="code-string">"system"</span>
+                <span class="code-attr">data-tooltip</span>=<span class="code-string">"Use system preference"</span> <span class="code-attr">aria-checked</span>=<span class="code-string">"true"</span>>
+            <<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-desktop"</span> <span class="code-attr">aria-hidden</span>=<span class="code-string">"true"</span>></<span class="code-tag">i</span>>
+        </<span class="code-tag">button</span>>
+        <<span class="code-comment">...</span> <span class="code-comment">light, dark</span>
+    </<span class="code-tag">div</span>>
+</<span class="code-tag">div</span>></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-5"><strong>Try it:</strong> Use the theme switcher in the navbar or the live demo above.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vd-col-12 vd-col-md-6">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6>Cycle Button</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>Add <code>data-toggle="theme"</code> to cycle System → Light → Dark on each click:</p>
                     <div class="vd-code-snippet" data-collapsible>
                         <button class="vd-code-snippet-toggle" aria-expanded="false">
                             <span class="vd-code-snippet-toggle-icon"></span>
@@ -81,8 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="vd-mt-5"><strong>Try it:</strong> Click the theme button in the navbar to cycle through
-                        System → Light → Dark → System.</p>
+                    <p class="vd-mt-5"><strong>Note:</strong> Cycle buttons change theme immediately on each click — best for minimal one-click apps, not navbars where accidental flashes matter.</p>
                 </div>
             </div>
         </div>
@@ -321,6 +376,26 @@ switcher.<span class="code-function">applyTheme</span>();</code></pre>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td><code>data-theme-ui="menu"</code></td>
+                    <td>On <code>.vd-theme-switcher</code> — enables icon menu variant (recommended for navbar).</td>
+                    <td>Attribute</td>
+                </tr>
+                <tr>
+                    <td><code>.vd-theme-switcher-toggle</code></td>
+                    <td>Menu toggle button; icon synced via <code>[data-theme-icon]</code>.</td>
+                    <td>Class</td>
+                </tr>
+                <tr>
+                    <td><code>[data-theme-value]</code></td>
+                    <td>Menu option value: <code>system</code>, <code>light</code>, or <code>dark</code>.</td>
+                    <td>Attribute</td>
+                </tr>
+                <tr>
+                    <td><code>data-tooltip</code></td>
+                    <td>Optional tooltips on toggle and menu options (requires Tooltips component).</td>
+                    <td>Attribute</td>
+                </tr>
                 <tr>
                     <td><code>data-toggle="theme"</code></td>
                     <td>Required attribute on button or select element to bind theme switching behavior.</td>

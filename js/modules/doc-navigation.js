@@ -39,7 +39,7 @@ import {
     setActiveNavLink,
     syncDocsTabState
 } from './sidebar.js';
-import { initSectionDemos } from './demos.js';
+import { initSectionDemos, updateThemeSwitcherDemoLabel } from './demos.js';
 
 var navigateForRouteLinks = null;
 
@@ -702,6 +702,9 @@ export async function loadSection(sectionId, autoScroll = true, options = {}) {
         var loadedMeta = findSectionMeta(sectionId);
         if (el) {
             initVanduoScope(el);
+            if (sectionId === 'theme-switcher') {
+                updateThemeSwitcherDemoLabel();
+            }
         }
         if (el && autoScroll) {
             markProgrammaticScroll();

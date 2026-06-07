@@ -1,0 +1,19 @@
+schema: spec-driven
+
+context: |
+  Package: vanduo-docs (private). Docs site for @vanduo-oss/framework.
+  Stack: Vanilla JS SPA (hash routing), sync-framework-assets from sibling framework repo.
+  Preview: pnpm preview:local on port 8787; Playwright E2E in tests/.
+  Framework integration: loads dist/vanduo.min.js (CDN or local); Vanduo.init() on scope mount.
+  Docs-only overrides: themeSwitcher.applyTheme resolves system to explicit data-theme (app.js).
+  OpenSpec consumer specs document how docs uses framework components.
+
+rules:
+  proposal:
+    - Note sync-framework-assets and version pin updates when framework changes
+  specs:
+    - Use Given/When/Then scenario format
+    - Reference docs/tests/e2e when applicable
+  tasks:
+    - Include pnpm run sync:framework after framework dist changes
+    - Include pnpm test for docs E2E when behavior changes

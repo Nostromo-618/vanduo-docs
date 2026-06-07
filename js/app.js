@@ -251,39 +251,6 @@ function initDocsHeightTracking() {
     updateHeightVar();
 }
 
-function initDarkModeToggleIconSync() {
-    var toggle = document.getElementById('dark-mode-toggle');
-    if (!toggle) return;
-    var icon = toggle.querySelector('i');
-    if (!icon) return;
-
-    function updateIcon() {
-        var pref = 'system';
-        try {
-            pref = localStorage.getItem('vanduo-theme-preference') || 'system';
-        } catch (e) { /* noop */ }
-
-        if (pref === 'system') {
-            icon.className = 'ph ph-desktop';
-            toggle.setAttribute('aria-label', 'Theme: System (Click to switch to Light)');
-        } else if (pref === 'light') {
-            icon.className = 'ph ph-sun';
-            toggle.setAttribute('aria-label', 'Theme: Light (Click to switch to Dark)');
-        } else {
-            icon.className = 'ph ph-moon';
-            toggle.setAttribute('aria-label', 'Theme: Dark (Click to switch to System)');
-        }
-    }
-
-    updateIcon();
-
-    var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (m) {
-            if (m.attributeName === 'data-theme') updateIcon();
-        });
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-}
 
 function initRouteListeners() {
     wireRouteLinks(document.querySelector('.vd-footer'), navigate);
@@ -346,7 +313,6 @@ function initStaticEventHandlers() {
     initInteractiveDemos();
     initDraggableDropDemo();
     initRouteListeners();
-    initDarkModeToggleIconSync();
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', bootstrapCustomizerDemo);

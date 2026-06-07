@@ -296,6 +296,9 @@ export function initSectionDemos(sectionEl) {
     if (sectionEl.id === 'toasts') {
         initToastDemos(sectionEl);
     }
+    if (sectionEl.querySelector('#demo-current-theme')) {
+        updateThemeSwitcherDemoLabel();
+    }
 }
 
 export function initMusicPlayerDemos(sectionEl) {
@@ -489,6 +492,17 @@ export function bootstrapCustomizerDemo() {
     updateCustomizerDemoState();
 }
 
+export function updateThemeSwitcherDemoLabel() {
+    var label = document.getElementById('demo-current-theme');
+    if (!label) return;
+    try {
+        var next = localStorage.getItem('vanduo-theme-preference') || 'system';
+        if (label.textContent !== next) {
+            label.textContent = next;
+        }
+    } catch (e) { /* noop */ }
+}
+
 export function initInteractiveDemos() {
     document.addEventListener('click', function (e) {
         if (e.target.closest('#make-draggable-btn')) {
@@ -521,22 +535,8 @@ export function initInteractiveDemos() {
             }
         }
 
-        var themeSwitcherBtn = e.target.closest('.theme-switcher-demo-btn');
-        if (themeSwitcherBtn) {
-            var theme = themeSwitcherBtn.getAttribute('data-theme-value');
-            if (theme) {
-                applyTheme(theme);
-                var demoCard = themeSwitcherBtn.closest('.demo-card');
-                if (demoCard) {
-                    demoCard.querySelectorAll('.theme-switcher-demo-btn').forEach(function (btn) {
-                        btn.classList.toggle('active', btn === themeSwitcherBtn);
-                    });
-                }
-                var currentThemeLabel = document.getElementById('demo-current-theme');
-                if (currentThemeLabel) {
-                    currentThemeLabel.textContent = theme;
-                }
-            }
+        if (e.target.closest('[data-theme-value]') && document.getElementById('demo-current-theme')) {
+            setTimeout(updateThemeSwitcherDemoLabel, 10);
         }
 
         var themeModeBtn = e.target.closest('.theme-mode-btn');

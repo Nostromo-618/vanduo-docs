@@ -427,16 +427,17 @@
         }
 
         /* ── Theme Switcher & Customizer Demos ──────────── */
-        .theme-switcher-demo-btn {
+        .theme-switcher-demo-strip {
+            padding: 0.75rem 1rem;
+            background: var(--vd-bg-secondary);
+            border: 1px solid var(--vd-border-color);
+            border-radius: var(--vd-card-border-radius);
+        }
+
+        .theme-switcher-demo-actions {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .theme-switcher-demo-btn.active {
-            background: var(--vd-color-primary);
-            color: white;
-            border-color: var(--vd-color-primary);
         }
 
         .theme-customizer-inline {
@@ -2201,7 +2202,8 @@
         }
 
         /* Dark mode toggle button */
-        .dark-mode-toggle {
+        .dark-mode-toggle,
+        .vd-theme-switcher-toggle.dark-mode-toggle {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -2216,7 +2218,8 @@
             transition: color 0.2s, border-color 0.2s, background 0.2s;
         }
 
-        .dark-mode-toggle:hover {
+        .dark-mode-toggle:hover,
+        .vd-theme-switcher-toggle.dark-mode-toggle:hover {
             color: var(--vd-color-primary);
             border-color: var(--vd-color-primary);
             background: var(--vd-color-primary-alpha-10);
@@ -2796,6 +2799,7 @@
 
             .navbar-actions-always .global-search-trigger,
             .navbar-actions-always .dark-mode-toggle,
+            .navbar-actions-always .vd-theme-switcher-toggle,
             .navbar-actions-always .vd-theme-customizer-trigger {
                 width: 40px;
                 height: 40px;

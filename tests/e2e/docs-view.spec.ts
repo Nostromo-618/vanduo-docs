@@ -118,19 +118,15 @@ async function getCurrentTheme(page: Page) {
     return await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
 }
 
-async function cycleTheme(page: Page, targetTheme: string | null) {
-    const darkModeToggle = page.locator('#dark-mode-toggle');
-    let currentTheme = await getCurrentTheme(page);
-    let attempts = 0;
+async function selectThemeFromMenu(page: Page, preference: 'system' | 'light' | 'dark') {
+    const toggle = page.locator('#dark-mode-toggle');
+    await toggle.click();
+    await page.locator(`#navbar-theme-switcher [data-theme-value="${preference}"]`).click();
+    await page.waitForTimeout(400);
+}
 
-    while (currentTheme !== targetTheme && attempts < 3) {
-        await darkModeToggle.click();
-        await page.waitForTimeout(400);
-        currentTheme = await getCurrentTheme(page);
-        attempts++;
-    }
-
-    return currentTheme;
+async function getResolvedThemeAfterSelection(page: Page) {
+    return await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
 }
 
 async function getFrameworkAssetInfo(page: Page) {
@@ -260,7 +256,7 @@ test.describe('4. Documentation View', () => {
             await expect(templates.locator('[data-template-view="gallery"] a[href="http://localhost:8788/portfolio/"]')).toHaveCount(1);
 
             await expect(templates.locator('[data-template-view="gallery"] .template-shot-light').first()).toBeVisible();
-            await cycleTheme(page, 'dark');
+            await selectThemeFromMenu(page, 'dark');
             await expect(templates.locator('[data-template-view="gallery"] .template-shot-dark').first()).toBeVisible();
             await expect(templates.locator('[data-template-view="gallery"] .template-shot-light').first()).toBeHidden();
         });
@@ -886,7 +882,8 @@ test.describe('4. Documentation View', () => {
             const darkModeToggle = page.locator('#dark-mode-toggle');
             await expect(darkModeToggle).toBeVisible();
 
-            let currentTheme = await cycleTheme(page, 'dark');
+            await selectThemeFromMenu(page, 'dark');
+            let currentTheme = await getResolvedThemeAfterSelection(page);
             
             expect(currentTheme).toBe('dark');
 
@@ -911,7 +908,8 @@ test.describe('4. Documentation View', () => {
             expect(darkCanvasBg).toBe('rgb(13, 17, 23)');
 
             // Toggle back to light mode
-            currentTheme = await cycleTheme(page, 'light');
+            await selectThemeFromMenu(page, 'light');
+            currentTheme = await getResolvedThemeAfterSelection(page);
             
             expect(currentTheme).toBe('light');
 
@@ -965,7 +963,8 @@ test.describe('4. Documentation View', () => {
                 return document.documentElement.hasAttribute('data-primary');
             }, { timeout: 5000 });
 
-            const theme = await cycleTheme(page, 'dark');
+            await selectThemeFromMenu(page, 'dark');
+            const theme = await getResolvedThemeAfterSelection(page);
             expect(theme).toBe('dark');
             await page.waitForTimeout(200);
 

@@ -1,6 +1,6 @@
 <section id="theme-customizer-guide">
     <h5 class="demo-title"><i class="ph ph-paint-brush"></i>Theme Customizer Walkthrough <code class="vd-text-sm">Guide</code></h5>
-    <p class="vd-mb-5">Vanduo's Theme Customizer is a floating panel that lets you — and your users — change the entire look and feel of a site at runtime: primary color, neutral palette, border radius, font family, and dark/light mode. This guide walks you through setting it up, reading values, reacting to changes, and building a fully branded experience.</p>
+    <p class="vd-mb-5">Vanduo ships two runtime theme tools: the <strong>Theme Customizer</strong> — a floating panel for primary color, neutral palette, border radius, font family, and color mode — and the <strong>Theme Switcher</strong>, its simpler sibling that handles light/dark/system mode only. Both share the same color-mode preference (<code>vanduo-theme-preference</code>). This guide walks through setting up the customizer, reading values, reacting to changes, and when to reach for the switcher instead.</p>
 
     <!-- What is the Theme Customizer? -->
     <div class="vd-row vd-mb-8">
@@ -178,7 +178,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Color Mode</strong></td>
-                                    <td>Light or dark theme</td>
+                                    <td>System, light, or dark theme</td>
                                     <td><code>vanduo-theme-preference</code></td>
                                 </tr>
                             </tbody>
@@ -188,6 +188,94 @@
                         <i class="ph ph-question"></i>
                         <div>
                             <strong>Why localStorage?</strong> When users pick a theme, it should stick between visits. The customizer saves each choice to <code>localStorage</code> under the keys above, and restores them automatically on page load.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Switcher — the simpler sibling -->
+    <div class="vd-row vd-mb-8">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-moon"></i> Theme Switcher — the simpler sibling</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>Not every site needs the full customizer panel. When you only want a navbar control for light, dark, and system mode, use the <strong>Theme Switcher</strong> instead.</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">When to use which</h4>
+                    <div class="vd-table-responsive">
+                        <table class="vd-table vd-table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Need</th>
+                                    <th>Use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Color mode only (navbar, docs site)</td>
+                                    <td><strong>Theme Switcher</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Primary, neutral, radius, font, and mode</td>
+                                    <td><strong>Theme Customizer</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Both — quick mode toggle plus full branding panel</td>
+                                    <td><strong>Both</strong> (vanduo.dev uses a navbar switcher + customizer trigger)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="vd-mt-4">Both components read and write the same <code>localStorage</code> key: <code>vanduo-theme-preference</code> (<code>system</code>, <code>light</code>, or <code>dark</code>). Changing mode in either component updates the other automatically.</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Menu variant (v1.4.4 — recommended for navbars)</h4>
+                    <p>The menu variant opens an icon-only picker on toggle click. The theme does not change until the user picks an option — ideal for navbars:</p>
+                    <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                        <button class="vd-code-snippet-toggle" aria-expanded="true">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher vd-theme-switcher-menu-end"</span> <span class="code-attr">data-theme-ui</span>=<span class="code-string">"menu"</span>&gt;
+    &lt;<span class="code-tag">button</span> <span class="code-attr">type</span>=<span class="code-string">"button"</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher-toggle"</span>
+            <span class="code-attr">aria-label</span>=<span class="code-string">"Theme: System"</span>&gt;
+        &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-desktop"</span> <span class="code-attr">data-theme-icon</span> <span class="code-attr">aria-hidden</span>=<span class="code-string">"true"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+    &lt;/<span class="code-tag">button</span>&gt;
+    &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-theme-switcher-menu"</span> <span class="code-attr">role</span>=<span class="code-string">"menu"</span>&gt;
+        &lt;<span class="code-tag">button</span> <span class="code-attr">type</span>=<span class="code-string">"button"</span> <span class="code-attr">role</span>=<span class="code-string">"menuitemradio"</span> <span class="code-attr">data-theme-value</span>=<span class="code-string">"system"</span>&gt;...&lt;/<span class="code-tag">button</span>&gt;
+        &lt;<span class="code-comment">&lt;!-- light, dark --&gt;</span>
+    &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-mt-3 vd-text-sm vd-text-muted">Full markup, cycle/select variants, and API reference: <a href="#docs/components/theme-switcher" data-route="docs/components/theme-switcher">Theme Switcher component page</a>.</p>
+
+                    <h4 class="vd-mt-5 vd-mb-3">Other variants at a glance</h4>
+                    <ul class="vd-mb-0">
+                        <li><strong>Cycle button</strong> — <code>button[data-toggle="theme"]</code> cycles system → light → dark on each click.</li>
+                        <li><strong>Select</strong> — <code>select[data-toggle="theme"]</code> sets preference on change.</li>
+                    </ul>
+
+                    <div class="vd-alert vd-alert-info vd-mt-4">
+                        <i class="ph ph-info"></i>
+                        <div>
+                            <strong>Coordination:</strong> When both Theme Switcher and Theme Customizer are present, changing mode via the switcher may also swap the primary color between the default light and dark primaries (<code>PRIMARY_LIGHT</code> / <code>PRIMARY_DARK</code>) if the user has not picked a custom primary.
                         </div>
                     </div>
                 </div>
@@ -580,7 +668,15 @@ Vanduo.<span class="code-function">getComponent</span>(<span class="code-string"
     <div class="vd-mt-8" style="border-top: 1px solid var(--vd-border-color); padding-top: 2.5rem; padding-bottom: 3rem;">
         <h4 class="vd-text-lg vd-mb-5"><i class="ph ph-arrow-circle-right"></i> What's Next?</h4>
         <div class="vd-row" style="gap: 1.25rem;">
-            <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+            <div class="vd-col-12 vd-col-md-4 vd-mb-4">
+                <a href="#docs/components/theme-switcher" data-route="docs/components/theme-switcher" class="vd-card vd-card-actionable vd-card-glow" style="text-decoration: none;">
+                    <div class="vd-card-body">
+                        <h4 class="vd-text-md vd-mb-2">Theme Switcher</h4>
+                        <p class="vd-text-sm vd-text-muted vd-mb-0">Component reference for the menu, cycle, and select variants — including navbar markup and coordination notes.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="vd-col-12 vd-col-md-4 vd-mb-4">
                 <a href="#docs/css-variables-theming" data-route="docs/css-variables-theming" class="vd-card vd-card-actionable vd-card-glow" style="text-decoration: none;">
                     <div class="vd-card-body">
                         <h4 class="vd-text-md vd-mb-2">CSS Variables &amp; Theming</h4>
@@ -588,7 +684,7 @@ Vanduo.<span class="code-function">getComponent</span>(<span class="code-string"
                     </div>
                 </a>
             </div>
-            <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+            <div class="vd-col-12 vd-col-md-4 vd-mb-4">
                 <a href="#docs/utilities-cheat-sheet" data-route="docs/utilities-cheat-sheet" class="vd-card vd-card-actionable vd-card-glow" style="text-decoration: none;">
                     <div class="vd-card-body">
                         <h4 class="vd-text-md vd-mb-2">Utilities Cheat Sheet</h4>
