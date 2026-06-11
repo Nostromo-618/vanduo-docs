@@ -17,3 +17,7 @@ rules:
   tasks:
     - Include pnpm run sync:framework after framework dist changes
     - Include pnpm test for docs E2E when behavior changes
+  changelog:
+    - Edit sections/changelog.html; follow framework/openspec/specs/changelog/spec.md
+    - Never add a Docs column; docs changes ship under Framework when tied to a framework release
+    - See openspec/specs/changelog/spec.md
