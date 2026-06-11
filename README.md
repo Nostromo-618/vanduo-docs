@@ -10,13 +10,13 @@ Flowchart Package: https://www.npmjs.com/package/@vanduo-oss/flowchart
 
 ## Current Snapshot
 
-- Docs content now includes the **v1.4.4** changelog, scoped runtime guidance, lifecycle manager docs, security practices, and canonical token guidance.
+- Docs content now includes the **v1.4.5** changelog (rounded-corner background fixes), scoped runtime guidance, lifecycle manager docs, security practices, and canonical token guidance.
 - Vanduo Charts is documented as the standalone `@vanduo-oss/charts` package with SVG chart demos and Vanduo lifecycle auto-init examples.
 - Vanduo Flowchart is documented as the standalone `@vanduo-oss/flowchart` package with a live editor demo, primitive palette, and JSON import/export workflow.
-- Production docs load the pinned framework CDN bundle from `@v1.4.4`, while local preview resolves framework assets from `./dist` and refreshes them from the sibling framework repo when available.
+- Production docs load the pinned framework CDN bundle from `@v1.4.5`, while local preview resolves framework assets from `./dist` and refreshes them from the sibling framework repo when available.
 - Theme docs now treat `--vd-*` semantic and component tokens as the strict Vanduo API.
 - Framework integration docs now recommend scoped `Vanduo.init(root)`, `Vanduo.destroy(root)`, and `Vanduo.reinit(name, root)` for SPAs and dynamic DOM.
-- **v1.4.4 Theme Switcher:** navbar uses the framework **menu variant** (icon toggle opens a picker). The theme-switcher live demo shows **icon menu and cycle button** side by side in a two-column layout with a shared opaque dropdown. Docs omit optional `data-tooltip` on the switcher; the framework supports tooltips when consumers opt in.
+- **v1.4.4+ Theme Switcher:** navbar uses the framework **menu variant** (icon toggle opens a picker). The theme-switcher live demo shows **icon menu and cycle button** side by side in a two-column layout with a shared opaque dropdown. Docs omit optional `data-tooltip` on the switcher; the framework supports tooltips when consumers opt in.
 - Theme demo label updates on section init (no persistent `MutationObserver` on `#docs-view`) to avoid SPA tab freeze when navigating via global search.
 - OpenSpec consumer spec: [openspec/specs/theme-switcher-consumer/spec.md](openspec/specs/theme-switcher-consumer/spec.md).
 

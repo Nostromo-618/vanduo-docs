@@ -15,6 +15,45 @@
         <div class="vd-container-responsive" style="max-width: 1200px;">
 
             <!-- ═══════════════════════════════════════════════ -->
+            <!-- Version 1.4.5                                   -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.4.5</span>
+                    <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>June 11, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12">
+                            <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
+                            <div class="change-group">
+                                <h5>Fixes</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-hand-grabbing" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Rounded-corner background bleed on draggable surfaces</strong>
+                                            <p>Draggable items, containers, and drop zones now use <code>background-clip: padding-box</code> so opaque fills no longer show light wedges outside the border arc at large <code>data-radius</code> presets.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-textbox" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong>Fix: Input group addon corner bleed</strong>
+                                            <p><code>.vd-input-group-prefix</code> and <code>.vd-input-group-suffix</code> use the same <code>background-clip: padding-box</code> treatment so bordered addons render clean rounded corners beside inputs.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════════════ -->
             <!-- Version 1.4.4                                   -->
             <!-- ═══════════════════════════════════════════════ -->
             <article class="version-card">
@@ -23,11 +62,10 @@
                     <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>June 7, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
-                        <div class="vd-col-12 vd-col-md-6">
+                        <div class="vd-col-12">
                             <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
                             <div class="change-group">
                                 <h5>Enhancements</h5>
@@ -37,21 +75,6 @@
                                         <div>
                                             <strong>Theme Switcher icon menu variant</strong>
                                             <p>New recommended UX: toggle opens a compact icon-only menu (System, Light, Dark) so users pick explicitly without accidental theme flashes. Includes tooltips, keyboard navigation, and <code>theme-switcher.css</code>. Cycle button and select variants remain available.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-6">
-                            <h4><i class="ph ph-book-open mr-2" style="color: var(--vd-color-primary);"></i>Docs</h4>
-                            <div class="change-group">
-                                <h5>Enhancements</h5>
-                                <ul class="change-list">
-                                    <li class="change-item">
-                                        <i class="ph ph-navbar" style="color: var(--vd-color-info);"></i>
-                                        <div>
-                                            <strong>Navbar and live demo use menu variant</strong>
-                                            <p>Docs navbar theme switcher and the Theme Switcher documentation live demo now mirror the recommended icon menu pattern. OpenSpec specs added as design source of truth.</p>
                                         </div>
                                     </li>
                                 </ul>
