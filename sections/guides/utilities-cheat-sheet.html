@@ -303,6 +303,55 @@
         </div>
     </div>
 
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-printer"></i> Print</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-text-sm vd-mb-4">A built-in <code>@media print</code> stylesheet ships
+                        in <code>css/vanduo.css</code>. Most of it applies automatically — no classes
+                        needed: backgrounds and shadows are stripped for ink economy, links are
+                        underlined and external <code>href</code>s printed in parentheses, headings and
+                        table rows avoid awkward page breaks, images are constrained, and
+                        <code>&lt;pre&gt;</code> blocks wrap. UI chrome (navbars, sidenav, modals,
+                        tooltips, dropdown menus, button groups, pagination) is hidden in print.</p>
+                    <table class="vd-table vd-table-striped vd-text-sm">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>vd-d-print-none</code></td><td>Hide the element when printing</td></tr>
+                            <tr><td><code>vd-d-print-block</code></td><td>Show as <code>block</code> only when printing</td></tr>
+                            <tr><td><code>vd-d-print-inline</code></td><td>Show as <code>inline</code> only when printing</td></tr>
+                            <tr><td><code>vd-d-print-inline-block</code></td><td>Show as <code>inline-block</code> only when printing</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="vd-code-snippet vd-mt-4" data-collapsible data-expanded="true">
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;!-- Kept on screen, removed from the printout --&gt;
+&lt;nav class="vd-navbar vd-d-print-none"&gt;…&lt;/nav&gt;
+
+&lt;!-- Hidden on screen, revealed only on paper --&gt;
+&lt;p class="vd-d-print-block" hidden&gt;Printed on vanduo.dev&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- What's Next block -->
     <div class="vd-mt-8" style="border-top: 1px solid var(--vd-border-color); padding-top: 2.5rem; padding-bottom: 3rem;">
         <h4 class="vd-text-lg vd-mb-5"><i class="ph ph-arrow-circle-right"></i> What's Next?</h4>

@@ -15,6 +15,118 @@
         <div class="vd-container-responsive" style="max-width: 1200px;">
 
             <!-- ═══════════════════════════════════════════════ -->
+            <!-- Version 1.4.6                                   -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.4.6</span>
+                    <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>June 12, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
+                            <div class="change-group">
+                                <h5>Performance &amp; size</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-feather" style="color: var(--vd-color-primary);"></i>
+                                        <div>
+                                            <strong>Leaner default CSS bundle</strong>
+                                            <p><code>css/vanduo.css</code> now bundles only the <code>regular</code> + <code>fill</code> icon weights, cutting the minified stylesheet ~47% (897&nbsp;KB → 480&nbsp;KB). Import <code>css/icons/icons-all.css</code> for all six weights.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-package" style="color: var(--vd-color-primary);"></i>
+                                        <div>
+                                            <strong>Smaller npm package</strong>
+                                            <p>The build now ships only the icon weights the bundle uses into <code>dist/icons/</code> (≈24&nbsp;MB → 8.6&nbsp;MB). The full six-weight set still ships under <code>icons/</code> for <code>icons-all.css</code> consumers.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-scissors" style="color: var(--vd-color-primary);"></i>
+                                        <div>
+                                            <strong>No-icons core build</strong>
+                                            <p>New <code>dist/vanduo-core.min.css</code> (<code>@vanduo-oss/framework/css/core</code>) drops the bundled icons entirely (~123&nbsp;KB lighter) for apps that ship their own icon set.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Developer experience</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-file-ts" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>TypeScript types</strong>
+                                            <p>A hand-written <code>dist/vanduo.d.ts</code> declares the <code>Vanduo</code> runtime, exposed via the package <code>types</code> field.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-shield-check" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong>Drift &amp; safety guards</strong>
+                                            <p><code>check:versions</code> now validates README, <code>SECURITY.md</code>, <code>llms.txt</code>, and the new <code>CHANGELOG.md</code>; a new ESLint rule flags raw <code>innerHTML</code> assignment.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-list-checks" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Changelog &amp; regression tests</strong>
+                                            <p>Added an in-repo <code>CHANGELOG.md</code> (Keep a Changelog) and new Playwright specs locking in the parallax and print behavior.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Fixes</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-wrench" style="color: var(--vd-color-warning);"></i>
+                                        <div>
+                                            <strong>Parallax &amp; print modifiers</strong>
+                                            <p>Parallax speed/direction classes and the print stylesheet's element hide-list now use the canonical <code>vd-</code> prefix (left behind in the 1.4.1 migration). Removed the unused internal <code>doc-tabs</code> styles from the bundle.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-book-open mr-2" style="color: var(--vd-color-primary);"></i>Docs</h4>
+                            <div class="change-group">
+                                <h5>New &amp; updated pages</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-stack" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Parallax &amp; Print documented</strong>
+                                            <p>New <a href="#docs/parallax">Parallax</a> page under Effects, and a Print section added to the <a href="#docs/utilities-cheat-sheet">Utilities Cheat Sheet</a>. The Icons page now states regular + fill are the default and loads <code>icons-all.css</code> to preview every weight.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-scissors" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>CSS-trimming guidance</strong>
+                                            <p><a href="#docs/production-best-practices">Production Best Practices</a> now covers the no-icons core build and a safelisted PurgeCSS setup for shrinking the stylesheet.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Security</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-lock-key" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong>SRI guidance + CSP</strong>
+                                            <p>Production Best Practices now shows Subresource Integrity for CDN tags, and the docs site ships a Content Security Policy restricting origins to self + jsDelivr.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════════════ -->
             <!-- Version 1.4.5                                   -->
             <!-- ═══════════════════════════════════════════════ -->
             <article class="version-card">
@@ -23,7 +135,6 @@
                     <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>June 11, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
@@ -65,7 +176,7 @@
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
-                        <div class="vd-col-12">
+                        <div class="vd-col-12 vd-col-md-6">
                             <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
                             <div class="change-group">
                                 <h5>Enhancements</h5>
@@ -75,6 +186,21 @@
                                         <div>
                                             <strong>Theme Switcher icon menu variant</strong>
                                             <p>New recommended UX: toggle opens a compact icon-only menu (System, Light, Dark) so users pick explicitly without accidental theme flashes. Includes tooltips, keyboard navigation, and <code>theme-switcher.css</code>. Cycle button and select variants remain available.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-book-open mr-2" style="color: var(--vd-color-primary);"></i>Docs</h4>
+                            <div class="change-group">
+                                <h5>Enhancements</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-navbar" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Navbar and live demo use menu variant</strong>
+                                            <p>Docs navbar theme switcher and the Theme Switcher documentation live demo now mirror the recommended icon menu pattern. OpenSpec specs added as design source of truth.</p>
                                         </div>
                                     </li>
                                 </ul>

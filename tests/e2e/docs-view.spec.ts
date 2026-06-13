@@ -211,7 +211,7 @@ test.describe('4. Documentation View', () => {
     });
 
     test.describe('Changelog (#changelog)', () => {
-        test('Shows v1.4.5 as latest release above v1.4.4 and v1.4.3 history', async ({ page }) => {
+        test('Shows v1.4.6 as latest release above v1.4.5 and v1.4.4 history', async ({ page }) => {
             await page.goto('/#changelog');
             await waitForSPA(page);
 
@@ -219,24 +219,28 @@ test.describe('4. Documentation View', () => {
             await expect(changelog).toBeVisible();
 
             const latestReleaseCard = changelog.locator('.version-card').first();
-            await expect(latestReleaseCard).toContainText('v1.4.5');
+            await expect(latestReleaseCard).toContainText('v1.4.6');
             await expect(latestReleaseCard).toContainText('Latest');
-            await expect(latestReleaseCard).toContainText('Rounded-corner background bleed on draggable surfaces');
-            await expect(latestReleaseCard).toContainText('Input group addon corner bleed');
+            await expect(latestReleaseCard).toContainText('Leaner default CSS bundle');
 
             const previousReleaseCard = changelog.locator('.version-card').nth(1);
-            await expect(previousReleaseCard).toContainText('v1.4.4');
+            await expect(previousReleaseCard).toContainText('v1.4.5');
             await expect(previousReleaseCard.locator('.version-header')).not.toContainText('Latest');
+            await expect(previousReleaseCard).toContainText('Rounded-corner background bleed on draggable surfaces');
+            await expect(previousReleaseCard).toContainText('Input group addon corner bleed');
 
             const olderReleaseCard = changelog.locator('.version-card').nth(2);
-            await expect(olderReleaseCard).toContainText('v1.4.3');
+            await expect(olderReleaseCard).toContainText('v1.4.4');
             await expect(olderReleaseCard.locator('.version-header')).not.toContainText('Latest');
-            await expect(olderReleaseCard).toContainText('Music Player moved');
 
-            const oldestReleaseCard = changelog.locator('.version-card').nth(3);
-            await expect(oldestReleaseCard).toContainText('v1.4.2');
-            await expect(oldestReleaseCard.locator('.version-header')).not.toContainText('Latest');
-            await expect(oldestReleaseCard).toContainText('Modal size tiers');
+            const v143Card = changelog.locator('.version-card').nth(3);
+            await expect(v143Card).toContainText('v1.4.3');
+            await expect(v143Card.locator('.version-header')).not.toContainText('Latest');
+            await expect(v143Card).toContainText('Music Player moved');
+
+            const v142Card = changelog.locator('.version-card').nth(4);
+            await expect(v142Card).toContainText('v1.4.2');
+            await expect(v142Card).toContainText('Modal size tiers');
         });
     });
 
@@ -735,7 +739,7 @@ test.describe('4. Documentation View', () => {
                 {
                     route: '/#docs/production-best-practices',
                     id: 'production-best-practices',
-                    expected: ['@v1.4.5', '--vd-*']
+                    expected: ['@v1.4.6', '--vd-*']
                 }
             ];
 
