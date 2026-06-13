@@ -1,0 +1,141 @@
+<section id="parallax">
+    <h5 class="demo-title"><i class="ph ph-stack"></i>Parallax</h5>
+    <p class="vd-mb-6">
+        Depth-on-scroll. Layers inside a <code>.vd-parallax</code> container translate at different
+        rates as the container moves through the viewport, creating a sense of depth. Movement is
+        driven by JavaScript on a <code>requestAnimationFrame</code>-throttled scroll listener and is
+        fully disabled when the visitor requests reduced motion.
+    </p>
+
+    <style>
+        #parallax .parallax-demo {
+            border-radius: var(--vd-card-border-radius, 0.5rem);
+            border: 1px solid var(--vd-border-color);
+        }
+        #parallax .parallax-demo .vd-parallax-bg {
+            background: linear-gradient(135deg,
+                color-mix(in srgb, var(--vd-color-primary) 45%, var(--vd-bg-secondary)),
+                color-mix(in srgb, var(--vd-color-info) 45%, var(--vd-bg-secondary)));
+        }
+        #parallax .parallax-demo .vd-parallax-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: inherit;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--vd-text-on-primary, #fff);
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        }
+    </style>
+
+    <!-- Rendered demo first -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6>Background Layer</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Scroll the page — the gradient layer drifts slower than the
+                        foreground content. <code>.vd-parallax-bg</code> moves at the container speed;
+                        the content stays put.</p>
+                    <div class="vd-parallax vd-parallax-sm vd-parallax-slow parallax-demo">
+                        <div class="vd-parallax-bg"></div>
+                        <div class="vd-parallax-content">
+                            <span>Scroll to see the layer drift</span>
+                        </div>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5"><strong>Reduced motion:</strong> if
+                        your OS requests reduced motion, the component does not initialize and layers
+                        render statically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6>Markup</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>Wrap layers in a <code>.vd-parallax</code> container. Movement initializes
+                        automatically on <code>Vanduo.init()</code>.</p>
+                    <div class="vd-code-snippet" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Slow background drift + fixed foreground content --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax vd-parallax-md vd-parallax-slow"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax-bg"</span> <span class="code-attr">style</span>=<span class="code-string">"background-image: url('hero.jpg')"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax-content"</span>&gt;
+    &lt;<span class="code-tag">h2</span>&gt;Title over a moving backdrop&lt;/<span class="code-tag">h2</span>&gt;
+  &lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Multiple layers, each with its own rate via data-parallax-speed --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax vd-parallax-lg"</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax-layer"</span> <span class="code-attr">data-parallax-speed</span>=<span class="code-string">"0.3"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax-layer"</span> <span class="code-attr">data-parallax-speed</span>=<span class="code-string">"0.8"</span>&gt;&lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-parallax-content"</span>&gt;…&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API reference -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card">
+                <div class="vd-card-header">
+                    <h6>Classes &amp; attributes</h6>
+                </div>
+                <div class="vd-card-body">
+                    <div class="vd-table-responsive">
+                        <table class="vd-table">
+                            <thead>
+                                <tr><th>Class / attribute</th><th>Applies to</th><th>Effect</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>.vd-parallax</code></td><td>container</td><td>Required. Marks the scroll-reactive container (<code>position: relative; overflow: hidden</code>).</td></tr>
+                                <tr><td><code>.vd-parallax-layer</code></td><td>child</td><td>An absolutely-positioned moving layer.</td></tr>
+                                <tr><td><code>.vd-parallax-bg</code></td><td>child</td><td>A moving background layer (120% height; set <code>background-image</code>).</td></tr>
+                                <tr><td><code>.vd-parallax-content</code></td><td>child</td><td>Foreground content that stays in normal flow (z-index above layers).</td></tr>
+                                <tr><td><code>.vd-parallax-slow</code> / <code>.vd-parallax-medium</code> / <code>.vd-parallax-fast</code></td><td>container</td><td>Container speed multiplier — 0.5 / 1 / 1.5.</td></tr>
+                                <tr><td><code>.vd-parallax-horizontal</code></td><td>container</td><td>Translate layers on the X axis instead of Y (default is vertical).</td></tr>
+                                <tr><td><code>.vd-parallax-sm</code> / <code>-md</code> / <code>-lg</code> / <code>-full</code></td><td>container</td><td>Fibonacci min-heights — 377px / 610px / 987px / 100vh.</td></tr>
+                                <tr><td><code>.vd-parallax-disable-mobile</code></td><td>container</td><td>Freeze layers at ≤767px viewports.</td></tr>
+                                <tr><td><code>data-parallax-speed="N"</code></td><td>layer</td><td>Per-layer rate multiplier (applied on top of the container speed).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5"><strong>JavaScript API:</strong>
+                        components auto-initialize on <code>Vanduo.init()</code>.
+                        <code>VanduoParallax.refresh()</code> recalculates positions (call after layout
+                        changes), <code>VanduoParallax.destroy(el)</code> resets a single container, and
+                        <code>VanduoParallax.destroyAll()</code> tears down all listeners.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

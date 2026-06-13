@@ -80,6 +80,28 @@ function syncFrameworkAssets() {
     cpSync(sourcePath, targetPath, { recursive: true, force: true });
   });
 
+  // Vendor the framework icon entry stylesheets (icons.css / icons-all.css) so
+  // the docs can opt into all Phosphor weights for its weight showcase during
+  // local preview. The default bundle ships regular+fill only; icons-all.css
+  // resolves its @imports against the (full) dist/icons/ tree synced above.
+  const frameworkIconsCssDir = path.join(frameworkRoot, 'css', 'icons');
+  const docsIconsCssDir = path.join(docsDistDir, 'css', 'icons');
+  if (existsSync(frameworkIconsCssDir)) {
+    mkdirSync(docsIconsCssDir, { recursive: true });
+    cpSync(frameworkIconsCssDir, docsIconsCssDir, { recursive: true, force: true });
+    console.log('[sync-framework-assets] Synced framework/css/icons/ → docs/dist/css/icons/');
+  }
+
+  // The framework's dist/icons ships only the bundled weights (regular+fill),
+  // but the docs showcase previews every weight via icons-all.css. Vendor the
+  // full top-level icons/ tree so all six weights resolve in local preview.
+  const frameworkIconsDir = path.join(frameworkRoot, 'icons');
+  const docsIconsDir = path.join(docsDistDir, 'icons');
+  if (existsSync(frameworkIconsDir)) {
+    cpSync(frameworkIconsDir, docsIconsDir, { recursive: true, force: true });
+    console.log('[sync-framework-assets] Synced framework/icons/ (all weights) → docs/dist/icons/');
+  }
+
   // Sync framework JS component and util files needed by docs demos.
   const frameworkJsDir = path.join(frameworkRoot, 'js');
   const docsJsDir = path.join(docsRoot, 'js');

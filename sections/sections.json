@@ -775,6 +775,13 @@
               "file": "effects/morph.html",
               "icon": "ph-drop",
               "keywords": ["morph", "water", "liquid", "wave", "transition", "swap", "toggle", "effect"]
+            },
+            {
+              "id": "parallax",
+              "title": "Parallax",
+              "file": "effects/parallax.html",
+              "icon": "ph-stack",
+              "keywords": ["parallax", "scroll", "depth", "layers", "background", "motion", "effect"]
             }
           ]
         }
