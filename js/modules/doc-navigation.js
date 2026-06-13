@@ -122,6 +122,42 @@ export function markProgrammaticScroll() {
 }
 
 /**
+ * Keep an anchor element pinned at a captured viewport position across the
+ * frames following a DOM mutation. A single post-mutation measurement is
+ * unreliable: an injected section can keep growing for a frame or two after it
+ * loads (web fonts, responsive grids, demo init). Measuring the anchor's new
+ * position too early under-compensates and drops the reader far from where they
+ * were. This re-pins each frame until the anchor holds still for a few frames,
+ * with a frame cap as a safety valve.
+ * @param {HTMLElement} anchorEl - element whose viewport position to preserve.
+ * @param {number} anchorTop - the getBoundingClientRect().top to hold it at.
+ */
+function pinScrollAnchor(anchorEl, anchorTop) {
+    if (!anchorEl || anchorTop == null) return;
+    var stableFrames = 0;
+    var frameCount = 0;
+    function step() {
+        if (!anchorEl.isConnected) return;
+        var delta = anchorEl.getBoundingClientRect().top - anchorTop;
+        if (Math.abs(delta) > 0.5) {
+            markProgrammaticScroll();
+            window.scrollTo({
+                top: (window.scrollY || window.pageYOffset || 0) + delta,
+                behavior: 'instant'
+            });
+            stableFrames = 0;
+        } else {
+            stableFrames += 1;
+        }
+        frameCount += 1;
+        if (stableFrames < 3 && frameCount < 30) {
+            window.requestAnimationFrame(step);
+        }
+    }
+    step();
+}
+
+/**
  * Abort any in-flight settlement loop. Increments the generation counter so
  * the rAF loop exits, and releases the pending navigation lock. Does NOT
  * clear docExplicitNavSectionId / docExplicitNavCooldownUntil.
@@ -1094,15 +1130,7 @@ export async function loadPreviousSection(options = {}) {
         });
 
         if (anchorEl && anchorEl.isConnected && anchorTop != null) {
-            var nextTop = anchorEl.getBoundingClientRect().top;
-            var delta = nextTop - anchorTop;
-            if (Math.abs(delta) > 1) {
-                markProgrammaticScroll();
-                window.scrollTo({
-                    top: (window.scrollY || window.pageYOffset || 0) + delta,
-                    behavior: 'instant'
-                });
-            }
+            pinScrollAnchor(anchorEl, anchorTop);
         }
 
         requestActiveDocSectionUpdate();
