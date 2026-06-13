@@ -817,6 +817,26 @@ test.describe('4. Documentation View', () => {
             await expectLocalFrameworkAssets(page);
         });
 
+        test('Forced CDN mode pins framework assets with release cache buster', async ({ page }) => {
+            await page.goto('/?vanduo-assets=cdn#home');
+            await page.waitForFunction(() => {
+                const runtimeWindow = window as Window & {
+                    __VANDUO_FRAMEWORK_ASSET_MODE?: string;
+                };
+
+                return runtimeWindow.__VANDUO_FRAMEWORK_ASSET_MODE === 'cdn'
+                    && document.documentElement.getAttribute('data-framework-assets') === 'cdn';
+            }, { timeout: 10000 });
+
+            const assetInfo = await getFrameworkAssetInfo(page);
+            expect(assetInfo.mode).toBe('cdn');
+            expect(assetInfo.marker).toBe('cdn');
+            expect(assetInfo.cssHref).toContain('@vanduo-oss/framework@1.4.6');
+            expect(assetInfo.cssHref).toContain('?v=1.4.6');
+            expect(assetInfo.jsSrc).toContain('@vanduo-oss/framework@1.4.6/dist/vanduo.min.js');
+            expect(assetInfo.jsSrc).toContain('?v=1.4.6');
+        });
+
         test('Dark mode toggle changes primary color from black to blue', async ({ page }) => {
             await page.emulateMedia({ colorScheme: 'light' });
             await page.goto('/#home');
