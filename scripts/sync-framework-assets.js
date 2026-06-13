@@ -39,6 +39,41 @@ function readBuildInfo(distDir) {
   }
 }
 
+function readExpectedFrameworkVersion() {
+  const manifestPath = path.join(docsRoot, 'release-version.json');
+
+  if (!existsSync(manifestPath)) {
+    return null;
+  }
+
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+    return typeof manifest.framework === 'string' ? manifest.framework : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function assertFrameworkVersionMatchesDocsPin(buildInfo) {
+  const expectedVersion = readExpectedFrameworkVersion();
+
+  if (!expectedVersion || !buildInfo || !buildInfo.version) {
+    return;
+  }
+
+  if (buildInfo.version === expectedVersion) {
+    return;
+  }
+
+  throw new Error(
+    'Docs release-version.json pins framework v'
+    + expectedVersion
+    + ' but sibling framework dist is v'
+    + buildInfo.version
+    + '. Update ../framework (git pull && pnpm run build) or adjust release-version.json.'
+  );
+}
+
 function logBuildInfo(prefix, buildInfo) {
   if (!buildInfo) {
     console.log(prefix + ': build-info.json not available');
@@ -71,6 +106,8 @@ function syncFrameworkAssets() {
       'Framework dist not found at ' + frameworkDistDir + ' and vendored docs assets are unavailable.'
     );
   }
+
+  assertFrameworkVersionMatchesDocsPin(readBuildInfo(frameworkDistDir));
 
   // Overlay framework artifacts so docs-specific files under dist/ remain intact.
   const frameworkEntries = readdirSync(frameworkDistDir);

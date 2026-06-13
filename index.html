@@ -134,7 +134,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/app.css?v=1.4.6-docs-2">
+    <link rel="stylesheet" href="css/app.css?v=1.4.6-docs-6">
     <link rel="stylesheet" href="css/vanduo-charts.css">
     <link rel="stylesheet" href="css/vanduo-flowchart.css">
     <link rel="stylesheet" href="css/vanduo-music-player.css">
@@ -404,7 +404,13 @@
                     return loadScript(assetState.jsSrc, 'data-framework-js', assetState.mode);
                 }
 
-                return Promise.reject(new Error('Loaded framework version does not match expected release.'));
+                return Promise.reject(new Error(
+                    'Loaded framework version does not match expected release (expected v'
+                    + expected
+                    + ', got v'
+                    + loaded
+                    + '). For local preview run: pnpm run sync:framework'
+                ));
             }
 
             function loadScript(src, attributeName, attributeValue, isModule) {
@@ -435,7 +441,7 @@
             }
 
             function loadAppScripts() {
-                var docsScriptVersion = '?v=' + (assetState.expectedVersion || 'dev') + '-docs-2';
+                var docsScriptVersion = '?v=' + (assetState.expectedVersion || 'dev') + '-docs-6';
                 return loadScript('js/lazy-loader.js' + docsScriptVersion)
                     .then(function () {
                         return loadScript('js/section-cache.js' + docsScriptVersion);

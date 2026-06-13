@@ -26,6 +26,19 @@ test.describe('Expanding Cards – Docs Section', () => {
         await expect(strip.locator('.vd-expanding-card.is-active')).toHaveCount(1);
     });
 
+    test('photo strip uses local expanding images, not external Tumblr URLs', async ({ page }) => {
+        await goToExpandingCards(page);
+        const strip = page.locator('#expanding-cards .vd-expanding-cards').first();
+        const cards = strip.locator('.vd-expanding-card');
+        await expect(cards).toHaveCount(5);
+
+        for (let i = 0; i < 5; i++) {
+            const style = await cards.nth(i).getAttribute('style');
+            expect(style).toContain('images/expanding/');
+            expect(style).not.toContain('tumblr.com');
+        }
+    });
+
     test('clicking second panel moves active state', async ({ page }) => {
         /* Narrow viewports hide panels via responsive CSS; need enough width for 5 columns */
         await page.setViewportSize({ width: 1024, height: 800 });
