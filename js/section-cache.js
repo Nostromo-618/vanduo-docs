@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    var CACHE_KEY = 'vd:sectionCache:v146-docs6';
+    var CACHE_KEY = 'vd:sectionCache:v146-docs7';
     var MAX_ENTRIES = 20;
     var entries = new Map();
 

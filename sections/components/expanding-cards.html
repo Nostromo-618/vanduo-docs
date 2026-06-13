@@ -11,11 +11,28 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /* Photo backgrounds live here (not only in --vd-expanding-card-bg) so url()
+           resolves from vanduo.dev; production loads framework CSS from jsDelivr. */
+        #expanding-cards .expanding-cards-photos .vd-expanding-card:nth-child(1) {
+            background-image: url(/images/expanding/0.jpg);
+        }
+        #expanding-cards .expanding-cards-photos .vd-expanding-card:nth-child(2) {
+            background-image: url(/images/expanding/1.jpg);
+        }
+        #expanding-cards .expanding-cards-photos .vd-expanding-card:nth-child(3) {
+            background-image: url(/images/expanding/2.jpg);
+        }
+        #expanding-cards .expanding-cards-photos .vd-expanding-card:nth-child(4) {
+            background-image: url(/images/expanding/3.jpg);
+        }
+        #expanding-cards .expanding-cards-photos .vd-expanding-card:nth-child(5) {
+            background-image: url(/images/expanding/4.jpg);
+        }
     </style>
 
     <h5 class="vd-mb-3">Photo strip</h5>
     <p class="vd-text-sm vd-text-muted vd-mb-4">Uses background images on each <code>.vd-expanding-card</code> via <code>--vd-expanding-card-bg</code>.</p>
-    <div class="expanding-cards-wrap vd-mb-8">
+    <div class="expanding-cards-wrap expanding-cards-photos vd-mb-8">
         <div class="vd-expanding-cards" data-vd-expanding-cards>
             <div class="vd-expanding-card is-active"
                 style="--vd-expanding-card-bg: url(/images/expanding/0.jpg);">
