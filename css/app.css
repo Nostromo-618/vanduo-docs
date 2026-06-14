@@ -196,28 +196,6 @@
             object-fit: contain;
             transform-origin: 50% 50%;
             cursor: default;
-            animation:
-                hero-title-logo-spin-intro 0.385s linear,
-                hero-title-logo-spin-steady 14s linear 0.385s infinite;
-        }
-
-        @keyframes hero-title-logo-spin-intro {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                /* Ends on 0° so steady spin has no jump (2 turns, half prior speed) */
-                transform: rotate(720deg);
-            }
-        }
-
-        @keyframes hero-title-logo-spin-steady {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
         }
 
         .vd-navbar-brand-wrap > a.vd-navbar-brand-link {

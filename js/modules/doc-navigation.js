@@ -232,11 +232,11 @@ export function primeDocNavigationForHash(hash, options) {
     state.docPendingNavigationStartedAt = Date.now();
 }
 
-var VANDUO_BRAND_LOGO_SRC = 'vanduo-new-logo.svg';
+var VANDUO_BRAND_LOGO_SRC = 'images/vanduo-h2o-logo-static.svg';
 
 function getVanduoDynamicLoaderMarkHtml() {
     return '<div class="vd-dynamic-loader-mark" aria-hidden="true">'
-        + '<img class="vd-dynamic-loader-logo" src="' + VANDUO_BRAND_LOGO_SRC + '" alt="" width="495" height="495" decoding="async">'
+        + '<img class="vd-dynamic-loader-logo" src="' + VANDUO_BRAND_LOGO_SRC + '" alt="" width="200" height="200" decoding="async">'
         + '</div>';
 }
 
