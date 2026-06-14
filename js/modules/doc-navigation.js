@@ -9,6 +9,7 @@ import {
     DOC_USER_SCROLL_CANCEL_THRESHOLD,
     SCROLL_SPY_OFFSET,
     SECTIONS_BASE,
+    docSectionHeights,
     loadedSections,
     loadingSections,
     state
@@ -516,6 +517,11 @@ export function resetDocsSectionRenderState(options = {}) {
         state.scrollSpyObserver.disconnect();
         state.scrollSpyObserver = null;
     }
+    if (state.sectionSizeObserver) {
+        // Stop observing torn-down nodes; keep docSectionHeights — the measured
+        // heights remain valid the next time these sections are rendered.
+        state.sectionSizeObserver.disconnect();
+    }
     state.activeDocSectionId = null;
     state.scrollSpyTicking = false;
     loadedSections.clear();
@@ -859,6 +865,10 @@ export async function loadSection(sectionId, autoScroll = true, options = {}) {
                 placeholder.remove();
                 return;
             }
+            // Reserve the section's known height before insertion (and before the
+            // forced layout from initVanduoScope/initSectionDemos below) so its
+            // content-visibility box is right-sized from the first frame.
+            applyReservedSectionHeight(sectionEl);
             if (document.startViewTransition && autoScroll) {
                 await document.startViewTransition(function () {
                     container.replaceChild(sectionEl, placeholder);
@@ -1051,12 +1061,60 @@ function createScrollSpyObserver() {
     });
 }
 
+/**
+ * Reserve a section's known rendered height as its contain-intrinsic-size before
+ * it paints. Must run before the element is inserted (and before the first forced
+ * layout from initVanduoScope/initSectionDemos): once content-visibility:auto has
+ * rendered the section at the small fallback height, applying the real height is
+ * too late to keep the reserved box stable. With the real height reserved, a fast
+ * backfill scroll no longer lurches by the section's full height.
+ * @param {HTMLElement} sectionEl
+ */
+function applyReservedSectionHeight(sectionEl) {
+    if (!sectionEl || !sectionEl.id) return;
+    var cached = docSectionHeights.get(sectionEl.id);
+    if (cached > 0) {
+        sectionEl.style.containIntrinsicSize = '1px ' + cached + 'px';
+    }
+}
+
+/**
+ * Record a section's rendered height and keep its reserved size in sync. The guard
+ * ignores measurements taken while content-visibility:auto is skipping the element
+ * (it would just report the already-reserved size).
+ * @param {HTMLElement} sectionEl
+ */
+function captureSectionHeight(sectionEl) {
+    if (!sectionEl || !sectionEl.id) return;
+    if (typeof sectionEl.checkVisibility === 'function'
+        && !sectionEl.checkVisibility({ contentVisibilityAuto: true })) {
+        return;
+    }
+    var height = Math.round(sectionEl.getBoundingClientRect().height);
+    if (height > 0 && docSectionHeights.get(sectionEl.id) !== height) {
+        docSectionHeights.set(sectionEl.id, height);
+        sectionEl.style.containIntrinsicSize = '1px ' + height + 'px';
+    }
+}
+
+function ensureSectionSizeObserver() {
+    if (!state.sectionSizeObserver) {
+        state.sectionSizeObserver = new ResizeObserver(function (entries) {
+            entries.forEach(function (entry) {
+                captureSectionHeight(entry.target);
+            });
+        });
+    }
+    return state.sectionSizeObserver;
+}
+
 function observeSection(sectionEl) {
     if (!sectionEl || !sectionEl.id) return;
     if (!state.scrollSpyObserver) {
         state.scrollSpyObserver = createScrollSpyObserver();
     }
     state.scrollSpyObserver.observe(sectionEl);
+    ensureSectionSizeObserver().observe(sectionEl);
     requestActiveDocSectionUpdate();
 }
 

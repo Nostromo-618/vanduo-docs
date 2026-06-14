@@ -5,9 +5,18 @@ export const loadedSections = new Set();
 export const loadingSections = new Set();
 export const sectionPrefetching = new Set();
 
+// Cache of each section's last measured rendered height (px), keyed by section id.
+// Sections use content-visibility:auto with a small contain-intrinsic-size
+// fallback; a tall section (a stacked demo page) would otherwise reserve far too
+// little space, so a fast scroll that backfills it lurches ~its full height as it
+// renders/skips. Reserving the real height up front keeps the box stable. The
+// heights stay valid across section teardown, so this is not cleared on reset.
+export const docSectionHeights = new Map();
+
 export const state = {
     registry: { pages: [], tabs: {} },
     scrollSpyObserver: null,
+    sectionSizeObserver: null,
     docTopBoundaryObserver: null,
     docBottomBoundaryObserver: null,
     docTopBoundaryEl: null,

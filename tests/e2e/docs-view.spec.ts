@@ -471,6 +471,53 @@ test.describe('4. Documentation View', () => {
             expect(renderedSections.indexOf('timeline')).toBeLessThan(renderedSections.indexOf('music-player'));
         });
 
+        test('Tall sections reserve their measured height for content-visibility', async ({ page, isMobile }) => {
+            test.skip(!!isMobile, 'Height-reservation behavior validated on desktop layout.');
+            test.setTimeout(60000);
+
+            // A tall stacked-demo section (Morph) must pin its real rendered height
+            // as contain-intrinsic-size instead of the small CSS fallback, so a fast
+            // backfill scroll does not lurch by ~its full height as it skips/renders.
+            await page.goto('/#docs/morph');
+            await waitForSPA(page);
+            await waitForVisibleSection(page, '#morph');
+            await waitForDocsSectionAnchored(page, 'morph');
+
+            await page.waitForFunction(() => {
+                const el = document.getElementById('morph');
+                if (!el) return false;
+                const block = parseFloat((el.style.containIntrinsicSize || '').split(/\s+/).pop() || '0');
+                return block > 600;
+            }, { timeout: 12000 });
+
+            const reserved = await page.evaluate(() => {
+                const el = document.getElementById('morph') as HTMLElement;
+                return {
+                    block: parseFloat((el.style.containIntrinsicSize || '').split(/\s+/).pop() || '0'),
+                    offsetHeight: el.offsetHeight
+                };
+            });
+            // Reserves the real height (far above the 600px fallback), matching the
+            // section's actual rendered height.
+            expect(reserved.block).toBeGreaterThan(600);
+            expect(Math.abs(reserved.block - reserved.offsetHeight)).toBeLessThanOrEqual(16);
+
+            // The cache survives teardown: after navigating away and back, the
+            // reservation is restored without re-measuring from the fallback.
+            await page.locator('.doc-nav-link[data-section="buttons"]').click();
+            await waitForVisibleSection(page, '#buttons');
+            await waitForDocsSectionAnchored(page, 'buttons');
+            await page.goto('/#docs/morph');
+            await waitForVisibleSection(page, '#morph');
+            await waitForDocsSectionAnchored(page, 'morph');
+
+            const reReserved = await page.evaluate(() => {
+                const el = document.getElementById('morph') as HTMLElement;
+                return parseFloat((el.style.containIntrinsicSize || '').split(/\s+/).pop() || '0');
+            });
+            expect(reReserved).toBeGreaterThan(600);
+        });
+
         test('Scrollspy highlights the active section in the sidebar as user scrolls', async ({ page, isMobile }) => {
             // Scrollspy behavior might be flaky on mobile due to sidebar collapsing, test on desktop
             test.skip(!!isMobile, 'Scrollspy tested primarily on desktop layout');
