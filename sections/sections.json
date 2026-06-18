@@ -110,6 +110,44 @@
             }
           ]
         },
+        {
+          "name": "Primitives",
+          "sections": [
+            {
+              "id": "primitives-overview",
+              "title": "Primitives Overview",
+              "file": "primitives/overview.html",
+              "icon": "ph-stack-simple",
+              "keywords": [
+                "primitive",
+                "layout",
+                "box",
+                "stack",
+                "inline",
+                "center",
+                "composition",
+                "tokens"
+              ]
+            },
+            {
+              "id": "primitives",
+              "title": "Box, Stack & Inline",
+              "file": "primitives/primitives.html",
+              "icon": "ph-square-half",
+              "keywords": [
+                "box",
+                "stack",
+                "inline",
+                "center",
+                "layout primitive",
+                "gap",
+                "pad",
+                "data-gap",
+                "data-pad"
+              ]
+            }
+          ]
+        },
           {
             "name": "Components",
             "sections": [

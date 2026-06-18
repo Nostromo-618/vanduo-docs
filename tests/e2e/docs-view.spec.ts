@@ -786,7 +786,7 @@ test.describe('4. Documentation View', () => {
                 {
                     route: '/#docs/production-best-practices',
                     id: 'production-best-practices',
-                    expected: ['@v1.4.6', '--vd-*']
+                    expected: ['@v1.5.0', '--vd-*']
                 }
             ];
 
@@ -878,10 +878,10 @@ test.describe('4. Documentation View', () => {
             const assetInfo = await getFrameworkAssetInfo(page);
             expect(assetInfo.mode).toBe('cdn');
             expect(assetInfo.marker).toBe('cdn');
-            expect(assetInfo.cssHref).toContain('@vanduo-oss/framework@1.4.6');
-            expect(assetInfo.cssHref).toContain('?v=1.4.6');
-            expect(assetInfo.jsSrc).toContain('@vanduo-oss/framework@1.4.6/dist/vanduo.min.js');
-            expect(assetInfo.jsSrc).toContain('?v=1.4.6');
+            expect(assetInfo.cssHref).toContain('@vanduo-oss/framework@1.5.0');
+            expect(assetInfo.cssHref).toContain('?v=1.5.0');
+            expect(assetInfo.jsSrc).toContain('@vanduo-oss/framework@1.5.0/dist/vanduo.min.js');
+            expect(assetInfo.jsSrc).toContain('?v=1.5.0');
         });
 
         test('Dark mode toggle changes primary color from black to blue', async ({ page }) => {

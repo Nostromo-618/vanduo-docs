@@ -1,0 +1,120 @@
+<section id="primitives-overview">
+    <h5 class="demo-title"><i class="ph ph-stack-simple"></i>Primitives Overview</h5>
+    <p class="vd-mb-8"><strong>Primitives</strong> are unstyled, single-responsibility layout
+        containers that consume the design tokens. They express a layout <em>intent</em> — vertical
+        rhythm, a wrapping row, a centered column — instead of a single property, and sit between
+        utilities and components in the system:
+        <code>tokens &rarr; (utilities | primitives) &rarr; components</code>.</p>
+
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6>The composition ladder</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>Each layer is built from the one below it. You can drop down a layer at any
+                        time — primitives never trap you.</p>
+                    <div class="vd-stack" data-gap="fib-8">
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md"><strong>Tokens</strong> — named values (<code>--vd-space-fib-13</code>, <code>--vd-bg-secondary</code>). The vocabulary.</div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md"><strong>Utilities &amp; Primitives</strong> — utilities style one element (<code>.vd-p-6</code>); primitives arrange elements (<code>.vd-stack</code>). Siblings that consume tokens.</div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="primary" data-round="md" style="color: var(--vd-text-on-primary, #fff);"><strong>Components</strong> — skinned, often interactive UI (<code>.vd-card</code>, <code>.vd-modal</code>) built from primitives + tokens.</div>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5">The stacked boxes above are themselves
+                        a <code>.vd-stack</code> of <code>.vd-box</code> primitives — this page eats its
+                        own dog food.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6>Utilities vs primitives — when to use which</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>The rule of thumb: <strong>utilities style an element; primitives arrange
+                        elements.</strong> A primitive replaces a recurring cluster of layout
+                        utilities with one intent-named element.</p>
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <p class="vd-text-sm vd-text-muted vd-mb-2">Utilities (hand-wired)</p>
+                            <div class="vd-d-flex vd-flex-col vd-gap-3 vd-p-5 vd-bg-secondary vd-rounded-md">
+                                <span>One</span><span>Two</span><span>Three</span>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <p class="vd-text-sm vd-text-muted vd-mb-2">Primitive (one element)</p>
+                            <div class="vd-stack" data-gap="fib-3"><span class="vd-box" data-pad="fib-3">One</span><span class="vd-box" data-pad="fib-3">Two</span><span class="vd-box" data-pad="fib-3">Three</span></div>
+                        </div>
+                    </div>
+                    <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Utilities: the layout is re-wired each time --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-d-flex vd-flex-col vd-gap-3"</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- Primitive: one intent-named element --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-stack"</span> <span class="code-attr">data-gap</span>=<span class="code-string">"fib-3"</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-table-responsive vd-mt-6">
+                        <table class="vd-table">
+                            <thead>
+                                <tr><th>Reach for a&hellip;</th><th>When</th><th>Example</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Primitive</strong></td><td>You are expressing a repeating layout relationship between children (rhythm, a row, centering).</td><td><code>.vd-stack[data-gap]</code></td></tr>
+                                <tr><td><strong>Utility</strong></td><td>A one-off, single-property tweak on one element where a container would be ceremony.</td><td><code>.vd-mt-4</code>, <code>.vd-bg-primary</code></td></tr>
+                                <tr><td><strong>Component</strong></td><td>You need skinned, named, often-interactive UI.</td><td><code>.vd-card</code>, <code>.vd-modal</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6>Scope — and what is intentionally <em>not</em> a primitive</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p>Vanduo ships a deliberately small set of <strong>layout</strong> primitives:
+                        <a href="#docs/primitives">Box, Stack, Inline, and Center</a>. They are
+                        CSS-only with a <code>data-*</code> API and add no new public tokens.</p>
+                    <p class="vd-mb-2"><strong>Deferred on purpose</strong> (already covered elsewhere,
+                        so a primitive would only add overlap):</p>
+                    <ul>
+                        <li><strong>Grid</strong> — use the existing <a href="#docs/grid-system">Grid System</a> and <a href="#docs/golden-ratio">Golden Ratio</a> layouts.</li>
+                        <li><strong>Spacer / Divider</strong> — covered by spacing utilities (<code>.vd-mt-*</code>, <code>.flex-1</code>) and borders.</li>
+                        <li><strong>Text</strong> — covered by the typography scale and <code>.vd-text-*</code> utilities.</li>
+                    </ul>
+                    <p class="vd-text-sm vd-text-muted">Vanduo is CSS-first, so there are also no
+                        headless behavior primitives — interactive behavior lives in components.</p>
+                    <p class="vd-mt-5">Next: see the token tiers in
+                        <a href="#docs/css-variables-theming">CSS Variables &amp; Theming</a> and the full
+                        <a href="#docs/utilities-cheat-sheet">Utilities Cheat Sheet</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

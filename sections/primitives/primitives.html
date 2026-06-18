@@ -1,0 +1,218 @@
+<section id="primitives">
+    <h5 class="demo-title"><i class="ph ph-square-half"></i>Box, Stack &amp; Inline</h5>
+    <p class="vd-mb-8">Four CSS-only layout primitives with a <code>data-*</code> API that consumes
+        the Fibonacci spacing/radius scale and semantic surface tokens. Zero JavaScript, no new
+        public tokens. A spacing or gap <em>utility</em> on the same element always wins, so you can
+        always drop down a layer.</p>
+
+    <!-- ───────────────────────── BOX ───────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-square"></i> Box — a padded, optionally skinned surface</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5"><code>.vd-box</code> consolidates padding, background, radius,
+                        and an optional border behind one element.</p>
+                    <div class="vd-inline" data-gap="fib-8">
+                        <div class="vd-box" data-pad="fib-13" data-bg="secondary" data-round="md">secondary&nbsp;/&nbsp;md</div>
+                        <div class="vd-box" data-pad="fib-13" data-bg="primary" data-round="lg" style="color: var(--vd-text-on-primary, #fff);">primary&nbsp;/&nbsp;lg</div>
+                        <div class="vd-box" data-pad="fib-13" data-round="md" data-border>bordered</div>
+                    </div>
+                    <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-box"</span> <span class="code-attr">data-pad</span>=<span class="code-string">"fib-13"</span> <span class="code-attr">data-bg</span>=<span class="code-string">"secondary"</span> <span class="code-attr">data-round</span>=<span class="code-string">"md"</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-box"</span> <span class="code-attr">data-pad</span>=<span class="code-string">"fib-13"</span> <span class="code-attr">data-round</span>=<span class="code-string">"md"</span> <span class="code-attr">data-border</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-table-responsive vd-mt-5">
+                        <table class="vd-table">
+                            <thead><tr><th>Attribute</th><th>Values</th><th>Effect</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>data-pad</code></td><td><code>0</code>, <code>fib-1</code>&hellip;<code>fib-55</code></td><td>Padding from the Fibonacci spacing scale.</td></tr>
+                                <tr><td><code>data-bg</code></td><td><code>primary</code> / <code>secondary</code> / <code>tertiary</code> / <code>dark</code> / <code>darker</code></td><td>Semantic surface background.</td></tr>
+                                <tr><td><code>data-round</code></td><td><code>none</code> / <code>sm</code> / <code>md</code> / <code>lg</code> / <code>xl</code> / <code>2xl</code> / <code>full</code></td><td>Border radius (mirrors <code>.vd-rounded-*</code>).</td></tr>
+                                <tr><td><code>data-border</code></td><td>(present)</td><td>1px solid <code>--vd-border-color</code>.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ───────────────────────── STACK ───────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-rows"></i> Stack — vertical rhythm</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5"><code>.vd-stack</code> is a flex column with a token-driven
+                        <code>data-gap</code>.</p>
+                    <div class="vd-stack" data-gap="fib-8">
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">First</div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">Second</div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">Third</div>
+                    </div>
+                    <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-stack"</span> <span class="code-attr">data-gap</span>=<span class="code-string">"fib-8"</span>&gt;
+  &lt;<span class="code-tag">div</span>&gt;First&lt;/<span class="code-tag">div</span>&gt;
+  &lt;<span class="code-tag">div</span>&gt;Second&lt;/<span class="code-tag">div</span>&gt;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-table-responsive vd-mt-5">
+                        <table class="vd-table">
+                            <thead><tr><th>Attribute</th><th>Values</th><th>Effect</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>data-gap</code></td><td><code>0</code>, <code>fib-1</code>&hellip;<code>fib-55</code></td><td>Vertical gap from the Fibonacci scale.</td></tr>
+                                <tr><td><code>data-align</code></td><td><code>start</code> / <code>center</code> / <code>end</code> / <code>stretch</code></td><td>Cross-axis alignment (<code>align-items</code>).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ───────────────────────── INLINE ───────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-columns"></i> Inline — a wrapping row</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5"><code>.vd-inline</code> is a horizontal flex row that wraps by
+                        default — toolbars, tag rows, button groups.</p>
+                    <div class="vd-inline" data-gap="fib-5" data-justify="between">
+                        <span class="vd-box" data-pad="fib-5" data-bg="secondary" data-round="sm">Alpha</span>
+                        <span class="vd-box" data-pad="fib-5" data-bg="secondary" data-round="sm">Bravo</span>
+                        <span class="vd-box" data-pad="fib-5" data-bg="secondary" data-round="sm">Charlie</span>
+                        <span class="vd-box" data-pad="fib-5" data-bg="secondary" data-round="sm">Delta</span>
+                    </div>
+                    <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-inline"</span> <span class="code-attr">data-gap</span>=<span class="code-string">"fib-5"</span> <span class="code-attr">data-justify</span>=<span class="code-string">"between"</span>&gt;
+  &lt;<span class="code-tag">span</span>&gt;Alpha&lt;/<span class="code-tag">span</span>&gt; &lt;<span class="code-tag">span</span>&gt;Bravo&lt;/<span class="code-tag">span</span>&gt; &hellip;
+&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-table-responsive vd-mt-5">
+                        <table class="vd-table">
+                            <thead><tr><th>Attribute</th><th>Values</th><th>Effect</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>data-gap</code></td><td><code>0</code>, <code>fib-1</code>&hellip;<code>fib-55</code></td><td>Gap between items.</td></tr>
+                                <tr><td><code>data-align</code></td><td><code>start</code> / <code>center</code> / <code>end</code> / <code>baseline</code> / <code>stretch</code></td><td>Cross-axis alignment (default <code>center</code>).</td></tr>
+                                <tr><td><code>data-justify</code></td><td><code>start</code> / <code>center</code> / <code>end</code> / <code>between</code> / <code>around</code> / <code>evenly</code></td><td>Main-axis distribution.</td></tr>
+                                <tr><td><code>data-wrap</code></td><td><code>nowrap</code></td><td>Disable wrapping (wrap is the default).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ───────────────────────── CENTER ───────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6><i class="ph ph-arrows-in"></i> Center — center a column and/or its content</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5"><code>.vd-center</code> centers itself horizontally within a
+                        width cap (<code>data-max</code>) and can center its content
+                        (<code>data-axis</code>).</p>
+                    <div class="vd-center" data-max="fib-377">
+                        <div class="vd-box vd-text-center" data-pad="fib-8" data-bg="secondary" data-round="md">A 377px column, auto-centered in its parent.</div>
+                    </div>
+                    <div class="vd-code-snippet vd-mt-5" data-collapsible>
+                        <button class="vd-code-snippet-toggle" aria-expanded="false">
+                            <span class="vd-code-snippet-toggle-icon"></span>
+                            <span>View Code</span>
+                        </button>
+                        <div class="vd-code-snippet-content">
+                            <div class="vd-code-snippet-header">
+                                <div class="vd-code-snippet-tabs" role="tablist">
+                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                </div>
+                                <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                    <span class="vd-code-snippet-copy-icon"></span>
+                                    <span class="vd-code-snippet-copy-text">Copy</span>
+                                </button>
+                            </div>
+                            <div class="vd-code-snippet-body">
+                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-center"</span> <span class="code-attr">data-max</span>=<span class="code-string">"fib-377"</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;
+
+<span class="code-comment">&lt;!-- center content both axes --&gt;</span>
+&lt;<span class="code-tag">div</span> <span class="code-attr">class</span>=<span class="code-string">"vd-center"</span> <span class="code-attr">data-axis</span>=<span class="code-string">"both"</span>&gt;&hellip;&lt;/<span class="code-tag">div</span>&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vd-table-responsive vd-mt-5">
+                        <table class="vd-table">
+                            <thead><tr><th>Attribute</th><th>Values</th><th>Effect</th></tr></thead>
+                            <tbody>
+                                <tr><td><code>data-max</code></td><td><code>fib-377</code> / <code>fib-610</code> / <code>fib-987</code></td><td>Max width; the box auto-centers via <code>margin-inline</code>.</td></tr>
+                                <tr><td><code>data-axis</code></td><td><code>both</code> / <code>horizontal</code> / <code>vertical</code></td><td>Center the <em>content</em> via flex on the chosen axis.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5">New to the layer model? Start with the
+                        <a href="#docs/primitives-overview">Primitives Overview</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
