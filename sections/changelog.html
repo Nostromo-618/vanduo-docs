@@ -15,6 +15,73 @@
         <div class="vd-container-responsive" style="max-width: 1200px;">
 
             <!-- ═══════════════════════════════════════════════ -->
+            <!-- Version 1.5.0                                   -->
+            <!-- ═══════════════════════════════════════════════ -->
+            <article class="version-card">
+                <header class="version-header">
+                    <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.5.0</span>
+                    <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
+                        <i class="ph ph-calendar mr-1"></i>June 18, 2026
+                    </span>
+                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
+                </header>
+                <div class="version-body">
+                    <div class="vd-row">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
+                            <div class="change-group">
+                                <h5>New</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-stack-simple" style="color: var(--vd-color-primary);"></i>
+                                        <div>
+                                            <strong>Layout primitives</strong>
+                                            <p>New CSS-only <code>.vd-box</code>, <code>.vd-stack</code>, <code>.vd-inline</code>, and <code>.vd-center</code> containers with a <code>data-*</code> API (<code>data-pad</code>, <code>data-gap</code>, <code>data-align</code>, <code>data-justify</code>, <code>data-round</code>…) built on the Fibonacci spacing/radius and semantic tokens — the composition layer between utilities and components. See the new <a href="#docs/primitives-overview">Primitives</a> section. Sub-1&nbsp;KB, zero JS, no new public tokens.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Changed</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-arrow-square-out" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Hex grid extracted to its own package</strong>
+                                            <p>The hex-grid source left the framework tree — it was never part of the bundle and now ships solely as <code>@vanduo-oss/hex-grid</code>. Also removed the unused empty <code>packages/</code> workspace.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-planet mr-2" style="color: var(--vd-color-primary);"></i>Ecosystem</h4>
+                            <div class="change-group">
+                                <h5>New</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-hexagon" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong><code>@vanduo-oss/hex-grid</code> (v1.0.0)</strong>
+                                            <p>The canvas hex grid is now the standalone, canonical home for <code>VdHexGrid</code> (terrain, pathfinding, pan/zoom). Install with <code>pnpm add @vanduo-oss/hex-grid</code>.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Updates</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-package" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>vanduo.dev now installs the ecosystem packages</strong>
+                                            <p>The documentation site consumes <code>@vanduo-oss/hex-grid</code>, <code>charts</code>, <code>flowchart</code>, and <code>music-player</code> as real <code>pnpm</code> dependencies — dogfooding the published install path while the framework core loads from the CDN.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════════════ -->
             <!-- Version 1.4.6                                   -->
             <!-- ═══════════════════════════════════════════════ -->
             <article class="version-card">
@@ -23,7 +90,6 @@
                     <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
                         <i class="ph ph-calendar mr-1"></i>June 12, 2026
                     </span>
-                    <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
