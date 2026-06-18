@@ -45,6 +45,56 @@
                             }
                         </style>
 
+                        <!-- Semantic surfaces: light & dark -->
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                                    <div class="vd-card-header">
+                                        <h6>Semantic surfaces — light &amp; dark</h6>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-6">The raw scales above are fixed values. The
+                                            <strong>semantic</strong> tokens (<code>--vd-bg-*</code>,
+                                            <code>--vd-text-*</code>, <code>--vd-border-color</code>) remap per
+                                            theme, so the same markup adapts automatically. Here is the same set
+                                            in both modes:</p>
+                                        <div class="vd-row">
+                                            <div class="vd-col-12 vd-col-md-6 vd-mb-5">
+                                                <p class="vd-text-sm vd-text-muted vd-mb-2"><i class="ph ph-sun"></i> Light</p>
+                                                <div style="background: var(--vd-bg-primary); border: 1px solid var(--vd-border-color); border-radius: var(--vd-radius-fib-5); padding: 1rem;">
+                                                    <div style="background: var(--vd-bg-secondary); color: var(--vd-text-primary); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-bg-secondary</code></div>
+                                                    <div style="background: var(--vd-bg-tertiary); color: var(--vd-text-primary); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-bg-tertiary</code></div>
+                                                    <div style="background: var(--vd-color-primary); color: var(--vd-text-on-primary, #fff); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-color-primary</code></div>
+                                                    <p class="vd-mb-0" style="color: var(--vd-text-primary);">Text primary · <span style="color: var(--vd-text-muted);">muted</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="vd-col-12 vd-col-md-6 vd-mb-5">
+                                                <p class="vd-text-sm vd-text-muted vd-mb-2"><i class="ph ph-moon"></i> Dark</p>
+                                                <div data-theme="dark" style="background: var(--vd-bg-primary); border: 1px solid var(--vd-border-color); border-radius: var(--vd-radius-fib-5); padding: 1rem;">
+                                                    <div style="background: var(--vd-bg-secondary); color: var(--vd-text-primary); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-bg-secondary</code></div>
+                                                    <div style="background: var(--vd-bg-tertiary); color: var(--vd-text-primary); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-bg-tertiary</code></div>
+                                                    <div style="background: var(--vd-color-primary); color: var(--vd-text-on-primary, #fff); padding: 0.5rem 0.75rem; border-radius: var(--vd-radius-fib-3); margin-bottom: 0.5rem;"><code>--vd-color-primary</code></div>
+                                                    <p class="vd-mb-0" style="color: var(--vd-text-primary);">Text primary · <span style="color: var(--vd-text-muted);">muted</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vd-alert vd-alert-warning vd-mb-0">
+                                            <i class="ph ph-shield-check"></i>
+                                            <div><strong>Contrast &amp; accessibility.</strong> The default brand
+                                                step is <code>primary-5</code> (★), tuned for AA contrast with
+                                                white text. Because the
+                                                <a href="#docs/theme-customizer">Theme Customizer</a> lets users
+                                                pick <em>any</em> primary, verify contrast for custom colors —
+                                                see <a href="#docs/accessibility-essentials">Accessibility
+                                                Essentials</a>. Borders use <code>--vd-border-color</code> (and
+                                                the <code>.vd-border*</code> utilities), which also adapts per
+                                                theme.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Primary (Cyan) -->
                         <div class="vd-row">
                             <div class="vd-col-12 vd-col-lg-6">

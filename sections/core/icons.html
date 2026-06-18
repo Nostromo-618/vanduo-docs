@@ -256,4 +256,69 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card">
+                                    <div class="vd-card-header">
+                                        <h6>Accessibility</h6>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-5">Phosphor icons render as empty
+                                            <code>&lt;i&gt;</code> elements (the glyph is a font), so they carry
+                                            no text for assistive tech. Two rules cover every case:</p>
+                                        <div class="vd-row">
+                                            <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                                                <div class="vd-alert vd-alert-success" style="height: 100%;">
+                                                    <i class="ph ph-check-circle"></i>
+                                                    <div><strong>Decorative</strong> (sits beside a visible
+                                                        label) → hide it with <code>aria-hidden="true"</code>;
+                                                        the label already speaks for it.</div>
+                                                </div>
+                                            </div>
+                                            <div class="vd-col-12 vd-col-md-6 vd-mb-4">
+                                                <div class="vd-alert vd-alert-info" style="height: 100%;">
+                                                    <i class="ph ph-info"></i>
+                                                    <div><strong>Meaningful &amp; standalone</strong> (icon-only
+                                                        button/link) → name the control with
+                                                        <code>aria-label="…"</code>.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                            <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                                <span class="vd-code-snippet-toggle-icon"></span>
+                                                <span>View Code</span>
+                                            </button>
+                                            <div class="vd-code-snippet-content">
+                                                <div class="vd-code-snippet-header">
+                                                    <div class="vd-code-snippet-tabs" role="tablist">
+                                                        <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                                    </div>
+                                                    <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                                        <span class="vd-code-snippet-copy-icon"></span>
+                                                        <span class="vd-code-snippet-copy-text">Copy</span>
+                                                    </button>
+                                                </div>
+                                                <div class="vd-code-snippet-body">
+                                                    <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Decorative: label is visible, hide the icon --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn vd-btn-primary"</span>&gt;
+  &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-download-simple"</span> <span class="code-attr">aria-hidden</span>=<span class="code-string">"true"</span>&gt;&lt;/<span class="code-tag">i</span>&gt; Download
+&lt;/<span class="code-tag">button</span>&gt;
+
+<span class="code-comment">&lt;!-- Icon-only: give the control an accessible name --&gt;</span>
+&lt;<span class="code-tag">button</span> <span class="code-attr">class</span>=<span class="code-string">"vd-btn"</span> <span class="code-attr">aria-label</span>=<span class="code-string">"Close dialog"</span>&gt;
+  &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-x"</span> <span class="code-attr">aria-hidden</span>=<span class="code-string">"true"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
+&lt;/<span class="code-tag">button</span>&gt;</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-4">Also mind <strong>touch
+                                            targets</strong>: keep icon-only controls at least 24×24px (WCAG 2.2).
+                                            More in <a href="#docs/accessibility-essentials">Accessibility
+                                            Essentials</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
