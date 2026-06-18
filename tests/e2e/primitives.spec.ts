@@ -38,6 +38,21 @@ test.describe('Primitives docs section @e2e', () => {
         const bg = await page.locator('#primitives .vd-box[data-bg="secondary"]').first()
             .evaluate((el) => getComputedStyle(el).backgroundColor);
         expect(bg).not.toBe('rgba(0, 0, 0, 0)');
+
+        // Frame / Cover / Switcher (v1.5.0 additions) are present and applied.
+        const more = await page.evaluate(() => {
+            const frame = document.querySelector('#primitives .vd-frame[data-ratio="golden"]');
+            const cover = document.querySelector('#primitives .vd-cover');
+            const sw = document.querySelector('#primitives .vd-switcher');
+            return {
+                frameAR: frame ? getComputedStyle(frame).aspectRatio : null,
+                coverDisplay: cover ? getComputedStyle(cover).display : null,
+                swWrap: sw ? getComputedStyle(sw).flexWrap : null,
+            };
+        });
+        expect(more.frameAR).toContain('1.618');
+        expect(more.coverDisplay).toBe('flex');
+        expect(more.swWrap).toBe('wrap');
     });
 
     test('sidebar exposes the Primitives category sections', async ({ page }) => {

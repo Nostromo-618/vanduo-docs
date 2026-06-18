@@ -296,9 +296,48 @@ export function initSectionDemos(sectionEl) {
     if (sectionEl.id === 'toasts') {
         initToastDemos(sectionEl);
     }
+    if (sectionEl.id === 'golden-ratio') {
+        initGoldenRatioDemo(sectionEl);
+    }
     if (sectionEl.querySelector('#demo-current-theme')) {
         updateThemeSwitcherDemoLabel();
     }
+}
+
+/**
+ * Interactive Fibonacci spacing slider: slide through the spacing scale and watch
+ * the bar grow by the golden ratio. Each step's ratio to the previous step
+ * hovers around φ (1.618) — the point the demo makes tangible.
+ */
+export function initGoldenRatioDemo(sectionEl) {
+    var root = sectionEl.querySelector('[data-fib-slider]');
+    if (!root) return;
+
+    var input = root.querySelector('[data-fib-slider-input]');
+    var bar = root.querySelector('[data-fib-slider-bar]');
+    var valueEl = root.querySelector('[data-fib-slider-value]');
+    var ratioEl = root.querySelector('[data-fib-slider-ratio]');
+    var tokenEl = root.querySelector('[data-fib-slider-token]');
+    if (!input || !bar) return;
+
+    var fib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+    var tokens = ['fib-1', 'fib-2', 'fib-3', 'fib-5', 'fib-8', 'fib-13', 'fib-21', 'fib-34', 'fib-55', '—', '—'];
+
+    function update() {
+        var i = Math.max(0, Math.min(fib.length - 1, parseInt(input.value, 10) || 0));
+        var px = fib[i];
+        bar.style.width = px + 'px';
+        if (valueEl) valueEl.textContent = px + 'px';
+        if (tokenEl) tokenEl.textContent = tokens[i] === '—' ? '(scale continues)' : '--vd-space-' + tokens[i];
+        if (ratioEl) {
+            ratioEl.textContent = i > 0
+                ? '×' + (fib[i] / fib[i - 1]).toFixed(3) + ' vs previous step'
+                : 'first step';
+        }
+    }
+
+    input.addEventListener('input', update);
+    update();
 }
 
 export function initMusicPlayerDemos(sectionEl) {

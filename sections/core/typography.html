@@ -1,147 +1,131 @@
 <section id="typography">
     <h5 class="demo-title"><i class="ph ph-text-aa"></i>Typography</h5>
+    <p class="vd-mb-8">A fluid, golden-ratio type system: ten size steps, φ-derived line-heights,
+        a tracking scale, and five runtime-switchable font families — all driven by
+        <code>--vd-*</code> tokens.</p>
 
+    <!-- ─────────────────────────── TYPE SCALE ─────────────────────────── -->
     <div class="vd-row">
         <div class="vd-col-12">
-            <div class="vd-card vd-card-glow demo-card">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
                 <div class="vd-card-header">
-                    <h6>Font Families</h6>
+                    <h6>Golden-ratio type scale</h6>
                 </div>
                 <div class="vd-card-body">
-                    <p>Vanduo ships with <strong>5 curated font options</strong>
-                        for runtime switching. These are the same options exposed by FontSwitcher
-                        and ThemeCustomizer in the framework and docs.</p>
-
-                    <div class="vd-row vd-gap-fib-21">
-                        <div class="vd-col-12 vd-col-md-6">
-                            <h4 class="vd-mb-4">Supported Font Keys</h4>
-                            <ul>
-                                <li><code>ubuntu</code> — Default humanist sans-serif option</li>
-                                <li><code>open-sans</code> — Neutral, highly readable sans-serif</li>
-                                <li><code>lato</code> — Friendly, rounded sans-serif</li>
-                                <li><code>jetbrains-mono</code> — Monospace optimized for code</li>
-                                <li><code>system</code> — Use platform native system stack</li>
-                            </ul>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-6">
-                            <h4 class="vd-mb-4">Behavior Notes</h4>
-                            <ul>
-                                <li>Default preference is <code>ubuntu</code>.</li>
-                                <li>Setting <code>data-font="system"</code> is equivalent to removing
-                                    <code>data-font</code>.</li>
-                                <li>Preference persists in
-                                    <code>localStorage.vanduo-font-preference</code>.</li>
-                                <li>Legacy keys (for example <code>inter</code>, <code>rubik</code>)
-                                    are normalized to supported options in docs runtime glue.</li>
-                            </ul>
+                    <div class="vd-alert vd-alert-info vd-mb-6">
+                        <i class="ph ph-info"></i>
+                        <div>
+                            <strong>Every two steps multiply by φ (1.618).</strong>
+                            The scale steps by <strong>√φ ≈ 1.272</strong>, so each pair of steps lands on the
+                            golden ratio: 16&nbsp;→&nbsp;26&nbsp;→&nbsp;42&nbsp;→&nbsp;68&nbsp;px.
+                            Sizes <code>lg</code> and up use <code>clamp()</code> to scale fluidly between a
+                            mobile (≈1.414, augmented fourth) and desktop (φ) ratio — no breakpoints needed.
                         </div>
                     </div>
 
-                    <h4>Switching Fonts</h4>
-                    <p>Use the <code>data-font</code> attribute on the HTML element:</p>
-                    <div class="vd-code-snippet" data-collapsible>
-                        <button class="vd-code-snippet-toggle" aria-expanded="false">
-                            <span class="vd-code-snippet-toggle-icon"></span>
-                            <span>View Code</span>
-                        </button>
-                        <div class="vd-code-snippet-content">
-                            <div class="vd-code-snippet-header">
-                                <div class="vd-code-snippet-tabs" role="tablist">
-                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
-                                </div>
-                                <button class="vd-code-snippet-copy" aria-label="Copy code">
-                                    <span class="vd-code-snippet-copy-icon"></span>
-                                    <span class="vd-code-snippet-copy-text">Copy</span>
-                                </button>
-                            </div>
-                            <div class="vd-code-snippet-body">
-                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Set font on HTML element --&gt;</span>
-&lt;<span class="code-tag">html</span> <span class="code-attr">data-font</span>=<span class="code-string">"ubuntu"</span>&gt;
-
-<span class="code-comment">&lt;!-- Or use the Theme Customizer (paint roller icon) to preview and select fonts --&gt;</span>
-&lt;<span class="code-tag">button</span> <span class="code-attr">data-theme-customizer-trigger</span>&gt;
-    &lt;<span class="code-tag">i</span> <span class="code-attr">class</span>=<span class="code-string">"ph ph-paint-roller"</span>&gt;&lt;/<span class="code-tag">i</span>&gt;
-&lt;/<span class="code-tag">button</span>&gt;</code></pre>
-                            </div>
+                    <div class="doc-type-scale vd-stack" data-gap="fib-5">
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-6xl">Aa</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-6xl</code> <span class="vd-badge vd-badge-secondary">54→86px</span></span>
                         </div>
-                    </div>
-                    <p class="vd-text-sm vd-text-muted">Font preference is persisted to
-                        <code>localStorage</code> and restored on page load.
-                    </p>
-
-                    <h4>Adding More Fonts</h4>
-                    <p>Need a different family than the built-in curated set? You have two options:</p>
-
-                    <h5>Option 1: Self-Host (Recommended)</h5>
-                    <p class="vd-text-sm">Download fonts from <a href="https://fonts.google.com/" target="_blank"
-                            rel="noopener">Google Fonts</a> and add them to your
-                        <code>fonts/</code> folder. Follow the same pattern as existing fonts:
-                    </p>
-                    <div class="vd-code-snippet" data-collapsible>
-                        <button class="vd-code-snippet-toggle" aria-expanded="false">
-                            <span class="vd-code-snippet-toggle-icon"></span>
-                            <span>View Code</span>
-                        </button>
-                        <div class="vd-code-snippet-content">
-                            <div class="vd-code-snippet-header">
-                                <div class="vd-code-snippet-tabs" role="tablist">
-                                    <button class="vd-code-snippet-tab is-active" data-lang="text">Steps</button>
-                                </div>
-                                <button class="vd-code-snippet-copy" aria-label="Copy code">
-                                    <span class="vd-code-snippet-copy-icon"></span>
-                                    <span class="vd-code-snippet-copy-text">Copy</span>
-                                </button>
-                            </div>
-                            <div class="vd-code-snippet-body">
-                                <pre class="vd-code-snippet-pane is-active" data-lang="text"><code>1. Create folder: fonts/my-font/
-2. Add woff2 files
-3. Add @font-face rules to css/core/fonts.css
-4. Add [data-font="my-font"] selector to css/core/typography.css
-5. Register in js/components/font-switcher.js and js/components/theme-customizer.js
-6. (Docs site) add key mapping in docs/js/app.js docsFontOptions/SUPPORTED_CUSTOMIZER_FONTS</code></pre>
-                            </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-5xl">Aa</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-5xl</code> <span class="vd-badge vd-badge-secondary">45→68px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-4xl">Aa</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-4xl</code> <span class="vd-badge vd-badge-secondary">37→53px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-3xl">The quick brown fox</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-3xl</code> <span class="vd-badge vd-badge-secondary">31→42px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-2xl">The quick brown fox</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-2xl</code> <span class="vd-badge vd-badge-secondary">26→33px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-xl">The quick brown fox jumps</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-xl</code> <span class="vd-badge vd-badge-secondary">22→26px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-lg">The quick brown fox jumps over</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-lg</code> <span class="vd-badge vd-badge-secondary">18→20px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-base">The quick brown fox jumps over the lazy dog</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-base</code> <span class="vd-badge vd-badge-primary">16px</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline" style="border-bottom: 1px solid var(--vd-border-color); padding-bottom: 0.5rem;">
+                            <span class="vd-text-sm">The quick brown fox jumps over the lazy dog</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-sm</code> <span class="vd-badge vd-badge-secondary">13px&nbsp;·&nbsp;fib</span></span>
+                        </div>
+                        <div class="vd-inline" data-justify="between" data-align="baseline">
+                            <span class="vd-text-xs">The quick brown fox jumps over the lazy dog</span>
+                            <span class="vd-inline" data-gap="fib-5" data-align="center"><code>--vd-font-size-xs</code> <span class="vd-badge vd-badge-secondary">10px</span></span>
                         </div>
                     </div>
 
-                    <h5>Option 2: Google Fonts CDN</h5>
-                    <p class="vd-text-sm">For quick prototyping, use a Google Fonts CDN link in your
-                        HTML
-                        head:</p>
-                    <div class="vd-code-snippet" data-collapsible>
-                        <button class="vd-code-snippet-toggle" aria-expanded="false">
-                            <span class="vd-code-snippet-toggle-icon"></span>
-                            <span>View Code</span>
-                        </button>
-                        <div class="vd-code-snippet-content">
-                            <div class="vd-code-snippet-header">
-                                <div class="vd-code-snippet-tabs" role="tablist">
-                                    <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
-                                </div>
-                                <button class="vd-code-snippet-copy" aria-label="Copy code">
-                                    <span class="vd-code-snippet-copy-icon"></span>
-                                    <span class="vd-code-snippet-copy-text">Copy</span>
-                                </button>
-                            </div>
-                            <div class="vd-code-snippet-body">
-                                <pre class="vd-code-snippet-pane is-active" data-lang="html"><code>&lt;<span class="code-tag">link</span> <span class="code-attr">rel</span>=<span class="code-string">"preconnect"</span> <span class="code-attr">href</span>=<span class="code-string">"https://fonts.googleapis.com"</span>&gt;
-&lt;<span class="code-tag">link</span> <span class="code-attr">href</span>=<span class="code-string">"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"</span> <span class="code-attr">rel</span>=<span class="code-string">"stylesheet"</span>&gt;
-
-&lt;<span class="code-tag">style</span>&gt;
-  <span class="code-selector">[data-font="roboto"]</span> {
-    <span class="code-property">--vd-font-family-sans</span>: <span class="code-string">'Roboto', sans-serif</span>;
-  }
-&lt;/<span class="code-tag">style</span>&gt;</code></pre>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5">Utility classes
+                        <code>.vd-text-xs</code> … <code>.vd-text-6xl</code> apply each step. See the
+                        <a href="#docs/golden-ratio">Golden Ratio</a> page for the proportional system
+                        these derive from.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ─────────────────────────── LEADING + TRACKING ─────────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-lg-7">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8" style="height: 100%;">
+                <div class="vd-card-header">
+                    <h6>Line height (leading) — φ-derived</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Line-heights come straight from φ: <code>1.236</code> (2/φ),
+                        <code>1.382</code>, <code>1.5</code>, and <code>1.618</code> (φ itself).</p>
+                    <div class="vd-stack" data-gap="fib-8">
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">
+                            <span class="vd-badge vd-badge-secondary vd-mb-2" style="display:inline-block;">tight · 1.236</span>
+                            <p class="vd-mb-0" style="line-height: var(--vd-line-height-tight);">Vanduo keeps vertical rhythm tied to the golden ratio so dense headings and body copy feel balanced without hand-tuning every block.</p>
+                        </div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">
+                            <span class="vd-badge vd-badge-secondary vd-mb-2" style="display:inline-block;">normal · 1.5</span>
+                            <p class="vd-mb-0" style="line-height: var(--vd-line-height-normal);">Vanduo keeps vertical rhythm tied to the golden ratio so dense headings and body copy feel balanced without hand-tuning every block.</p>
+                        </div>
+                        <div class="vd-box" data-pad="fib-8" data-bg="secondary" data-round="md">
+                            <span class="vd-badge vd-badge-primary vd-mb-2" style="display:inline-block;">relaxed · 1.618 (φ)</span>
+                            <p class="vd-mb-0" style="line-height: var(--vd-line-height-relaxed);">Vanduo keeps vertical rhythm tied to the golden ratio so dense headings and body copy feel balanced without hand-tuning every block.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vd-col-12 vd-col-lg-5">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8" style="height: 100%;">
+                <div class="vd-card-header">
+                    <h6>Letter spacing (tracking)</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Six tracking tokens, from <code>tighter</code> to <code>widest</code>.</p>
+                    <div class="vd-stack" data-gap="fib-5">
+                        <div><span class="vd-text-sm vd-text-muted">tighter · −0.05em</span><br><span class="vd-text-lg" style="letter-spacing: var(--vd-letter-spacing-tighter);">Vanduo</span></div>
+                        <div><span class="vd-text-sm vd-text-muted">normal · 0</span><br><span class="vd-text-lg" style="letter-spacing: var(--vd-letter-spacing-normal);">Vanduo</span></div>
+                        <div><span class="vd-text-sm vd-text-muted">wider · 0.05em</span><br><span class="vd-text-lg" style="letter-spacing: var(--vd-letter-spacing-wider);">Vanduo</span></div>
+                        <div><span class="vd-text-sm vd-text-muted">widest · 0.1em</span><br><span class="vd-text-lg" style="letter-spacing: var(--vd-letter-spacing-widest);">Vanduo</span></div>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-5">Applied via the
+                        <code>--vd-letter-spacing-*</code> tokens.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─────────────────────────── HEADINGS + WEIGHTS ─────────────────────────── -->
     <div class="vd-row">
         <div class="vd-col-12 vd-col-md-6">
-            <div class="vd-card vd-card-glow demo-card">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
                 <div class="vd-card-header">
                     <h6>Headings</h6>
                 </div>
@@ -155,120 +139,99 @@
                 </div>
             </div>
         </div>
-
         <div class="vd-col-12 vd-col-md-6">
-            <div class="vd-card vd-card-glow demo-card">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
                 <div class="vd-card-header">
-                    <h6>Text Utilities</h6>
-                </div>
-                <div class="vd-card-body doc-typography-utilities">
-                    <p class="vd-text-primary">Primary text color</p>
-                    <p class="vd-text-secondary">Secondary text color</p>
-                    <p class="vd-text-success">Success text color</p>
-                    <p class="vd-text-warning">Warning text color</p>
-                    <p class="vd-text-error">Error text color</p>
-                    <p class="vd-text-info">Info text color</p>
-                    <p class="vd-text-muted">Muted text color</p>
-                    <p class="vd-text-sm">Small text</p>
-                    <p class="vd-text-lg">Large text</p>
-                    <p class="vd-font-bold">Bold text</p>
-                    <p class="vd-text-italic">Italic text</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="vd-row">
-        <div class="vd-col-12">
-            <div class="vd-card vd-card-glow demo-card">
-                <div class="vd-card-header">
-                    <h6>Color Utilities</h6>
+                    <h6>Weights &amp; styles</h6>
                 </div>
                 <div class="vd-card-body">
-                    <div class="vd-row">
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-primary vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Primary</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-secondary vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Secondary</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-success vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Success</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-warning vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Warning</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-error vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Error</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-info vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Info</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-dark vd-text-white vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Dark</div>
-                        </div>
-                        <div class="vd-col-12 vd-col-md-3 vd-col-sm-6">
-                            <div class="vd-bg-light vd-text-black vd-p-3 vd-mb-2"
-                                style="border-radius: var(--vd-btn-border-radius);">Light</div>
-                        </div>
-                    </div>
+                    <p class="vd-font-light vd-mb-2">Light · <code>.vd-font-light</code> (300)</p>
+                    <p class="vd-font-normal vd-mb-2">Normal · <code>.vd-font-normal</code> (400)</p>
+                    <p class="vd-font-medium vd-mb-2">Medium · <code>.vd-font-medium</code> (500)</p>
+                    <p class="vd-font-semibold vd-mb-2">Semibold · <code>.vd-font-semibold</code> (600)</p>
+                    <p class="vd-font-bold vd-mb-2">Bold · <code>.vd-font-bold</code> (700)</p>
+                    <p class="vd-font-extrabold vd-mb-2">Extrabold · <code>.vd-font-extrabold</code> (800)</p>
+                    <p class="vd-text-italic vd-mb-0">Italic · <code>.vd-text-italic</code></p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ─────────────────────────── FONT FAMILIES ─────────────────────────── -->
+    <div class="vd-row">
+        <div class="vd-col-12">
+            <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                <div class="vd-card-header">
+                    <h6>Font families &amp; runtime switching</h6>
+                </div>
+                <div class="vd-card-body">
+                    <p class="vd-mb-5">Vanduo ships <strong>5 curated font options</strong>, switchable at
+                        runtime via the <code>data-font</code> attribute on <code>&lt;html&gt;</code> (also
+                        exposed by FontSwitcher and the Theme Customizer). The preference persists in
+                        <code>localStorage.vanduo-font-preference</code>.</p>
+                    <div class="vd-row vd-gap-fib-21">
+                        <div class="vd-col-12 vd-col-md-6">
+                            <ul>
+                                <li><code>ubuntu</code> — default humanist sans-serif</li>
+                                <li><code>open-sans</code> — neutral, highly readable</li>
+                                <li><code>lato</code> — friendly, rounded sans-serif</li>
+                                <li><code>jetbrains-mono</code> — monospace for code</li>
+                                <li><code>system</code> — native system stack (same as omitting <code>data-font</code>)</li>
+                            </ul>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <div class="vd-code-snippet" data-collapsible data-expanded="true">
+                                <button class="vd-code-snippet-toggle" aria-expanded="true">
+                                    <span class="vd-code-snippet-toggle-icon"></span>
+                                    <span>View Code</span>
+                                </button>
+                                <div class="vd-code-snippet-content">
+                                    <div class="vd-code-snippet-header">
+                                        <div class="vd-code-snippet-tabs" role="tablist">
+                                            <button class="vd-code-snippet-tab is-active" data-lang="html">HTML</button>
+                                        </div>
+                                        <button class="vd-code-snippet-copy" aria-label="Copy code">
+                                            <span class="vd-code-snippet-copy-icon"></span>
+                                            <span class="vd-code-snippet-copy-text">Copy</span>
+                                        </button>
+                                    </div>
+                                    <div class="vd-code-snippet-body">
+                                        <pre class="vd-code-snippet-pane is-active" data-lang="html"><code><span class="code-comment">&lt;!-- Set a curated font on the document --&gt;</span>
+&lt;<span class="code-tag">html</span> <span class="code-attr">data-font</span>=<span class="code-string">"ubuntu"</span>&gt;
+
+<span class="code-comment">&lt;!-- Add your own: register a stack on the attribute --&gt;</span>
+&lt;<span class="code-tag">style</span>&gt;
+  <span class="code-selector">[data-font="roboto"]</span> { <span class="code-property">--vd-font-family-sans</span>: <span class="code-string">'Roboto', sans-serif</span>; }
+&lt;/<span class="code-tag">style</span>&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="vd-text-sm vd-text-muted vd-mt-4">Self-hosting steps and the Google Fonts CDN
+                        path are covered in
+                        <a href="#docs/css-variables-theming">CSS Variables &amp; Theming</a>. For minimum
+                        readable sizes and contrast, see
+                        <a href="#docs/accessibility-essentials">Accessibility Essentials</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─────────────────────────── API ─────────────────────────── -->
     <h4 id="api" class="docs-heading">API Reference</h4>
     <div class="vd-table-responsive" style="margin-bottom: 3rem;">
         <table class="vd-table vd-table-hover">
             <thead>
-                <tr>
-                    <th style="width: 25%;">Class Name / Attribute</th>
-                    <th style="width: 55%;">Description</th>
-                    <th style="width: 20%;">Type</th>
-                </tr>
+                <tr><th style="width: 30%;">Class / Token</th><th style="width: 50%;">Description</th><th style="width: 20%;">Type</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><code>data-font="[name]"</code></td>
-                    <td>Applies a supported font stack on <code>&lt;html&gt;</code> (e.g.,
-                        <code>lato</code>, <code>open-sans</code>, <code>ubuntu</code>,
-                        <code>jetbrains-mono</code>, <code>system</code>).</td>
-                    <td>Attribute</td>
-                </tr>
-                <tr>
-                    <td><code>.vd-text-[variant]</code></td>
-                    <td>Modifies text color (e.g., <code>-primary</code>, <code>-success</code>, <code>-error</code>,
-                        <code>-muted</code>, <code>-white</code>).</td>
-                    <td>Utility</td>
-                </tr>
-                <tr>
-                    <td><code>.vd-bg-[variant]</code></td>
-                    <td>Modifies background color (e.g., <code>-primary</code>, <code>-success</code>,
-                        <code>-error</code>, <code>-dark</code>, <code>-light</code>).</td>
-                    <td>Utility</td>
-                </tr>
-                <tr>
-                    <td><code>.vd-text-[size]</code></td>
-                    <td>Modifies text sizing (e.g., <code>-sm</code> for small, <code>-lg</code> for large).</td>
-                    <td>Utility</td>
-                </tr>
-                <tr>
-                    <td><code>.vd-font-bold</code></td>
-<td>Applies a bold font weight.</td>
-                    <td>Utility</td>
-                </tr>
-                <tr>
-                    <td><code>.vd-text-italic</code></td>
-                    <td>Applies italic font style.</td>
-                    <td>Utility</td>
-                </tr>
+                <tr><td><code>.vd-text-xs</code> … <code>.vd-text-6xl</code></td><td>Apply a step of the golden-ratio type scale.</td><td>Utility</td></tr>
+                <tr><td><code>.vd-font-light</code> … <code>.vd-font-extrabold</code></td><td>Font weight, 300–800.</td><td>Utility</td></tr>
+                <tr><td><code>.vd-text-italic</code></td><td>Italic font style.</td><td>Utility</td></tr>
+                <tr><td><code>--vd-line-height-{tight,snug,normal,relaxed,loose}</code></td><td>φ-derived leading tokens (1.236 → 2).</td><td>Token</td></tr>
+                <tr><td><code>--vd-letter-spacing-{tighter…widest}</code></td><td>Tracking tokens (−0.05em → 0.1em).</td><td>Token</td></tr>
+                <tr><td><code>data-font="[name]"</code></td><td>Curated font stack on <code>&lt;html&gt;</code> (<code>ubuntu</code>, <code>open-sans</code>, <code>lato</code>, <code>jetbrains-mono</code>, <code>system</code>).</td><td>Attribute</td></tr>
             </tbody>
         </table>
     </div>

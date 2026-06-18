@@ -263,6 +263,68 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                                    <div class="vd-card-header">
+                                        <h6>Feel the ratio — interactive spacing scale</h6>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-5">Drag through the Fibonacci spacing scale. Each
+                                            step's ratio to the one before it sits near
+                                            <strong>φ (1.618)</strong> — that convergence is why the rhythm
+                                            feels balanced without manual tuning.</p>
+                                        <div data-fib-slider>
+                                            <input type="range" class="vd-range" min="0" max="10" value="5" style="width: 100%;" data-fib-slider-input aria-label="Fibonacci spacing step">
+                                            <div class="vd-mt-6" style="display: flex; align-items: center; gap: 1.25rem;">
+                                                <div data-fib-slider-bar style="height: 28px; width: 13px; background: var(--vd-color-primary); border-radius: var(--vd-radius-fib-3); transition: width 0.15s ease;"></div>
+                                                <div>
+                                                    <strong data-fib-slider-value class="vd-text-xl">13px</strong>
+                                                    <div class="vd-text-sm vd-text-muted"><code data-fib-slider-token>--vd-space-fib-13</code> · <span data-fib-slider-ratio>×1.625 vs previous step</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- Shadows & Glow Section -->
+                        <div class="vd-row">
+                            <div class="vd-col-12">
+                                <div class="vd-card vd-card-glow demo-card vd-mb-8">
+                                    <div class="vd-card-header">
+                                        <h6>Where the golden ratio lives — and where it doesn't</h6>
+                                    </div>
+                                    <div class="vd-card-body">
+                                        <p class="vd-mb-5">Vanduo is Fibonacci/φ-first in its <em>design
+                                            language</em>, and pragmatically conventional where familiarity
+                                            beats math. We'd rather be honest than dogmatic.</p>
+                                        <div class="vd-table-responsive">
+                                            <table class="vd-table vd-table-hover">
+                                                <thead>
+                                                    <tr><th style="width: 45%;">Aspect</th><th style="width: 40%;">Basis</th><th style="width: 15%;"></th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td>Spacing scale (<code>--vd-space-fib-*</code>)</td><td>Fibonacci — 1, 2, 3, 5, 8, 13, 21…</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Radius scale</td><td>Fibonacci</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Shadows &amp; elevation</td><td>Fibonacci offset/blur pairs (1/2, 2/3, 3/5…)</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Type scale</td><td>Golden scale at √φ (≈1.272) steps</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Line-heights</td><td>φ-derived — 1.236, 1.382, 1.618</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Button / card padding</td><td>Fibonacci pairs (~φ ratio)</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Container widths</td><td>Fibonacci / Lucas — 610, 987, 1597</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Golden &amp; Fibonacci grids</td><td>Opt-in (<code>.vd-grid-golden</code>, <code>.vd-row-fib-*</code>)</td><td><span class="vd-badge vd-badge-success">φ</span></td></tr>
+                                                    <tr><td>Default 12-column grid</td><td>Equal columns — φ grids are a class away</td><td><span class="vd-badge vd-badge-secondary">conventional</span></td></tr>
+                                                    <tr><td>Responsive breakpoints</td><td>Familiar 576 / 768 / 992 / 1200 / 1400</td><td><span class="vd-badge vd-badge-secondary">conventional</span></td></tr>
+                                                    <tr><td>z-index &amp; transition timings</td><td>Standard increments</td><td><span class="vd-badge vd-badge-secondary">conventional</span></td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="vd-text-sm vd-text-muted vd-mt-5">Compare layouts side by
+                                            side in <a href="#docs/fibonacci-vs-standard">Fibonacci vs
+                                            Standard</a>, or flip the live toggle on the
+                                            <a href="#docs/grid-system">Grid System</a> page.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>

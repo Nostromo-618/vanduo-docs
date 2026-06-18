@@ -131,7 +131,7 @@
             },
             {
               "id": "primitives",
-              "title": "Box, Stack & Inline",
+              "title": "Layout Primitives",
               "file": "primitives/primitives.html",
               "icon": "ph-square-half",
               "keywords": [
@@ -139,11 +139,14 @@
                 "stack",
                 "inline",
                 "center",
+                "frame",
+                "cover",
+                "switcher",
+                "aspect ratio",
+                "golden",
                 "layout primitive",
                 "gap",
-                "pad",
-                "data-gap",
-                "data-pad"
+                "pad"
               ]
             }
           ]

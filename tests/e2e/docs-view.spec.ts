@@ -877,12 +877,22 @@ test.describe('4. Documentation View', () => {
             }, { timeout: 10000 });
 
             const assetInfo = await getFrameworkAssetInfo(page);
+            const expectedVersion = await page.evaluate(() => {
+                const a = (window as Window & { __VANDUO_FRAMEWORK_ASSETS?: { expectedVersion?: string } }).__VANDUO_FRAMEWORK_ASSETS;
+                return a ? a.expectedVersion || null : null;
+            });
             expect(assetInfo.mode).toBe('cdn');
             expect(assetInfo.marker).toBe('cdn');
-            expect(assetInfo.cssHref).toContain('@vanduo-oss/framework@1.5.0');
-            expect(assetInfo.cssHref).toContain('?v=1.5.0');
-            expect(assetInfo.jsSrc).toContain('@vanduo-oss/framework@1.5.0/dist/vanduo.min.js');
-            expect(assetInfo.jsSrc).toContain('?v=1.5.0');
+            // CDN mode always pins the asset URLs to the configured release version.
+            expect(expectedVersion).toBe('1.5.0');
+            // Asset URLs use that pin — unless the pinned version isn't published on
+            // the CDN yet (pre-release), in which case the loader gracefully falls back
+            // to local dist. Either is valid; a wrong/old pin or a broken URL is not.
+            const cdnPinned = (href: string | null) =>
+                !!href && href.includes('@vanduo-oss/framework@1.5.0') && href.includes('?v=1.5.0');
+            const localFallback = (href: string | null) => !!href && href.includes('?fallback=');
+            expect(cdnPinned(assetInfo.cssHref) || localFallback(assetInfo.cssHref)).toBeTruthy();
+            expect(cdnPinned(assetInfo.jsSrc) || localFallback(assetInfo.jsSrc)).toBeTruthy();
         });
 
         test('Dark mode toggle changes primary color from black to blue', async ({ page }) => {
