@@ -2,6 +2,7 @@ import { setMorphBadgeContent } from './utils.js';
 
 var hexGridInstance = null;
 var hexGridDemoScope = null;
+var hexGridThemeCleanup = null;
 
 export function initHexGridDemo(scope) {
     var containerRoot = scope || document;
@@ -23,6 +24,10 @@ export function initHexGridDemo(scope) {
         || (hexGridInstance.element !== demoContainer);
 
     if (isNewScope && hexGridInstance) {
+        if (hexGridThemeCleanup) {
+            hexGridThemeCleanup();
+            hexGridThemeCleanup = null;
+        }
         hexGridInstance.destroy();
         hexGridInstance = null;
     }
@@ -45,6 +50,41 @@ export function initHexGridDemo(scope) {
         });
         hexGridInstance = grid;
         hexGridDemoScope = scopeToken;
+
+        // The published @vanduo-oss/hex-grid build reads legacy unprefixed CSS
+        // custom properties (--bg-primary, --text-primary, …) that don't exist
+        // under the framework's strict --vd-* token contract, so its canvas falls
+        // back to fixed light colors regardless of theme. Re-point the instance's
+        // theme reader at the --vd-* tokens and re-render on theme / system changes.
+        if (typeof grid._getThemeColors === 'function' && typeof grid._render === 'function') {
+            grid._getThemeColors = function () {
+                var styles = getComputedStyle(document.documentElement);
+                var read = function (token, fallback) {
+                    return styles.getPropertyValue(token).trim() || fallback;
+                };
+                return {
+                    bgPrimary: read('--vd-bg-primary', '#ffffff'),
+                    bgSecondary: read('--vd-bg-secondary', '#f5f5f5'),
+                    borderColor: read('--vd-border-color', '#e0e0e0'),
+                    colorPrimary: read('--vd-color-primary', '#3b82f6'),
+                    textColor: read('--vd-text-primary', '#1f2937'),
+                    textMuted: read('--vd-text-muted', '#6b7280')
+                };
+            };
+            var applyHexTheme = function () {
+                grid.themeColors = grid._getThemeColors();
+                grid._render();
+            };
+            applyHexTheme();
+            // The grid's own MutationObserver already re-renders when the docs flip
+            // the data-theme attribute (manual switch + resolved "system"); also
+            // follow OS-level changes that may not flip the attribute.
+            var hexColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            hexColorScheme.addEventListener('change', applyHexTheme);
+            hexGridThemeCleanup = function () {
+                hexColorScheme.removeEventListener('change', applyHexTheme);
+            };
+        }
 
         var sizeValue = containerRoot.querySelector('#hex-size-value');
         var widthValue = containerRoot.querySelector('#hex-width-value');
