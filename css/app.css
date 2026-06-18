@@ -155,11 +155,20 @@
 
         .hero-title-brand {
             font-weight: bold;
+            line-height: 1;
         }
 
-        .hero-title .hero-title-brand + .vd-text-muted,
-        .hero-title .hero-title-brand + .hero-subtitle-rotate {
-            margin-left: 0.3em;
+        .hero-title-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        .hero-title-text .hero-subtitle-rotate {
+            margin-top: 0.2em;
+            margin-left: 0;
         }
 
         .hero-subtitle-rotate {
@@ -188,10 +197,9 @@
             transform: translateY(-0.15em);
         }
 
-        /* Logo 15% smaller than prior 2.2em baseline (~1.87em) */
         .hero-title-logo {
-            width: 1.87em;
-            height: 1.87em;
+            width: 5.61em;
+            height: 5.61em;
             display: block;
             object-fit: contain;
             transform-origin: 50% 50%;
@@ -275,12 +283,16 @@
                 line-height: 1;
             }
 
+            .hero-title-text {
+                align-items: center;
+            }
+
             .hero-title .vd-text-muted,
             .hero-title .hero-subtitle-rotate {
                 font-size: 0.5em;
                 line-height: 1;
                 margin-left: 0;
-                margin-top: -0.1em;
+                margin-top: 0.15em;
             }
 
             .hero-cta-buttons {
@@ -1226,10 +1238,10 @@
             box-shadow: var(--vd-glass-float-shadow);
         }
 
-        /* Hero CTA: Fibonacci 5:4:2 (largest first, middle gets more room for "Browse Components") */
+        /* Hero CTA: Fibonacci 3:2:1 (Getting Started : Components : GitHub) */
         .hero-cta-buttons {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 3fr 2fr 1fr;
             gap: var(--vd-spacing-6, 1.5rem);
             align-items: stretch;
             width: 100%;
@@ -1237,11 +1249,19 @@
 
         .hero-cta-buttons .vd-btn {
             min-width: 0;
+            width: 100%;
             text-align: center;
             white-space: nowrap;
+            padding-block: 0.625rem;
+            font-size: var(--vd-font-size-sm);
+        }
+
+        .hero-cta-buttons .vd-btn + .vd-btn {
+            margin-left: 0;
         }
 
         .hero-cta-buttons .vd-btn i {
+            font-size: 1.2em;
             margin-right: 0.375em;
             vertical-align: middle;
         }
