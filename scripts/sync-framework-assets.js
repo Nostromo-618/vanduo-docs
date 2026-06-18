@@ -139,25 +139,10 @@ function syncFrameworkAssets() {
     console.log('[sync-framework-assets] Synced framework/icons/ (all weights) → docs/dist/icons/');
   }
 
-  // Sync framework JS component and util files needed by docs demos.
-  const frameworkJsDir = path.join(frameworkRoot, 'js');
-  const docsJsDir = path.join(docsRoot, 'js');
-
-  const jsSubdirs = ['components', 'utils'];
-  jsSubdirs.forEach((subdir) => {
-    const src = path.join(frameworkJsDir, subdir);
-    const dst = path.join(docsJsDir, subdir);
-    if (existsSync(src)) {
-      mkdirSync(dst, { recursive: true });
-      const entries = readdirSync(src);
-      entries.forEach((entry) => {
-        if (entry.endsWith('.js')) {
-          cpSync(path.join(src, entry), path.join(dst, entry), { force: true });
-        }
-      });
-      console.log('[sync-framework-assets] Synced ' + entries.filter(e => e.endsWith('.js')).length + ' files from framework/js/' + subdir + '/ → docs/js/' + subdir + '/');
-    }
-  });
+  // NOTE: framework js/components and js/utils are intentionally NOT synced. The
+  // docs use the framework bundle (window.Vanduo) for components; the only former
+  // consumer was the hex demo, now sourced from the @vanduo-oss/hex-grid npm
+  // package via scripts/sync-ecosystem-assets.js.
 
   console.log(
     '[sync-framework-assets] Synced ' + frameworkEntries.length + ' framework entries into ' + docsDistDir + '.'

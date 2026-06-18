@@ -7,6 +7,19 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vanduo-oss/charts':
+        specifier: 0.0.1
+        version: 0.0.1
+      '@vanduo-oss/flowchart':
+        specifier: 0.0.1
+        version: 0.0.1
+      '@vanduo-oss/hex-grid':
+        specifier: 1.0.0
+        version: 1.0.0
+      '@vanduo-oss/music-player':
+        specifier: 0.0.1
+        version: 0.0.1
     devDependencies:
       '@playwright/test':
         specifier: ^1.60.0
@@ -18,6 +31,22 @@ packages:
     resolution: {integrity: sha512-O71yZIbAh/PxDMNGns37GHBIfrVkEVyn+AXyIa5dOTfb4/xNvRWV+Vv/NMbNCtODB/pO7vLlF2OTmMVLhmr7Ag==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@vanduo-oss/charts@0.0.1':
+    resolution: {integrity: sha512-869ECeB1uY3gRR8XFz+FzTR8uzLbGQWA+8smB1zTca/oaDajD1Yr56T51dRMEw59WB3gXCfpm+gnzH6feRBw2A==}
+    engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
+
+  '@vanduo-oss/flowchart@0.0.1':
+    resolution: {integrity: sha512-0u1dHj/VJSWv30tSDSmqDOgRto0Tlk3Oxiu59TAoXaoARmPndWPwNiOd07Jay3Z+IH52BNvfSXqbUV/zUtepyA==}
+    engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
+
+  '@vanduo-oss/hex-grid@1.0.0':
+    resolution: {integrity: sha512-SZPZMe2/kLOWwEEa7Q+NYtT8d2lK7D+5nLlXJqhMW6t6/ucvue33ou/HUNHRqf3oxG/C7yGG2XF9cf5dva0qNw==}
+    engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
+
+  '@vanduo-oss/music-player@0.0.1':
+    resolution: {integrity: sha512-KkNyXKXpKx+pP7QZ5be41XwLGGzYGJW1CZxLU49PworIPdQlkLKBT9ME3qHaCjuYT9qDI7lhB1SK9IW0OyEihg==}
+    engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -39,6 +68,14 @@ snapshots:
   '@playwright/test@1.60.0':
     dependencies:
       playwright: 1.60.0
+
+  '@vanduo-oss/charts@0.0.1': {}
+
+  '@vanduo-oss/flowchart@0.0.1': {}
+
+  '@vanduo-oss/hex-grid@1.0.0': {}
+
+  '@vanduo-oss/music-player@0.0.1': {}
 
   fsevents@2.3.2:
     optional: true

@@ -5,11 +5,12 @@
   "description": "Vanduo documentation and website",
   "scripts": {
     "sync:framework": "node scripts/sync-framework-assets.js",
+    "sync:ecosystem": "node scripts/sync-ecosystem-assets.js",
     "sync:release-version": "node scripts/sync-release-version.js",
     "check:release-version": "node scripts/sync-release-version.js --check",
     "audit:v144": "node scripts/audit-v144-docs.js",
     "dev": "pnpm run preview:local",
-    "preview:local": "pnpm run sync:framework && npx --yes serve -l 8787",
+    "preview:local": "pnpm run sync:framework && pnpm run sync:ecosystem && npx --yes serve -l 8787",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
@@ -36,5 +37,11 @@
       "@playwright/test": true
     }
   },
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "@vanduo-oss/charts": "0.0.1",
+    "@vanduo-oss/flowchart": "0.0.1",
+    "@vanduo-oss/hex-grid": "1.0.0",
+    "@vanduo-oss/music-player": "0.0.1"
+  }
 }

@@ -2,6 +2,7 @@ import { setMorphBadgeContent } from './utils.js';
 
 var hexGridInstance = null;
 var hexGridDemoScope = null;
+var hexGridThemeCleanup = null;
 
 export function initHexGridDemo(scope) {
     var containerRoot = scope || document;
@@ -23,6 +24,10 @@ export function initHexGridDemo(scope) {
         || (hexGridInstance.element !== demoContainer);
 
     if (isNewScope && hexGridInstance) {
+        if (hexGridThemeCleanup) {
+            hexGridThemeCleanup();
+            hexGridThemeCleanup = null;
+        }
         hexGridInstance.destroy();
         hexGridInstance = null;
     }
@@ -45,6 +50,43 @@ export function initHexGridDemo(scope) {
         });
         hexGridInstance = grid;
         hexGridDemoScope = scopeToken;
+
+        // The published @vanduo-oss/hex-grid@1.0.0 build reads legacy unprefixed CSS
+        // custom properties (--bg-primary, --text-primary, …) that don't exist
+        // under the framework's strict --vd-* token contract, so its canvas falls
+        // back to fixed light colors regardless of theme. Re-point the instance's
+        // theme reader at the --vd-* tokens and re-render on theme / system changes.
+        // REMOVE this shim once the dependency is bumped to >= 1.0.1, which reads
+        // --vd-* tokens and follows prefers-color-scheme natively.
+        if (typeof grid._getThemeColors === 'function' && typeof grid._render === 'function') {
+            grid._getThemeColors = function () {
+                var styles = getComputedStyle(document.documentElement);
+                var read = function (token, fallback) {
+                    return styles.getPropertyValue(token).trim() || fallback;
+                };
+                return {
+                    bgPrimary: read('--vd-bg-primary', '#ffffff'),
+                    bgSecondary: read('--vd-bg-secondary', '#f5f5f5'),
+                    borderColor: read('--vd-border-color', '#e0e0e0'),
+                    colorPrimary: read('--vd-color-primary', '#3b82f6'),
+                    textColor: read('--vd-text-primary', '#1f2937'),
+                    textMuted: read('--vd-text-muted', '#6b7280')
+                };
+            };
+            var applyHexTheme = function () {
+                grid.themeColors = grid._getThemeColors();
+                grid._render();
+            };
+            applyHexTheme();
+            // The grid's own MutationObserver already re-renders when the docs flip
+            // the data-theme attribute (manual switch + resolved "system"); also
+            // follow OS-level changes that may not flip the attribute.
+            var hexColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            hexColorScheme.addEventListener('change', applyHexTheme);
+            hexGridThemeCleanup = function () {
+                hexColorScheme.removeEventListener('change', applyHexTheme);
+            };
+        }
 
         var sizeValue = containerRoot.querySelector('#hex-size-value');
         var widthValue = containerRoot.querySelector('#hex-width-value');
@@ -296,9 +338,48 @@ export function initSectionDemos(sectionEl) {
     if (sectionEl.id === 'toasts') {
         initToastDemos(sectionEl);
     }
+    if (sectionEl.id === 'golden-ratio') {
+        initGoldenRatioDemo(sectionEl);
+    }
     if (sectionEl.querySelector('#demo-current-theme')) {
         updateThemeSwitcherDemoLabel();
     }
+}
+
+/**
+ * Interactive Fibonacci spacing slider: slide through the spacing scale and watch
+ * the bar grow by the golden ratio. Each step's ratio to the previous step
+ * hovers around φ (1.618) — the point the demo makes tangible.
+ */
+export function initGoldenRatioDemo(sectionEl) {
+    var root = sectionEl.querySelector('[data-fib-slider]');
+    if (!root) return;
+
+    var input = root.querySelector('[data-fib-slider-input]');
+    var bar = root.querySelector('[data-fib-slider-bar]');
+    var valueEl = root.querySelector('[data-fib-slider-value]');
+    var ratioEl = root.querySelector('[data-fib-slider-ratio]');
+    var tokenEl = root.querySelector('[data-fib-slider-token]');
+    if (!input || !bar) return;
+
+    var fib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+    var tokens = ['fib-1', 'fib-2', 'fib-3', 'fib-5', 'fib-8', 'fib-13', 'fib-21', 'fib-34', 'fib-55', '—', '—'];
+
+    function update() {
+        var i = Math.max(0, Math.min(fib.length - 1, parseInt(input.value, 10) || 0));
+        var px = fib[i];
+        bar.style.width = px + 'px';
+        if (valueEl) valueEl.textContent = px + 'px';
+        if (tokenEl) tokenEl.textContent = tokens[i] === '—' ? '(scale continues)' : '--vd-space-' + tokens[i];
+        if (ratioEl) {
+            ratioEl.textContent = i > 0
+                ? '×' + (fib[i] / fib[i - 1]).toFixed(3) + ' vs previous step'
+                : 'first step';
+        }
+    }
+
+    input.addEventListener('input', update);
+    update();
 }
 
 export function initMusicPlayerDemos(sectionEl) {

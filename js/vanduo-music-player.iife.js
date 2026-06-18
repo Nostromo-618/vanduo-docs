@@ -25,7 +25,7 @@ var VanduoMusicPlayer = (() => {
     default: () => index_default,
     reinit: () => reinit
   });
-  var VD_MUSIC_PLAYER_VERSION = "1.0.0";
+  var VD_MUSIC_PLAYER_VERSION = "0.0.1";
   var CORNER_POSITIONS = [
     "bottom-left",
     "bottom-right",
