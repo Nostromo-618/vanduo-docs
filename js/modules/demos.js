@@ -51,11 +51,13 @@ export function initHexGridDemo(scope) {
         hexGridInstance = grid;
         hexGridDemoScope = scopeToken;
 
-        // The published @vanduo-oss/hex-grid build reads legacy unprefixed CSS
+        // The published @vanduo-oss/hex-grid@1.0.0 build reads legacy unprefixed CSS
         // custom properties (--bg-primary, --text-primary, …) that don't exist
         // under the framework's strict --vd-* token contract, so its canvas falls
         // back to fixed light colors regardless of theme. Re-point the instance's
         // theme reader at the --vd-* tokens and re-render on theme / system changes.
+        // REMOVE this shim once the dependency is bumped to >= 1.0.1, which reads
+        // --vd-* tokens and follows prefers-color-scheme natively.
         if (typeof grid._getThemeColors === 'function' && typeof grid._render === 'function') {
             grid._getThemeColors = function () {
                 var styles = getComputedStyle(document.documentElement);
