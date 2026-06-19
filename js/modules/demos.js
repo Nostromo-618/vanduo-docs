@@ -74,11 +74,13 @@ export function initHexGridDemo(scope) {
         var hexPalette = function () {
             var isDark = hexRoot.getAttribute('data-theme') === 'dark';
             var outline = hexRead('--vd-color-primary', isDark ? '#3bc9db' : '#000000');
+            // Pure wireframe in both themes: the canvas background and the hex insides
+            // are the same colour (hex fill is transparent), so only the outline shows.
             return {
                 isDark: isDark,
                 outline: outline,
-                canvasBg: hexRead('--vd-bg-secondary', isDark ? '#1f2937' : '#f5f5f5'),
-                hexFill: isDark ? hexRead('--vd-bg-tertiary', '#2a3441') : 'transparent',
+                canvasBg: hexRead('--vd-bg-primary', isDark ? '#111418' : '#ffffff'),
+                hexFill: 'transparent',
                 textColor: hexRead('--vd-text-primary', isDark ? '#e9ecef' : '#1f2937'),
                 textMuted: hexRead('--vd-text-muted', '#868e96')
             };
