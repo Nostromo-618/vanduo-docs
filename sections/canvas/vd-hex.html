@@ -3,21 +3,60 @@
     <h5 class="demo-title"><i class="ph ph-hexagon"></i>Hex Grid</h5>
     <p class="vd-mb-8">Vanduo Hex Grid is an interactive hex-grid canvas component with selection, pan/zoom, terrain helpers, and optional grid rotation. Built on flat-top axial coordinates — suitable for visualization, prototyping, and experimental game mechanics.</p>
 
-    <!-- Canvas Container with Toolbar -->
-    <div class="vd-card vd-mb-6" style="padding: 1rem;">
-        <div id="hex-demo-container" style="position: relative; width: 100%; height: 400px; background: var(--vd-bg-secondary);">
-            <canvas id="hex-demo" style="width: 100%; height: 100%; display: block; cursor: grab;"></canvas>
-            <div class="canvas-toolbar" style="position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 10;">
-                <button id="hex-zoom-out" class="vd-btn vd-btn-sm vd-btn-outline" title="Zoom out">
-                    <i class="ph ph-minus"></i>
-                </button>
-                <span id="hex-zoom-level" class="vd-text-sm vd-text-muted" style="padding: 6px 8px; background: var(--vd-bg-primary); border-radius: 4px; min-width: 50px; text-align: center;">100%</span>
-                <button id="hex-zoom-in" class="vd-btn vd-btn-sm vd-btn-outline" title="Zoom in">
-                    <i class="ph ph-plus"></i>
-                </button>
-                <button id="hex-reset-view" class="vd-btn vd-btn-sm vd-btn-outline" title="Reset view">
-                    <i class="ph ph-arrows-counter-clockwise"></i>
-                </button>
+    <!-- Canvas + Grid Controls side by side (the canvas field is wide) -->
+    <div class="vd-row">
+        <div class="vd-col-12 vd-col-lg-8 vd-mb-6">
+            <div class="vd-card" style="padding: 1rem; height: 100%;">
+                <div id="hex-demo-container" style="position: relative; width: 100%; height: 100%; min-height: 420px; background: var(--vd-bg-secondary);">
+                    <canvas id="hex-demo" style="width: 100%; height: 100%; display: block; cursor: grab;"></canvas>
+                    <div class="canvas-toolbar" style="position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 10;">
+                        <button id="hex-zoom-out" class="vd-btn vd-btn-sm vd-btn-outline" title="Zoom out">
+                            <i class="ph ph-minus"></i>
+                        </button>
+                        <span id="hex-zoom-level" class="vd-text-sm vd-text-muted" style="padding: 6px 8px; background: var(--vd-bg-primary); border-radius: 4px; min-width: 50px; text-align: center;">100%</span>
+                        <button id="hex-zoom-in" class="vd-btn vd-btn-sm vd-btn-outline" title="Zoom in">
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <button id="hex-reset-view" class="vd-btn vd-btn-sm vd-btn-outline" title="Reset view">
+                            <i class="ph ph-arrows-counter-clockwise"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vd-col-12 vd-col-lg-4 vd-mb-6">
+            <div class="vd-card" style="height: 100%;">
+                <div class="vd-card-body">
+                    <h4 class="vd-mb-4">Grid Controls</h4>
+                    <div class="vd-mb-4">
+                        <label class="vd-form-label" for="hex-size-slider">Hex Size</label>
+                        <input type="range" id="hex-size-slider" class="vd-range" min="10" max="50" value="30" style="width: 100%;">
+                        <span id="hex-size-value" class="vd-text-sm vd-text-muted">30px</span>
+                    </div>
+                    <div class="vd-mb-4">
+                        <label class="vd-form-label" for="hex-width-slider">Grid Width</label>
+                        <input type="range" id="hex-width-slider" class="vd-range" min="5" max="30" value="15" style="width: 100%;">
+                        <span id="hex-width-value" class="vd-text-sm vd-text-muted">15</span>
+                    </div>
+                    <div class="vd-mb-4">
+                        <label class="vd-form-label" for="hex-height-slider">Grid Height</label>
+                        <input type="range" id="hex-height-slider" class="vd-range" min="5" max="20" value="10" style="width: 100%;">
+                        <span id="hex-height-value" class="vd-text-sm vd-text-muted">10</span>
+                    </div>
+                    <div class="vd-mb-4">
+                        <label class="vd-form-label" for="hex-rotation-slider">Grid Rotation</label>
+                        <input type="range" id="hex-rotation-slider" class="vd-range" min="-180" max="180" value="0" step="1" style="width: 100%;">
+                        <span id="hex-rotation-value" class="vd-text-sm vd-text-muted">0°</span>
+                    </div>
+                    <div class="vd-inline vd-mt-2" data-gap="fib-5">
+                        <button id="hex-reset-btn" class="vd-btn vd-btn-outline">
+                            <i class="ph ph-arrows-counter-clockwise"></i> Reset Grid
+                        </button>
+                        <button id="hex-fill-btn" class="vd-btn vd-btn-outline">
+                            <i class="ph ph-paint-bucket"></i> Fill Random
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,45 +83,6 @@
                         <pre class="vd-code-snippet-pane is-active" data-lang="bash"><code>pnpm add @vanduo-oss/hex-grid</code></pre>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Controls -->
-    <div class="vd-card vd-mb-6">
-        <div class="vd-card-body">
-            <h4 class="vd-mb-4">Grid Controls</h4>
-            <div class="vd-row">
-                <div class="vd-col-12 vd-col-md-4 vd-mb-4">
-                    <label class="vd-form-label" for="hex-size-slider">Hex Size</label>
-                    <input type="range" id="hex-size-slider" class="vd-range" min="10" max="50" value="30" style="width: 100%;">
-                    <span id="hex-size-value" class="vd-text-sm vd-text-muted">30px</span>
-                </div>
-                <div class="vd-col-12 vd-col-md-4 vd-mb-4">
-                    <label class="vd-form-label" for="hex-width-slider">Grid Width</label>
-                    <input type="range" id="hex-width-slider" class="vd-range" min="5" max="30" value="15" style="width: 100%;">
-                    <span id="hex-width-value" class="vd-text-sm vd-text-muted">15</span>
-                </div>
-                <div class="vd-col-12 vd-col-md-4 vd-mb-4">
-                    <label class="vd-form-label" for="hex-height-slider">Grid Height</label>
-                    <input type="range" id="hex-height-slider" class="vd-range" min="5" max="20" value="10" style="width: 100%;">
-                    <span id="hex-height-value" class="vd-text-sm vd-text-muted">10</span>
-                </div>
-            </div>
-            <div class="vd-row">
-                <div class="vd-col-12 vd-col-md-6 vd-mb-4">
-                    <label class="vd-form-label" for="hex-rotation-slider">Grid Rotation</label>
-                    <input type="range" id="hex-rotation-slider" class="vd-range" min="-180" max="180" value="0" step="1" style="width: 100%;">
-                    <span id="hex-rotation-value" class="vd-text-sm vd-text-muted">0°</span>
-                </div>
-            </div>
-            <div class="vd-mt-4">
-                <button id="hex-reset-btn" class="vd-btn vd-btn-outline">
-                    <i class="ph ph-arrows-counter-clockwise"></i> Reset Grid
-                </button>
-                <button id="hex-fill-btn" class="vd-btn vd-btn-outline vd-ml-2">
-                    <i class="ph ph-paint-bucket"></i> Fill Random
-                </button>
             </div>
         </div>
     </div>

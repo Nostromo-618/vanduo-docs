@@ -40,4 +40,24 @@ test.describe('Hex grid canvas theming @e2e', () => {
         // And dark really is darker.
         expect(dark[0] + dark[1] + dark[2]).toBeLessThan(light[0] + light[1] + light[2]);
     });
+
+    test('re-entering the hex section does not throw (destroy guard)', async ({ page }) => {
+        const errors: string[] = [];
+        page.on('pageerror', (e) => errors.push(String(e)));
+
+        await page.goto('/#docs/vd-hex');
+        await waitForSPA(page);
+        await expect(page.locator('#hex-demo')).toBeVisible({ timeout: 10000 });
+        await page.waitForTimeout(800);
+
+        // Navigate away and back — this tears down + re-inits the grid, which used to
+        // throw "destroy is not a function" on the published 1.0.0 (no destroy()).
+        await page.evaluate(() => { window.location.hash = '#docs/buttons'; });
+        await page.waitForTimeout(1000);
+        await page.evaluate(() => { window.location.hash = '#docs/vd-hex'; });
+        await page.waitForTimeout(1200);
+
+        await expect(page.locator('#hex-demo')).toBeVisible({ timeout: 10000 });
+        expect(errors.filter((e) => /destroy is not a function/.test(e))).toHaveLength(0);
+    });
 });

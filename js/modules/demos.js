@@ -28,7 +28,11 @@ export function initHexGridDemo(scope) {
             hexGridThemeCleanup();
             hexGridThemeCleanup = null;
         }
-        hexGridInstance.destroy();
+        // Guard: the published @vanduo-oss/hex-grid@1.0.0 has no destroy() (added in
+        // 1.0.1). Calling it unguarded throws on the live site during navigation.
+        if (typeof hexGridInstance.destroy === 'function') {
+            hexGridInstance.destroy();
+        }
         hexGridInstance = null;
     }
 
@@ -51,39 +55,90 @@ export function initHexGridDemo(scope) {
         hexGridInstance = grid;
         hexGridDemoScope = scopeToken;
 
-        // The published @vanduo-oss/hex-grid@1.0.0 build reads legacy unprefixed CSS
-        // custom properties (--bg-primary, --text-primary, …) that don't exist
-        // under the framework's strict --vd-* token contract, so its canvas falls
-        // back to fixed light colors regardless of theme. Re-point the instance's
-        // theme reader at the --vd-* tokens and re-render on theme / system changes.
-        // REMOVE this shim once the dependency is bumped to >= 1.0.1, which reads
-        // --vd-* tokens and follows prefers-color-scheme natively.
+        // ── Demo theming ────────────────────────────────────────────────────
+        // Two things to manage here:
+        //  (a) The published @vanduo-oss/hex-grid build reads legacy unprefixed CSS
+        //      tokens (--bg-primary…) that don't exist under the strict --vd-*
+        //      contract, so left alone the canvas stays light. (1.0.1 fixes the
+        //      tokens natively; this demo overrides regardless to control the look.)
+        //  (b) The lib BAKES hex.fill/hex.stroke onto every cell in _generateGrid()
+        //      and _drawHex prefers the baked value, so simply updating themeColors
+        //      and re-rendering does NOT recolor existing hexes — we must re-bake.
+        // Demo look: light = no fill + primary (black) outline; dark = dark fill +
+        // primary outline. _generateGrid re-bakes from grid.themeColors, so keeping
+        // it current makes reset/resize/rotate render correctly too.
+        var hexRoot = document.documentElement;
+        var hexRead = function (token, fallback) {
+            return getComputedStyle(hexRoot).getPropertyValue(token).trim() || fallback;
+        };
+        var hexPalette = function () {
+            var isDark = hexRoot.getAttribute('data-theme') === 'dark';
+            var outline = hexRead('--vd-color-primary', isDark ? '#3bc9db' : '#000000');
+            return {
+                isDark: isDark,
+                outline: outline,
+                canvasBg: hexRead('--vd-bg-secondary', isDark ? '#1f2937' : '#f5f5f5'),
+                hexFill: isDark ? hexRead('--vd-bg-tertiary', '#2a3441') : 'transparent',
+                textColor: hexRead('--vd-text-primary', isDark ? '#e9ecef' : '#1f2937'),
+                textMuted: hexRead('--vd-text-muted', '#868e96')
+            };
+        };
+
         if (typeof grid._getThemeColors === 'function' && typeof grid._render === 'function') {
+            // Map the demo palette onto the fields the lib reads (bgPrimary = canvas
+            // background, bgSecondary = default hex fill, borderColor = default hex
+            // stroke, colorPrimary = selection).
             grid._getThemeColors = function () {
-                var styles = getComputedStyle(document.documentElement);
-                var read = function (token, fallback) {
-                    return styles.getPropertyValue(token).trim() || fallback;
-                };
+                var p = hexPalette();
                 return {
-                    bgPrimary: read('--vd-bg-primary', '#ffffff'),
-                    bgSecondary: read('--vd-bg-secondary', '#f5f5f5'),
-                    borderColor: read('--vd-border-color', '#e0e0e0'),
-                    colorPrimary: read('--vd-color-primary', '#3b82f6'),
-                    textColor: read('--vd-text-primary', '#1f2937'),
-                    textMuted: read('--vd-text-muted', '#6b7280')
+                    bgPrimary: p.canvasBg,
+                    bgSecondary: p.hexFill,
+                    borderColor: p.outline,
+                    colorPrimary: p.outline,
+                    textColor: p.textColor,
+                    textMuted: p.textMuted
                 };
             };
             var applyHexTheme = function () {
-                grid.themeColors = grid._getThemeColors();
+                var colors = grid._getThemeColors();
+                grid.themeColors = colors;
+                // Re-bake non-terrain cells (the missing piece): without this the
+                // fills baked at construction persist when the theme changes.
+                if (typeof grid.getAllHexes === 'function') {
+                    grid.getAllHexes().forEach(function (h) {
+                        if (!h.terrain) {
+                            h.fill = colors.bgSecondary;
+                            h.stroke = colors.borderColor;
+                        }
+                    });
+                }
                 grid._render();
             };
             applyHexTheme();
-            // The grid's own MutationObserver already re-renders when the docs flip
-            // the data-theme attribute (manual switch + resolved "system"); also
-            // follow OS-level changes that may not flip the attribute.
+
+            // Theme-aware Fill Random: dark cells in dark mode, pastels in light mode.
+            if (typeof grid.fillRandom === 'function') {
+                var lightFills = ['#f0f0f0', '#d4e5d4', '#e5d4d4', '#d4d4e5', '#e5e5d4', '#d4e5e5', '#e8e8e8', '#d0d0d0'];
+                var darkFills = ['#37474f', '#2e3b2e', '#3b2e2e', '#2e2e3b', '#3b3b2e', '#2e3b3b', '#3a3a3a', '#455a64'];
+                grid.fillRandom = function () {
+                    var palette = hexRoot.getAttribute('data-theme') === 'dark' ? darkFills : lightFills;
+                    if (typeof grid.getAllHexes === 'function') {
+                        grid.getAllHexes().forEach(function (h) {
+                            if (!h.terrain) h.fill = palette[Math.floor(Math.random() * palette.length)];
+                        });
+                    }
+                    grid._render();
+                };
+            }
+
+            // Re-theme (and re-bake) on manual/resolved data-theme flips and on
+            // OS-level prefers-color-scheme changes; clean both up on teardown.
+            var hexThemeObserver = new MutationObserver(applyHexTheme);
+            hexThemeObserver.observe(hexRoot, { attributes: true, attributeFilter: ['data-theme'] });
             var hexColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
             hexColorScheme.addEventListener('change', applyHexTheme);
             hexGridThemeCleanup = function () {
+                hexThemeObserver.disconnect();
                 hexColorScheme.removeEventListener('change', applyHexTheme);
             };
         }
@@ -174,7 +229,15 @@ export function initHexGridDemo(scope) {
             if (coords) coords.textContent = '(' + hex.q + ', ' + hex.r + ')';
             if (pixelX) pixelX.textContent = Math.round(hex.x);
             if (pixelY) pixelY.textContent = Math.round(hex.y);
-            if (adjacent) adjacent.textContent = (hex.adjacent && hex.adjacent.length) || 0;
+            if (adjacent) {
+                // hex.adjacent lists all 6 axial directions; count only the
+                // neighbours that actually exist in the grid (a corner hex has 3,
+                // an edge hex 4, an interior hex 6).
+                var existingAdjacent = (hex.adjacent || []).filter(function (a) {
+                    return typeof grid.hasHex === 'function' ? grid.hasHex(a.q, a.r) : true;
+                }).length;
+                adjacent.textContent = existingAdjacent;
+            }
         });
     }).catch(function (err) {
         console.error('Failed to load VdHexGrid:', err);
