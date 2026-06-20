@@ -25,13 +25,19 @@ var VanduoMusicPlayer = (() => {
     default: () => index_default,
     reinit: () => reinit
   });
-  var VD_MUSIC_PLAYER_VERSION = "0.0.1";
+  var VD_MUSIC_PLAYER_VERSION = "1.0.0";
   var CORNER_POSITIONS = [
     "bottom-left",
     "bottom-right",
     "top-left",
     "top-right"
   ];
+  var REPEAT_MODES = ["off", "one", "all"];
+  var REPEAT_CYCLE = { off: "one", one: "all", all: "off" };
+  var REPEAT_LABELS = { off: "Repeat", one: "Repeat one", all: "Repeat all" };
+  function normalizeRepeat(value) {
+    return REPEAT_MODES.includes(value) ? value : "off";
+  }
   function hasWindow() {
     return typeof window !== "undefined" && typeof document !== "undefined";
   }
@@ -103,6 +109,7 @@ var VanduoMusicPlayer = (() => {
       tracks: [],
       volume: 0.5,
       shuffle: false,
+      repeat: "off",
       showProgress: false,
       showPlaylist: false,
       autoAdvance: true,
@@ -151,6 +158,7 @@ var VanduoMusicPlayer = (() => {
         isPlaying: false,
         volume: Math.max(0, Math.min(1, opts.volume)),
         shuffle: opts.shuffle,
+        repeat: normalizeRepeat(opts.repeat),
         showProgress: opts.showProgress,
         showPlaylist: opts.showPlaylist,
         autoAdvance: opts.autoAdvance,
@@ -176,6 +184,7 @@ var VanduoMusicPlayer = (() => {
         btnPlay: container.querySelector(".vd-music-player-btn-play"),
         btnPrev: container.querySelector(".vd-music-player-btn-prev"),
         btnNext: container.querySelector(".vd-music-player-btn-next"),
+        btnRepeat: container.querySelector(".vd-music-player-btn-repeat"),
         btnShuffle: container.querySelector(".vd-music-player-btn-shuffle"),
         btnPlaylist: container.querySelector(".vd-music-player-btn-playlist"),
         btnDetach: container.querySelector(".vd-music-player-btn-detach"),
@@ -223,6 +232,42 @@ var VanduoMusicPlayer = (() => {
         if (!btn) return;
         btn.classList.toggle("is-active", state.shuffle);
         btn.setAttribute("aria-pressed", state.shuffle ? "true" : "false");
+      };
+      const renderRepeatBtn = () => {
+        const btn = refs.btnRepeat;
+        if (!btn) return;
+        btn.innerHTML = "";
+        btn.appendChild(icon("repeat"));
+        if (state.repeat === "one") {
+          const badge = document.createElement("span");
+          badge.className = "vd-music-player-repeat-badge";
+          badge.setAttribute("aria-hidden", "true");
+          badge.textContent = "1";
+          btn.appendChild(badge);
+        }
+        btn.classList.toggle("is-active", state.repeat !== "off");
+        btn.setAttribute("aria-pressed", state.repeat !== "off" ? "true" : "false");
+        const label = REPEAT_LABELS[state.repeat] || REPEAT_LABELS.off;
+        btn.setAttribute("aria-label", label);
+        btn.title = label;
+      };
+      const dispatchRepeatChange = () => {
+        container.dispatchEvent(
+          new CustomEvent("musicplayer:repeatchange", {
+            bubbles: true,
+            detail: { repeat: state.repeat }
+          })
+        );
+      };
+      const cycleRepeat = () => {
+        state.repeat = REPEAT_CYCLE[state.repeat] || "off";
+        renderRepeatBtn();
+        dispatchRepeatChange();
+      };
+      const setRepeatMode = (mode) => {
+        state.repeat = normalizeRepeat(mode);
+        renderRepeatBtn();
+        dispatchRepeatChange();
       };
       const renderPlaylistItems = () => {
         const panel = refs.playlistPanel;
@@ -290,6 +335,19 @@ var VanduoMusicPlayer = (() => {
         container.dispatchEvent(new CustomEvent("musicplayer:pause", { bubbles: true }));
       };
       const onEnded = () => {
+        if (state.repeat === "one") {
+          audio.currentTime = 0;
+          audio.play().catch(() => {
+          });
+          return;
+        }
+        if (state.repeat === "all") {
+          if (state.tracks.length > 0) {
+            const next = (state.currentIndex + 1) % state.tracks.length;
+            loadTrack(next, true);
+          }
+          return;
+        }
         if (state.autoAdvance && state.tracks.length > 1) {
           const next = (state.currentIndex + 1) % state.tracks.length;
           loadTrack(next, true);
@@ -365,6 +423,13 @@ var VanduoMusicPlayer = (() => {
         };
         refs.btnNext.addEventListener("click", handler);
         cleanupFunctions.push(() => refs.btnNext.removeEventListener("click", handler));
+      }
+      if (refs.btnRepeat) {
+        const handler = () => {
+          cycleRepeat();
+        };
+        refs.btnRepeat.addEventListener("click", handler);
+        cleanupFunctions.push(() => refs.btnRepeat.removeEventListener("click", handler));
       }
       if (refs.btnShuffle) {
         const handler = () => {
@@ -462,13 +527,16 @@ var VanduoMusicPlayer = (() => {
       renderPlayIcon();
       renderTrackName();
       renderVolumeIcon();
+      renderRepeatBtn();
       if (opts.showPlaylist) renderPlaylistItems();
       this.instances.set(container, {
         state,
         audio,
         refs,
         cleanup: cleanupFunctions,
-        ui: { restore: null, unbindDrag: null }
+        ui: { restore: null, unbindDrag: null },
+        cycleRepeat,
+        setRepeatMode
       });
       container.setAttribute("data-music-player-initialized", "true");
     },
@@ -566,6 +634,13 @@ var VanduoMusicPlayer = (() => {
       controls.appendChild(btnPrev);
       controls.appendChild(btnPlay);
       controls.appendChild(btnNext);
+      const btnRepeat = document.createElement("button");
+      btnRepeat.type = "button";
+      btnRepeat.className = "vd-music-player-btn vd-music-player-btn-repeat";
+      btnRepeat.setAttribute("aria-label", REPEAT_LABELS[normalizeRepeat(state.repeat)]);
+      btnRepeat.setAttribute("aria-pressed", state.repeat !== "off" ? "true" : "false");
+      btnRepeat.appendChild(icon("repeat"));
+      controls.appendChild(btnRepeat);
       if (state.showPlaylist || state.shuffle !== void 0) {
         const btnShuffle = document.createElement("button");
         btnShuffle.type = "button";
@@ -722,6 +797,25 @@ var VanduoMusicPlayer = (() => {
       const inst = this.instances.get(container);
       if (!inst || !inst.refs.btnShuffle) return;
       inst.refs.btnShuffle.click();
+    },
+    /**
+     * Cycle repeat mode: off → one → all → off.
+     * @param {HTMLElement} container
+     */
+    repeat: function(container) {
+      const inst = this.instances.get(container);
+      if (!inst || typeof inst.cycleRepeat !== "function") return;
+      inst.cycleRepeat();
+    },
+    /**
+     * Set repeat mode explicitly.
+     * @param {HTMLElement} container
+     * @param {'off'|'one'|'all'} mode
+     */
+    setRepeat: function(container, mode) {
+      const inst = this.instances.get(container);
+      if (!inst || typeof inst.setRepeatMode !== "function") return;
+      inst.setRepeatMode(mode);
     },
     /**
      * Float the player above the page. Requires { detachable: true } at init.
@@ -1039,6 +1133,7 @@ var VanduoMusicPlayer = (() => {
         currentTrack: s.tracks[s.currentIndex] || null,
         volume: s.volume,
         shuffle: s.shuffle,
+        repeat: s.repeat,
         tracks: s.tracks.slice(),
         isDetached: Boolean(s.isDetached),
         isMinimized: Boolean(s.isMinimized)

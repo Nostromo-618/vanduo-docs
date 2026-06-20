@@ -156,6 +156,13 @@
         .hero-title-brand {
             font-weight: bold;
             line-height: 1;
+            color: #228be6;
+        }
+
+        .hero-title-word {
+            color: #475569;
+            margin-top: 0.2em;
+            margin-left: 0;
         }
 
         .hero-title-text {
@@ -164,30 +171,6 @@
             align-items: flex-start;
             justify-content: center;
             min-width: 0;
-        }
-
-        .hero-title-text .hero-subtitle-rotate {
-            margin-top: 0.2em;
-            margin-left: 0;
-        }
-
-        .hero-subtitle-rotate {
-            display: inline-grid;
-            vertical-align: baseline;
-            text-align: left;
-            justify-items: start;
-        }
-
-        .hero-subtitle-rotate .hero-subtitle-word {
-            grid-area: 1 / 1;
-            justify-self: start;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .hero-subtitle-rotate .hero-subtitle-word.is-visible {
-            opacity: 1;
         }
 
         .hero-title-logo-wrap {
@@ -287,8 +270,7 @@
                 align-items: center;
             }
 
-            .hero-title .vd-text-muted,
-            .hero-title .hero-subtitle-rotate {
+            .hero-title .hero-title-word {
                 font-size: 0.5em;
                 line-height: 1;
                 margin-left: 0;
@@ -1252,8 +1234,8 @@
             width: 100%;
             text-align: center;
             white-space: nowrap;
-            padding-block: 0.625rem;
-            font-size: var(--vd-font-size-sm);
+            padding-block: 0.875rem;
+            font-size: var(--vd-font-size-base);
         }
 
         .hero-cta-buttons .vd-btn + .vd-btn {
@@ -1261,8 +1243,8 @@
         }
 
         .hero-cta-buttons .vd-btn i {
-            font-size: 1.2em;
-            margin-right: 0.375em;
+            font-size: 1.5em;
+            margin-right: 0.5em;
             vertical-align: middle;
         }
 
@@ -2220,9 +2202,6 @@
                 animation: none;
             }
 
-            .hero-subtitle-rotate .hero-subtitle-word {
-                transition: none;
-            }
         }
 
         /* ── Global Search ──────────────────────────────── */

@@ -1,7 +1,7 @@
 <section id="music-player">
     <h5 class="demo-title"><i class="ph ph-music-note"></i>Music Player</h5>
     <p class="vd-mb-4">A fully accessible HTML5 audio player component with transport controls,
-        volume, optional shuffle, seek bar, playlist, glass surface, and a detachable floating mode
+        volume, optional shuffle and repeat modes, seek bar, playlist, glass surface, and a detachable floating mode
         (corner placement, pointer-drag reposition, minimizable). Zero external dependencies,
         powered by the native Audio API, and it automatically adapts to the active Vanduo theme.</p>
     <p class="vd-text-sm vd-text-muted vd-mb-6">Install the player separately from the core framework. All live demos below use a bundled sample playlist from
@@ -152,7 +152,7 @@ VanduoMusicPlayer.initPlayer(
             <div class="vd-card vd-card-glow demo-card">
                 <div class="vd-card-header">
                     <h6>With Playlist + Progress</h6>
-                    <p class="vd-text-sm vd-text-muted vd-mb-0">Enable <code>showPlaylist: true</code> and <code>showProgress: true</code> for a fuller player. Shuffle is always available from the control bar — use <code>shuffle: true</code> only to start in shuffled order.</p>
+                    <p class="vd-text-sm vd-text-muted vd-mb-0">Enable <code>showPlaylist: true</code> and <code>showProgress: true</code> for a fuller player. Shuffle and repeat are always on the control bar — use <code>shuffle: true</code> or <code>repeat: 'one'</code> only to set the initial mode. Click repeat to cycle <strong>off → one (badge <code>1</code>) → all → off</strong>.</p>
                 </div>
                 <div class="vd-card-body">
                     <div id="demo-playlist" class="vd-music-player" data-music-player
@@ -301,11 +301,11 @@ VanduoMusicPlayer.initPlayer(
             <div class="vd-card vd-card-glow demo-card">
                 <div class="vd-card-header">
                     <h6>Inline Layout — All Features</h6>
-                    <p class="vd-text-sm vd-text-muted vd-mb-0">Full-width bar with progress bar, shuffle and playlist</p>
+                    <p class="vd-text-sm vd-text-muted vd-mb-0">Full-width bar with progress bar, repeat, shuffle, and playlist</p>
                 </div>
                 <div class="vd-card-body">
                     <div id="demo-inline" class="vd-music-player vd-music-player-inline" data-music-player
-                        data-music-player-options='{"tracks":[{"name":"Pale Blue Dot","url":"./music/Stellardrone/Invent the Universe/06 - Pale Blue Dot.mp3"},{"name":"Maia Nebula","url":"./music/Stellardrone/Invent the Universe/03 - Maia Nebula.mp3"},{"name":"Approaching the Heliopause","url":"./music/Stellardrone/Invent the Universe/04 - Approaching the Heliopause.mp3"},{"name":"An Ocean of Galaxies","url":"./music/Stellardrone/Invent the Universe/07 - An Ocean of Galaxies.mp3"},{"name":"Infinite Void","url":"./music/Stellardrone/Invent the Universe/08 - Infinite Void.mp3"}],"showProgress":true,"showPlaylist":true,"shuffle":false}'></div>
+                        data-music-player-options='{"tracks":[{"name":"Pale Blue Dot","url":"./music/Stellardrone/Invent the Universe/06 - Pale Blue Dot.mp3"},{"name":"Maia Nebula","url":"./music/Stellardrone/Invent the Universe/03 - Maia Nebula.mp3"},{"name":"Approaching the Heliopause","url":"./music/Stellardrone/Invent the Universe/04 - Approaching the Heliopause.mp3"},{"name":"An Ocean of Galaxies","url":"./music/Stellardrone/Invent the Universe/07 - An Ocean of Galaxies.mp3"},{"name":"Infinite Void","url":"./music/Stellardrone/Invent the Universe/08 - Infinite Void.mp3"}],"showProgress":true,"showPlaylist":true,"shuffle":false,"repeat":"off"}'></div>
                     <div class="vd-code-snippet" data-collapsible>
                         <button class="vd-code-snippet-toggle" aria-expanded="false">
                             <span class="vd-code-snippet-toggle-icon"></span>
@@ -331,6 +331,7 @@ VanduoMusicPlayer.initPlayer(
     showProgress: <span class="code-keyword">true</span>,
     showPlaylist: <span class="code-keyword">true</span>,
     shuffle: <span class="code-keyword">false</span>,
+    repeat: <span class="code-string">'off'</span>,
   }
 );</code></pre>
                             </div>
@@ -513,6 +514,12 @@ VanduoMusicPlayer.setVolume(el, <span class="code-number">0.75</span>);
 <span class="code-comment">// Toggle shuffle programmatically</span>
 VanduoMusicPlayer.shuffle(el);
 
+<span class="code-comment">// Cycle repeat: off → one → all → off</span>
+VanduoMusicPlayer.repeat(el);
+
+<span class="code-comment">// Or set repeat mode explicitly</span>
+VanduoMusicPlayer.setRepeat(el, <span class="code-string">'one'</span>);
+
 <span class="code-comment">// Float above the page (requires detachable: true at init)</span>
 VanduoMusicPlayer.detach(el, <span class="code-string">'bottom-right'</span>);
 VanduoMusicPlayer.attach(el);
@@ -526,7 +533,7 @@ VanduoMusicPlayer.toggleMinimize(el);
 
 <span class="code-comment">// Get current state</span>
 <span class="code-keyword">const</span> state = VanduoMusicPlayer.getState(el);
-<span class="code-comment">// { isPlaying, currentIndex, currentTrack, volume, shuffle, tracks, isDetached, isMinimized }</span>
+<span class="code-comment">// { isPlaying, currentIndex, currentTrack, volume, shuffle, repeat, tracks, isDetached, isMinimized }</span>
 
 <span class="code-comment">// Tear down</span>
 VanduoMusicPlayer.destroy(el);
@@ -585,8 +592,12 @@ el.addEventListener(<span class="code-string">'musicplayer:volumechange'</span>,
     console.log(<span class="code-string">'Volume:'</span>, event.detail.volume);
 });
 
+el.addEventListener(<span class="code-string">'musicplayer:repeatchange'</span>, (<span class="code-keyword">event</span>) =&gt; {
+    console.log(<span class="code-string">'Repeat mode:'</span>, event.detail.repeat);
+});
+
 el.addEventListener(<span class="code-string">'musicplayer:ended'</span>, () =&gt; {
-    <span class="code-comment">// Fires only when autoAdvance is false on the last track.</span>
+    <span class="code-comment">// Fires when repeat is off and autoAdvance is false at track end.</span>
     console.log(<span class="code-string">'Playback ended'</span>);
 });
 
@@ -714,6 +725,12 @@ el.addEventListener(<span class="code-string">'musicplayer:expand'</span>, () =&
                                 <td>Shuffle the track list on init. Also shows the shuffle toggle button.</td>
                             </tr>
                             <tr>
+                                <td><code>repeat</code></td>
+                                <td>string</td>
+                                <td><code>'off'</code></td>
+                                <td>Repeat mode on init: <code>'off'</code>, <code>'one'</code> (restart current track), or <code>'all'</code> (wrap playlist). The repeat button is always on the control bar; click to cycle modes. Repeat-one shows a tiny <code>1</code> badge on the button.</td>
+                            </tr>
+                            <tr>
                                 <td><code>showProgress</code></td>
                                 <td>boolean</td>
                                 <td><code>false</code></td>
@@ -729,7 +746,7 @@ el.addEventListener(<span class="code-string">'musicplayer:expand'</span>, () =&
                                 <td><code>autoAdvance</code></td>
                                 <td>boolean</td>
                                 <td><code>true</code></td>
-                                <td>Automatically play the next track when the current one ends.</td>
+                                <td>Automatically play the next track when the current one ends. Ignored when <code>repeat</code> is <code>'one'</code> or <code>'all'</code>.</td>
                             </tr>
                             <tr>
                                 <td><code>glass</code></td>
@@ -798,7 +815,7 @@ el.addEventListener(<span class="code-string">'musicplayer:expand'</span>, () =&
                 <div class="vd-card-body">
                     <ul class="vd-mb-0">
                         <li>The container is a <code>role="region"</code> labeled <strong>Music Player</strong>; transport controls sit in a <code>role="group"</code> labeled <strong>Playback controls</strong>.</li>
-                        <li>Buttons expose <code>aria-label</code> text (Play/Pause, Previous/Next track, Volume, Seek, playlist toggle with <code>aria-expanded</code>, shuffle with <code>aria-pressed</code>).</li>
+                        <li>Buttons expose <code>aria-label</code> text (Play/Pause, Previous/Next track, Volume, Seek, playlist toggle with <code>aria-expanded</code>, shuffle and repeat with <code>aria-pressed</code>). Repeat uses labels <strong>Repeat</strong>, <strong>Repeat one</strong>, and <strong>Repeat all</strong>; repeat-one shows a visible <code>1</code> badge.</li>
                         <li>The current track name uses <code>aria-live="polite"</code> and <code>aria-atomic="true"</code> so screen readers announce track changes.</li>
                         <li>Playlist items set <code>aria-current</code> on the active row; decorative icons use <code>aria-hidden="true"</code>.</li>
                         <li>Play/Pause supports <kbd>Space</kbd> and <kbd>Enter</kbd> on the play button; range inputs are keyboard-focusable with visible <code>:focus-visible</code> outlines.</li>

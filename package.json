@@ -42,6 +42,6 @@
     "@vanduo-oss/charts": "0.0.1",
     "@vanduo-oss/flowchart": "0.0.1",
     "@vanduo-oss/hex-grid": "1.0.0",
-    "@vanduo-oss/music-player": "0.0.1"
+    "@vanduo-oss/music-player": "1.0.0"
   }
 }

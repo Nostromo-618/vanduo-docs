@@ -681,6 +681,8 @@
                 "audio",
                 "mp3",
                 "playlist",
+                "repeat",
+                "shuffle",
                 "volume",
                 "media"
               ]

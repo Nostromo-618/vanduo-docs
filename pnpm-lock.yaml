@@ -18,8 +18,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
       '@vanduo-oss/music-player':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: 1.0.0
+        version: 1.0.0
     devDependencies:
       '@playwright/test':
         specifier: ^1.60.0
@@ -44,8 +44,8 @@ packages:
     resolution: {integrity: sha512-SZPZMe2/kLOWwEEa7Q+NYtT8d2lK7D+5nLlXJqhMW6t6/ucvue33ou/HUNHRqf3oxG/C7yGG2XF9cf5dva0qNw==}
     engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
 
-  '@vanduo-oss/music-player@0.0.1':
-    resolution: {integrity: sha512-KkNyXKXpKx+pP7QZ5be41XwLGGzYGJW1CZxLU49PworIPdQlkLKBT9ME3qHaCjuYT9qDI7lhB1SK9IW0OyEihg==}
+  '@vanduo-oss/music-player@1.0.0':
+    resolution: {integrity: sha512-bQqRunm6G/kp8N+R+WVTQFfubDvWDSvP1KOQmg/kQN9KgHpmyhXJMElJKC1V3tA3UQPnvuhimFWQ2o5FtRJOeA==}
     engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
 
   fsevents@2.3.2:
@@ -75,7 +75,7 @@ snapshots:
 
   '@vanduo-oss/hex-grid@1.0.0': {}
 
-  '@vanduo-oss/music-player@0.0.1': {}
+  '@vanduo-oss/music-player@1.0.0': {}
 
   fsevents@2.3.2:
     optional: true

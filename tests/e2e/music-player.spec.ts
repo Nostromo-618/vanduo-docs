@@ -97,6 +97,16 @@ test.describe('Music Player Docs Page @e2e', () => {
             'data-music-player-initialized',
             'true',
         );
+        await expect(
+            page.locator('#demo-inline .vd-music-player-btn-repeat'),
+        ).toBeVisible();
+    });
+
+    test('options reference documents repeat mode', async ({ page }) => {
+        await gotoMusicPlayer(page);
+        await expect(page.locator('#music-player')).toContainText('repeat');
+        await expect(page.locator('#music-player')).toContainText("'one'");
+        await expect(page.locator('#music-player')).toContainText('VanduoMusicPlayer.setRepeat');
     });
 
     test('theme-specific docs demos are removed', async ({ page }) => {

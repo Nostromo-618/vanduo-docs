@@ -177,6 +177,20 @@
   background-color: var(--vd-music-player-btn-active-bg);
 }
 
+.vd-music-player-btn-repeat {
+  position: relative;
+}
+
+.vd-music-player-repeat-badge {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.15rem;
+  font-size: 0.55rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
 /* Play/Pause is slightly larger */
 .vd-music-player-btn-play {
   width: calc(var(--vd-music-player-btn-size) + 0.25rem);
@@ -750,6 +764,7 @@
   display: none !important;
 }
 
+.vd-music-player-minimized .vd-music-player-btn-repeat,
 .vd-music-player-minimized .vd-music-player-btn-shuffle,
 .vd-music-player-minimized .vd-music-player-btn-playlist {
   display: none;
