@@ -1,5 +1,6 @@
 import { state } from './state.js';
 import { getOrderedIds } from './registry.js';
+import { matchTermInText } from './search-match.mjs';
 
 var toggleMorphing = false;
 var pendingDocModeTab = null;
@@ -67,7 +68,7 @@ export function filterSidebarNav(query) {
             linkItems.forEach(function (linkLi) {
                 var link = linkLi.querySelector('.doc-nav-link');
                 var text = link ? link.textContent.toLowerCase() : '';
-                if (text.includes(q)) {
+                if (matchTermInText(text, q).matched) {
                     linkLi.style.display = '';
                     sectionHasMatch = true;
                     anyVisible = true;
@@ -79,7 +80,7 @@ export function filterSidebarNav(query) {
         } else {
             var link = li.querySelector('.doc-nav-link');
             var text = link ? link.textContent.toLowerCase() : '';
-            if (text.includes(q)) {
+            if (matchTermInText(text, q).matched) {
                 li.style.display = '';
                 anyVisible = true;
             } else {

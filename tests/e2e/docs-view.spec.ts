@@ -239,11 +239,11 @@ test.describe('4. Documentation View', () => {
             await expect(previousReleaseCard).toContainText('Rounded-corner background bleed on draggable surfaces');
             await expect(previousReleaseCard).toContainText('Input group addon corner bleed');
 
-            const olderReleaseCard = changelog.locator('.version-card').nth(3);
+            const olderReleaseCard = changelog.locator('.version-card').nth(4);
             await expect(olderReleaseCard).toContainText('v1.4.4');
             await expect(olderReleaseCard.locator('.version-header')).not.toContainText('Latest');
 
-            const v143Card = changelog.locator('.version-card').nth(4);
+            const v143Card = changelog.locator('.version-card').nth(5);
             await expect(v143Card).toContainText('v1.4.3');
             await expect(v143Card.locator('.version-header')).not.toContainText('Latest');
             await expect(v143Card).toContainText('Music Player moved');
@@ -271,6 +271,37 @@ test.describe('4. Documentation View', () => {
             await expect(content).toBeVisible();
             // Wait for at least one piece of actual content inside dynamic-content
             await expect(content.locator('h1, h2, h3, h4, h5, h6').first()).toBeVisible();
+        });
+
+        test('Sidebar filter fuzzy-matches typo msic to Music Player', async ({ page, isMobile }) => {
+            test.skip(!!isMobile, 'Sidebar filter input is desktop-visible.');
+
+            await page.goto('/#docs/components');
+            await waitForSPA(page);
+
+            const filterInput = page.locator('#doc-sidebar-filter-input');
+            await filterInput.fill('msic');
+            await page.waitForTimeout(150);
+
+            const musicPlayerLink = page.locator('.doc-nav-link[data-section="music-player"]');
+            await expect(musicPlayerLink).toBeVisible();
+
+            const buttonsLink = page.locator('.doc-nav-link[data-section="buttons"]');
+            await expect(buttonsLink).toBeHidden();
+        });
+
+        test('Sidebar filter shows no matches for nonsense query', async ({ page, isMobile }) => {
+            test.skip(!!isMobile, 'Sidebar filter input is desktop-visible.');
+
+            await page.goto('/#docs/components');
+            await waitForSPA(page);
+
+            const filterInput = page.locator('#doc-sidebar-filter-input');
+            await filterInput.fill('xyznonexistentsearchtermxyz');
+            await page.waitForTimeout(150);
+
+            await expect(page.locator('.doc-sidebar-filter-no-results')).toBeVisible();
+            await expect(page.locator('.doc-nav-link[data-section="music-player"]')).toBeHidden();
         });
 
         test('Initial docs load only fetches the visible target plus a small runway', async ({ page }) => {

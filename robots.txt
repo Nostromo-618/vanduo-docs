@@ -68,6 +68,3 @@ Allow: /
 
 # -- Sitemap ------------------------------------------
 Sitemap: https://vanduo.dev/sitemap.xml
-
-# -- LLM-friendly plain-text index --------------------
-# https://vanduo.dev/llms.txt

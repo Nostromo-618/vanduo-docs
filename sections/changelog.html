@@ -21,7 +21,7 @@
                 <header class="version-header">
                     <span class="vd-badge vd-badge-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">v1.5.1</span>
                     <span style="color: var(--vd-text-secondary); font-size: 0.95rem;">
-                        <i class="ph ph-calendar mr-1"></i>Unreleased
+                        <i class="ph ph-calendar mr-1"></i>June 20, 2026
                     </span>
                     <span class="vd-badge vd-badge-info" style="font-size: 0.75rem;">Latest</span>
                 </header>
@@ -75,6 +75,13 @@
                                         </div>
                                     </li>
                                     <li class="change-item">
+                                        <i class="ph ph-magnifying-glass" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Global search typo tolerance</strong>
+                                            <p>Site-wide search and the docs sidebar nav filter now use fuzzy matching so minor typos (e.g. <code>msic</code> → Music Player) still surface the right section. Exact substring matches rank first.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
                                         <i class="ph ph-package" style="color: var(--vd-color-info);"></i>
                                         <div>
                                             <strong>Docs bundle sync</strong>
@@ -89,6 +96,13 @@
                                         <div>
                                             <strong><code>@vanduo-oss/music-player</code> v1.0.0</strong>
                                             <p>First stable release adds a repeat control that cycles <strong>off → one (badge <code>1</code>) → all → off</code>, with <code>repeat</code> init option, <code>VanduoMusicPlayer.repeat()</code> / <code>setRepeat()</code>, and <code>musicplayer:repeatchange</code> event. Docs now pin <code>1.0.0</code> from npm and vendor the build via <code>sync:ecosystem</code>; the <a href="#docs/music-player">Music Player</a> page documents repeat alongside shuffle.</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-flow-arrow" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong><code>@vanduo-oss/flowchart</code> v1.0.0</strong>
+                                            <p>First stable release improves curve routing with per-axis bezier control points, node-aware orthogonal routing that loops connectors around nodes (rounded corners), and a fixed host height with internal inspector scroll so selecting a node no longer resizes the canvas. Docs now pin <code>1.0.0</code> and vendor the build via <code>sync:ecosystem</code>; the <a href="#docs/vd-flowchart">Flowchart</a> page documents the updated routing and layout behavior.</p>
                                         </div>
                                     </li>
                                 </ul>

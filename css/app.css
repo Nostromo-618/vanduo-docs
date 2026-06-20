@@ -194,6 +194,13 @@
             align-items: center;
             justify-content: center;
             gap: 0.55rem;
+            line-height: 1;
+        }
+
+        .vd-navbar-brand-wrap > a.vd-navbar-brand-link span {
+            display: inline-block;
+            line-height: 1;
+            transform: translateY(-0.08em);
         }
 
         /* Nav mark 15% larger than prior 1.2rem (~1.38rem) */
@@ -204,6 +211,7 @@
             display: block;
             flex-shrink: 0;
             object-fit: contain;
+            transform: translateY(-0.04em);
         }
 
         .vd-footer-brand-logo {
@@ -212,6 +220,19 @@
             margin-top: 0.75rem;
             display: block;
             object-fit: contain;
+        }
+
+        .vd-footer-brand-title {
+            font-family: 'Michroma', sans-serif;
+            text-transform: lowercase;
+            font-weight: 400;
+            font-size: calc(var(--vd-font-size-xl) * 1.25);
+            line-height: 1;
+            margin-bottom: 0;
+        }
+
+        .vd-footer-brand-title .hero-title-text {
+            align-items: flex-start;
         }
 
         .vd-lt-flag-link {
@@ -1311,9 +1332,11 @@
         }
 
         #cta .vd-card > .vd-btn {
-            width: 50%;
-            max-width: 50%;
+            width: auto;
+            max-width: 100%;
             align-self: center;
+            white-space: nowrap;
+            padding-inline: var(--vd-spacing-8, 2rem);
         }
 
         .icons-weights {
@@ -2881,6 +2904,11 @@
 
             .hero-desc-extended {
                 display: none;
+            }
+
+            #cta .vd-card > .vd-btn {
+                width: 100%;
+                max-width: 20rem;
             }
         }
 

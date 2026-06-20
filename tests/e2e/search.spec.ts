@@ -154,4 +154,32 @@ test.describe('2. Search Functionality', () => {
         await expect(noResults).toHaveText(/No results found/);
     });
 
+    test('Typo msic finds Music Player', async ({ page }) => {
+        await page.goto('/#about');
+        await waitForSPA(page);
+
+        await page.locator('#global-search-trigger').click();
+
+        const searchInput = page.locator('#global-search-input');
+        await searchInput.fill('msic');
+        await page.waitForTimeout(300);
+
+        const musicResult = page.locator('#global-search-results .global-search-result[data-route="docs/music-player"]').first();
+        await expect(musicResult).toBeVisible();
+    });
+
+    test('Typo phots finds Image Box via photo keyword', async ({ page }) => {
+        await page.goto('/#about');
+        await waitForSPA(page);
+
+        await page.locator('#global-search-trigger').click();
+
+        const searchInput = page.locator('#global-search-input');
+        await searchInput.fill('phots');
+        await page.waitForTimeout(300);
+
+        const imageBoxResult = page.locator('#global-search-results .global-search-result[data-route="docs/image-box"]').first();
+        await expect(imageBoxResult).toBeVisible();
+    });
+
 });

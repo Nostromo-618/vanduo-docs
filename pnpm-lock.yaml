@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@vanduo-oss/flowchart@1.0.0': file:vendor/vanduo-oss-flowchart-1.0.0.tgz
+
 importers:
 
   .:
@@ -12,8 +15,8 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
       '@vanduo-oss/flowchart':
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: file:vendor/vanduo-oss-flowchart-1.0.0.tgz
+        version: file:vendor/vanduo-oss-flowchart-1.0.0.tgz
       '@vanduo-oss/hex-grid':
         specifier: 1.0.0
         version: 1.0.0
@@ -36,8 +39,9 @@ packages:
     resolution: {integrity: sha512-869ECeB1uY3gRR8XFz+FzTR8uzLbGQWA+8smB1zTca/oaDajD1Yr56T51dRMEw59WB3gXCfpm+gnzH6feRBw2A==}
     engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
 
-  '@vanduo-oss/flowchart@0.0.1':
-    resolution: {integrity: sha512-0u1dHj/VJSWv30tSDSmqDOgRto0Tlk3Oxiu59TAoXaoARmPndWPwNiOd07Jay3Z+IH52BNvfSXqbUV/zUtepyA==}
+  '@vanduo-oss/flowchart@file:vendor/vanduo-oss-flowchart-1.0.0.tgz':
+    resolution: {integrity: sha512-U+b8pMij2v1hb4h9IRFPZHb3gXrZynr4418weFY/ZJNSzg8LeMKBnUzEpEOODi/i5ljl+1SSH6jEj0saQNUyuQ==, tarball: file:vendor/vanduo-oss-flowchart-1.0.0.tgz}
+    version: 1.0.0
     engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
 
   '@vanduo-oss/hex-grid@1.0.0':
@@ -71,7 +75,7 @@ snapshots:
 
   '@vanduo-oss/charts@0.0.1': {}
 
-  '@vanduo-oss/flowchart@0.0.1': {}
+  '@vanduo-oss/flowchart@file:vendor/vanduo-oss-flowchart-1.0.0.tgz': {}
 
   '@vanduo-oss/hex-grid@1.0.0': {}
 

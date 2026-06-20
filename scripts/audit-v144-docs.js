@@ -9,7 +9,6 @@ const releaseVersion = '1.4.4';
 
 const scanEntries = [
   'README.md',
-  'llms.txt',
   'index.html',
   'package.json',
   'css',
@@ -125,7 +124,7 @@ for (const file of files) {
     'legacy LazyLoad registry key used instead of lazyLoad'
   );
 
-  if (relPath === 'README.md' || relPath === 'llms.txt' || relPath.startsWith('sections/')) {
+  if (relPath === 'README.md' || relPath.startsWith('sections/')) {
     addPatternFailure(
       relPath,
       content,

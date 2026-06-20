@@ -1,5 +1,6 @@
 import { state } from './state.js';
 import { navigate } from './router.js';
+import { scoreSearchEntry } from './search-match.mjs';
 
 var globalSearchIndex = [];
 var globalSearchState = {
@@ -82,23 +83,7 @@ export function globalSearch(query) {
     if (terms.length === 0) return [];
     var scored = [];
     globalSearchIndex.forEach(function (entry) {
-        var score = 0;
-        var titleLower = entry.title.toLowerCase();
-        var catLower = entry.category.toLowerCase();
-        var kwLower = entry.keywords.toLowerCase();
-
-        terms.forEach(function (term) {
-            if (titleLower.includes(term)) {
-                score += 100;
-                if (titleLower === term) score += 50;
-                else if (titleLower.startsWith(term)) score += 25;
-            }
-            if (catLower.includes(term)) score += 50;
-            if (kwLower.includes(term)) score += 30;
-        });
-
-        if (entry.category === 'Pages' && score > 0) score += 5;
-
+        var score = scoreSearchEntry(entry, terms);
         if (score > 0) {
             scored.push(Object.assign({ score: score }, entry));
         }
