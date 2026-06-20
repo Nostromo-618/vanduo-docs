@@ -1,11 +1,13 @@
 <section id="expanding-cards">
     <h5 class="demo-title"><i class="ph ph-cards-three"></i>Expanding Cards</h5>
-    <p class="vd-text-muted vd-mb-6">A horizontal strip of panels that expand on focus — one stays wide while the others stay slim. Click a panel to expand it; use <kbd>←</kbd> <kbd>→</kbd> when a panel is focused.</p>
+    <p class="vd-text-muted vd-mb-6">A horizontal strip of panels that expand on focus — one stays wide while the others stay slim. Click a panel to expand it; use <kbd>←</kbd> <kbd>→</kbd> (or <kbd>↑</kbd> <kbd>↓</kbd> on narrow screens) when a panel is focused. On narrow screens, panels stack vertically and expand in place — same smooth interaction as the desktop strip.</p>
 
     <style>
-        #expanding-cards .expanding-cards-wrap {
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
+        @media (min-width: 768px) {
+            #expanding-cards .expanding-cards-wrap {
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
         }
         #expanding-cards .expanding-cards-wrap .vd-expanding-cards {
             margin-left: auto;

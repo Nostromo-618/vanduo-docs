@@ -40,7 +40,7 @@ test.describe('Expanding Cards – Docs Section', () => {
     });
 
     test('clicking second panel moves active state', async ({ page }) => {
-        /* Narrow viewports hide panels via responsive CSS; need enough width for 5 columns */
+        /* Desktop horizontal layout needs enough width for side-by-side stripes */
         await page.setViewportSize({ width: 1024, height: 800 });
         await goToExpandingCards(page);
         const strip = page.locator('#expanding-cards .vd-expanding-cards').first();
@@ -48,6 +48,36 @@ test.describe('Expanding Cards – Docs Section', () => {
         await expect(second).toBeVisible();
         await second.click();
         await expect(second).toHaveClass(/is-active/);
+    });
+
+    test('mobile viewport shows all cards and expands active card in place', async ({ page }) => {
+        await page.setViewportSize({ width: 390, height: 844 });
+        await goToExpandingCards(page);
+        const strip = page.locator('#expanding-cards .expanding-cards-photos .vd-expanding-cards');
+        const cards = strip.locator('.vd-expanding-card');
+        await expect(cards).toHaveCount(5);
+
+        for (let i = 0; i < 5; i++) {
+            await expect(cards.nth(i)).toBeVisible();
+        }
+
+        const first = cards.nth(0);
+        const third = cards.nth(2);
+        await third.scrollIntoViewIfNeeded();
+        await third.click();
+        await expect(third).toHaveClass(/is-active/);
+
+        await expect.poll(async () => {
+            return strip.evaluate((container) => {
+                const active = container.querySelector('.vd-expanding-card.is-active');
+                if (!active) return false;
+                return active.getBoundingClientRect().height > 120;
+            });
+        }).toBe(true);
+
+        await expect.poll(async () => {
+            return first.evaluate((el) => el.getBoundingClientRect().height < 80);
+        }).toBe(true);
     });
 });
 

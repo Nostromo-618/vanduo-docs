@@ -27,7 +27,7 @@
                 </header>
                 <div class="version-body">
                     <div class="vd-row">
-                        <div class="vd-col-12">
+                        <div class="vd-col-12 vd-col-md-6">
                             <h4><i class="ph ph-cube mr-2" style="color: var(--vd-color-primary);"></i>Framework</h4>
                             <div class="change-group">
                                 <h5>Changed</h5>
@@ -37,6 +37,48 @@
                                         <div>
                                             <strong>Development branch</strong>
                                             <p>Opened <code>dev-v151</code> for the v1.5.1 patch cycle.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Enhancements</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-cards-three" style="color: var(--vd-color-success);"></i>
+                                        <div>
+                                            <strong>Expanding Cards — mobile layout &amp; animation</strong>
+                                            <p>Below <code>768px</code>, panels stack vertically and expand <em>in place</em> (same flex-grow redistribution as the desktop strip) instead of hiding cards or teleporting the active panel via <code>order</code>. Inactive rows stay compact horizontal stripes with icon + title; labels and subtitles animate smoothly. <kbd>↑</kbd>/<kbd>↓</kbd> keyboard navigation added alongside <kbd>←</kbd>/<kbd>→</kbd>.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h5>Fixes</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-image" style="color: var(--vd-color-warning);"></i>
+                                        <div>
+                                            <strong>Expanding Cards — photo background tiling</strong>
+                                            <p>Active panels on wide viewports now use <code>background-size: cover</code> and <code>background-repeat: no-repeat</code>, preventing side-by-side image repeats when a photo background is narrower than the expanded card.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vd-col-12 vd-col-md-6">
+                            <h4><i class="ph ph-planet mr-2" style="color: var(--vd-color-primary);"></i>Ecosystem</h4>
+                            <div class="change-group">
+                                <h5>Docs</h5>
+                                <ul class="change-list">
+                                    <li class="change-item">
+                                        <i class="ph ph-cards-three" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Expanding Cards demo &amp; tests</strong>
+                                            <p>The <a href="#docs/expanding-cards">Expanding Cards</a> page documents the mobile in-place behavior, scopes horizontal scroll to desktop, and adds Playwright coverage for a <code>390×844</code> viewport (all panels visible, tap-to-expand, collapse of the previous active panel).</p>
+                                        </div>
+                                    </li>
+                                    <li class="change-item">
+                                        <i class="ph ph-package" style="color: var(--vd-color-info);"></i>
+                                        <div>
+                                            <strong>Docs bundle sync</strong>
+                                            <p><code>docs/dist</code> picks up the v1.5.1 expanding-cards CSS/JS fixes via <code>sync:framework</code> so local preview and dogfooding match the patched framework.</p>
                                         </div>
                                     </li>
                                 </ul>
