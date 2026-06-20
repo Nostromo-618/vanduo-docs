@@ -221,7 +221,7 @@ test.describe('4. Documentation View', () => {
             const latestReleaseCard = changelog.locator('.version-card').first();
             await expect(latestReleaseCard).toContainText('v1.5.1');
             await expect(latestReleaseCard).toContainText('Latest');
-            await expect(latestReleaseCard).toContainText('Development branch');
+            await expect(latestReleaseCard).toContainText('Expanding Cards — mobile layout');
 
             const v150Card = changelog.locator('.version-card').nth(1);
             await expect(v150Card).toContainText('v1.5.0');
