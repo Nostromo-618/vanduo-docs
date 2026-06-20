@@ -211,7 +211,7 @@ test.describe('4. Documentation View', () => {
     });
 
     test.describe('Changelog (#changelog)', () => {
-        test('Shows v1.5.0 as latest release above v1.4.6 and v1.4.5 history', async ({ page }) => {
+        test('Shows v1.5.1 as latest release above v1.5.0 and v1.4.6 history', async ({ page }) => {
             await page.goto('/#changelog');
             await waitForSPA(page);
 
@@ -219,16 +219,21 @@ test.describe('4. Documentation View', () => {
             await expect(changelog).toBeVisible();
 
             const latestReleaseCard = changelog.locator('.version-card').first();
-            await expect(latestReleaseCard).toContainText('v1.5.0');
+            await expect(latestReleaseCard).toContainText('v1.5.1');
             await expect(latestReleaseCard).toContainText('Latest');
-            await expect(latestReleaseCard).toContainText('Layout primitives');
+            await expect(latestReleaseCard).toContainText('Development branch');
 
-            const v146Card = changelog.locator('.version-card').nth(1);
+            const v150Card = changelog.locator('.version-card').nth(1);
+            await expect(v150Card).toContainText('v1.5.0');
+            await expect(v150Card.locator('.version-header')).not.toContainText('Latest');
+            await expect(v150Card).toContainText('Layout primitives');
+
+            const v146Card = changelog.locator('.version-card').nth(2);
             await expect(v146Card).toContainText('v1.4.6');
             await expect(v146Card.locator('.version-header')).not.toContainText('Latest');
             await expect(v146Card).toContainText('Leaner default CSS bundle');
 
-            const previousReleaseCard = changelog.locator('.version-card').nth(2);
+            const previousReleaseCard = changelog.locator('.version-card').nth(3);
             await expect(previousReleaseCard).toContainText('v1.4.5');
             await expect(previousReleaseCard.locator('.version-header')).not.toContainText('Latest');
             await expect(previousReleaseCard).toContainText('Rounded-corner background bleed on draggable surfaces');
@@ -787,7 +792,7 @@ test.describe('4. Documentation View', () => {
                 {
                     route: '/#docs/production-best-practices',
                     id: 'production-best-practices',
-                    expected: ['@v1.5.0', '--vd-*']
+                    expected: ['@v1.5.1', '--vd-*']
                 }
             ];
 
@@ -884,12 +889,12 @@ test.describe('4. Documentation View', () => {
             expect(assetInfo.mode).toBe('cdn');
             expect(assetInfo.marker).toBe('cdn');
             // CDN mode always pins the asset URLs to the configured release version.
-            expect(expectedVersion).toBe('1.5.0');
+            expect(expectedVersion).toBe('1.5.1');
             // Asset URLs use that pin — unless the pinned version isn't published on
             // the CDN yet (pre-release), in which case the loader gracefully falls back
             // to local dist. Either is valid; a wrong/old pin or a broken URL is not.
             const cdnPinned = (href: string | null) =>
-                !!href && href.includes('@vanduo-oss/framework@1.5.0') && href.includes('?v=1.5.0');
+                !!href && href.includes('@vanduo-oss/framework@1.5.1') && href.includes('?v=1.5.1');
             const localFallback = (href: string | null) => !!href && href.includes('?fallback=');
             expect(cdnPinned(assetInfo.cssHref) || localFallback(assetInfo.cssHref)).toBeTruthy();
             expect(cdnPinned(assetInfo.jsSrc) || localFallback(assetInfo.jsSrc)).toBeTruthy();
