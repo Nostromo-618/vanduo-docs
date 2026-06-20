@@ -24,8 +24,8 @@
         }
 
         @font-face {
-            font-family: 'Zen Dots';
-            src: url('../dist/fonts/zen-dots/ZenDots-Regular.woff2') format('woff2');
+            font-family: 'Michroma';
+            src: url('../dist/fonts/michroma/michroma-regular.woff2') format('woff2');
             font-weight: 400;
             font-style: normal;
             font-display: swap;
@@ -138,14 +138,14 @@
             gap: 0.4rem;
         }
 
-        /* Zen Dots — navbar brand and hero title (home page only) */
+        /* Michroma — navbar brand and hero title (home page only) */
         .vd-navbar-brand-wrap > a {
-            font-family: 'Zen Dots', sans-serif;
+            font-family: 'Michroma', sans-serif;
             text-transform: lowercase;
         }
 
         #home .hero-title {
-            font-family: 'Zen Dots', sans-serif;
+            font-family: 'Michroma', sans-serif;
             text-transform: lowercase;
             width: 100%;
             box-sizing: border-box;
